@@ -3,8 +3,7 @@
 #include <QFile>
 #include "util/database_helper.h"
 #include "util/configuration.h"
-
-#pragma execution_character_set("utf-8")
+#include "util/common.h"
 
 namespace sql = sqlpp::sqlite3;
 
@@ -15,14 +14,18 @@ sql::connection* DatabaseHelper::db = nullptr;
 void DatabaseHelper::initializeDatabase()
 {
     if(!isDatabaseInitialized){
+        logging::trace("Initializing database...");
         QString path = Configuration::getDatabasePath();
         if(path == "" || !QFile(path).exists()){
             path = setNewDatabasePath();
         }
+        logging::trace(std::string() + "Database path: " + path.toStdString());
         config = new sql::connection_config();
-        config->path_to_database = path.toUtf8().constData();
+        config->path_to_database = path.toStdString();
         config->flags = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
+#ifdef _DEBUG
         config->debug = true;
+#endif
         db = new sql::connection(*config);
     }
     isDatabaseInitialized = true;

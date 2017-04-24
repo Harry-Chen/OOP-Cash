@@ -23,20 +23,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
         libs\sqlite3.c \
+        libs\logger.cpp \
     util/configuration.cpp \
-    util/database_helper.cpp
+    util/database_helper.cpp \
 
 
 INCLUDEPATH += include
 
+Debug:DEFINES += _DEBUG
 Debug:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_debug.lib
 Release:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_release.lib
 
 HEADERS  += \
     util/constants.h \
     util/configuration.h \
-    util/database_helper.h
+    util/database_helper.h \
+    util/common.h
 
 FORMS    +=
