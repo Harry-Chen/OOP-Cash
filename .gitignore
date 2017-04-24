@@ -3,7 +3,7 @@
 *.slo
 *.lo
 *.o
-*.a
+#*.a
 *.la
 *.lai
 *.so
