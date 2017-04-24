@@ -33,8 +33,14 @@ SOURCES += main.cpp \
 INCLUDEPATH += include
 
 Debug:DEFINES += _DEBUG
-Debug:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_debug.lib
-Release:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_release.lib
+
+win32{
+    Debug:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_debug.lib
+    Release:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_release.lib
+}
+macx{
+    LIBS += $$PWD/libs/darwin_x64/libsqlpp11-connector-sqlite3.a
+}
 
 HEADERS  += \
     util/constants.h \
