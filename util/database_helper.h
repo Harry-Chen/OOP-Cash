@@ -13,7 +13,9 @@ private:
     static bool isDatabaseInitialized;
     static sqlpp::sqlite3::connection_config *config;
     static sqlpp::sqlite3::connection *db;
-    static QString setNewDatabasePath();
+    static void makeNewDatabase();
+    static void initializeDatabaseConnection(const QString &path);
+    static void buildDatabaseStructure();
 };
 
 #endif // DATABASE_HELPER_H
