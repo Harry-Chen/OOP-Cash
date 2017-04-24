@@ -24,7 +24,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        libs\sqlite3.c
+        libs\sqlite3.c \
+    util/configuration.cpp \
+    util/database_helper.cpp
 
 
 INCLUDEPATH += include
@@ -32,6 +34,9 @@ INCLUDEPATH += include
 Debug:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_debug.lib
 Release:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_release.lib
 
-HEADERS  +=
+HEADERS  += \
+    util/constants.h \
+    util/configuration.h \
+    util/database_helper.h
 
 FORMS    +=
