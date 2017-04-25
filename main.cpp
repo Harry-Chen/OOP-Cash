@@ -24,13 +24,12 @@ int main(int argc, char *argv[])
     logging::trace("Application Start===========");
 
     DatabaseHelper::initializeDatabase();
-    sql::connection *db = DatabaseHelper::getDb();
-    using namespace Cash;
-    Cash::User user;
-    for(const auto &row :((*db)(select(user.nickname).from(user)))){
-        qDebug() << row.nickname << endl;
+    sql::connection &db = *(DatabaseHelper::getDb());
+    Table::User user;
+    ;
+    for(const auto &row : db(select(user.username, user.nickname).from(user).unconditionally())){
+        logging::trace(std::string(row.username) + ", "  + std::string(row.nickname));
     }
-
     logging::trace("Application End===========");
     return 0;
 }
