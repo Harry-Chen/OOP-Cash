@@ -62,18 +62,18 @@ void DatabaseHelper::buildDatabaseStructure()
     logging::info("Building new database structure");
     try{
         db->execute(R""(CREATE TABLE `User` (
-                `id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+                `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 `username`	TEXT NOT NULL,
                 `nickname`	TEXT,
                 `password`	TEXT NOT NULL
             );)"");
         db->execute(R""(CREATE TABLE `Currency` (
-                `id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+                `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 `name`	TEXT NOT NULL,
                 `rate`	INTEGER NOT NULL
             );)"");
         db->execute(R""(CREATE TABLE "Account" (
-                `id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+                `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 `name`	TEXT NOT NULL,
                 `uid`	INTEGER NOT NULL,
                 `cid`	INTEGER NOT NULL,
@@ -81,7 +81,7 @@ void DatabaseHelper::buildDatabaseStructure()
                 FOREIGN KEY(`cid`) REFERENCES Currency(id)
              );)"");
         db->execute(R""(CREATE TABLE `Bill` (
-                `id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+                `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 `from`	INTEGER NOT NULL,
                 `to`	INTEGER NOT NULL,
                 `creator`	INTEGER NOT NULL,

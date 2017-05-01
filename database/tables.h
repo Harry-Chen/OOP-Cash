@@ -24,7 +24,7 @@ namespace Table
             const T& operator()() const { return id; }
           };
       };
-      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
     };
     struct Username
     {
@@ -111,7 +111,7 @@ namespace Table
             const T& operator()() const { return id; }
           };
       };
-      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
     };
     struct Name
     {
@@ -181,7 +181,7 @@ namespace Table
             const T& operator()() const { return id; }
           };
       };
-      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
     };
     struct From
     {
@@ -353,7 +353,7 @@ namespace Table
             const T& operator()() const { return id; }
           };
       };
-      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
     };
     struct Name
     {

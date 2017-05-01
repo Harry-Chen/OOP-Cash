@@ -28,6 +28,8 @@ SOURCES += main.cpp \
         libs\logger.cpp \
     util/configuration.cpp \
     util/database_helper.cpp \
+    model/user.cpp \
+    dao/usermanager.cpp
 
 
 INCLUDEPATH += include
@@ -43,9 +45,12 @@ macx{
 }
 
 HEADERS  += \
+    database/tables.h \
     util/constants.h \
     util/configuration.h \
     util/database_helper.h \
-    util/common.h
+    util/common.h \
+    model/user.h \
+    dao/usermanager.h
 
 FORMS    +=
