@@ -8,7 +8,7 @@
 class Currency
 {
 public:
-    Currency(int _id = -1, QString _name = QString(), unsigned int _rate = 0100):
+    Currency(ID _id = -1, QString _name = QString(), unsigned int _rate = 0100):
         id(_id), name(_name), rate(_rate){}
     ID id;
     QString name;

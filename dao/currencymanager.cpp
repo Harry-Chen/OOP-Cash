@@ -32,7 +32,7 @@ QVector<Currency> CurrencyManager::getAllItems()
         result.append(newCurrency);
         count++;
     }
-    logging::debug(std::string("") + std::to_string(count) + " currencies in total.");
+    logging::debug(std::to_string(count) + " currencies in total.");
     return result;
 }
 
@@ -64,9 +64,9 @@ bool CurrencyManager::removeItemById(const int itemId)
 {
     logging::debug(std::string("Attempted to remove currency with cid ") + std::to_string(itemId));
     try{
+        //TODO make sure the currency is no longer used
        (*db)(remove_from(Currency::TABLE).where(
                  Currency::TABLE.id == itemId));
-        //TODO remove all items related to this currency
         logging::debug(std::string("Sucessfully removed currency."));
         return true;
     }

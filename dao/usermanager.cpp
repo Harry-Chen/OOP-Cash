@@ -60,7 +60,7 @@ QVector<User> UserManager::getAllItems()
         result.append(newUser);
         count++;
     }
-    logging::debug(std::string("") + std::to_string(count) + " users in total.");
+    logging::debug(std::to_string(count) + " users in total.");
     return result;
 }
 

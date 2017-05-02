@@ -6,8 +6,10 @@
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
+#include "dao/accountmanager.h"
 #include "model/user.h"
 #include "model/currency.h"
+#include "model/account.h"
 
 namespace sql = sqlpp::sqlite3;
 
@@ -37,9 +39,6 @@ int main(int argc, char *argv[])
     newUser.username = "test";
     userman->modifyItem(newUser);
     userman->getAllItems();
-    userman->removeItemById(newUser.id);
-    delete userman;
-    userman = nullptr;
 
     Currency newCurrency(-1, "NTD", 487);
     CurrencyManager *currman = new CurrencyManager(DatabaseHelper::getDb());
@@ -49,6 +48,23 @@ int main(int argc, char *argv[])
     newCurrency.rate = 100;
     currman->modifyItem(newCurrency);
     currman->getAllItems();
+
+    Account newAccount(-1, "Wallet", newUser.id, newCurrency.id);
+    AccountManager *accman = new AccountManager(userman);
+    newAccount.id = accman->addItem(newAccount);
+    accman->getAllItems();
+    newAccount.name = "Card";
+    accman->modifyItem(newAccount);
+    newAccount.uid = -1;
+    accman->modifyItem(newAccount);
+    accman->getAllItems();
+
+    accman->removeItemById(newAccount.id);
+    delete accman;
+    accman = nullptr;
+    userman->removeItemById(newUser.id);
+    delete userman;
+    userman = nullptr;
     currman->removeItemById(newCurrency.id);
     delete currman;
     currman = nullptr;

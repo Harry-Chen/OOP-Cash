@@ -10,8 +10,9 @@ class User;
 
 class UserManager: public ItemManager<User>
 {
+    friend class AccountManager;
 private:
-    int loggedInUid;
+    ID loggedInUid;
     ID getIdByName(const QString &_name);
     bool validateUsernameAndPassword(const User &_user);
 public:

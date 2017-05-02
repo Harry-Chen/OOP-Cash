@@ -30,7 +30,8 @@ SOURCES += main.cpp \
     util/database_helper.cpp \
     dao/usermanager.cpp \
     database/table_init.cpp \
-    dao/currencymanager.cpp
+    dao/currencymanager.cpp \
+    dao/accountmanager.cpp
 
 
 INCLUDEPATH += include
@@ -55,6 +56,8 @@ HEADERS  += \
     dao/usermanager.h \
     dao/itemmanager.h \
     model/currency.h \
-    dao/currencymanager.h
+    dao/currencymanager.h \
+    model/account.h \
+    dao/accountmanager.h
 
 FORMS    +=
