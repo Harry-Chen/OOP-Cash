@@ -11,6 +11,7 @@ class User;
 class UserManager: public ItemManager<User>
 {
     friend class AccountManager;
+    friend class CategoryManager;
 private:
     ID loggedInUid;
     ID getIdByName(const QString &_name);

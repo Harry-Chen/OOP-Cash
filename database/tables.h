@@ -165,6 +165,76 @@ namespace Table
       };
     };
   };
+  namespace Category_
+  {
+    struct Id
+    {
+      struct _alias_t
+      {
+        static constexpr const char _literal[] =  "id";
+        using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+        template<typename T>
+        struct _member_t
+          {
+            T id;
+            T& operator()() { return id; }
+            const T& operator()() const { return id; }
+          };
+      };
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
+    };
+    struct Name
+    {
+      struct _alias_t
+      {
+        static constexpr const char _literal[] =  "name";
+        using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+        template<typename T>
+        struct _member_t
+          {
+            T name;
+            T& operator()() { return name; }
+            const T& operator()() const { return name; }
+          };
+      };
+      using _traits = sqlpp::make_traits<sqlpp::text, sqlpp::tag::require_insert>;
+    };
+    struct Uid
+    {
+      struct _alias_t
+      {
+        static constexpr const char _literal[] =  "uid";
+        using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+        template<typename T>
+        struct _member_t
+          {
+            T uid;
+            T& operator()() { return uid; }
+            const T& operator()() const { return uid; }
+          };
+      };
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+    };
+  }
+
+  struct Category: sqlpp::table_t<Category,
+               Category_::Id,
+               Category_::Name,
+               Category_::Uid>
+  {
+    struct _alias_t
+    {
+      static constexpr const char _literal[] =  "Category";
+      using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+      template<typename T>
+      struct _member_t
+      {
+        T Category;
+        T& operator()() { return Category; }
+        const T& operator()() const { return Category; }
+      };
+    };
+  };
   namespace Bill_
   {
     struct Id
@@ -227,6 +297,22 @@ namespace Table
             T creator;
             T& operator()() { return creator; }
             const T& operator()() const { return creator; }
+          };
+      };
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+    };
+    struct Category
+    {
+      struct _alias_t
+      {
+        static constexpr const char _literal[] =  "category";
+        using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+        template<typename T>
+        struct _member_t
+          {
+            T category;
+            T& operator()() { return category; }
+            const T& operator()() const { return category; }
           };
       };
       using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
@@ -318,6 +404,7 @@ namespace Table
                Bill_::From,
                Bill_::To,
                Bill_::Creator,
+               Bill_::Category,
                Bill_::Quantity,
                Bill_::Ctime,
                Bill_::Finished,

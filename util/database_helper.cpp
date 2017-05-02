@@ -80,11 +80,18 @@ void DatabaseHelper::buildDatabaseStructure()
                 FOREIGN KEY(`uid`) REFERENCES User(id),
                 FOREIGN KEY(`cid`) REFERENCES Currency(id)
              );)"");
+        db->execute(R""(CREATE TABLE "Category" (
+                    `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+                    `name`	TEXT NOT NULL,
+                    `uid`	INTEGER NOT NULL,
+                    FOREIGN KEY(`uid`) REFERENCES User(id)
+             );)"");
         db->execute(R""(CREATE TABLE `Bill` (
                 `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 `from`	INTEGER NOT NULL,
                 `to`	INTEGER NOT NULL,
                 `creator`	INTEGER NOT NULL,
+                `category`	INTEGER NOT NULL,
                 `quantity`	INTEGER NOT NULL,
                 `ctime`	INTEGER NOT NULL,
                 `finished`	INTEGER NOT NULL,
@@ -92,7 +99,8 @@ void DatabaseHelper::buildDatabaseStructure()
                 `note`	TEXT,
                 FOREIGN KEY(`from`) REFERENCES Account(id),
                 FOREIGN KEY(`to`) REFERENCES Account(id),
-                FOREIGN KEY(`creator`) REFERENCES User(id)
+                FOREIGN KEY(`creator`) REFERENCES User(id),
+                FOREIGN KEY(`category`) REFERENCES `Category`(`id`)
             );)"");
     }
     catch(sqlpp::exception e){

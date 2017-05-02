@@ -7,9 +7,11 @@
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
 #include "dao/accountmanager.h"
+#include "dao/categorymanager.h"
 #include "model/user.h"
 #include "model/currency.h"
 #include "model/account.h"
+#include "model/category.h"
 
 namespace sql = sqlpp::sqlite3;
 
@@ -29,8 +31,8 @@ int main(int argc, char *argv[])
 
     DatabaseHelper::initializeDatabase();
 
-    User newUser(-1, "Test", "Test Test", "1234");
     UserManager *userman = new UserManager(DatabaseHelper::getDb());
+    User newUser(-1, "Test", "Test Test", "1234");
     newUser.id = userman->addItem(newUser);
     userman->getAllItems();
     newUser = User(-1, "Test", "Test Test", "1234");
@@ -40,8 +42,8 @@ int main(int argc, char *argv[])
     userman->modifyItem(newUser);
     userman->getAllItems();
 
-    Currency newCurrency(-1, "NTD", 487);
     CurrencyManager *currman = new CurrencyManager(DatabaseHelper::getDb());
+    Currency newCurrency(-1, "NTD", 487);
     newCurrency.id = currman->addItem(newCurrency);
     currman->getAllItems();
     newCurrency.name = "RMB";
@@ -49,8 +51,8 @@ int main(int argc, char *argv[])
     currman->modifyItem(newCurrency);
     currman->getAllItems();
 
-    Account newAccount(-1, "Wallet", newUser.id, newCurrency.id);
     AccountManager *accman = new AccountManager(userman);
+    Account newAccount(-1, "Wallet", newUser.id, newCurrency.id);
     newAccount.id = accman->addItem(newAccount);
     accman->getAllItems();
     newAccount.name = "Card";
@@ -59,6 +61,18 @@ int main(int argc, char *argv[])
     accman->modifyItem(newAccount);
     accman->getAllItems();
 
+    CategoryManager *catman = new CategoryManager(userman);
+    Category newCat(-1, "Food", -1);
+    newCat.id = catman->addItem(newCat);
+    catman->getAllItems();
+    newCat.name = "Drink";
+    newCat.uid = newUser.id;
+    catman->modifyItem(newCat);
+    catman->getAllItems();
+
+    catman->removeItemById(newCat.id);
+    delete catman;
+    catman = nullptr;
     accman->removeItemById(newAccount.id);
     delete accman;
     accman = nullptr;
