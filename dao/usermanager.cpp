@@ -20,10 +20,8 @@ ID UserManager::getIdByName(const QString &_username)
 
 bool UserManager::validateUsernameAndPassword(const User &_user)
 {
-    logging::debug(std::string("Attempted to login with username "
-                               + _user.username.toStdString()
-                               + " and encrypted password "
-                               + _user.encryptedPassword.toStdString()));
+    logging::debug(std::string("Attempted to login, ")
+                   + static_cast<std::string>(User(_user)));
     int uid = getIdByName(_user.username);
     if(uid == -1){
         logging::error(std::string("User does not exist: ") + _user.username.toStdString());
@@ -51,12 +49,10 @@ QVector<User> UserManager::getAllItems()
                                     User::TABLE.username,
                                     User::TABLE.nickname)
                                 .from(User::TABLE).unconditionally())){
-        logging::debug(std::string("User info: id ") + std::to_string(row.id)
-                       + ", username " + std::string(row.username)
-                       + ", nickname " + std::string(row.nickname));
         User newUser(row.id,
                      QString::fromStdString(row.username),
                      QString::fromStdString(row.nickname));
+        logging::debug(static_cast<std::string>(newUser));
         result.append(newUser);
         count++;
     }
@@ -66,12 +62,8 @@ QVector<User> UserManager::getAllItems()
 
 ID UserManager::addItem(const User &newUser)
 {
-    logging::debug(std::string("Attempted to add user with username "
-                               + newUser.username.toStdString()
-                               + ", nickname "
-                               + newUser.nickname.toStdString()
-                               + ", and encrypted password "
-                               + newUser.encryptedPassword.toStdString()));
+    logging::debug(std::string("Attempted to add user, ")
+                   + static_cast<std::string>(User(newUser)));
     if(getIdByName(newUser.username) != -1){
         logging::error(std::string("User with same username exists: ") + newUser.username.toStdString());
         return -1;
@@ -113,14 +105,8 @@ bool UserManager::removeItemById(const int uid)
 
 bool UserManager::modifyItem(const User &newInfo)
 {
-    logging::debug(std::string("Attempted to modify user with uid ")
-                               + std::to_string(newInfo.id)
-                               + ", username "
-                               + newInfo.username.toStdString()
-                               + ", nickname "
-                               + newInfo.nickname.toStdString()
-                               + ", and encrypted password "
-                               + newInfo.encryptedPassword.toStdString());
+    logging::debug(std::string("Attempted to modify user, ")
+                               + static_cast<std::string>(User(newInfo)));
     if(newInfo.id != loggedInUid){
         logging::error(std::string("Not current logged in user."));
         return false;

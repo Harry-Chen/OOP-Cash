@@ -1,6 +1,7 @@
 ﻿#include <QApplication>
 #include <QDebug>
 #include <sqlpp11/sqlpp11.h>
+#include <date.h>
 
 #include "util/common.h"
 #include "util/database_helper.h"
@@ -8,10 +9,12 @@
 #include "dao/currencymanager.h"
 #include "dao/accountmanager.h"
 #include "dao/categorymanager.h"
+#include "dao/billmanager.h"
 #include "model/user.h"
 #include "model/currency.h"
 #include "model/account.h"
 #include "model/category.h"
+#include "model/bill.h"
 
 namespace sql = sqlpp::sqlite3;
 
@@ -70,6 +73,19 @@ int main(int argc, char *argv[])
     catman->modifyItem(newCat);
     catman->getAllItems();
 
+    BillManager *billman = new BillManager(userman);
+    Bill newBill(-1, -1, newAccount.id, newUser.id, newCat.id,
+                 1000u, system_clock::now(), true, 2017_y/jan/2);
+    newBill.id = billman->addItem(newBill);
+    billman->getAllItems();
+    newBill.from = newAccount.id;
+    newBill.quantity = 2000;
+    billman->modifyItem(newBill);
+    billman->getAllItems();
+
+    billman->removeItemById(newBill.id);
+    delete billman;
+    billman = nullptr;
     catman->removeItemById(newCat.id);
     delete catman;
     catman = nullptr;

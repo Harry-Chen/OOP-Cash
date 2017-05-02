@@ -26,14 +26,11 @@ QVector<Account> AccountManager::getAllItems()
     for(const auto &row : (*db)(select(all_of(Account::TABLE))
                                 .from(Account::TABLE)
                                 .where(Account::TABLE.uid == uid))){
-        logging::debug(std::string("Account info: id ") + std::to_string(row.id)
-                       + ", name " + std::string(row.name)
-                       + ", uid " + std::to_string(row.uid)
-                       + ", cid " + std::to_string(row.cid));
         Account newAccount(row.id,
                      QString::fromStdString(row.name),
                      row.uid,
                      row.cid);
+        logging::debug(static_cast<std::string>(newAccount));
         result.append(newAccount);
         count++;
     }
@@ -43,12 +40,8 @@ QVector<Account> AccountManager::getAllItems()
 
 ID AccountManager::addItem(const Account &newItem)
 {
-    logging::debug(std::string("Attempted to add account with name ")
-                   + newItem.name.toStdString()
-                   + ", uid "
-                   + std::to_string(newItem.uid)
-                   + ", cid "
-                   + std::to_string(newItem.cid));
+    logging::debug(std::string("Attempted to add account, ")
+                   + static_cast<std::string>(Account(newItem)));
     if(newItem.uid != uid){
         logging::error(std::string("Can't add account for other user."));
         return -1;
@@ -90,14 +83,8 @@ bool AccountManager::removeItemById(const int itemId)
 
 bool AccountManager::modifyItem(const Account &newInfo)
 {
-    logging::debug(std::string("Attempted to modify account with id ")
-                   + std::to_string(newInfo.id)
-                   + ", name "
-                   + newInfo.name.toStdString()
-                   + ", uid "
-                   + std::to_string(newInfo.uid)
-                   + ", cid "
-                   + std::to_string(newInfo.cid));
+    logging::debug(std::string("Attempted to modify account, ")
+                   + static_cast<std::string>(Account(newInfo)));
     if(newInfo.uid != uid){
         logging::error(std::string("Can't modify account for other user."));
         return false;

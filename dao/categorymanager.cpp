@@ -28,12 +28,10 @@ QVector<Category> CategoryManager::getAllItems()
                                 .from(Category::TABLE)
                                 .where(Category::TABLE.uid == uid
                                        or Category::TABLE.uid == -1))){
-        logging::debug(std::string("Category info: id ") + std::to_string(row.id)
-                       + ", name " + std::string(row.name)
-                       + ", uid " + std::to_string(row.uid));
         Category newCategory(row.id,
                      QString::fromStdString(row.name),
                      row.uid);
+        logging::debug(static_cast<std::string>(newCategory));
         result.append(newCategory);
         count++;
     }
@@ -43,10 +41,8 @@ QVector<Category> CategoryManager::getAllItems()
 
 ID CategoryManager::addItem(const Category &newItem)
 {
-    logging::debug(std::string("Attempted to add category with name ")
-                   + newItem.name.toStdString()
-                   + ", uid "
-                   + std::to_string(newItem.uid));
+    logging::debug(std::string("Attempted to add category, ")
+                   + static_cast<std::string>(Category(newItem)));
     if(newItem.uid != uid && newItem.uid != -1){
         logging::error(std::string("Can't add category for other user."));
         return -1;
@@ -87,12 +83,8 @@ bool CategoryManager::removeItemById(const int itemId)
 
 bool CategoryManager::modifyItem(const Category &newInfo)
 {
-    logging::debug(std::string("Attempted to modify category with id ")
-                   + std::to_string(newInfo.id)
-                   + ", name "
-                   + newInfo.name.toStdString()
-                   + ", uid "
-                   + std::to_string(newInfo.uid));
+    logging::debug(std::string("Attempted to modify category, ")
+                   + static_cast<std::string>(Category(newInfo)));
     if(newInfo.uid != uid && newInfo.uid != -1){
         logging::error(std::string("Can't modify category for other user."));
         return false;

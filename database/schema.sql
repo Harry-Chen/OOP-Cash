@@ -11,15 +11,15 @@ CREATE TABLE `Currency` (
                 `rate`	INTEGER NOT NULL
             );
 CREATE TABLE "Category" (
-	`id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
-	`name`	TEXT NOT NULL,
-	`uid`	INTEGER NOT NULL,
-	FOREIGN KEY(`uid`) REFERENCES User(id)
-);
+                    `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+                    `name`	TEXT NOT NULL,
+                    `uid`	INTEGER NOT NULL,
+                    FOREIGN KEY(`uid`) REFERENCES User(id)
+             );
 CREATE TABLE "Bill" (
 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
-	`from`	INTEGER NOT NULL,
-	`to`	INTEGER NOT NULL,
+	`afrom`	INTEGER NOT NULL,
+	`ato`	INTEGER NOT NULL,
 	`creator`	INTEGER NOT NULL,
 	`category`	INTEGER NOT NULL,
 	`quantity`	INTEGER NOT NULL,
@@ -27,8 +27,8 @@ CREATE TABLE "Bill" (
 	`finished`	INTEGER NOT NULL,
 	`date`	INTEGER NOT NULL,
 	`note`	TEXT,
-	FOREIGN KEY(`from`) REFERENCES `Account`(`id`),
-	FOREIGN KEY(`to`) REFERENCES `Account`(`id`),
+	FOREIGN KEY(`afrom`) REFERENCES `Account`(`id`),
+	FOREIGN KEY(`ato`) REFERENCES `Account`(`id`),
 	FOREIGN KEY(`creator`) REFERENCES `User`(`id`),
 	FOREIGN KEY(`category`) REFERENCES `Category`(`id`)
 );

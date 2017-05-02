@@ -29,10 +29,15 @@ SOURCES += main.cpp \
     util/configuration.cpp \
     util/database_helper.cpp \
     dao/usermanager.cpp \
-    database/table_init.cpp \
     dao/currencymanager.cpp \
+    dao/categorymanager.cpp \
     dao/accountmanager.cpp \
-    dao/categorymanager.cpp
+    model/account.cpp \
+    model/category.cpp \
+    model/currency.cpp \
+    model/user.cpp \
+    model/bill.cpp \
+    dao/billmanager.cpp
 
 
 INCLUDEPATH += include
@@ -62,6 +67,7 @@ HEADERS  += \
     dao/accountmanager.h \
     model/bill.h \
     model/category.h \
-    dao/categorymanager.h
+    dao/categorymanager.h \
+    dao/billmanager.h
 
 FORMS    +=

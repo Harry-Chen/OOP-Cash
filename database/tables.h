@@ -253,34 +253,34 @@ namespace Table
       };
       using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
     };
-    struct From
+    struct Afrom
     {
       struct _alias_t
       {
-        static constexpr const char _literal[] =  "from";
+        static constexpr const char _literal[] =  "afrom";
         using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
         template<typename T>
         struct _member_t
           {
-            T from;
-            T& operator()() { return from; }
-            const T& operator()() const { return from; }
+            T afrom;
+            T& operator()() { return afrom; }
+            const T& operator()() const { return afrom; }
           };
       };
       using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
     };
-    struct To
+    struct Ato
     {
       struct _alias_t
       {
-        static constexpr const char _literal[] =  "to";
+        static constexpr const char _literal[] =  "ato";
         using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
         template<typename T>
         struct _member_t
           {
-            T to;
-            T& operator()() { return to; }
-            const T& operator()() const { return to; }
+            T ato;
+            T& operator()() { return ato; }
+            const T& operator()() const { return ato; }
           };
       };
       using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
@@ -401,8 +401,8 @@ namespace Table
 
   struct Bill: sqlpp::table_t<Bill,
                Bill_::Id,
-               Bill_::From,
-               Bill_::To,
+               Bill_::Afrom,
+               Bill_::Ato,
                Bill_::Creator,
                Bill_::Category,
                Bill_::Quantity,

@@ -8,12 +8,13 @@
 class Category
 {
 public:
-    Category(ID _id = -1, QString _name = QString(), ID _uid = -1):
-        id(_id), name(_name), uid(_uid){}
+    Category(ID _id = -1, QString _name = QString(), ID _uid = -1);
     ID id;
     QString name;
     ID uid;
+    operator std::string();
     static Table::Category TABLE;
+    friend std::ostream& operator<<(std::ostream& os, const Category& dt);
 };
 
 #endif // CATEGORY_H
