@@ -3,24 +3,25 @@
 
 #include <QString>
 #include <QVector>
+#include "dao/itemmanager.h"
 #include "model/user.h"
 
 class User;
 
-class UserManager
+class UserManager: public ItemManager<User>
 {
 private:
-    static int loggedInUid;
-    static int getUidByUsername(const QString &_username);
-    static bool validateUsernameAndPassword(User &_user);
+    int loggedInUid;
+    ID getIdByName(const QString &_name);
+    bool validateUsernameAndPassword(const User &_user);
 public:
-    UserManager() = delete;
-    static QVector<User> getAllUsers();
-    static bool addUser(User &newUser);
-    static bool removeUser(const User &userToRemove);
-    static bool modifyInfo(User &nowUser, User &newInfo);
-    static bool login(User &loginInfo);
-    static void logout();
+    using ItemManager<User>::ItemManager;
+    QVector<User> getAllItems();
+    ID addItem(const User &newItem);
+    bool removeItemById(const int itemId);
+    bool modifyItem(const User &newItem);
+    ID login(const User& loginInfo);
+    void logout();
 };
 
 #endif // USERMANAGER_H

@@ -28,8 +28,9 @@ SOURCES += main.cpp \
         libs\logger.cpp \
     util/configuration.cpp \
     util/database_helper.cpp \
-    model/user.cpp \
-    dao/usermanager.cpp
+    dao/usermanager.cpp \
+    database/table_init.cpp \
+    dao/currencymanager.cpp
 
 
 INCLUDEPATH += include
@@ -51,6 +52,9 @@ HEADERS  += \
     util/database_helper.h \
     util/common.h \
     model/user.h \
-    dao/usermanager.h
+    dao/usermanager.h \
+    dao/itemmanager.h \
+    model/currency.h \
+    dao/currencymanager.h
 
 FORMS    +=

@@ -8,4 +8,6 @@ const QString APP_LABEL = "记账";
 const QString APP_ORGNIZATION = "OOP Team";
 const QString CONFIG_KEY_DATABASE_LOCATION = "DatabaseLocation";
 
+using ID = int;
+
 #endif // CONSTANTS_H

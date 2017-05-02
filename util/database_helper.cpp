@@ -47,7 +47,7 @@ void DatabaseHelper::makeNewDatabase()
 
 void DatabaseHelper::initializeDatabaseConnection(const QString &path)
 {
-    logging::trace(std::string() + "Database path: " + path.toStdString());
+    logging::debug(std::string() + "Database path: " + path.toStdString());
     config = new sql::connection_config();
     config->path_to_database = path.toStdString();
     config->flags = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
