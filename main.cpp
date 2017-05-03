@@ -47,8 +47,8 @@ int main(int argc, char *argv[])
     userman->modifyItem(newUser);
     userman->getAllItems();
 
-    auto *currman = new CurrencyManager(DatabaseHelper::getDb());
-    Currency newCurrency(-1, "NTD", 487);
+    auto *currman = new CurrencyManager(userman);
+    Currency newCurrency(-1, newUser.id,"NTD", 487);
     newCurrency.id = currman->addItem(newCurrency);
     currman->getAllItems();
     newCurrency.name = "RMB";
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     accman->getAllItems();
 
     auto *catman = new CategoryManager(userman);
-    Category newCat(-1, "Food", -1);
+    Category newCat(-1, "Food", newUser.id);
     newCat.id = catman->addItem(newCat);
     catman->getAllItems();
     newCat.name = "Drink";

@@ -8,8 +8,9 @@
 class Currency
 {
 public:
-    Currency(ID _id = -1, QString _name = QString(), unsigned int _rate = 0100);
+    Currency(ID _id = -1, ID _uid = -1, QString _name = QString(), unsigned int _rate = 0100);
     ID id;
+    ID uid;
     QString name;
     unsigned int rate;
     operator std::string();

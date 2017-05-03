@@ -1,4 +1,4 @@
-#ifndef QUERY_H
+﻿#ifndef QUERY_H
 #define QUERY_H
 
 #include <QVector>
@@ -12,17 +12,15 @@
 #include "util/constants.h"
 #include "model/bill.h"
 
-using std::vector;
-
 class Query
 {
 private:
     sqlpp::sqlite3::connection *db;
     Query(sqlpp::sqlite3::connection *_db);
-    vector<ID> creatorIds;
-    vector<ID> fromAccountIds;
-    vector<ID> toAccountIds;
-    vector<ID> categoryIds;
+    std::vector<ID> creatorIds;
+    std::vector<ID> fromAccountIds;
+    std::vector<ID> toAccountIds;
+    std::vector<ID> categoryIds;
     QPair<unsigned int, unsigned int> quantityRange;
     bool quantityRangeSet = false;
     QPair<QDate, QDate> dateRange;

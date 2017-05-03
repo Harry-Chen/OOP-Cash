@@ -2,14 +2,17 @@
 #define CURRENCYMANAGER_H
 
 #include "dao/itemmanager.h"
+#include "dao/usermanager.h"
 #include "model/currency.h"
 
 class CurrencyManager : public ItemManager<Currency>
 {
 private:
+    ID uid = -1;
     ID getIdByName(const QString &_name);
-public:
     using ItemManager<Currency>::ItemManager;
+public:
+    CurrencyManager(UserManager *userMan);
     QVector<Currency> getAllItems();
     ID addItem(const Currency &newItem);
     bool removeItemById(const int itemId);

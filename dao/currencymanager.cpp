@@ -11,10 +11,18 @@ ID CurrencyManager::getIdByName(const QString &_name)
     int id = -1;
     for(const auto & row : (*db)((select(Currency::TABLE.id))
                                  .from(Currency::TABLE)
-                                 .where(Currency::TABLE.name == _name.toStdString()))){
+                                 .where(Currency::TABLE.name == _name.toStdString()
+                                        and (Currency::TABLE.uid == uid)))){
         id = row.id;
     }
     return id;
+}
+
+CurrencyManager::CurrencyManager(UserManager *userMan):
+    CurrencyManager(userMan->db)
+{
+    uid = userMan->loggedInUid;
+    if(uid == -1) throw std::string("Not logged in.");
 }
 
 QVector<Currency> CurrencyManager::getAllItems()
@@ -22,13 +30,14 @@ QVector<Currency> CurrencyManager::getAllItems()
     QVector<Currency> result;
     int count = 0;
     for(const auto &row : (*db)(select(all_of(Currency::TABLE))
-                                .from(Currency::TABLE).unconditionally())){
-        logging::debug(std::string("Currency info: id ") + std::to_string(row.id)
-                       + ", name " + std::string(row.name)
-                       + ", rate " + std::to_string(row.rate));
+                                .from(Currency::TABLE)
+                                .where(Currency::TABLE.uid == uid
+                                       or Currency::TABLE.uid == -1))){
         Currency newCurrency(row.id,
-                     QString::fromStdString(row.name),
-                     row.rate);
+                             row.uid,
+                             QString::fromStdString(row.name),
+                             row.rate);
+        logging::debug(static_cast<std::string>(newCurrency));
         result.append(newCurrency);
         count++;
     }
@@ -38,10 +47,8 @@ QVector<Currency> CurrencyManager::getAllItems()
 
 ID CurrencyManager::addItem(const Currency &newItem)
 {
-    logging::debug(std::string("Attempted to add currency with name ")
-                               + newItem.name.toStdString()
-                               + ", rate "
-                               + std::to_string(newItem.rate));
+    logging::debug(std::string("Attempted to add currency, ")
+                               + static_cast<std::string>(Currency(newItem)));
     if(getIdByName(newItem.name) != -1){
         logging::error(std::string("Currency with same name exists: ") + newItem.name.toStdString());
         return -1;
@@ -49,6 +56,7 @@ ID CurrencyManager::addItem(const Currency &newItem)
     try{
         (*db)(insert_into(Currency::TABLE).set(
                   Currency::TABLE.name = newItem.name.toStdString(),
+                  Currency::TABLE.uid = newItem.uid,
                   Currency::TABLE.rate = newItem.rate));
         int id = getIdByName(newItem.name);
         logging::debug(std::string("Successfully added currency, cid: ") + std::to_string(id));
@@ -79,13 +87,14 @@ bool CurrencyManager::removeItemById(const int itemId)
 bool CurrencyManager::modifyItem(const Currency &newInfo)
 {
     logging::debug(std::string("Attempted to modify currency with cid ")
-                               + std::to_string(newInfo.id)
-                               + ", name "
-                               + newInfo.name.toStdString()
-                               + ", rate "
-                               + std::to_string(newInfo.rate));
+                               + static_cast<std::string>(Currency(newInfo)));
+    if(newInfo.uid != uid){
+        logging::error(std::string("Can't modify currency for other user."));
+        return false;
+    }
     try{
         (*db)(update(Currency::TABLE).set(
+                  Currency::TABLE.uid = newInfo.uid,
                   Currency::TABLE.name = newInfo.name.toStdString(),
                   Currency::TABLE.rate = newInfo.rate)
               .where(Currency::TABLE.id == newInfo.id));

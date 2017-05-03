@@ -12,6 +12,7 @@ class UserManager: public ItemManager<User>
 {
     friend class AccountManager;
     friend class CategoryManager;
+    friend class CurrencyManager;
     friend class BillManager;
 private:
     ID loggedInUid;

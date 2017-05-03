@@ -113,6 +113,22 @@ namespace Table
       };
       using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::can_be_null>;
     };
+    struct Uid
+    {
+      struct _alias_t
+      {
+        static constexpr const char _literal[] =  "uid";
+        using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+        template<typename T>
+        struct _member_t
+          {
+            T uid;
+            T& operator()() { return uid; }
+            const T& operator()() const { return uid; }
+          };
+      };
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+    };
     struct Name
     {
       struct _alias_t
@@ -149,6 +165,7 @@ namespace Table
 
   struct Currency: sqlpp::table_t<Currency,
                Currency_::Id,
+               Currency_::Uid,
                Currency_::Name,
                Currency_::Rate>
   {

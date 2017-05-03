@@ -6,8 +6,7 @@ ID CategoryManager::getIdByName(const QString &_name)
     for(const auto & row : (*db)((select(Category::TABLE.id))
                                  .from(Category::TABLE)
                                  .where(Category::TABLE.name == _name.toStdString()
-                                        and (Category::TABLE.uid == uid
-                                             or Category::TABLE.uid == -1)))){
+                                        and (Category::TABLE.uid == uid)))){
         id = row.id;
     }
     return id;
@@ -43,7 +42,7 @@ ID CategoryManager::addItem(const Category &newItem)
 {
     logging::debug(std::string("Attempted to add category, ")
                    + static_cast<std::string>(Category(newItem)));
-    if(newItem.uid != uid && newItem.uid != -1){
+    if(newItem.uid != uid){
         logging::error(std::string("Can't add category for other user."));
         return -1;
     }
@@ -85,7 +84,7 @@ bool CategoryManager::modifyItem(const Category &newInfo)
 {
     logging::debug(std::string("Attempted to modify category, ")
                    + static_cast<std::string>(Category(newInfo)));
-    if(newInfo.uid != uid && newInfo.uid != -1){
+    if(newInfo.uid != uid){
         logging::error(std::string("Can't modify category for other user."));
         return false;
     }

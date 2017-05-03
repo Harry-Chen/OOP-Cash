@@ -69,8 +69,10 @@ void DatabaseHelper::buildDatabaseStructure()
             );)"");
         db->execute(R""(CREATE TABLE `Currency` (
                 `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+                `uid`	INTEGER NOT NULL,
                 `name`	TEXT NOT NULL,
-                `rate`	INTEGER NOT NULL
+                `rate`	INTEGER NOT NULL,
+                FOREIGN KEY(`uid`) REFERENCES `User`(`id`)
             );)"");
         db->execute(R""(CREATE TABLE "Account" (
                 `id`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,

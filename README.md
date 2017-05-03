@@ -1,7 +1,7 @@
 记账软件
 ---
 
-实现语言： C++ **14**（ORM库的限制）  
+实现语言： C++ 11
 平台： Qt 5.8 on Windows / Linux / macOS  
 学习的技术：  
 
@@ -15,7 +15,7 @@
 拟采用的第三方库：  
 
 * Qt GUI & XML & Network（optional）
-* SQLite ORM：https://github.com/fnc12/sqlite_orm
+* SQLite ORM：https://github.com/rbock/sqlpp11
 * QCustomPlot绘图：http://www.qcustomplot.com/
 * CSV导入导出：https://libqxt.bitbucket.io/doc/0.6/qxtcsvmodel.html 或 https://github.com/iamantony/qtcsv
 * 日志：https://github.com/muflihun/easyloggingpp
@@ -49,31 +49,55 @@
   - 使用 SQLite 作为数据库后端
   - 支持导出导入数据到固定格式（如CSV/XML/JSON）
   - 支持服务器端备份与恢复（optional）
+  
+```C++
+template<typename T>
+class ItemManager{
+	// 所有 Manager 类型的基类
+    ItemManager() = delete;
+	// 构造方法：传入数据库连接
+    ItemManager(sqlpp::sqlite3::connection *_db):db(_db){}
+	// 获取当前所有特化类型的对象
+    virtual QVector<T> getAllItems() = 0;
+	// 新增对象
+    virtual ID addItem(const T &newItem) = 0;
+	// 通过ID移除特定对象
+    virtual bool removeItemById(const int itemId) = 0;
+	// 修改对应对象
+    virtual bool modifyItem(const T &newItem) = 0;
+}
+```
 
 ### 表User 
 
 |字段|类型|说明|
 |---|---|---|
-|*id*|auto_increment||
-|name|varchar||
-|password|varchar||
+|*id*|integer|auto_increment|
+|username|text||
+|nickname|text|非必需|
+|password|text||
 
 
 ```C++
-class UserManager{
-    QVector<User> getAllUsers();
-    bool addUser(User &user);
-    bool removeUser(User &user);
-    bool changePassword(QString newPassword);
-    bool login(User &user);
+class UserManager : public ItemManager<User>
+{
+public:
+    QVector<User> getAllItems();
+    ID addItem(const User &newItem);
+	// 只能移除当前登录的用户
+    bool removeItemById(const int itemId);
+	// 只能修改当前登录的用户
+    bool modifyItem(const User &newItem);
+    ID login(const User& loginInfo);
+    void logout();
 }
 
 class User{
-    QString username;
-    QString password;
-    int uid;
 public:
-    QVector<Account> getAccounts()
+    User(ID _id = -1, QString _username = QString(), QString _nickname = QString(), QString _password = QString());
+    ID id;
+    QString username;
+    QString nickname;
 }
 ```
 
@@ -81,31 +105,62 @@ public:
 
 |字段|类型|说明|
 |---|---|---|
-|*id*|auto_increment||
-|name|varchar||
-|uid|integer|User::id|
-|cid|integer|Currency::id|
+|*id*|integer|auto_increment|
+|name|text||
+|uid|integer|User(id)|
+|cid|integer|Currency(id)|
 
 ```C++
-class AccountManager{
-    User *user;
-private:
-    QVector<Account> getAllAccounts();
-    bool addAccount(Account &account);
-    bool removeAccount(Account &account);
+class AccountManager : public ItemManager<Account>
+{
+public:
+    AccountManager(UserManager *userMan);
+    QVector<Account> getAllItems();
+	// 只能为当前登录的用户中增加账户
+    ID addItem(const Account &newItem);
+    bool removeItemById(const int itemId);
+	// 只能修改当前登录用户名下的账户
+    bool modifyItem(const Account &newItem);
 }
 
 class Account{
-    int id;
-    QString name;
-    int uid;
-    int cid;
-    int balance;
 public:
-    QVector<Account> getOwners();
-    Currency getCurrency();
-    bool setOwners(QVector<Account> owners);
-    bool setCurrency(Currency currency);
+    Account(ID _id = -1, QString _name = QString(), ID _uid = -1, ID _cid = -1);
+    ID id;
+    QString name;
+    ID uid;
+    ID cid;
+}
+```
+
+### 表Category
+|字段|类型|说明|
+|---|---|---|
+|*id*|integer|auto_increment|
+|name|text||
+|uid|integer|User(id)，但若为-1代表系统内置的全局分类|
+
+```C++
+class CategoryManager : public ItemManager<Category>
+{
+public:
+	//构造方法：传入 UserManager *
+    CategoryManager(UserManager *userMan);
+	// 获取当前用户创建的和全局的所有分类
+    QVector<Category> getAllItems();
+	// 只能给当前用户添加、移除、修改分类
+    ID addItem(const Category &newItem);
+    bool removeItemById(const int itemId);
+    bool modifyItem(const Category &newItem);
+};
+
+class Category
+{
+public:
+    Category(ID _id = -1, QString _name = QString(), ID _uid = -1);
+    ID id;
+    QString name;
+    ID uid;
 }
 ```
 
@@ -114,16 +169,31 @@ public:
 
 |字段|类型|说明|
 |---|---|---|
-|*id*|auto_increment||
-|name|varchar||
-|rate|number||
+|*id*|integer|auto_increment|
+|uid|integer|User(id)，但若为-1代表系统内置的全局分类|
+|name|text||
+|rate|integer|含两位小数的整数形式（如12.34->1234)|
 
 ```C++
+class CurrencyManager : public ItemManager<Currency>
+{
+public:
+    CurrencyManager(UserManager *userMan);
+	// 获取当前用户创建的和全局的所有货币
+    QVector<Currency> getAllItems();
+	// 只能给当前用户添加、移除、修改货币
+    ID addItem(const Currency &newItem);
+    bool removeItemById(const int itemId);
+    bool modifyItem(const Currency &newItem);
+};
+
 class Currency{
-    int id;
+public:
+    Currency(ID _id = -1, ID _uid = -1, QString _name = QString(), unsigned int _rate = 0100);
+    ID id;
+    ID uid;
     QString name;
-    int rate;
-    get,set;
+    unsigned int rate;
 }
 ```
 
@@ -132,76 +202,65 @@ class Currency{
 |字段|类型|说明|
 |---|---|---|
 |*id*|auto_increment||
-|from|integer|Account::id|
-|to|number|Account::id|
-|creator|integer|User::id|
-|quantity|integer||
-|ctime|datetime|交易写入的精确时间|
-|finished|bool|已完成|
-|time|datetime|发生的（准确）日期|
-|note|varchar||
+|from|integer|Account(id)，如为-1则表示不存在|
+|to|integer|Account(id)，如为-1则表示不存在|
+|creator|integer|User(id)|
+|category|integer|Catrgory(id)
+|quantity|integer|交易数额|
+|ctime|integer|交易写入的精确时间（转换为QDateTime）|
+|finished|integer|已完成|
+|time|integer|发生的（准确）日期（转换为QDate）|
+|note|text|备注，可为空|
+
+注：对于quantity的货币选取，默认为from对应的account对应的货币。但如果from为-1，则为to对应的货币。
 
 ```C++
+class BillManager : public ItemManager<Bill>
+{
+public:
+    BillManager(UserManager *userMan);
+    QVector<Bill> getAllItems();
+    ID addItem(const Bill &newItem);
+    bool removeItemById(const int itemId);
+    bool modifyItem(const Bill &newItem);
+};
+
+
 class Bill{
-    int id;
-    int fromAccountId;
-    int toAccountId;
-    int creatorId;
+    Bill(ID _id = -1, ID _from = -1, ID _to = -1,
+         ID _creator = -1, ID _category = -1, int _quantity = 0,
+         QDateTime _ctime = QDateTime::currentDateTime(),
+         bool _finished = true,
+         QDate _date = QDate::currentDate(),
+         QString _note = QString());
+    ID id;
+    ID from;
+    ID to;
+    ID creator;
+    ID category;
     int quantity;
-    QDateTime createTime;
+    QDateTime ctime;
     bool finished;
-    QDateTime finishTime;
+    QDate date;
     QString note;
-    public:
-    get,set
 }
 ```
 
 ```C++
-class Query{
-    QVector<int> creatorIds;
-    QVector<int> fromAccountIds;
-    QVector<int> toAccountIds;
-    QPair<int,int> quantityRange;
-    QPair<QDateTime,QDateTime> timeRange;
-    bool finished;
-    friend class QueryFactory;
-    QString keyword;
-    public:
-        QVector<Bill>* doQuery(){
-            
-        }
-}
+class Query
+{
+public:
+	// 具体用法可见代码
+    static Query newQuery(sqlpp::sqlite3::connection *_db);
+    Query& addCreatorId(ID _creatorId);
+    Query& addFromAccountId(ID _fromAccountId);
+    Query& addToAccountId(ID _toAccountId);
+    Query& addCategoryId(ID _categoryId);
+    Query& setQuantityRange(unsigned int from, unsigned int to);
+    Query& setDateRange(const QDate &start, const QDate &end);
+    Query& setFinished(bool _finished);
+    Query& setKeyword(const QString &_keyword);
+    QVector<Bill> doQuery();
+};
 
-class QueryFactory{
-    Query *query
-public:    
-    QueryFactory(){
-    }
-    init(){
-        if(query) delete query;
-        query = new Query();
-    }
-    ~QueryFactory(){
-        delete query;
-    }
-    QueryFactory& addCreator(int _creatorID){
-        query->creatorIds.push_back(_creatorID);
-        return *this;
-    }
-    QueryFactory& addFromAccount(int _fromAccountID){
-        query->fromAccountIds.push_back(_fromAccountID);
-        return *this;
-    }
-    const Query& build(){
-        return *query;
-    }
-    
-    .....
-}
-QueryFactory factory;
-factory.init();
-factory.addCreator(1);
-factory.addtoAccount(29);
-QVector<Bill>* results = factory.build().doQuery();
 ```
