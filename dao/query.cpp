@@ -1,4 +1,4 @@
-#include "query.h"
+﻿#include "query.h"
 #include <logging/logger.h>
 
 Query::Query(sqlpp::sqlite3::connection *_db) : db(_db){}
@@ -102,7 +102,7 @@ QVector<Bill> Query::doQuery()
     int count = 0;
     for(const auto &row:(*db)(qry)){
         Bill newBill(row.id, row.afrom, row.ato, row.creator,
-                     row.category, row.quantity,
+                     row.category, row.quantity, row.currency,
                      QDateTime::fromSecsSinceEpoch(row.ctime),
                      row.finished,
                      QDate::fromJulianDay(row.date),

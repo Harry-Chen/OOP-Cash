@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 
     auto *billman = new BillManager(userman);
     Bill newBill(-1, -1, newAccount.id, newUser.id, newCat.id,
-                 1000u, QDateTime::currentDateTime(), true, QDate(2017,5,1));
+                 1000u, newCurrency.id, QDateTime::currentDateTime(), true, QDate(2017,5,1));
     newBill.id = billman->addItem(newBill);
     billman->getAllItems();
     newBill.from = newAccount.id;
@@ -95,21 +95,16 @@ int main(int argc, char *argv[])
             .setKeyword("Hello")
             .doQuery();
 
-    billman->removeItemById(newBill.id);
     delete billman;
     billman = nullptr;
-    catman->removeItemById(newCat.id);
     delete catman;
     catman = nullptr;
-    accman->removeItemById(newAccount.id);
     delete accman;
     accman = nullptr;
     userman->removeItemById(newUser.id);
     delete userman;
     userman = nullptr;
-    currman->removeItemById(newCurrency.id);
     delete currman;
-    currman = nullptr;
 
     logging::trace("Application End===========");
     return 0;

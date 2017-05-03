@@ -16,15 +16,15 @@ class Bill
 public:
     Bill(ID _id = -1, ID _from = -1, ID _to = -1,
          ID _creator = -1, ID _category = -1, int _quantity = 0,
-         QDateTime _ctime = QDateTime::currentDateTime(),
-         bool _finished = true,
-         QDate _date = QDate::currentDate(),
+         ID _currency = -1, QDateTime _ctime = QDateTime::currentDateTime(),
+         bool _finished = true, QDate _date = QDate::currentDate(),
          QString _note = QString());
     ID id;
     ID from;
     ID to;
     ID creator;
     ID category;
+    ID currency;
     int quantity;
     QDateTime ctime;
     bool finished;

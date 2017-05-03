@@ -1,4 +1,5 @@
 ﻿#include "dao/categorymanager.h"
+#include "model/bill.h"
 
 ID CategoryManager::getIdByName(const QString &_name)
 {
@@ -12,10 +13,10 @@ ID CategoryManager::getIdByName(const QString &_name)
     return id;
 }
 
-CategoryManager::CategoryManager(UserManager *userMan):
-    CategoryManager(userMan->db)
+CategoryManager::CategoryManager(UserManager *_userMan):
+    CategoryManager(_userMan->db)
 {
-    uid = userMan->loggedInUid;
+    uid = _userMan->loggedInUid;
     if(uid == -1) throw std::string("Not logged in.");
 }
 
@@ -68,8 +69,13 @@ bool CategoryManager::removeItemById(const int itemId)
 {
     logging::debug(std::string("Attempted to remove category with id ") + std::to_string(itemId));
     try{
-        //TODO change all bills that uses this category to the default one
-       (*db)(remove_from(Category::TABLE).where(
+        (*db)(update(Bill::TABLE).set(
+                  Bill::TABLE.category = -1
+                  )
+              .where(Bill::TABLE.category == itemId
+                     and Bill::TABLE.creator == uid));
+        logging::debug(std::string("Sucessfully updated all bills using this category."));
+        (*db)(remove_from(Category::TABLE).where(
                  Category::TABLE.id == itemId));
         logging::debug(std::string("Sucessfully removed category."));
         return true;

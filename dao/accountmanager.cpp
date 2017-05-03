@@ -1,4 +1,5 @@
 ﻿#include "dao/accountmanager.h"
+#include "model/bill.h"
 
 ID AccountManager::getIdByName(const QString &_name)
 {
@@ -69,8 +70,11 @@ bool AccountManager::removeItemById(const int itemId)
 {
     logging::debug(std::string("Attempted to remove account with id ") + std::to_string(itemId));
     try{
-        //TODO remove all bills related to this account
-       (*db)(remove_from(Account::TABLE).where(
+        (*db)(remove_from(Bill::TABLE).where(
+                  Bill::TABLE.afrom == itemId
+                  or Bill::TABLE.ato == itemId));
+        logging::debug(std::string("Sucessfully removed bills of this account."));
+        (*db)(remove_from(Account::TABLE).where(
                  Account::TABLE.id == itemId));
         logging::debug(std::string("Sucessfully removed account."));
         return true;

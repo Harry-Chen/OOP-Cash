@@ -26,6 +26,15 @@ void DatabaseHelper::initializeDatabase()
     isDatabaseInitialized = true;
 }
 
+void DatabaseHelper::closeDatabase()
+{
+    if(isDatabaseInitialized){
+        delete db;
+        db = nullptr;
+        isDatabaseInitialized = false;
+    }
+}
+
 sqlpp::sqlite3::connection *DatabaseHelper::getDb()
 {
     if(isDatabaseInitialized) return db;
@@ -95,6 +104,7 @@ void DatabaseHelper::buildDatabaseStructure()
                 `creator`	INTEGER NOT NULL,
                 `category`	INTEGER NOT NULL,
                 `quantity`	INTEGER NOT NULL,
+                `currency`	INTEGER NOT NULL,
                 `ctime`	INTEGER NOT NULL,
                 `finished`	INTEGER NOT NULL,
                 `date`	INTEGER NOT NULL,
@@ -102,7 +112,8 @@ void DatabaseHelper::buildDatabaseStructure()
                 FOREIGN KEY(`afrom`) REFERENCES Account(id),
                 FOREIGN KEY(`ato`) REFERENCES Account(id),
                 FOREIGN KEY(`creator`) REFERENCES User(id),
-                FOREIGN KEY(`category`) REFERENCES `Category`(`id`)
+                FOREIGN KEY(`category`) REFERENCES `Category`(`id`),
+                FOREIGN KEY(`currency`) REFERENCES `Currency`(`id`)
             );)"");
     }
     catch(sqlpp::exception e){

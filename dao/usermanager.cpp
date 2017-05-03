@@ -1,11 +1,8 @@
-﻿#include <QString>
-#include <QVector>
-#include <logging/logger.h>
-
-#include "util/database_helper.h"
-#include "model/user.h"
-#include "dao/usermanager.h"
-
+﻿#include "dao/usermanager.h"
+#include "model/bill.h"
+#include "model/account.h"
+#include "model/category.h"
+#include "model/currency.h"
 
 ID UserManager::getIdByName(const QString &_username)
 {
@@ -91,9 +88,20 @@ bool UserManager::removeItemById(const int uid)
         return false;
     }
     try{
-       (*db)(remove_from(User::TABLE).where(
+        (*db)(remove_from(Bill::TABLE).where(
+                  Bill::TABLE.creator == uid));
+        logging::debug(std::string("Sucessfully removed bills of this user."));
+        (*db)(remove_from(Account::TABLE).where(
+                  Account::TABLE.uid == uid));
+        logging::debug(std::string("Sucessfully removed accounts of this user."));
+        (*db)(remove_from(Category::TABLE).where(
+                  Category::TABLE.uid == uid));
+        logging::debug(std::string("Sucessfully removed categories of this user."));
+        (*db)(remove_from(Currency::TABLE).where(
+                  Currency::TABLE.uid == uid));
+        logging::debug(std::string("Sucessfully removed currencies of this user."));
+        (*db)(remove_from(User::TABLE).where(
                  User::TABLE.id == uid));
-        //TODO remove all items related to this user
         logging::debug(std::string("Sucessfully removed user."));
         return true;
     }

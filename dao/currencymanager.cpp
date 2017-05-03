@@ -1,10 +1,5 @@
-﻿#include <QString>
-#include <QVector>
-#include <logging/logger.h>
-
-#include "util/database_helper.h"
-#include "model/currency.h"
-#include "dao/currencymanager.h"
+﻿#include "dao/currencymanager.h"
+#include "model/bill.h"
 
 ID CurrencyManager::getIdByName(const QString &_name)
 {
@@ -72,8 +67,11 @@ bool CurrencyManager::removeItemById(const int itemId)
 {
     logging::debug(std::string("Attempted to remove currency with cid ") + std::to_string(itemId));
     try{
-        //TODO make sure the currency is no longer used
-       (*db)(remove_from(Currency::TABLE).where(
+        (*db)(remove_from(Bill::TABLE).where(
+                  Bill::TABLE.currency == itemId
+                  and Bill::TABLE.creator == uid));
+        logging::debug(std::string("Sucessfully removed accounts using this currency."));
+        (*db)(remove_from(Currency::TABLE).where(
                  Currency::TABLE.id == itemId));
         logging::debug(std::string("Sucessfully removed currency."));
         return true;

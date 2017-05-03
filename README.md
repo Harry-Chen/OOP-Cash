@@ -207,12 +207,11 @@ public:
 |creator|integer|User(id)|
 |category|integer|Catrgory(id)
 |quantity|integer|交易数额|
+|currency|integer|货币种类|
 |ctime|integer|交易写入的精确时间（转换为QDateTime）|
 |finished|integer|已完成|
 |time|integer|发生的（准确）日期（转换为QDate）|
 |note|text|备注，可为空|
-
-注：对于quantity的货币选取，默认为from对应的account对应的货币。但如果from为-1，则为to对应的货币。
 
 ```C++
 class BillManager : public ItemManager<Bill>
@@ -226,24 +225,26 @@ public:
 };
 
 
-class Bill{
+class Bill
+{
+public:
     Bill(ID _id = -1, ID _from = -1, ID _to = -1,
          ID _creator = -1, ID _category = -1, int _quantity = 0,
-         QDateTime _ctime = QDateTime::currentDateTime(),
-         bool _finished = true,
-         QDate _date = QDate::currentDate(),
+         ID _currency = -1, QDateTime _ctime = QDateTime::currentDateTime(),
+         bool _finished = true, QDate _date = QDate::currentDate(),
          QString _note = QString());
     ID id;
     ID from;
     ID to;
     ID creator;
     ID category;
+    ID currency;
     int quantity;
     QDateTime ctime;
     bool finished;
     QDate date;
     QString note;
-}
+};
 ```
 
 ```C++

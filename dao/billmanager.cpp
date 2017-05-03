@@ -33,7 +33,7 @@ QVector<Bill> BillManager::getAllItems()
                                 .from(Bill::TABLE)
                                 .where(Bill::TABLE.creator == uid))){
         Bill newBill(row.id, row.afrom, row.ato, row.creator,
-                     row.category, row.quantity,
+                     row.category, row.quantity, row.currency,
                      QDateTime::fromSecsSinceEpoch(row.ctime),
                      row.finished,
                      QDate::fromJulianDay(row.date),
@@ -61,6 +61,7 @@ ID BillManager::addItem(const Bill &newItem)
                   Bill::TABLE.creator = newItem.creator,
                   Bill::TABLE.category = newItem.category,
                   Bill::TABLE.quantity = newItem.quantity,
+                  Bill::TABLE.currency = newItem.currency,
                   Bill::TABLE.ctime = newItem.ctime.toSecsSinceEpoch(),
                   Bill::TABLE.finished = newItem.finished ? 1 : 0,
                   Bill::TABLE.date = newItem.date.toJulianDay(),
@@ -104,6 +105,7 @@ bool BillManager::modifyItem(const Bill &newInfo)
                   Bill::TABLE.ato = newInfo.to,
                   Bill::TABLE.category = newInfo.category,
                   Bill::TABLE.quantity = newInfo.quantity,
+                  Bill::TABLE.currency = newInfo.currency,
                   Bill::TABLE.ctime = newInfo.ctime.toSecsSinceEpoch(),
                   Bill::TABLE.finished = newInfo.finished ? 1 : 0,
                   Bill::TABLE.date = newInfo.date.toJulianDay(),

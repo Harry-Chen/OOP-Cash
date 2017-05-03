@@ -350,6 +350,22 @@ namespace Table
       };
       using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
     };
+    struct Currency
+    {
+      struct _alias_t
+      {
+        static constexpr const char _literal[] =  "currency";
+        using _name_t = sqlpp::make_char_sequence<sizeof(_literal), _literal>;
+        template<typename T>
+        struct _member_t
+          {
+            T currency;
+            T& operator()() { return currency; }
+            const T& operator()() const { return currency; }
+          };
+      };
+      using _traits = sqlpp::make_traits<sqlpp::integer, sqlpp::tag::require_insert>;
+    };
     struct Ctime
     {
       struct _alias_t
@@ -423,6 +439,7 @@ namespace Table
                Bill_::Creator,
                Bill_::Category,
                Bill_::Quantity,
+               Bill_::Currency,
                Bill_::Ctime,
                Bill_::Finished,
                Bill_::Date,

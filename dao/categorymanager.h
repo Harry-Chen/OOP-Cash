@@ -14,7 +14,7 @@ private:
     ID getIdByName(const QString &_name);
     using ItemManager<Category>::ItemManager;
 public:
-    CategoryManager(UserManager *userMan);
+    CategoryManager(UserManager *_userMan);
     QVector<Category> getAllItems();
     ID addItem(const Category &newItem);
     bool removeItemById(const int itemId);

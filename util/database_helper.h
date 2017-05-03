@@ -8,6 +8,7 @@ class DatabaseHelper
 {
 public:
     static void initializeDatabase();
+    static void closeDatabase();
     static sqlpp::sqlite3::connection* getDb();
 private:
     static bool isDatabaseInitialized;
