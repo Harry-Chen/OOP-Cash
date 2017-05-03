@@ -7,12 +7,12 @@ ID BillManager::getIdByName(const QString &_name)
     return -1;
 }
 
-ID BillManager::getIdByCtime(system_clock::time_point _ctime)
+ID BillManager::getIdByCtime(const QDateTime &_ctime)
 {
     int id;
     for(const auto & row : (*db)((select(Bill::TABLE.id))
                                  .from(Bill::TABLE)
-                                 .where(Bill::TABLE.ctime == system_clock::to_time_t(_ctime)))){
+                                 .where(Bill::TABLE.ctime == _ctime.toSecsSinceEpoch()))){
         id = row.id;
     }
     return id;
@@ -34,9 +34,9 @@ QVector<Bill> BillManager::getAllItems()
                                 .where(Bill::TABLE.creator == uid))){
         Bill newBill(row.id, row.afrom, row.ato, row.creator,
                      row.category, row.quantity,
-                     system_clock::from_time_t(row.ctime),
+                     QDateTime::fromSecsSinceEpoch(row.ctime),
                      row.finished,
-                     date::floor<days>(system_clock::from_time_t(row.date)),
+                     QDate::fromJulianDay(row.date),
                      QString::fromStdString(row.note));
         logging::debug(static_cast<std::string>(newBill));
         result.append(newBill);
@@ -61,9 +61,9 @@ ID BillManager::addItem(const Bill &newItem)
                   Bill::TABLE.creator = newItem.creator,
                   Bill::TABLE.category = newItem.category,
                   Bill::TABLE.quantity = newItem.quantity,
-                  Bill::TABLE.ctime = system_clock::to_time_t(newItem.ctime),
+                  Bill::TABLE.ctime = newItem.ctime.toSecsSinceEpoch(),
                   Bill::TABLE.finished = newItem.finished ? 1 : 0,
-                  Bill::TABLE.date = system_clock::to_time_t(static_cast<sys_days>(newItem.date)),
+                  Bill::TABLE.date = newItem.date.toJulianDay(),
                   Bill::TABLE.note = newItem.note.toStdString()));
         int id = getIdByCtime(newItem.ctime);
         logging::debug(std::string("Successfully added bill, id: ") + std::to_string(id));
@@ -104,9 +104,9 @@ bool BillManager::modifyItem(const Bill &newInfo)
                   Bill::TABLE.ato = newInfo.to,
                   Bill::TABLE.category = newInfo.category,
                   Bill::TABLE.quantity = newInfo.quantity,
-                  Bill::TABLE.ctime = system_clock::to_time_t(newInfo.ctime),
+                  Bill::TABLE.ctime = newInfo.ctime.toSecsSinceEpoch(),
                   Bill::TABLE.finished = newInfo.finished ? 1 : 0,
-                  Bill::TABLE.date = system_clock::to_time_t(static_cast<sys_days>(newInfo.date)),
+                  Bill::TABLE.date = newInfo.date.toJulianDay(),
                   Bill::TABLE.note = newInfo.note.toStdString())
               .where(Bill::TABLE.id == newInfo.id));
         logging::debug(std::string("Sucessfully modified bill."));

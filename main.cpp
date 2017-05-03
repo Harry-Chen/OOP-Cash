@@ -1,7 +1,8 @@
 ﻿#include <QApplication>
 #include <QDebug>
+#include <QDate>
+#include <QDateTime>
 #include <sqlpp11/sqlpp11.h>
-#include <date.h>
 
 #include "util/common.h"
 #include "util/database_helper.h"
@@ -10,6 +11,7 @@
 #include "dao/accountmanager.h"
 #include "dao/categorymanager.h"
 #include "dao/billmanager.h"
+#include "dao/query.h"
 #include "model/user.h"
 #include "model/currency.h"
 #include "model/account.h"
@@ -34,7 +36,7 @@ int main(int argc, char *argv[])
 
     DatabaseHelper::initializeDatabase();
 
-    UserManager *userman = new UserManager(DatabaseHelper::getDb());
+    auto *userman = new UserManager(DatabaseHelper::getDb());
     User newUser(-1, "Test", "Test Test", "1234");
     newUser.id = userman->addItem(newUser);
     userman->getAllItems();
@@ -45,7 +47,7 @@ int main(int argc, char *argv[])
     userman->modifyItem(newUser);
     userman->getAllItems();
 
-    CurrencyManager *currman = new CurrencyManager(DatabaseHelper::getDb());
+    auto *currman = new CurrencyManager(DatabaseHelper::getDb());
     Currency newCurrency(-1, "NTD", 487);
     newCurrency.id = currman->addItem(newCurrency);
     currman->getAllItems();
@@ -54,7 +56,7 @@ int main(int argc, char *argv[])
     currman->modifyItem(newCurrency);
     currman->getAllItems();
 
-    AccountManager *accman = new AccountManager(userman);
+    auto *accman = new AccountManager(userman);
     Account newAccount(-1, "Wallet", newUser.id, newCurrency.id);
     newAccount.id = accman->addItem(newAccount);
     accman->getAllItems();
@@ -64,7 +66,7 @@ int main(int argc, char *argv[])
     accman->modifyItem(newAccount);
     accman->getAllItems();
 
-    CategoryManager *catman = new CategoryManager(userman);
+    auto *catman = new CategoryManager(userman);
     Category newCat(-1, "Food", -1);
     newCat.id = catman->addItem(newCat);
     catman->getAllItems();
@@ -73,15 +75,25 @@ int main(int argc, char *argv[])
     catman->modifyItem(newCat);
     catman->getAllItems();
 
-    BillManager *billman = new BillManager(userman);
+    auto *billman = new BillManager(userman);
     Bill newBill(-1, -1, newAccount.id, newUser.id, newCat.id,
-                 1000u, system_clock::now(), true, 2017_y/jan/2);
+                 1000u, QDateTime::currentDateTime(), true, QDate(2017,5,1));
     newBill.id = billman->addItem(newBill);
     billman->getAllItems();
     newBill.from = newAccount.id;
     newBill.quantity = 2000;
+    newBill.note = "Hello World";
     billman->modifyItem(newBill);
     billman->getAllItems();
+
+    auto result = Query::newQuery(DatabaseHelper::getDb())
+            .addCreatorId(42)
+            .addCreatorId(newUser.id)
+            .addCategoryId(newCat.id)
+            .addFromAccountId(newAccount.id)
+            .setDateRange(QDate(2017,1,1), QDate(2017,12,31))
+            .setKeyword("Hello")
+            .doQuery();
 
     billman->removeItemById(newBill.id);
     delete billman;

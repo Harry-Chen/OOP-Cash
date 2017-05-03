@@ -37,7 +37,8 @@ SOURCES += main.cpp \
     model/currency.cpp \
     model/user.cpp \
     model/bill.cpp \
-    dao/billmanager.cpp
+    dao/billmanager.cpp \
+    dao/query.cpp
 
 
 INCLUDEPATH += include
@@ -67,6 +68,7 @@ HEADERS  += \
     model/bill.h \
     model/category.h \
     dao/categorymanager.h \
-    dao/billmanager.h
+    dao/billmanager.h \
+    dao/query.h
 
 FORMS    +=

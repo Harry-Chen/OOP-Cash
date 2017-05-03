@@ -3,7 +3,9 @@
 
 #include <QString>
 #include <QVector>
-#include <date.h>
+#include <QDate>
+#include <QDateTime>
+
 #include "dao/itemmanager.h"
 #include "dao/usermanager.h"
 #include "dao/billmanager.h"
@@ -14,7 +16,7 @@ class BillManager : public ItemManager<Bill>
 private:
     ID uid = -1;
     ID getIdByName(const QString &_name);
-    ID getIdByCtime(system_clock::time_point _ctime);
+    ID getIdByCtime(const QDateTime &_ctime);
     using ItemManager<Bill>::ItemManager;
 public:
     BillManager(UserManager *userMan);
