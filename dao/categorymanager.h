@@ -15,7 +15,7 @@ private:
     using ItemManager<Category>::ItemManager;
 public:
     CategoryManager(UserManager *_userMan);
-    QVector<Category> getAllItems();
+    QMap<ID, Category> getAllItems();
     ID addItem(const Category &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const Category &newItem);

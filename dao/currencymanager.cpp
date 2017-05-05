@@ -20,9 +20,9 @@ CurrencyManager::CurrencyManager(UserManager *userMan):
     if(uid == -1) throw std::string("Not logged in.");
 }
 
-QVector<Currency> CurrencyManager::getAllItems()
+QMap<ID, Currency> CurrencyManager::getAllItems()
 {
-    QVector<Currency> result;
+    QMap<ID, Currency> result;
     int count = 0;
     for(const auto &row : (*db)(select(all_of(Currency::TABLE))
                                 .from(Currency::TABLE)
@@ -33,7 +33,7 @@ QVector<Currency> CurrencyManager::getAllItems()
                              QString::fromStdString(row.name),
                              row.rate);
         logging::debug(static_cast<std::string>(newCurrency));
-        result.append(newCurrency);
+        result.insert(row.id, newCurrency);
         count++;
     }
     logging::debug(std::to_string(count) + " currencies in total.");

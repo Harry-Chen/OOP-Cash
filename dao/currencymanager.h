@@ -13,7 +13,7 @@ private:
     using ItemManager<Currency>::ItemManager;
 public:
     CurrencyManager(UserManager *userMan);
-    QVector<Currency> getAllItems();
+    QMap<ID,Currency> getAllItems();
     ID addItem(const Currency &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const Currency &newItem);
