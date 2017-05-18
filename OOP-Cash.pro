@@ -39,7 +39,8 @@ SOURCES += main.cpp \
     model/user.cpp \
     model/bill.cpp \
     dao/billmanager.cpp \
-    dao/query.cpp
+    dao/query.cpp \
+    mainwindow.cpp
 
 
 INCLUDEPATH += include
@@ -71,6 +72,8 @@ HEADERS  += \
     model/category.h \
     dao/categorymanager.h \
     dao/billmanager.h \
-    dao/query.h
+    dao/query.h \
+    mainwindow.h
 
-FORMS    +=
+FORMS    += \
+    mainwindow.ui
