@@ -10,10 +10,16 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="graphwidget">
    <widget class="QCustomPlot" name="graph" native="true">
     <property name="geometry">
      <rect>
@@ -24,40 +30,10 @@
      </rect>
     </property>
    </widget>
-   <widget class="QDateTimeEdit" name="timeFrom">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>230</y>
-      <width>194</width>
-      <height>25</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QDateTimeEdit" name="timeTo">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>280</y>
-      <width>194</width>
-      <height>25</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QCalendarWidget" name="calendar">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>40</y>
-      <width>264</width>
-      <height>142</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="Do">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>680</x>
       <y>340</y>
       <width>80</width>
       <height>24</height>
@@ -67,23 +43,23 @@
      <string>查询</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="Type">
+   <widget class="QComboBox" name="showType">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>141</width>
+      <x>651</x>
+      <y>51</y>
+      <width>101</width>
       <height>24</height>
      </rect>
     </property>
     <item>
      <property name="text">
-      <string>类型统计</string>
+      <string>按类型统计</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>收支统计</string>
+      <string>按账户统计</string>
      </property>
     </item>
     <item>
@@ -92,18 +68,53 @@
      </property>
     </item>
    </widget>
-   <widget class="QCheckBox" name="unfinished">
+   <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>30</y>
-      <width>141</width>
-      <height>22</height>
+      <x>651</x>
+      <y>81</y>
+      <width>101</width>
+      <height>24</height>
      </rect>
     </property>
-    <property name="text">
-     <string>计入未完成的交易</string>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>150</y>
+      <width>102</width>
+      <height>108</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Date">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>起始时间</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="timeFrom"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>截止时间</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="timeTo"/>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -128,11 +139,9 @@
  </customwidgets>
  <tabstops>
   <tabstop>Do</tabstop>
-  <tabstop>Type</tabstop>
-  <tabstop>calendar</tabstop>
+  <tabstop>showType</tabstop>
   <tabstop>timeFrom</tabstop>
   <tabstop>timeTo</tabstop>
-  <tabstop>unfinished</tabstop>
  </tabstops>
  <resources/>
  <connections/>
