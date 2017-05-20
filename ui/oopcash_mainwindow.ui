@@ -6,172 +6,196 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>512</height>
+    <width>369</width>
+    <height>489</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>596</width>
-      <height>451</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="vLayout_1">
-     <item>
-      <layout class="QHBoxLayout" name="hLayout">
-       <item>
-        <widget class="QLabel" name="userfaceLabel">
-         <property name="minimumSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="../uirsc.qrc">:/icons/userface</pixmap>
-         </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="vLayout_1">
+      <item>
+       <layout class="QHBoxLayout" name="hLayout">
+        <item>
+         <widget class="QLabel" name="userfaceLabel">
+          <property name="minimumSize">
+           <size>
+            <width>48</width>
+            <height>48</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>48</width>
+            <height>48</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="../uirsc.qrc">:/icons/userface</pixmap>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="vLayout_2">
+          <item>
+           <widget class="QLabel" name="usernameLabel">
+            <property name="text">
+             <string>好像还没有登录呢~</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::AutoText</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="loginoutButton">
+            <property name="text">
+             <string>login</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>428</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="homeTab">
+         <attribute name="title">
+          <string>首页</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="moneyinButton">
+              <property name="minimumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>收入</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="minimumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>转账</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="minimumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>支出</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="pushButton_4">
+              <property name="minimumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>管理我的账户</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="vLayout_2">
-         <item>
-          <widget class="QLabel" name="usernameLabel">
-           <property name="text">
-            <string>好像还没有登录呢~</string>
-           </property>
-           <property name="textFormat">
-            <enum>Qt::AutoText</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="loginoutButton">
-           <property name="text">
-            <string>login</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>428</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="QTabWidget" name="tabWidget">
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="homeTab">
-        <attribute name="title">
-         <string>首页</string>
-        </attribute>
-        <widget class="QPushButton" name="pushButton">
-         <property name="geometry">
-          <rect>
-           <x>150</x>
-           <y>100</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
+        <widget class="QWidget" name="detailTab">
+         <attribute name="title">
+          <string>明细</string>
+         </attribute>
         </widget>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>100</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
+        <widget class="QWidget" name="statTab">
+         <attribute name="title">
+          <string>统计</string>
+         </attribute>
         </widget>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="geometry">
-          <rect>
-           <x>150</x>
-           <y>160</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="geometry">
-          <rect>
-           <x>310</x>
-           <y>170</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
+        <widget class="QWidget" name="queryTab">
+         <attribute name="title">
+          <string>查询</string>
+         </attribute>
         </widget>
        </widget>
-       <widget class="QWidget" name="statTab">
-        <attribute name="title">
-         <string>统计</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="queryTab">
-        <attribute name="title">
-         <string>查询</string>
-        </attribute>
-       </widget>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <zorder>tabWidget</zorder>
-   <zorder>usernameLabel</zorder>
-   <zorder>userfaceLabel</zorder>
-   <zorder>usernameLabel</zorder>
-   <zorder>horizontalSpacer</zorder>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>624</width>
+     <width>369</width>
      <height>23</height>
     </rect>
    </property>
