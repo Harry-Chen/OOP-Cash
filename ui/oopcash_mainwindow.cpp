@@ -25,6 +25,7 @@ void OOPCash_MainWindow::on_loginoutButton_clicked()
     else {
         logout();
         ui->loginoutButton->setText("login");
+        ui->usernameLabel->setText("好像还没有登录呢~");
         init();         //clear data recieved...
     }
 }
