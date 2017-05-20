@@ -27,7 +27,7 @@ public:
     bool isSameX (int i1, int i2) {return (*isSameXptr)(raw[i1].date, X[i2]);}
     bool isSameY (int i1, int i2);
     bool process(int i);
-    void processAll();
+    bool processAll();
     void sortByX();
     void setIsSameX (bool (*func) (const QDate&, const QDate&)) {isSameXptr = func;}
     void setGetY (ID (*func) (Bill)) {getYptr = func;}

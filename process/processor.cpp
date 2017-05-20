@@ -33,15 +33,15 @@ bool Processor::process(int i)
             {
                 for (int jj = 0 ; jj < matrix[ii].size() ; ++jj)
                     if(isSameX(i, jj)) { matrix[ii][jj] += raw[i].quantity; return true;}
-                X.push_back(raw[i].data);
+                X.push_back(raw[i].date);
                 matrix[ii].push_back(raw[i].quantity);
                 return true;
             }
     Y.push_back(getY(i));
-    for (int jj = 0 ; jj < matrix[ii].size() ; ++jj)
-        if(isSameX(i, jj)) {matrix[ii][jj] += raw[i].quantity; return true;}
-    X.push_back(raw[i].data);
-    matrix[ii].push_back(raw[i].quantity);
+    for (int jj = 0 ; jj < matrix[i].size() ; ++jj)
+        if(isSameX(i, jj)) {matrix[i][jj] += raw[i].quantity; return true;}
+    X.push_back(raw[i].date);
+    matrix[i].push_back(raw[i].quantity);
     return true;
 }
 

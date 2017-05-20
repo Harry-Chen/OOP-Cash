@@ -12,7 +12,7 @@ class MyMainWindow : public QMainWindow
 {
     Q_OBJECT
 public slots:
-    void
+    void showGraphDock();
 
 public:
     explicit MyMainWindow(QWidget *parent = 0);

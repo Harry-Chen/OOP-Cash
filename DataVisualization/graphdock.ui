@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>GraphDock</class>
  <widget class="QDockWidget" name="GraphDock">
@@ -7,12 +7,142 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>419</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>DockWidget</string>
   </property>
-  <widget class="QWidget" name="dockWidgetContents"/>
+  <widget class="QWidget" name="dockWidgetContents">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>160</y>
+      <width>102</width>
+      <height>108</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Date">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>start time</string>
+       </property>
+       <property name="buddy">
+        <cstring>timeFrom</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="timeFrom"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>end time</string>
+       </property>
+       <property name="buddy">
+        <cstring>timeTo</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="timeTo"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>20</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="showType">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>by category</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>by account</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="finished">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>both</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>finished</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>unfinished</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="keyWord">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>80</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Do">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>240</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>consult</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
+ <resources/>
+ <connections/>
 </ui>

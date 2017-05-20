@@ -23,6 +23,14 @@
 //#include "graphmainwindow.h"
 //#include "DataVisualization/guigetdata.h"
 
+int main(int argc, char *argv[])
+{
+    QApplication windows(argc, argv);
+    MyMainWindow *myMainWindow = new MyMainWindow;
+    myMainWindow->show();
+    //myMainWindow->exec();
+    return 0;
+}
 
 
 
