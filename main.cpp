@@ -13,10 +13,22 @@
 #include "dao/billmanager.h"
 #include "dao/query.h"
 #include "model/user.h"
-#include "model/currency.h"
+#include "model/currency.h";
 #include "model/account.h"
 #include "model/category.h"
 #include "model/bill.h"
+#include "DataVisualization/mymainwindow.h"
+
+#define nchDebug
+//#include "graphmainwindow.h"
+//#include "DataVisualization/guigetdata.h"
+
+
+
+
+
+
+#ifndef nchDebug
 
 namespace sql = sqlpp::sqlite3;
 
@@ -109,3 +121,5 @@ int main(int argc, char *argv[])
     logging::trace("Application End===========");
     return 0;
 }
+
+#endif

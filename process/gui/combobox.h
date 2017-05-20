@@ -1,9 +1,10 @@
 #ifndef COMBOBOX_H
 #define COMBOBOX_H
 
-#include <QWidget>
+//#include <QWidget>
+#include <QComboBox>
 
-class Combobox : public QWidget
+class Combobox : public QComboBox
 {
     Q_OBJECT
 public:
@@ -12,6 +13,7 @@ public:
 signals:
 
 public slots:
+    void
 };
 
 #endif // COMBOBOX_H

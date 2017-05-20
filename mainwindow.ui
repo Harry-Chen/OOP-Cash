@@ -20,46 +20,36 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="graphwidget">
-   <widget class="QCustomPlot" name="graph" native="true">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>391</width>
-      <height>301</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="Do">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>340</y>
+      <x>500</x>
+      <y>420</y>
       <width>80</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>查询</string>
+     <string>consult</string>
     </property>
    </widget>
    <widget class="QComboBox" name="showType">
     <property name="geometry">
      <rect>
-      <x>651</x>
-      <y>51</y>
+      <x>490</x>
+      <y>140</y>
       <width>101</width>
       <height>24</height>
      </rect>
     </property>
     <item>
      <property name="text">
-      <string>按类型统计</string>
+      <string>by category</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>按账户统计</string>
+      <string>by account</string>
      </property>
     </item>
     <item>
@@ -71,8 +61,8 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>651</x>
-      <y>81</y>
+      <x>620</x>
+      <y>140</y>
       <width>101</width>
       <height>24</height>
      </rect>
@@ -84,11 +74,56 @@
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QCustomPlot" name="graph" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>160</y>
+      <width>391</width>
+      <height>301</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="keyWord">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>200</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="finished">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>200</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>both</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>finished</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>unfinished</string>
+     </property>
+    </item>
+   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>150</y>
+      <x>490</x>
+      <y>280</y>
       <width>102</width>
       <height>108</height>
      </rect>
@@ -97,7 +132,10 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>起始时间</string>
+        <string>start time</string>
+       </property>
+       <property name="buddy">
+        <cstring>timeFrom</cstring>
        </property>
       </widget>
      </item>
@@ -107,7 +145,10 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>截止时间</string>
+        <string>end time</string>
+       </property>
+       <property name="buddy">
+        <cstring>timeTo</cstring>
        </property>
       </widget>
      </item>
@@ -133,15 +174,17 @@
   <customwidget>
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header>../../qcustomplot.h</header>
+   <header location="global">../../qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>Do</tabstop>
   <tabstop>showType</tabstop>
+  <tabstop>comboBox</tabstop>
   <tabstop>timeFrom</tabstop>
   <tabstop>timeTo</tabstop>
+  <tabstop>keyWord</tabstop>
+  <tabstop>Do</tabstop>
  </tabstops>
  <resources/>
  <connections/>
