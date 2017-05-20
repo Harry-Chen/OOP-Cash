@@ -20,9 +20,9 @@ AccountManager::AccountManager(UserManager *userMan):
     if(uid == -1) throw std::string("Not logged in.");
 }
 
-QVector<Account> AccountManager::getAllItems()
+QMap<ID, Account> AccountManager::getAllItems()
 {
-    QVector<Account> result;
+    QMap<ID, Account> result;
     int count = 0;
     for(const auto &row : (*db)(select(all_of(Account::TABLE))
                                 .from(Account::TABLE)
@@ -32,7 +32,7 @@ QVector<Account> AccountManager::getAllItems()
                      row.uid,
                      row.cid);
         logging::debug(static_cast<std::string>(newAccount));
-        result.append(newAccount);
+        result.insert(row.id, newAccount);
         count++;
     }
     logging::debug(std::to_string(count) + " accounts in total.");

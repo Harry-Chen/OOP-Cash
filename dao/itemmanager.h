@@ -1,7 +1,7 @@
 ﻿#ifndef ITEMMANAGER_H
 #define ITEMMANAGER_H
 
-#include <QVector>
+#include <QMap>
 #include <logging/logger.h>
 #include <sqlpp11/sqlpp11.h>
 #include <sqlpp11/sqlite3/connection.h>
@@ -21,7 +21,7 @@ protected:
 public:
     ItemManager() = delete;
     ItemManager(sqlpp::sqlite3::connection *_db):db(_db){}
-    virtual QVector<T> getAllItems() = 0;
+    virtual QMap<ID,T> getAllItems() = 0;
     virtual ID addItem(const T &newItem) = 0;
     virtual bool removeItemById(const int itemId) = 0;
     virtual bool modifyItem(const T &newItem) = 0;

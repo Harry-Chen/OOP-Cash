@@ -37,9 +37,9 @@ bool UserManager::validateUsernameAndPassword(const User &_user)
     return false;
 }
 
-QVector<User> UserManager::getAllItems()
+QMap<ID, User> UserManager::getAllItems()
 {
-    QVector<User> result;
+    QMap<ID, User> result;
     int count = 0;
     for(const auto &row : (*db)(select(
                                     User::TABLE.id,
@@ -50,7 +50,7 @@ QVector<User> UserManager::getAllItems()
                      QString::fromStdString(row.username),
                      QString::fromStdString(row.nickname));
         logging::debug(static_cast<std::string>(newUser));
-        result.append(newUser);
+        result.insert(row.id, newUser);
         count++;
     }
     logging::debug(std::to_string(count) + " users in total.");

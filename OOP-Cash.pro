@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = OOP-Cash
 TEMPLATE = app
@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
         libs\sqlite3.c \
         libs\logger.cpp \
+        libs\qcustomplot.cpp \
     util/configuration.cpp \
     util/database_helper.cpp \
     dao/usermanager.cpp \
@@ -54,6 +55,7 @@ macx{
 }
 
 HEADERS  += \
+    include\qcustomplot.h \
     database/tables.h \
     util/constants.h \
     util/configuration.h \

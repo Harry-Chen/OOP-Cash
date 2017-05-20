@@ -20,7 +20,7 @@ private:
     using ItemManager<Bill>::ItemManager;
 public:
     BillManager(UserManager *userMan);
-    QVector<Bill> getAllItems();
+    QMap<ID,Bill> getAllItems();
     ID addItem(const Bill &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const Bill &newItem);

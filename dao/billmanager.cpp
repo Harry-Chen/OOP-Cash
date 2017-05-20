@@ -25,9 +25,9 @@ BillManager::BillManager(UserManager *userMan):
     if(uid == -1) throw std::string("Not logged in.");
 }
 
-QVector<Bill> BillManager::getAllItems()
+QMap<ID, Bill> BillManager::getAllItems()
 {
-    QVector<Bill> result;
+    QMap<ID, Bill> result;
     int count = 0;
     for(const auto &row : (*db)(select(all_of(Bill::TABLE))
                                 .from(Bill::TABLE)
@@ -39,7 +39,7 @@ QVector<Bill> BillManager::getAllItems()
                      QDate::fromJulianDay(row.date),
                      QString::fromStdString(row.note));
         logging::debug(static_cast<std::string>(newBill));
-        result.append(newBill);
+        result.insert(row.id, newBill);
         count++;
     }
     logging::debug(std::to_string(count) + " bills in total.");

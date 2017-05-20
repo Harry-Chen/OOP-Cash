@@ -20,9 +20,9 @@ CategoryManager::CategoryManager(UserManager *_userMan):
     if(uid == -1) throw std::string("Not logged in.");
 }
 
-QVector<Category> CategoryManager::getAllItems()
+QMap<ID, Category> CategoryManager::getAllItems()
 {
-    QVector<Category> result;
+    QMap<ID, Category> result;
     int count = 0;
     for(const auto &row : (*db)(select(all_of(Category::TABLE))
                                 .from(Category::TABLE)
@@ -32,7 +32,7 @@ QVector<Category> CategoryManager::getAllItems()
                      QString::fromStdString(row.name),
                      row.uid);
         logging::debug(static_cast<std::string>(newCategory));
-        result.append(newCategory);
+        result.insert(row.id, newCategory);
         count++;
     }
     logging::debug(std::to_string(count) + " categories in total.");

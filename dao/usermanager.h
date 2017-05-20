@@ -20,7 +20,7 @@ private:
     bool validateUsernameAndPassword(const User &_user);
 public:
     using ItemManager<User>::ItemManager;
-    QVector<User> getAllItems();
+    QMap<ID, User> getAllItems();
     ID addItem(const User &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const User &newItem);

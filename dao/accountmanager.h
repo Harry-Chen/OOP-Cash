@@ -15,7 +15,7 @@ private:
     using ItemManager<Account>::ItemManager;
 public:
     AccountManager(UserManager *userMan);
-    QVector<Account> getAllItems();
+    QMap<ID,Account> getAllItems();
     ID addItem(const Account &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const Account &newItem);
