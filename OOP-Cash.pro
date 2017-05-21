@@ -43,7 +43,8 @@ SOURCES += main.cpp \
     model/bill.cpp \
     dao/billmanager.cpp \
     dao/query.cpp \
-    ui/oopcash_mainwindow.cpp
+    ui/oopcash_mainwindow.cpp \
+    ui/logindlg.cpp
 
 
 INCLUDEPATH += include
@@ -76,10 +77,12 @@ HEADERS  += \
     dao/categorymanager.h \
     dao/billmanager.h \
     dao/query.h \
-    ui/oopcash_mainwindow.h
+    ui/oopcash_mainwindow.h \
+    ui/logindlg.h
 
 FORMS    += \
-    ui/oopcash_mainwindow.ui
+    ui/oopcash_mainwindow.ui \
+    ui/logindlg.ui
 
 RESOURCES += \
     uirsc.qrc

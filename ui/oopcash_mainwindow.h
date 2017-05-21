@@ -5,6 +5,8 @@
 #include "util/constants.h"
 #include "model/user.h"
 
+#include "ui/logindlg.h"
+
 namespace Ui {
 class OOPCash_MainWindow;
 }
@@ -18,7 +20,10 @@ public:
     ~OOPCash_MainWindow();
     bool Isloggedin;
     ID u_id;
-    User * p_user;
+    //User * p_user;
+
+public slots:
+    void on_loginSuccess(ID);
 
 private slots:
     void on_loginoutButton_clicked();
@@ -27,7 +32,7 @@ private:
     Ui::OOPCash_MainWindow *ui;
     void init();
 
-    bool login();   //get u_id, p_user and return whether successed.
+    void showloginDlg();   //get u_id
     void logout();
 
 };

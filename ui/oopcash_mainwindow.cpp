@@ -14,10 +14,23 @@ OOPCash_MainWindow::~OOPCash_MainWindow()
     delete ui;
 }
 
+void OOPCash_MainWindow::showloginDlg() {
+    auto dlg = new loginDlg(this);
+    connect(dlg,SIGNAL(loginSuccessSignal(ID)),this,SLOT(on_loginSuccess(ID)));
+    dlg->show();
+    dlg->exec();
+}
+
+void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
+    Isloggedin = true;
+    u_id = idInfo;
+}
+
 void OOPCash_MainWindow::on_loginoutButton_clicked()
 {
     if(!Isloggedin) {
-        if(login()) {
+        showloginDlg();
+        if(Isloggedin) {
             ui->loginoutButton->setText("logout");
             ui->usernameLabel->setText( (p_user->nickname.isEmpty()) ? p_user->username : p_user->nickname );
         }
