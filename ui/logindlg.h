@@ -18,7 +18,7 @@ public:
     ~loginDlg();
 
 signals:
-    void loginSuccessSignal();
+    void loginSuccessSignal(ID, QString);
 
 private slots:
     void on_loginButton_clicked();

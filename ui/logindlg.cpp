@@ -5,17 +5,19 @@
 #include "dao/usermanager.h"
 
 loginDlg::loginDlg(UserManager *usermanInfo, QWidget *parent) :
+    userman(usermanInfo),
     QDialog(parent),
     ui(new Ui::loginDlg)
 {
     ui->setupUi(this);
+    ui->nicknameEdit->hide();
+    ui->nicknameLabel->hide();
     ui->pwAgainEdit->hide();
     ui->pwAgainLabel->hide();
     ui->passwordEdit->setEchoMode(QLineEdit::Password);
     ui->pwAgainEdit->setEchoMode(QLineEdit::Password);
 
     switchButtonPressed = false;
-    userman = usermanInfo;
 }
 
 loginDlg::~loginDlg()
@@ -34,7 +36,7 @@ bool loginDlg::signin() {
         QMessageBox::warning(this, "Sign failed", "Two passwords are not the same.");
         return false;
     }
-    User newuser(-1, ui->usernameEdit->text(), "nickname", ui->passwordEdit->text());
+    User newuser(-1, ui->usernameEdit->text(), ui->nicknameEdit->text(), ui->passwordEdit->text());
     u_id = userman->addItem(newuser);
     return ( (u_id == -1) ? false : true );
 }
@@ -57,7 +59,7 @@ void loginDlg::on_loginButton_clicked()
 
     //log in...
     if(login()) {
-        emit loginSuccessSignal();
+        emit loginSuccessSignal(u_id, ui->usernameEdit->text());
         this->close();
     }
     else {
@@ -69,10 +71,13 @@ void loginDlg::on_switchButton_clicked()
 {
     switchButtonPressed = !switchButtonPressed;
     ui->usernameEdit->clear();
+    ui->nicknameEdit->clear();
     ui->passwordEdit->clear();
     ui->pwAgainEdit->clear();
     ui->loginButton->setText((switchButtonPressed ? "signin" : "login"));
     ui->switchButton->setText(switchButtonPressed ? "登录" : "注册");
+    ui->nicknameEdit->setVisible(switchButtonPressed);
+    ui->nicknameLabel->setVisible(switchButtonPressed);
     ui->pwAgainLabel->setVisible(switchButtonPressed);
     ui->pwAgainEdit->setVisible(switchButtonPressed);
 }
