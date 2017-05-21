@@ -15,7 +15,7 @@ public:
 	explicit ChangeBillWidget(QWidget *parent = 0);
 	~ChangeBillWidget();
 
-private:
+protected:
 	Ui::ChangeBillWidget *ui;
 };
 

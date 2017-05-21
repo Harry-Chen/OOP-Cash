@@ -2,5 +2,5 @@
 
 RecordCostWidget::RecordCostWidget()
 {
-
+	ChangeBillWidget::ui->
 }

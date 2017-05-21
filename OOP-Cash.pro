@@ -43,7 +43,10 @@ SOURCES += main.cpp \
     model/bill.cpp \
     dao/billmanager.cpp \
     dao/query.cpp \
-    ui/oopcash_mainwindow.cpp
+    ui/oopcash_mainwindow.cpp \
+    ui/changebillwidget.cpp \
+    ui/editaccount.cpp \
+    ui/recordcostwidget.cpp
 
 
 INCLUDEPATH += include
@@ -76,10 +79,15 @@ HEADERS  += \
     dao/categorymanager.h \
     dao/billmanager.h \
     dao/query.h \
-    ui/oopcash_mainwindow.h
+    ui/oopcash_mainwindow.h \
+    ui/changebillwidget.h \
+    ui/editaccount.h \
+    ui/recordcostwidget.h
 
 FORMS    += \
-    ui/oopcash_mainwindow.ui
+    ui/oopcash_mainwindow.ui \
+    ui/changebillwidget.ui \
+    ui/editaccount.ui
 
 RESOURCES += \
     uirsc.qrc
