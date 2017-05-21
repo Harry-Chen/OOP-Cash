@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "util/constants.h"
+#include "util/database_helper.h"
+#include "dao/usermanager.h"
 #include "model/user.h"
 
 #include "ui/logindlg.h"
@@ -18,21 +20,21 @@ class OOPCash_MainWindow : public QMainWindow
 public:
     explicit OOPCash_MainWindow(QWidget *parent = 0);
     ~OOPCash_MainWindow();
-    bool Isloggedin;
-    ID u_id;
-    //User * p_user;
 
 public slots:
-    void on_loginSuccess(ID);
+    void on_loginSuccess();
 
 private slots:
     void on_loginoutButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;
+    UserManager * userman;
+    bool Isloggedin;
+//    ID u_id;
     void init();
 
-    void showloginDlg();   //get u_id
+    void showloginDlg();
     void logout();
 
 };

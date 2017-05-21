@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "util/constants.h"
+#include "dao/usermanager.h"
 
 namespace Ui {
 class loginDlg;
@@ -13,15 +14,15 @@ class loginDlg : public QDialog
     Q_OBJECT
 
 public:
-    explicit loginDlg(QWidget *parent = 0);
+    explicit loginDlg(UserManager *usermanInfo, QWidget *parent = 0);
     ~loginDlg();
 
 signals:
-    void loginSuccessSignal(ID);
+    void loginSuccessSignal();
 
 private slots:
     void on_loginButton_clicked();
-    void on_switchButton_toggled(bool checked);
+    void on_switchButton_clicked();
 
 private:
     Ui::loginDlg *ui;
@@ -29,6 +30,7 @@ private:
     bool switchButtonPressed;
     bool login();
     bool signin();
+    UserManager * userman;
 };
 
 #endif // LOGINDLG_H

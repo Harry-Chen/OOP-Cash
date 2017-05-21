@@ -1,12 +1,14 @@
 #include "oopcash_mainwindow.h"
 #include "ui_oopcash_mainwindow.h"
-#include "model/user.h"
 
 OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::OOPCash_MainWindow)
 {
     ui->setupUi(this);
+    userman = nullptr;
+    DatabaseHelper::initializeDatabase(); //do once? do when logout?
+    init();
 }
 
 OOPCash_MainWindow::~OOPCash_MainWindow()
@@ -14,16 +16,29 @@ OOPCash_MainWindow::~OOPCash_MainWindow()
     delete ui;
 }
 
+void OOPCash_MainWindow::init() {
+    Isloggedin = false;
+    if(userman != nullptr) {
+        delete userman;
+        userman = nullptr;
+    }
+    userman = new UserManager(DatabaseHelper::getDb());
+    //other init...
+}
+
 void OOPCash_MainWindow::showloginDlg() {
-    auto dlg = new loginDlg(this);
-    connect(dlg,SIGNAL(loginSuccessSignal(ID)),this,SLOT(on_loginSuccess(ID)));
-    dlg->show();
+    auto dlg = new loginDlg(userman, this);
+    connect(dlg,SIGNAL(loginSuccessSignal()),this,SLOT(on_loginSuccess()));
     dlg->exec();
 }
 
-void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
+void OOPCash_MainWindow::logout() {
+    userman->logout();
+}
+
+void OOPCash_MainWindow::on_loginSuccess() {
     Isloggedin = true;
-    u_id = idInfo;
+//    u_id = idInfo;
 }
 
 void OOPCash_MainWindow::on_loginoutButton_clicked()
@@ -32,7 +47,8 @@ void OOPCash_MainWindow::on_loginoutButton_clicked()
         showloginDlg();
         if(Isloggedin) {
             ui->loginoutButton->setText("logout");
-            ui->usernameLabel->setText( (p_user->nickname.isEmpty()) ? p_user->username : p_user->nickname );
+            //这里需要更新界面：设置用户名
+            //ui->usernameLabel->setText( (p_user->nickname.isEmpty()) ? p_user->username : p_user->nickname );
         }
     }
     else {

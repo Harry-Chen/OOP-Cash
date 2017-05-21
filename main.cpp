@@ -24,8 +24,8 @@ namespace sql = sqlpp::sqlite3;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    auto OOPCashMainWindow = new OOPCash_MainWindow;
-    OOPCashMainWindow->show();
+    OOPCash_MainWindow * w = new OOPCash_MainWindow;
+    w->show();
     return a.exec();
 //    logging::Logger::instance().setLogDir(QCoreApplication::applicationDirPath().toStdString());
 //    logging::Logger::instance().setLogFilePrefix(APP_NAME.toStdString());
