@@ -14,7 +14,7 @@ class GraphDock : public QDockWidget
     Q_OBJECT
 
 public:
-    explicit GraphDock(QWidget *parent = 0);
+    explicit GraphDock(Processor * ,QWidget *parent = 0);
     ~GraphDock();
 
 private:

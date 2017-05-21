@@ -20,8 +20,6 @@
 #include "DataVisualization/mymainwindow.h"
 #include "datavisualization/querywidget.h"
 
-#ifndef nchDebug
-
 namespace sql = sqlpp::sqlite3;
 
 int main(int argc, char *argv[])
@@ -107,4 +105,3 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-#endif

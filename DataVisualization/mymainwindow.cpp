@@ -8,10 +8,10 @@ MyMainWindow::MyMainWindow(QWidget *parent, UserManager * _pUserMan) :
 {
     ui->setupUi(this);
     pQueryWidget = new QueryWidget(this);
-    GraphDockPtr = new GraphDock;
+    //GraphDockPtr = new GraphDock;
     pQueryWidget->setUserman(pUserman);
     pQueryWidget->show();
-    connect(ui->pushButton,SIGNAL(clicked(bool)),this, SLOT(showGraphDock()));
+    //connect(ui->pushButton,SIGNAL(clicked(bool)),this, SLOT(showGraphDock()));
 }
 
 MyMainWindow::~MyMainWindow()
@@ -19,11 +19,11 @@ MyMainWindow::~MyMainWindow()
     delete ui;
 }
 
-void MyMainWindow::showGraphDock()
-{
-    this->GraphDockPtr->show();
-    //this->GraphDockPtr->exec();
-}
+//void MyMainWindow::showGraphDock()
+//{
+//    this->GraphDockPtr->show();
+//    //this->GraphDockPtr->exec();
+//}
 
 void MyMainWindow::setUserman(UserManager * _pUserMan)
 {

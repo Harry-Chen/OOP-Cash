@@ -12,6 +12,7 @@
 #include "dao/categorymanager.h"
 #include "dao/billmanager.h"
 #include "util/database_helper.h"
+#include "datavisualization/graphdock.h"
 
 enum Time {byDay, byWeek, byMonth, byYear};
 enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreator };
@@ -40,6 +41,8 @@ private:
     std::vector<bool> isSelected;
     int field;
     QMap <ID, QString> nameMap;
+
+    void setupPlot();
 };
 
 #endif // QUERYWIDGET_H

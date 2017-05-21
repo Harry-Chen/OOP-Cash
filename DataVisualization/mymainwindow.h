@@ -13,7 +13,7 @@ class MyMainWindow : public QMainWindow
 {
     Q_OBJECT
 public slots:
-    void showGraphDock();
+    //void showGraphDock();
 
 public:
     explicit MyMainWindow(QWidget *parent, UserManager * _pUserMan);

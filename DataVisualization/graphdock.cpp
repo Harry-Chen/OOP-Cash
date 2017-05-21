@@ -1,9 +1,10 @@
 #include "graphdock.h"
 #include "ui_graphdock.h"
 
-GraphDock::GraphDock(QWidget *parent) :
+GraphDock::GraphDock(Processor * _pProcessor, QWidget *parent) :
     QDockWidget(parent),
-    ui(new Ui::GraphDock)
+    ui(new Ui::GraphDock),
+    pProcessor(_pProcessor)
 {
     ui->setupUi(this);
     setupDemo2(ui->QCP);
@@ -183,7 +184,7 @@ void GraphDock::setupDemo2(QCustomPlot *customPlot)
     customPlot->legend->setBrush(QColor(255, 255, 255, 150));
 }
 
-/*
+
 void GraphDock::setupMyDemo(QCustomPlot *customPlot)
 {
     //customPlot->setLocale(QLocale::China);
@@ -191,4 +192,3 @@ void GraphDock::setupMyDemo(QCustomPlot *customPlot)
 
     QVector<
 }
-*/

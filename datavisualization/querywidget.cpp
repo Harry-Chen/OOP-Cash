@@ -127,5 +127,12 @@ void QueryWidget::Do()
     ProcessorFactory * pProcessorFactory = new ProcessorFactory;
     pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), pQuery, nameMap);
     if(!pProcessor->processAll()) logging::error("fail to process\n");
-    else ;/*plot*/
+    else setupPlot();/*plot*/
+}
+
+
+void QueryWidget::setupPlot()
+{
+    GraphDock * GraphDockPtr = new GraphDock(pProcessor);
+    GraphDockPtr->show();
 }
