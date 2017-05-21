@@ -7,7 +7,6 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     userman = nullptr;
-    DatabaseHelper::initializeDatabase(); //do once? do when logout?
     init();
 }
 
@@ -28,7 +27,7 @@ void OOPCash_MainWindow::init() {
 
 void OOPCash_MainWindow::showloginDlg() {
     auto dlg = new loginDlg(userman, this);
-    connect(dlg,SIGNAL(loginSuccessSignal()),this,SLOT(on_loginSuccess()));
+    QObject::connect(dlg, SIGNAL(loginSuccessSignal(ID, QString)), this, SLOT(on_loginSuccess(ID, QString)));
     dlg->exec();
 }
 
@@ -36,20 +35,17 @@ void OOPCash_MainWindow::logout() {
     userman->logout();
 }
 
-void OOPCash_MainWindow::on_loginSuccess() {
+void OOPCash_MainWindow::on_loginSuccess(ID idInfo, QString nameInfo) {
     Isloggedin = true;
-//    u_id = idInfo;
+    u_id = idInfo;
+    ui->usernameLabel->setText(nameInfo);
+    ui->loginoutButton->setText("logout");
 }
 
 void OOPCash_MainWindow::on_loginoutButton_clicked()
 {
     if(!Isloggedin) {
         showloginDlg();
-        if(Isloggedin) {
-            ui->loginoutButton->setText("logout");
-            //这里需要更新界面：设置用户名
-            //ui->usernameLabel->setText( (p_user->nickname.isEmpty()) ? p_user->username : p_user->nickname );
-        }
     }
     else {
         logout();

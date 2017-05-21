@@ -22,7 +22,7 @@ public:
     ~OOPCash_MainWindow();
 
 public slots:
-    void on_loginSuccess();
+    void on_loginSuccess(ID, QString);
 
 private slots:
     void on_loginoutButton_clicked();
@@ -31,7 +31,7 @@ private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
     bool Isloggedin;
-//    ID u_id;
+    ID u_id;
     void init();
 
     void showloginDlg();

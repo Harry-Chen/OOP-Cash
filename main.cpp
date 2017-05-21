@@ -23,18 +23,18 @@ namespace sql = sqlpp::sqlite3;
 
 int main(int argc, char *argv[])
 {
+    logging::Logger::instance().setLogDir(QCoreApplication::applicationDirPath().toStdString());
+    logging::Logger::instance().setLogFilePrefix(APP_NAME.toStdString());
+#ifdef _DEBUG
+    logging::Logger::instance().setMinLevel(logging::l_trace);
+#else
+    logging::Logger::instance().setMinLevel(logging::l_info);
+#endif
     QApplication a(argc, argv);
+    DatabaseHelper::initializeDatabase();
     OOPCash_MainWindow * w = new OOPCash_MainWindow;
     w->show();
     return a.exec();
-//    logging::Logger::instance().setLogDir(QCoreApplication::applicationDirPath().toStdString());
-//    logging::Logger::instance().setLogFilePrefix(APP_NAME.toStdString());
-//#ifdef _DEBUG
-//    logging::Logger::instance().setMinLevel(logging::l_trace);
-//#else
-//    logging::Logger::instance().setMinLevel(logging::l_info);
-//#endif
-
 
 //    logging::trace("Application Start===========");
 
