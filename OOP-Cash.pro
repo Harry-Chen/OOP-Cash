@@ -44,7 +44,13 @@ SOURCES += main.cpp \
     dao/billmanager.cpp \
     dao/query.cpp \
     ui/oopcash_mainwindow.cpp \
+<<<<<<< HEAD
     ui/logindlg.cpp
+=======
+    ui/changebillwidget.cpp \
+    ui/editaccount.cpp \
+    ui/recordcostwidget.cpp
+>>>>>>> loginWidget
 
 
 INCLUDEPATH += include
@@ -78,11 +84,22 @@ HEADERS  += \
     dao/billmanager.h \
     dao/query.h \
     ui/oopcash_mainwindow.h \
+<<<<<<< HEAD
     ui/logindlg.h
 
 FORMS    += \
     ui/oopcash_mainwindow.ui \
     ui/logindlg.ui
+=======
+    ui/changebillwidget.h \
+    ui/editaccount.h \
+    ui/recordcostwidget.h
+
+FORMS    += \
+    ui/oopcash_mainwindow.ui \
+    ui/changebillwidget.ui \
+    ui/editaccount.ui
+>>>>>>> loginWidget
 
 RESOURCES += \
     uirsc.qrc
