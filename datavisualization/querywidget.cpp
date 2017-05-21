@@ -25,8 +25,9 @@ QueryWidget::~QueryWidget()
     delete ui;
 }
 
-void QueryWidget::getField(int field)
+void QueryWidget::getField(int _field)
 {
+    field = _field;
     names.clear();
     ids.clear();
     ui->listWidget->clear();
@@ -81,7 +82,42 @@ void QueryWidget::Do()
     if (ui->keyWord->isModified())
         pQuery->setKeyword(ui->keyWord->text());
 
+    isSelected.clear();
+    for(int i = 0; i < ids.size(); ++i)
+        isSelected.push_back(ui->listWidget->item(i)->isSelected());
+    switch (field)
+    {
+    case byCategory:
+    {
+        for(int i = 0; i < isSelected.size(); ++i)
+            if(isSelected[i]) pQuery->addCategoryId(ids[i]);
+        break;
+    }
+    case byAccountFrom:
+    {
+        for(int i = 0; i < isSelected.size(); ++i)
+            if(isSelected[i]) pQuery->addFromAccountId(ids[i]);
+        break;
+    }
+    case byAccountTo:
+    {
+        for(int i = 0; i < isSelected.size(); ++i)
+            if(isSelected[i]) pQuery->addToAccountId(ids[i]);
+        break;
+    }
+    case byCreator:
+    {
+        for(int i = 0; i < isSelected.size(); ++i)
+            if(isSelected[i]) pQuery->addCreatorId(ids[i]);
+        break;
+    }
+    default:
+    {
+        logging::error("Wrong ShowType!\n");
+        break;
+    }
 
+    }
     ProcessorFactory * pProcessorFactory = new ProcessorFactory;
     pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), pQuery);
     if(!pProcessor->processAll()) ;//error
