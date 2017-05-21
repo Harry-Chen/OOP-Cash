@@ -21,6 +21,7 @@ void ProcessorFactory::setTime()
     {
     case ProcessorType::byDay:
         product->setIsSameX([](const QDate& date1, const QDate& date2){return date1 == date2;});
+        product->timeSpan = 24*3600;
         break;
     case ProcessorType::byMonth:
         product->setIsSameX([](const QDate& date1, const QDate& date2){return date1.month() == date2.month() && date1.year() == date2.year();});

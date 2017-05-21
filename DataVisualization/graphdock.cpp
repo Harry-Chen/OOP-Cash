@@ -7,7 +7,8 @@ GraphDock::GraphDock(Processor * _pProcessor, QWidget *parent) :
     pProcessor(_pProcessor)
 {
     ui->setupUi(this);
-    setupDemo2(ui->QCP);
+    //setupDemo1(ui->QCP);
+    setupMyDemo(ui->QCP);
 }
 
 GraphDock::~GraphDock()
@@ -184,11 +185,70 @@ void GraphDock::setupDemo2(QCustomPlot *customPlot)
     customPlot->legend->setBrush(QColor(255, 255, 255, 150));
 }
 
-
 void GraphDock::setupMyDemo(QCustomPlot *customPlot)
 {
     //customPlot->setLocale(QLocale::China);
-    QVector<QDate> timeData_Date = pProcessor->getXvector();
+    QVector<double> time_double;
+    QVector<QVector<double>> value_double;
+    QVector<double> temp;
+    const QVector<QDate> & time_date = pProcessor->getXvector();
+    const QVector<QString> & names = pProcessor->getYvector();
+    const QVector<QVector<int>> &value = pProcessor->getMatrix();
+    for(int i = 0; i < names.size(); i++)
+    {
+        for(int j = 0; j < time_date.size(); j++)
+            temp.push_back((double)value[i][j]);
+        value_double.push_back(temp);
+        temp.clear();
+     }
+    for(int i = 0; i < time_date.size(); ++i)
+        time_double.push_back( (double)time_date[i].toJulianDay()*24*3600);
 
-    QVector<
+    customPlot->addGraph();
+    customPlot->graph(0)->setPen(QPen(Qt::blue)); // line color blue for first graph
+    customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+    customPlot->addGraph();
+    customPlot->graph(1)->setPen(QPen(Qt::red)); // line color red for second graph
+    // generate some points of data (y0 for first, y1 for second graph):
+
+    customPlot->xAxis2->setVisible(true);
+    customPlot->xAxis2->setTickLabels(false);
+    customPlot->yAxis2->setVisible(true);
+    customPlot->yAxis2->setTickLabels(false);
+    // make left and bottom axes always transfer their ranges to right and top axes:
+    connect(customPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), customPlot->xAxis2, SLOT(setRange(QCPRange)));
+    connect(customPlot->yAxis, SIGNAL(rangeChanged(QCPRange)), customPlot->yAxis2, SLOT(setRange(QCPRange)));
+    // pass data points to graphs:
+    temp = value_double[0];
+    customPlot->graph(0)->setData(time_double, value_double[0]);
+    //customPlot->graph(1)->setData(x, y1);
+
+
+    QSharedPointer<QCPAxisTickerDateTime> dateTicker(new QCPAxisTickerDateTime);
+    dateTicker->setDateTimeFormat("d. MMMM\nyyyy");
+    customPlot->xAxis->setTicker(dateTicker);
+    // configure left axis text labels:
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTick(10, "a bit\nlow");
+    textTicker->addTick(50, "quite\nhigh");
+    customPlot->yAxis->setTicker(textTicker);
+    // set a more compact font size for bottom and left axis tick labels:
+    customPlot->xAxis->setTickLabelFont(QFont(QFont().family(), 8));
+    customPlot->yAxis->setTickLabelFont(QFont(QFont().family(), 8));
+    // set axis labels:
+    customPlot->xAxis->setLabel("Date");
+    customPlot->yAxis->setLabel("Random wobbly lines value");
+    // make top and right axes visible but without ticks and labels:
+    customPlot->xAxis2->setVisible(true);
+    customPlot->yAxis2->setVisible(true);
+    customPlot->xAxis2->setTicks(false);
+    customPlot->yAxis2->setTicks(false);
+    customPlot->xAxis2->setTickLabels(false);
+    customPlot->yAxis2->setTickLabels(false);
+    // set axis ranges to show all data:
+    //customPlot->xAxis->setRange(now, now+24*3600*249);
+    customPlot->yAxis->setRange(0, 60);
+    // show legend with slightly transparent background brush:
+    customPlot->legend->setVisible(true);
+    customPlot->legend->setBrush(QColor(255, 255, 255, 150));
 }
