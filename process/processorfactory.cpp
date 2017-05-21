@@ -5,11 +5,11 @@ ProcessorFactory::ProcessorFactory()
 
 }
 
-Processor * ProcessorFactory::creatProcessor(int _time, int _field, Query * pQuery)
+Processor * ProcessorFactory::creatProcessor(int _time, int _field, Query * pQuery,  const QMap<ID, QString>& _nameMap)
 {
     time = _time;
     field = _field;
-    product = new Processor (pQuery);
+    product = new Processor (pQuery, _nameMap);
     setTime();
     setField();
     return product;

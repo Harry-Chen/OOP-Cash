@@ -8,17 +8,18 @@
 namespace ProcessorType
 {
     enum Time {byDay, byWeek, byMonth, byYear};
-    enum Field { byCategory, byAccountFrom, byAccountTo, byCreator };
+    enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreator };
 }
 
 class ProcessorFactory
 {
     int time;
     int field;
+
     Processor * product;
 public:
     ProcessorFactory();
-    Processor * creatProcessor(int, int, Query *);
+    Processor * creatProcessor(int, int, Query *, const QMap<ID, QString> & );
     void setTime();
     void setField();
 };

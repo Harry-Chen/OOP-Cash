@@ -20,34 +20,6 @@
 #include "DataVisualization/mymainwindow.h"
 #include "datavisualization/querywidget.h"
 
-//#define nchDebug
-//#include "graphmainwindow.h"
-//#include "DataVisualization/guigetdata.h"
-/*
-int main(int argc, char *argv[])
-{
-    auto *userman = new UserManager(DatabaseHelper::getDb());
-    User newUser(-1, "Test", "Test Test", "1234");
-    newUser.id = userman->addItem(newUser);
-    userman->getAllItems();
-    newUser = User(-1, "Test", "Test Test", "1234");
-    newUser.id = userman->login(newUser);
-    newUser.nickname = "Test Modified";
-    newUser.username = "test";
-    userman->modifyItem(newUser);
-    userman->getAllItems();
-
-    QApplication windows(argc, argv);
-    MyMainWindow *myMainWindow = new MyMainWindow;
-    myMainWindow->show();
-
-    return windows.exec();
-}
-
-*/
-
-
-
 #ifndef nchDebug
 
 namespace sql = sqlpp::sqlite3;
@@ -70,7 +42,7 @@ int main(int argc, char *argv[])
 
     auto *userman = new UserManager(DatabaseHelper::getDb());
     User newUser(-1, "Test", "Test Test", "1234");
-    newUser.id = userman->addItem(newUser);
+    //newUser.id = userman->addItem(newUser);
     newUser.id = userman->login(newUser);
 
 
@@ -102,13 +74,17 @@ int main(int argc, char *argv[])
 
 
     auto *billman = new BillManager(userman);
-    Bill newBill(-1, -1, newAccount.id, newUser.id, newCat1.id,
+    Bill newBill1(-1, -1, newAccount.id, newUser.id, newCat1.id,
                  1000u, newCurrency.id, QDateTime::currentDateTime(), true, QDate(2017,5,1));
-    newBill.id = billman->addItem(newBill);
+    newBill1.id = billman->addItem(newBill1);
+    Bill newBill2(-1, -1, newAccount.id, newUser.id, newCat2.id,
+                 1001u, newCurrency.id, QDateTime::currentDateTime(), true, QDate(2017,5,1));
+    newBill2.id = billman->addItem(newBill2);
+    std:: cout << billman->getAllItems().size() << std::endl;
+
 
     QApplication windows(argc, argv);
     MyMainWindow *myMainWindow = new MyMainWindow(0, userman);
-   // myMainWindow->setUserman(userman);
     myMainWindow->show();
 
     return windows.exec();

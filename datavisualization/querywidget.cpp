@@ -72,8 +72,9 @@ void QueryWidget::getField(int _field)
 
 void QueryWidget::Do()
 {
-    * pQuery = Query::newQuery(DatabaseHelper::getDb());
-    pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
+    Query query = Query::newQuery(DatabaseHelper::getDb());
+    pQuery = &query;
+  //  pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
     if (ui->finished->currentText() != "both")
     {
         if(ui->finished->currentText() == "finished") pQuery->setFinished(true);
@@ -118,8 +119,13 @@ void QueryWidget::Do()
     }
 
     }
+
+
+    for(int i = 0; i < ids.size(); ++i)
+        nameMap.insert(ids[i], names[i]);
+
     ProcessorFactory * pProcessorFactory = new ProcessorFactory;
-    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), pQuery);
-    if(!pProcessor->processAll()) ;//error
-    else ;/* plot */
+    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), pQuery, nameMap);
+    if(!pProcessor->processAll()) logging::error("fail to process\n");
+    else ;/*plot*/
 }

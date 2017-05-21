@@ -7,7 +7,7 @@ MyMainWindow::MyMainWindow(QWidget *parent, UserManager * _pUserMan) :
     pUserman(_pUserMan)
 {
     ui->setupUi(this);
-    pQueryWidget = new QueryWidget;
+    pQueryWidget = new QueryWidget(this);
     GraphDockPtr = new GraphDock;
     pQueryWidget->setUserman(pUserman);
     pQueryWidget->show();

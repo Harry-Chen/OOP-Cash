@@ -20,6 +20,16 @@ bool Processor::isSameX(int i1, int i2)
     return isSameX(raw[i1].date, X[i2]);
 }
 */
+
+Processor::Processor(Query *pQuery, const QMap<ID, QString> &_nameMap):
+    raw(pQuery->doQuery()), nameMap(_nameMap)
+{
+    QVector<int> temp(1,raw[0].quantity);
+    matrix.push_back(temp);
+    X.push_back(raw[0].date);
+    Y.push_back(0);
+}
+
 bool Processor::isSameY(int i1, int i2)
 {
     return getY(i1) == getY(i2);
@@ -27,6 +37,7 @@ bool Processor::isSameY(int i1, int i2)
 
 bool Processor::process(int i)
 {
+    Y[0] = getY(0);
     if(i == raw.size()) return false;
     for(int ii = 0 ; ii < matrix.size() ;++ii)
         if(isSameY(i, ii))
@@ -63,4 +74,12 @@ void Processor::sortByX()
         std::swap(X[i], X[min]);
         std::swap(matrix[i], matrix[min]);
     }
+}
+
+QVector<QString> Processor::getYvector()
+{
+    QVector <QString> result;
+    for(int i = 0; i < Y.size(); ++i)
+        result.push_back(nameMap.value(Y[i]));
+    return result;
 }

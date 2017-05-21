@@ -30,7 +30,6 @@ public:
     explicit QueryWidget(QWidget *parent = 0);
     void setUserman( UserManager *);
     ~QueryWidget();
-
 private:
     Ui::QueryWidget *ui;
     Query * pQuery;
@@ -38,10 +37,9 @@ private:
     UserManager * pUserManager;
     QList <QString> names;
     QList <ID> ids;
-    //template <typename T> QMap<ID,T> map;
     std::vector<bool> isSelected;
-    //void getList (int);//填充Ids和names
-    //void setList ();//按Ids
+    int field;
+    QMap <ID, QString> nameMap;
 };
 
 #endif // QUERYWIDGET_H
