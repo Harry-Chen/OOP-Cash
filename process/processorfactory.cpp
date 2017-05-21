@@ -5,11 +5,11 @@ ProcessorFactory::ProcessorFactory()
 
 }
 
-Processor * ProcessorFactory::creatProcessor(int _time, int _field, const QVector<Bill> &result)
+Processor * ProcessorFactory::creatProcessor(int _time, int _field, Query * pQuery)
 {
     time = _time;
     field = _field;
-    product = new Processor (result);
+    product = new Processor (pQuery);
     setTime();
     setField();
     return product;
@@ -46,6 +46,8 @@ void ProcessorFactory::setField()
     case ProcessorType::byAccountTo:
         product->setGetY([](Bill bill){return bill.to;});
         break;
+    case ProcessorType::byCreator:
+        product->setGetY([](Bill bill){return bill.creator;});
     default:
         break;
     }

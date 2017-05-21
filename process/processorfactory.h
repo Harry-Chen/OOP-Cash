@@ -8,17 +8,17 @@
 namespace ProcessorType
 {
     enum Time {byDay, byWeek, byMonth, byYear};
-    enum Field { byCategory, byAccountFrom, byAccountTo };
+    enum Field { byCategory, byAccountFrom, byAccountTo, byCreator };
 }
 
-class ProcessorFactory : public Processor
+class ProcessorFactory
 {
-    ProcessorType::Time time;
-    ProcessorType::Field field;
+    int time;
+    int field;
     Processor * product;
 public:
     ProcessorFactory();
-    Processor * creatProcessor(int, int, const QVector <Bill>);
+    Processor * creatProcessor(int, int, Query *);
     void setTime();
     void setField();
 };

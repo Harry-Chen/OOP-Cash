@@ -2,6 +2,8 @@
 #define GRAPHDOCK_H
 
 #include <QDockWidget>
+#include "include/qcustomplot.h"
+#include "process/processor.h"
 
 namespace Ui {
 class GraphDock;
@@ -17,6 +19,11 @@ public:
 
 private:
     Ui::GraphDock *ui;
+    Processor * pProcessor;
+
+    void setupDemo1(QCustomPlot *customPlot);
+    void setupDemo2(QCustomPlot *customPlot);
+    void setupMyDemo(QCustomPlot *customPlot);
 };
 
 #endif // GRAPHDOCK_H

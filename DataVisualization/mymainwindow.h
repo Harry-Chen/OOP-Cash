@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "graphdock.h"
+#include "querywidget.h"
 
 namespace Ui {
 class MyMainWindow;
@@ -15,12 +16,14 @@ public slots:
     void showGraphDock();
 
 public:
-    explicit MyMainWindow(QWidget *parent = 0);
+    explicit MyMainWindow(QWidget *parent, UserManager * _pUserMan);
     ~MyMainWindow();
-
+    void setUserman(UserManager *);
 private:
     Ui::MyMainWindow *ui;
     GraphDock * GraphDockPtr;
+    UserManager * pUserman;
+    QueryWidget * pQueryWidget;
 };
 
 #endif // MYMAINWINDOW_H
