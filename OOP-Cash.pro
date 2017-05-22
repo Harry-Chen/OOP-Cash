@@ -47,7 +47,8 @@ SOURCES += main.cpp \
     ui/changebillwidget.cpp \
     ui/editaccount.cpp \
     ui/logindlg.cpp \
-    ui/recordcostwidget.cpp
+    ui/recordcostwidget.cpp \
+    util/itemsearcher.cpp
     ui/logindlg.cpp
 
 
@@ -71,7 +72,6 @@ HEADERS  += \
     util/common.h \
     model/user.h \
     dao/usermanager.h \
-    dao/itemmanager.h \
     model/currency.h \
     dao/currencymanager.h \
     model/account.h \
@@ -85,7 +85,9 @@ HEADERS  += \
     ui/changebillwidget.h \
     ui/editaccount.h \
     ui/logindlg.h \
-    ui/recordcostwidget.h
+    ui/recordcostwidget.h \
+    dao/itemmanager.h \
+    util/itemsearcher.h
     ui/logindlg.h
 
 FORMS    += \

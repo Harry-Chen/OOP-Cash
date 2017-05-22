@@ -26,6 +26,7 @@ public:
     bool modifyItem(const User &newItem);
     ID login(const User& loginInfo);
     void logout();
+	ID getLoggedInUid() { return loggedInUid; }
 };
 
 #endif // USERMANAGER_H
