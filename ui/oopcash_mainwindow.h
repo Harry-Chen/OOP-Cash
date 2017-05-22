@@ -7,6 +7,7 @@
 #include "model/user.h"
 
 #include "datavisualization/querywidget.h"
+#include "ui/recordcostwidget.h"
 #include "ui/logindlg.h"
 #include "ui/usersetdialog.h"
 
@@ -34,11 +35,13 @@ private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
     QMap<ID,User> userMap;
-    QueryWidget * pQueryWidget;
     bool Isloggedin;
     ID u_id;
+    //Tab Pages
+    QueryWidget * pQueryWidget;
+    RecordCostWidget * pRecardCostWidget;
+    //Methods
     void init();
-
     void showloginDlg();
     void showUserSetDlg();
     void logout();

@@ -9,12 +9,15 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     userman = new UserManager(DatabaseHelper::getDb());
     userMap = userman->getAllItems();
 
-    pQueryWidget = new QueryWidget(ui->statTab);
+    pQueryWidget = new QueryWidget(ui->QueryWidget);
     pQueryWidget->setUserman(userman);
+    pRecardCostWidget = new RecordCostWidget(ui->addWidget);
+    pRecardCostWidget->init(userman);
 
     init();
 
     pQueryWidget->show();
+    pRecardCostWidget->show();
 }
 
 OOPCash_MainWindow::~OOPCash_MainWindow()
@@ -26,6 +29,7 @@ void OOPCash_MainWindow::init() {
     Isloggedin = false;
     ui->setButton->setEnabled(false);
     ui->tabWidget->setEnabled(false);
+    ui->tabWidget->setCurrentIndex(0);
 //    if(userman != nullptr) {
 //        delete userman;
 //        userman = nullptr;
