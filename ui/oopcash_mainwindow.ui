@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>509</width>
-    <height>523</height>
+    <width>409</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,6 +15,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMinimumSize</enum>
+    </property>
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="vLayout_1">
       <item>
@@ -109,7 +112,7 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QPushButton" name="pushButton_3">
+             <widget class="QPushButton" name="moneymoveButton">
               <property name="minimumSize">
                <size>
                 <width>128</width>
@@ -128,7 +131,7 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="moneyoutButton">
               <property name="minimumSize">
                <size>
                 <width>128</width>
@@ -147,7 +150,7 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QPushButton" name="pushButton_4">
+             <widget class="QPushButton" name="userconfigButton">
               <property name="minimumSize">
                <size>
                 <width>128</width>
@@ -205,13 +208,26 @@
     <rect>
      <x>0</x>
      <y>0</y>
+<<<<<<< HEAD
      <width>509</width>
      <height>25</height>
+=======
+     <width>409</width>
+     <height>23</height>
+>>>>>>> origin/master
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>loginoutButton</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>moneyinButton</tabstop>
+  <tabstop>moneyoutButton</tabstop>
+  <tabstop>moneymoveButton</tabstop>
+  <tabstop>userconfigButton</tabstop>
+ </tabstops>
  <resources>
   <include location="../uirsc.qrc"/>
  </resources>
