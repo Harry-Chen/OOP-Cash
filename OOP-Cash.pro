@@ -49,7 +49,8 @@ SOURCES += main.cpp \
     ui/changebillwidget.cpp \
     ui/editaccount.cpp \
     ui/logindlg.cpp \
-    ui/recordcostwidget.cpp
+    ui/recordcostwidget.cpp \
+    ui/usersetdialog.cpp
 
 INCLUDEPATH += include
 
@@ -91,7 +92,8 @@ HEADERS  += \
     ui/logindlg.h \
     ui/recordcostwidget.h \
     process/processor.h \
-    process/processorfactory.h
+    process/processorfactory.h \
+    ui/usersetdialog.h
 
 
 FORMS    += \
@@ -102,6 +104,7 @@ FORMS    += \
     ui/changebillwidget.ui \
     ui/editaccount.ui \
     ui/logindlg.ui \
+    ui/usersetdialog.ui
 
 RESOURCES += \
     uirsc.qrc
