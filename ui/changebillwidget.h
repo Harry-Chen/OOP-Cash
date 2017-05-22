@@ -1,4 +1,4 @@
-#ifndef CHANGEBILLWIDGET_H
+﻿#ifndef CHANGEBILLWIDGET_H
 #define CHANGEBILLWIDGET_H
 
 #include <QWidget>

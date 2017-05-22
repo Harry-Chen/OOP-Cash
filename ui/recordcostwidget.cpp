@@ -1,4 +1,4 @@
-#include "recordcostwidget.h"
+﻿#include "recordcostwidget.h"
 
 RecordCostWidget::RecordCostWidget()
 {
@@ -7,7 +7,7 @@ RecordCostWidget::RecordCostWidget()
 
 void RecordCostWidget::addBill()
 {
-	BillManager billman = new BillManager(_userman);
+    //BillManager billman = new BillManager(_userman);
 
 }
 
