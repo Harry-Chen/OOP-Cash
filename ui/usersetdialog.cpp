@@ -10,6 +10,7 @@ userSetDialog::userSetDialog(ID userInfo, UserManager *usermanInfo, QMap<ID, Use
     userMap(userMapInfo)
 {
     ui->setupUi(this);
+    this->setWindowTitle("更新资料");
     ui->passwordEdit->setEchoMode(QLineEdit::Password);
     ui->pwAgainEdit->setEchoMode(QLineEdit::Password);
     ui->nicknameEdit->setText(userMap[u_id].nickname);

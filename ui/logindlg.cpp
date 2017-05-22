@@ -10,6 +10,7 @@ loginDlg::loginDlg(UserManager *usermanInfo, QWidget *parent) :
     ui(new Ui::loginDlg)
 {
     ui->setupUi(this);
+
     ui->nicknameEdit->hide();
     ui->nicknameLabel->hide();
     ui->pwAgainEdit->hide();
@@ -74,6 +75,7 @@ void loginDlg::on_switchButton_clicked()
     ui->nicknameEdit->clear();
     ui->passwordEdit->clear();
     ui->pwAgainEdit->clear();
+    this->setWindowTitle((switchButtonPressed ? "注册" : "登录"));
     ui->loginButton->setText((switchButtonPressed ? "signin" : "login"));
     ui->switchButton->setText(switchButtonPressed ? "登录" : "注册");
     ui->nicknameEdit->setVisible(switchButtonPressed);

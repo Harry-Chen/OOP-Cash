@@ -50,6 +50,9 @@ void OOPCash_MainWindow::showUserSetDlg() {
 
 void OOPCash_MainWindow::logout() {
     userman->logout();
+    ui->loginoutButton->setText("login");
+    ui->usernameLabel->setText("好像还没有登录呢~");
+    init();         //clear data recieved...
 }
 
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
@@ -71,16 +74,7 @@ void OOPCash_MainWindow::on_userMapUpdate() {
 
 void OOPCash_MainWindow::on_loginoutButton_clicked()
 {
-    if(!Isloggedin) {
-        showloginDlg();
-        //userMap = userman->getAllItems();
-    }
-    else {
-        logout();
-        ui->loginoutButton->setText("login");
-        ui->usernameLabel->setText("好像还没有登录呢~");
-        init();         //clear data recieved...
-    }
+    Isloggedin ? logout() : showloginDlg();
 }
 
 void OOPCash_MainWindow::on_setButton_clicked()
