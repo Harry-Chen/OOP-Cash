@@ -1,4 +1,4 @@
-#include "oopcash_mainwindow.h"
+﻿#include "oopcash_mainwindow.h"
 #include "ui_oopcash_mainwindow.h"
 
 OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
@@ -6,10 +6,13 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     ui(new Ui::OOPCash_MainWindow)
 {
     ui->setupUi(this);
-    userman = nullptr;
-    init();
+    userman = new UserManager(DatabaseHelper::getDb());
+
     pQueryWidget = new QueryWidget(ui->statTab);
     pQueryWidget->setUserman(userman);
+
+    init();
+
     pQueryWidget->show();
 }
 
@@ -20,11 +23,13 @@ OOPCash_MainWindow::~OOPCash_MainWindow()
 
 void OOPCash_MainWindow::init() {
     Isloggedin = false;
-    if(userman != nullptr) {
-        delete userman;
-        userman = nullptr;
-    }
-    userman = new UserManager(DatabaseHelper::getDb());
+    ui->setButton->setEnabled(false);
+//    if(userman != nullptr) {
+//        delete userman;
+//        userman = nullptr;
+//    }
+//    userman = new UserManager(DatabaseHelper::getDb());
+
     //other init...
 }
 
@@ -34,12 +39,18 @@ void OOPCash_MainWindow::showloginDlg() {
     dlg->exec();
 }
 
+void OOPCash_MainWindow::showUserSetDlg() {
+    auto dlg = new userSetDialog(u_id, userman, userMap, this);
+    dlg->exec();
+}
+
 void OOPCash_MainWindow::logout() {
     userman->logout();
 }
 
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo, QString nameInfo) {
     Isloggedin = true;
+    ui->setButton->setEnabled(true);
     u_id = idInfo;
     ui->usernameLabel->setText(nameInfo);
     ui->loginoutButton->setText("logout");
@@ -49,6 +60,7 @@ void OOPCash_MainWindow::on_loginoutButton_clicked()
 {
     if(!Isloggedin) {
         showloginDlg();
+        userMap = userman->getAllItems();
     }
     else {
         logout();
@@ -56,4 +68,9 @@ void OOPCash_MainWindow::on_loginoutButton_clicked()
         ui->usernameLabel->setText("好像还没有登录呢~");
         init();         //clear data recieved...
     }
+}
+
+void OOPCash_MainWindow::on_setButton_clicked()
+{
+    showUserSetDlg();
 }

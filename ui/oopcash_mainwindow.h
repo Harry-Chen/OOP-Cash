@@ -1,4 +1,4 @@
-#ifndef OOPCASH_MAINWINDOW_H
+﻿#ifndef OOPCASH_MAINWINDOW_H
 #define OOPCASH_MAINWINDOW_H
 
 #include <QMainWindow>
@@ -9,6 +9,7 @@
 
 #include "datavisualization/querywidget.h"
 #include "ui/logindlg.h"
+#include "ui/usersetdialog.h"
 
 namespace Ui {
 class OOPCash_MainWindow;
@@ -27,16 +28,19 @@ public slots:
 
 private slots:
     void on_loginoutButton_clicked();
+    void on_setButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
+    QMap<ID,User> userMap;
     QueryWidget * pQueryWidget;
     bool Isloggedin;
     ID u_id;
     void init();
 
     void showloginDlg();
+    void showUserSetDlg();
     void logout();
 
 };
