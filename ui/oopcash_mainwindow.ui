@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>OOPCash_MainWindow</class>
  <widget class="QMainWindow" name="OOPCash_MainWindow">
@@ -257,13 +257,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-<<<<<<< HEAD
      <width>509</width>
      <height>25</height>
-=======
-     <width>409</width>
-     <height>23</height>
->>>>>>> origin/master
     </rect>
    </property>
   </widget>

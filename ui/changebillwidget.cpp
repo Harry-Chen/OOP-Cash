@@ -1,5 +1,6 @@
 ﻿#include "changebillwidget.h"
 #include "ui_changebillwidget.h"
+#include "util/constants.h"
 
 ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 	QWidget(parent),
@@ -7,6 +8,7 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 {
 	_userman = nullptr;
 	ui->setupUi(this);
+	ui->lineEditAmount->setValidator(new QDoubleValidator(ui->lineEditAmount));
 }
 
 void ChangeBillWidget::init(UserManager* userman) {
@@ -27,11 +29,17 @@ ChangeBillWidget::~ChangeBillWidget()
 	_userman = nullptr;
 }
 
+void ChangeBillWidget::clearWidget()
+{
+	getMoneyLineEdit()->clear();
+	getNoteTextEdit()->clear();
+}
+
 void ChangeBillWidget::setCurrencyCombobox()
 {
 	CurrencyManager* currman = new CurrencyManager(_userman);
 	QStringList currList;
-	getNameList(currman, currList);
+	ItemSearcher::instance()->getNameList(currman, currList);
 	getCurrencyCombobox()->clear();
 	getCurrencyCombobox()->addItems(currList);
 }
@@ -66,7 +74,7 @@ QLineEdit*ChangeBillWidget::getTimeLineEdit()
 	return ui->lineEditTime;
 }
 
-QLineEdit*ChangeBillWidget::getAmountLineEdit()
+QLineEdit*ChangeBillWidget::getMoneyLineEdit()
 {
 	return ui->lineEditAmount;
 }
@@ -89,4 +97,9 @@ QComboBox* ChangeBillWidget::getCombobox2()
 QComboBox* ChangeBillWidget::getCurrencyCombobox()
 {
 	return ui->comboCurrency;
+}
+
+void ChangeBillWidget::on_savebtn_released()
+{
+	addBill();
 }

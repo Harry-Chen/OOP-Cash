@@ -50,7 +50,9 @@ SOURCES += main.cpp \
     ui/editaccount.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
-    ui/usersetdialog.cpp
+    util/itemsearcher.cpp
+    ui/logindlg.cpp
+
 
 INCLUDEPATH += include
 
@@ -73,7 +75,6 @@ HEADERS  += \
     util/common.h \
     model/user.h \
     dao/usermanager.h \
-    dao/itemmanager.h \
     model/currency.h \
     dao/currencymanager.h \
     model/account.h \
@@ -91,10 +92,9 @@ HEADERS  += \
     ui/editaccount.h \
     ui/logindlg.h \
     ui/recordcostwidget.h \
-    process/processor.h \
-    process/processorfactory.h \
-    ui/usersetdialog.h
-
+    dao/itemmanager.h \
+    util/itemsearcher.h \
+    ui/logindlg.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
@@ -103,8 +103,7 @@ FORMS    += \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
     ui/editaccount.ui \
-    ui/logindlg.ui \
-    ui/usersetdialog.ui
+    ui/logindlg.ui
 
 RESOURCES += \
     uirsc.qrc
