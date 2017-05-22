@@ -85,3 +85,9 @@ void OOPCash_MainWindow::on_setButton_clicked()
 {
     showUserSetDlg();
 }
+
+void OOPCash_MainWindow::on_exportButton_clicked()
+{
+    auto exportor = new dataExporter(userman);
+    exportor->doExport();
+}

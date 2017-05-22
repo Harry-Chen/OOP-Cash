@@ -11,6 +11,8 @@
 #include "ui/logindlg.h"
 #include "ui/usersetdialog.h"
 
+#include "dataPorter/dataexporter.h"
+
 namespace Ui {
 class OOPCash_MainWindow;
 }
@@ -30,6 +32,8 @@ public slots:
 private slots:
     void on_loginoutButton_clicked();
     void on_setButton_clicked();
+
+    void on_exportButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;
