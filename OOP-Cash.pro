@@ -40,7 +40,6 @@ SOURCES += main.cpp \
     model/bill.cpp \
     dao/billmanager.cpp \
     dao/query.cpp \
-    datavisualization/mymainwindow.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
     process/processor.cpp \
@@ -52,8 +51,9 @@ SOURCES += main.cpp \
     ui/recordcostwidget.cpp \
     util/itemsearcher.cpp \
     ui/usersetdialog.cpp \
-    dataPorter/dataexporter.cpp
-    ui/logindlg.cpp
+    ui/logindlg.cpp \
+    ui/billdetailwidget.cpp \
+    ui/detailwidget.cpp
 
 
 INCLUDEPATH += include
@@ -88,7 +88,6 @@ HEADERS  += \
     dao/categorymanager.h \
     dao/billmanager.h \
     dao/query.h \
-    datavisualization/mymainwindow.h \
     datavisualization/graphdock.h \
     datavisualization/querywidget.h \
     ui/oopcash_mainwindow.h \
@@ -100,17 +99,21 @@ HEADERS  += \
     util/itemsearcher.h \
     ui/logindlg.h \
     ui/usersetdialog.h \
-    dataPorter/dataexporter.h
+    ui/billdetailwidget.h \
+    ui/detailwidget.h \
+    process/processor.h \
+    process/processorfactory.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
-    datavisualization/mymainwindow.ui \
     datavisualization/querywidget.ui \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
     ui/editaccount.ui \
     ui/logindlg.ui \
-    ui/usersetdialog.ui
+    ui/usersetdialog.ui \
+    ui/billdetailwidget.ui \
+    ui/detailwidget.ui
 
 RESOURCES += \
     uirsc.qrc

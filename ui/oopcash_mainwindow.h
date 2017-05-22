@@ -7,6 +7,8 @@
 #include "model/user.h"
 
 #include "datavisualization/querywidget.h"
+
+#include "ui/detailwidget.h"
 #include "ui/recordcostwidget.h"
 #include "ui/logindlg.h"
 #include "ui/usersetdialog.h"
@@ -38,7 +40,10 @@ private slots:
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
+    DetailWidget * pDetailWidget;
+
     QMap<ID,User> userMap;
+
     bool Isloggedin;
     ID u_id;
     //Tab Pages

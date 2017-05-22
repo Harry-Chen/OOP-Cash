@@ -11,12 +11,14 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
 
     pQueryWidget = new QueryWidget(ui->QueryWidget);
     pQueryWidget->setUserman(userman);
-    pRecardCostWidget = new RecordCostWidget(ui->addWidget);
+    pRecardCostWidget = new RecordCostWidget(ui->addTab);
     pRecardCostWidget->init(userman);
 
     init();
 
     pQueryWidget->show();
+    pDetailWidget = new DetailWidget(ui->detailTab, userman);
+    pDetailWidget->show();
     pRecardCostWidget->show();
 }
 

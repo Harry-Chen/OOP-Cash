@@ -204,15 +204,7 @@
          <attribute name="title">
           <string>记一笔</string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout_addTab">
-            <item row="0" column="0">
-             <widget class="QWidget" name="addWidget" native="true"/>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <layout class="QGridLayout" name="gridLayout_4"/>
         </widget>
         <widget class="QWidget" name="detailTab">
          <attribute name="title">

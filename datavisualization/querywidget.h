@@ -1,4 +1,4 @@
-#ifndef QUERYWIDGET_H
+﻿#ifndef QUERYWIDGET_H
 #define QUERYWIDGET_H
 
 #include <QWidget>
@@ -43,6 +43,7 @@ private:
     QMap <ID, QString> nameMap;
 
     void setupPlot();
+    void init();
 };
 
 #endif // QUERYWIDGET_H
