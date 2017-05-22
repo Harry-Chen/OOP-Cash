@@ -50,7 +50,9 @@ SOURCES += main.cpp \
     ui/editaccount.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
-    util/itemsearcher.cpp
+    util/itemsearcher.cpp \
+    ui/billdetailwidget.cpp \
+    ui/detailwidget.cpp
     ui/logindlg.cpp
 
 
@@ -94,7 +96,9 @@ HEADERS  += \
     ui/recordcostwidget.h \
     dao/itemmanager.h \
     util/itemsearcher.h \
-    ui/logindlg.h
+    ui/logindlg.h \
+    ui/billdetailwidget.h \
+    ui/detailwidget.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
@@ -103,7 +107,9 @@ FORMS    += \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
     ui/editaccount.ui \
-    ui/logindlg.ui
+    ui/logindlg.ui \
+    ui/billdetailwidget.ui \
+    ui/detailwidget.ui
 
 RESOURCES += \
     uirsc.qrc

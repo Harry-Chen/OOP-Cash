@@ -17,7 +17,6 @@ protected:
         logging::error(std::string("Error occured while executing SQL statement:\n") + e.what());
     }
     virtual ID getIdByName(const QString &_name) = 0;
-
 public:
     ItemManager() = delete;
     ItemManager(sqlpp::sqlite3::connection *_db):db(_db){}

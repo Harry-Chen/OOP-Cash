@@ -1,4 +1,4 @@
-#ifndef OOPCASH_MAINWINDOW_H
+﻿#ifndef OOPCASH_MAINWINDOW_H
 #define OOPCASH_MAINWINDOW_H
 
 #include <QMainWindow>
@@ -8,6 +8,7 @@
 #include "model/user.h"
 
 #include "datavisualization/querywidget.h"
+#include "ui/detailwidget.h"
 #include "ui/logindlg.h"
 
 namespace Ui {
@@ -32,6 +33,8 @@ private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
     QueryWidget * pQueryWidget;
+    DetailWidget * pDetailWidget;
+
     bool Isloggedin;
     ID u_id;
     void init();

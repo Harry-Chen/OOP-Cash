@@ -1,4 +1,4 @@
-#include "oopcash_mainwindow.h"
+﻿#include "oopcash_mainwindow.h"
 #include "ui_oopcash_mainwindow.h"
 
 OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
@@ -11,6 +11,8 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     pQueryWidget = new QueryWidget(ui->statTab);
     pQueryWidget->setUserman(userman);
     pQueryWidget->show();
+    pDetailWidget = new DetailWidget(ui->detailTab, userman);
+    pDetailWidget->show();
 }
 
 OOPCash_MainWindow::~OOPCash_MainWindow()

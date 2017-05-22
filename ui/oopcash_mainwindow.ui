@@ -127,7 +127,7 @@
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>2</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="homeTab">
          <attribute name="title">
@@ -220,11 +220,7 @@
          <attribute name="title">
           <string>明细</string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0">
-           <widget class="QWidget" name="widget" native="true"/>
-          </item>
-         </layout>
+         <layout class="QGridLayout" name="gridLayout_4"/>
         </widget>
         <widget class="QWidget" name="statTab">
          <attribute name="title">
@@ -257,8 +253,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>509</width>
-     <height>25</height>
+     <width>409</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>
