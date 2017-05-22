@@ -38,17 +38,18 @@ int main(int argc, char *argv[])
 	logging::trace("Application Start===========");
     DatabaseHelper::initializeDatabase();
 	
-	OOPCash_MainWindow * w = new OOPCash_MainWindow;
-	
+    auto w = new OOPCash_MainWindow;
     w->show();
+
+    auto userman = new UserManager(DatabaseHelper::getDb());
+    auto myMainWindow = new MyMainWindow(0, userman);
+    myMainWindow->show();
+
     return a.exec();
 	
 //	RecordCostWidget* ww = new RecordCostWidget();
 //	ww->init(userman);
 //	ww->show();
-
-
-//    DatabaseHelper::initializeDatabase();
 
     // auto *userman = new UserManager(DatabaseHelper::getDb());
     // User newUser(-1, "Test", "Test Test", "1234");
@@ -93,10 +94,6 @@ int main(int argc, char *argv[])
     // std:: cout << billman->getAllItems().size() << std::endl;
 
 
-    // MyMainWindow *myMainWindow = new MyMainWindow(0, userman);
-    // myMainWindow->show();
-
-    // return a.exec();
 
 //    auto *userman = new UserManager(DatabaseHelper::getDb());
 //    User newUser(-1, "Test", "Test Test", "1234");
