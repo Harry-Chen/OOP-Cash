@@ -1,7 +1,7 @@
 ﻿#include "graphdock.h"
 #include "ui_graphdock.h"
 
-GraphDock::GraphDock(Processor * _pProcessor, QWidget *parent) :
+GraphDock::GraphDock(ProcessorBase *_pProcessor, QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::GraphDock),
     pProcessor(_pProcessor)

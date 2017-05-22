@@ -127,7 +127,7 @@
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>1</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="homeTab">
          <attribute name="title">
@@ -230,16 +230,6 @@
          <attribute name="title">
           <string>统计</string>
          </attribute>
-         <widget class="QWidget" name="QueryWidget" native="true">
-          <property name="geometry">
-           <rect>
-            <x>80</x>
-            <y>110</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-         </widget>
         </widget>
         <widget class="QWidget" name="queryTab">
          <attribute name="title">

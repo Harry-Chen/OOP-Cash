@@ -49,7 +49,9 @@ SOURCES += main.cpp \
     ui/editaccount.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
-    util/itemsearcher.cpp
+    util/itemsearcher.cpp \
+    process/balanceprocessor.cpp \
+    process/processorbase.cpp
     ui/logindlg.cpp
 
 
@@ -94,7 +96,9 @@ HEADERS  += \
     util/itemsearcher.h \
     ui/logindlg.h \
     process/processor.h \
-    process/processorfactory.h
+    process/processorfactory.h \
+    process/balanceprocessor.h \
+    process/processorbase.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
