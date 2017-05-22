@@ -51,7 +51,8 @@ SOURCES += main.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
     util/itemsearcher.cpp \
-    ui/usersetdialog.cpp
+    ui/usersetdialog.cpp \
+    dataPorter/dataexporter.cpp
     ui/logindlg.cpp
 
 
@@ -98,7 +99,8 @@ HEADERS  += \
     dao/itemmanager.h \
     util/itemsearcher.h \
     ui/logindlg.h \
-    ui/usersetdialog.h
+    ui/usersetdialog.h \
+    dataPorter/dataexporter.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
