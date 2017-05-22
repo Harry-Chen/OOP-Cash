@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/icons">
         <file alias="userface">icons/userface.png</file>
+        <file>icons/2.png</file>
+        <file>icons/24.png</file>
+        <file>icons/55.png</file>
+        <file>icons/56.png</file>
+        <file alias="settings">icons/settings.png</file>
     </qresource>
 </RCC>
