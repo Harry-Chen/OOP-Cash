@@ -57,6 +57,8 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += include
 
+PRECOMPILED_HEADER += util/common.h
+
 debug:DEFINES += _DEBUG
 
 win32{

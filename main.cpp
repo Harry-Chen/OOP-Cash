@@ -4,7 +4,6 @@
 #include <QDateTime>
 #include <sqlpp11/sqlpp11.h>
 
-#include "util/common.h"
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"

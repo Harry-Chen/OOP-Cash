@@ -2,7 +2,6 @@
 #define USERSETDIALOG_H
 
 #include <QDialog>
-#include "util/constants.h"
 #include "dao/usermanager.h"
 #include "model/user.h"
 
@@ -18,18 +17,18 @@ public:
     explicit userSetDialog(ID userInfo, UserManager * usermanInfo, QMap<ID,User> &userMapInfo, QWidget *parent = 0);
     ~userSetDialog();
 
-private slots:
-    void on_nicknameSetButton_clicked();
+signals:
+    void userMapUpdate();
 
-    void on_passwordSetButton_clicked();
+private slots:
+    void on_freshButton_clicked();
 
 private:
     Ui::userSetDialog *ui;
     ID u_id;
     UserManager * userman;
     QMap<ID,User> & userMap;
-    bool setNickname();
-    bool setPassword();
+    bool freshUserInfo();
 };
 
 #endif // USERSETDIALOG_H

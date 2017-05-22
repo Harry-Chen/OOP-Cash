@@ -1,5 +1,4 @@
 ﻿#include "util/configuration.h"
-#include "util/common.h"
 
 QSettings Configuration::mSettings(APP_ORGNIZATION, APP_NAME);
 

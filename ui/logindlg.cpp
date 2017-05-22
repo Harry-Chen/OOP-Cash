@@ -1,4 +1,4 @@
-#include <QMessageBox>
+﻿#include <QMessageBox>
 #include "logindlg.h"
 #include "ui_logindlg.h"
 #include "model/user.h"
@@ -26,7 +26,7 @@ loginDlg::~loginDlg()
 }
 
 bool loginDlg::login() {
-    auto newuser = new User(-1, ui->usernameEdit->text(),QString(), ui->passwordEdit->text());
+    auto newuser = new User(-1, ui->usernameEdit->text(), QString(), ui->passwordEdit->text());
     u_id = userman->login(*newuser);
     return ( (u_id == -1) ? false : true );
 }

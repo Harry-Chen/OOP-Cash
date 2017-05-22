@@ -2,7 +2,6 @@
 #define OOPCASH_MAINWINDOW_H
 
 #include <QMainWindow>
-#include "util/constants.h"
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "model/user.h"
@@ -25,6 +24,7 @@ public:
 
 public slots:
     void on_loginSuccess(ID, QString);
+    void on_userMapUpdate();
 
 private slots:
     void on_loginoutButton_clicked();

@@ -7,6 +7,7 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     userman = new UserManager(DatabaseHelper::getDb());
+    userMap = userman->getAllItems();
 
     pQueryWidget = new QueryWidget(ui->statTab);
     pQueryWidget->setUserman(userman);
@@ -24,6 +25,7 @@ OOPCash_MainWindow::~OOPCash_MainWindow()
 void OOPCash_MainWindow::init() {
     Isloggedin = false;
     ui->setButton->setEnabled(false);
+    ui->tabWidget->setEnabled(false);
 //    if(userman != nullptr) {
 //        delete userman;
 //        userman = nullptr;
@@ -35,12 +37,14 @@ void OOPCash_MainWindow::init() {
 
 void OOPCash_MainWindow::showloginDlg() {
     auto dlg = new loginDlg(userman, this);
-    QObject::connect(dlg, SIGNAL(loginSuccessSignal(ID, QString)), this, SLOT(on_loginSuccess(ID, QString)));
+    connect(dlg, SIGNAL(loginSuccessSignal(ID, QString)), this, SLOT(on_loginSuccess(ID, QString)));
+    connect(dlg, SIGNAL(userMapUpdate()), this, SLOT(on_userMapUpdate));
     dlg->exec();
 }
 
 void OOPCash_MainWindow::showUserSetDlg() {
     auto dlg = new userSetDialog(u_id, userman, userMap, this);
+    connect(dlg, SIGNAL(userMapUpdate()), this, SLOT(on_userMapUpdate));
     dlg->exec();
 }
 
@@ -51,16 +55,21 @@ void OOPCash_MainWindow::logout() {
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo, QString nameInfo) {
     Isloggedin = true;
     ui->setButton->setEnabled(true);
+    ui->tabWidget->setEnabled(true);
     u_id = idInfo;
     ui->usernameLabel->setText(nameInfo);
     ui->loginoutButton->setText("logout");
+}
+
+void OOPCash_MainWindow::on_userMapUpdate() {
+    userMap = userman->getAllItems();
 }
 
 void OOPCash_MainWindow::on_loginoutButton_clicked()
 {
     if(!Isloggedin) {
         showloginDlg();
-        userMap = userman->getAllItems();
+        //userMap = userman->getAllItems();
     }
     else {
         logout();
