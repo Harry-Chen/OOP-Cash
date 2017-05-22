@@ -59,7 +59,7 @@ void loginDlg::on_loginButton_clicked()
 
     //log in...
     if(login()) {
-        emit loginSuccessSignal(u_id, ui->usernameEdit->text());
+        emit loginSuccessSignal(u_id);
         this->close();
     }
     else {

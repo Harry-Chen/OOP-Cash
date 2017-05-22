@@ -37,14 +37,14 @@ void OOPCash_MainWindow::init() {
 
 void OOPCash_MainWindow::showloginDlg() {
     auto dlg = new loginDlg(userman, this);
-    connect(dlg, SIGNAL(loginSuccessSignal(ID, QString)), this, SLOT(on_loginSuccess(ID, QString)));
-    connect(dlg, SIGNAL(userMapUpdate()), this, SLOT(on_userMapUpdate));
+    connect(dlg, SIGNAL(loginSuccessSignal(ID)), this, SLOT(on_loginSuccess(ID)));
+    connect(dlg, SIGNAL(userMapUpdate()), this, SLOT(on_userMapUpdate()));
     dlg->exec();
 }
 
 void OOPCash_MainWindow::showUserSetDlg() {
     auto dlg = new userSetDialog(u_id, userman, userMap, this);
-    connect(dlg, SIGNAL(userMapUpdate()), this, SLOT(on_userMapUpdate));
+    connect(dlg, SIGNAL(userMapUpdate()), this, SLOT(on_userMapUpdate()));
     dlg->exec();
 }
 
@@ -52,17 +52,21 @@ void OOPCash_MainWindow::logout() {
     userman->logout();
 }
 
-void OOPCash_MainWindow::on_loginSuccess(ID idInfo, QString nameInfo) {
+void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     Isloggedin = true;
     ui->setButton->setEnabled(true);
     ui->tabWidget->setEnabled(true);
+
     u_id = idInfo;
-    ui->usernameLabel->setText(nameInfo);
+    User theUser = userMap[u_id];
+    ui->usernameLabel->setText(theUser.nickname.isEmpty() ? theUser.username : theUser.nickname);
     ui->loginoutButton->setText("logout");
 }
 
 void OOPCash_MainWindow::on_userMapUpdate() {
     userMap = userman->getAllItems();
+    User theUser = userMap[u_id];
+    ui->usernameLabel->setText(theUser.nickname.isEmpty() ? theUser.username : theUser.nickname);
 }
 
 void OOPCash_MainWindow::on_loginoutButton_clicked()

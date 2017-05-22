@@ -23,7 +23,7 @@ public:
     ~OOPCash_MainWindow();
 
 public slots:
-    void on_loginSuccess(ID, QString);
+    void on_loginSuccess(ID);
     void on_userMapUpdate();
 
 private slots:

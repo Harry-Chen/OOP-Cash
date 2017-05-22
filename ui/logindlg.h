@@ -17,7 +17,7 @@ public:
     ~loginDlg();
 
 signals:
-    void loginSuccessSignal(ID, QString);
+    void loginSuccessSignal(ID);
     void userMapUpdate();
 
 private slots:
