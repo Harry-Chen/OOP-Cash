@@ -1,4 +1,4 @@
-#ifndef PROCESSOR_H
+﻿#ifndef PROCESSOR_H
 #define PROCESSOR_H
 
 #include <QVector>

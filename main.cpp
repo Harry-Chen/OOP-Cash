@@ -13,7 +13,7 @@
 #include "dao/billmanager.h"
 #include "dao/query.h"
 #include "model/user.h"
-#include "model/currency.h";
+#include "model/currency.h"
 #include "model/account.h"
 #include "model/category.h"
 #include "model/bill.h"
@@ -24,7 +24,7 @@ namespace sql = sqlpp::sqlite3;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication windows(argc, argv);
     logging::Logger::instance().setLogDir(QCoreApplication::applicationDirPath().toStdString());
     logging::Logger::instance().setLogFilePrefix(APP_NAME.toStdString());
 #ifdef _DEBUG
@@ -81,7 +81,6 @@ int main(int argc, char *argv[])
     std:: cout << billman->getAllItems().size() << std::endl;
 
 
-    QApplication windows(argc, argv);
     MyMainWindow *myMainWindow = new MyMainWindow(0, userman);
     myMainWindow->show();
 

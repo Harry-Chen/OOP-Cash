@@ -1,8 +1,8 @@
-#ifndef GRAPHDOCK_H
+﻿#ifndef GRAPHDOCK_H
 #define GRAPHDOCK_H
 
 #include <QDockWidget>
-#include "include/qcustomplot.h"
+#include "qcustomplot.h"
 #include "process/processor.h"
 
 namespace Ui {
