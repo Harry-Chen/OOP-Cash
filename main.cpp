@@ -4,7 +4,6 @@
 #include <QDateTime>
 #include <sqlpp11/sqlpp11.h>
 
-#include "util/common.h"
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
@@ -40,10 +39,6 @@ int main(int argc, char *argv[])
 	
     auto w = new OOPCash_MainWindow;
     w->show();
-
-    auto userman = new UserManager(DatabaseHelper::getDb());
-    auto myMainWindow = new MyMainWindow(0, userman);
-    myMainWindow->show();
 
     return a.exec();
 	

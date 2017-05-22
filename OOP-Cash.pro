@@ -51,12 +51,15 @@ SOURCES += main.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
     util/itemsearcher.cpp \
+    ui/usersetdialog.cpp \
+    ui/logindlg.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp
-    ui/logindlg.cpp
 
 
 INCLUDEPATH += include
+
+PRECOMPILED_HEADER += util/common.h
 
 debug:DEFINES += _DEBUG
 
@@ -97,6 +100,7 @@ HEADERS  += \
     dao/itemmanager.h \
     util/itemsearcher.h \
     ui/logindlg.h \
+    ui/usersetdialog.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h
 
@@ -108,6 +112,7 @@ FORMS    += \
     ui/changebillwidget.ui \
     ui/editaccount.ui \
     ui/logindlg.ui \
+    ui/usersetdialog.ui \
     ui/billdetailwidget.ui \
     ui/detailwidget.ui
 

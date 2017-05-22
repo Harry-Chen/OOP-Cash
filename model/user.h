@@ -11,7 +11,7 @@ class User
     friend class UserManager;
 private:
     QString encryptedPassword;
-    void setPassword(const QString &password);
+
 public:
     User(ID _id = -1, QString _username = QString(), QString _nickname = QString(), QString _password = QString());
     ID id;
@@ -20,6 +20,7 @@ public:
     operator std::string();
     static Table::User TABLE;
     friend std::ostream& operator<<(std::ostream& os, const User& dt);
+    void setPassword(const QString &password);
 };
 
 #endif // USER_H

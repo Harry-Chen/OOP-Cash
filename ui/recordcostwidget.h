@@ -1,4 +1,4 @@
-#ifndef RECORDCOSTWIDGET_H
+﻿#ifndef RECORDCOSTWIDGET_H
 #define RECORDCOSTWIDGET_H
 
 #include "changebillwidget.h"
@@ -8,7 +8,7 @@ class RecordCostWidget : public ChangeBillWidget
 	Q_OBJECT
 
 public:
-	RecordCostWidget();
+    RecordCostWidget(QWidget *parent);
 public slots:
 	virtual void addBill();
 protected:

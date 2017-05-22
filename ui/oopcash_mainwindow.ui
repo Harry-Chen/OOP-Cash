@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>409</width>
-    <height>502</height>
+    <width>611</width>
+    <height>443</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -104,22 +104,6 @@
             </property>
            </widget>
           </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Ignored</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </item>
        </layout>
@@ -135,7 +119,7 @@
          </attribute>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout">
+           <layout class="QGridLayout" name="gridLayout_homeTab">
             <item row="0" column="0">
              <widget class="QPushButton" name="moneyinButton">
               <property name="minimumSize">
@@ -216,6 +200,12 @@
           </item>
          </layout>
         </widget>
+        <widget class="QWidget" name="addTab">
+         <attribute name="title">
+          <string>记一笔</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_4"/>
+        </widget>
         <widget class="QWidget" name="detailTab">
          <attribute name="title">
           <string>明细</string>
@@ -226,21 +216,45 @@
          <attribute name="title">
           <string>统计</string>
          </attribute>
-         <widget class="QWidget" name="QueryWidget" native="true">
-          <property name="geometry">
-           <rect>
-            <x>80</x>
-            <y>110</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-         </widget>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_statTab">
+            <item row="0" column="0">
+             <widget class="QWidget" name="QueryWidget" native="true"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="queryTab">
          <attribute name="title">
           <string>查询</string>
          </attribute>
+        </widget>
+        <widget class="QWidget" name="portTab">
+         <attribute name="title">
+          <string>导入与导出</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_porLayout">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="importButton">
+              <property name="text">
+               <string>导入</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="exportButton">
+              <property name="text">
+               <string>导出</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </widget>
       </item>
@@ -253,7 +267,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>409</width>
+     <width>611</width>
      <height>23</height>
     </rect>
    </property>

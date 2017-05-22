@@ -6,174 +6,176 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>407</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QComboBox" name="selectField">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>20</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QWidget" name="">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QComboBox" name="selectField">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>by category</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>by account-from</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>by account-to</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>by creator</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="timeType">
+           <item>
+            <property name="text">
+             <string>byDay</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>byMonth</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>byYear</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="finished">
+           <item>
+            <property name="text">
+             <string>both</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>finished</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>unfinished</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="keyWord"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>start time</string>
+             </property>
+             <property name="buddy">
+              <cstring>timeFrom</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="timeFrom">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>end time</string>
+             </property>
+             <property name="buddy">
+              <cstring>timeTo</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="timeTo">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QListWidget" name="listWidget"/>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Do">
+       <property name="text">
+        <string>consult</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item>
-    <property name="text">
-     <string>by category</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by account-from</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by account-to</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by creator</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
-   </item>
-  </widget>
-  <widget class="QPushButton" name="Do">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>240</y>
-     <width>80</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>consult</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>160</y>
-     <width>102</width>
-     <height>130</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="Date">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>start time</string>
-      </property>
-      <property name="buddy">
-       <cstring>timeFrom</cstring>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDateEdit" name="timeFrom"/>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>end time</string>
-      </property>
-      <property name="buddy">
-       <cstring>timeTo</cstring>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDateEdit" name="timeTo"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLineEdit" name="keyWord">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>120</y>
-     <width>113</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="finished">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>80</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>both</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>finished</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>unfinished</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QListWidget" name="listWidget">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>30</y>
-     <width>151</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="timeType">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>50</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>byDay</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>byMonth</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>byYear</string>
-    </property>
-   </item>
-  </widget>
+  </layout>
  </widget>
  <resources/>
  <connections/>

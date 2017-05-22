@@ -1,9 +1,6 @@
 ﻿#include "recordcostwidget.h"
 
-RecordCostWidget::RecordCostWidget()
-{
-
-}
+RecordCostWidget::RecordCostWidget(QWidget *parent) : ChangeBillWidget(parent) {}
 
 void RecordCostWidget::addBill()
 {
@@ -51,9 +48,9 @@ void RecordCostWidget::addBill()
 
 void RecordCostWidget::setLabelNames()
 {
-	getLabel1()->setText(QStringLiteral("账目分类"));
-	getLabel2()->setText(QStringLiteral("支出账户"));
-	getLabel3()->setText(QStringLiteral("支出金额"));
+    getLabel1()->setText("账目分类");
+    getLabel2()->setText("支出账户");
+    getLabel3()->setText("支出金额");
 }
 
 void RecordCostWidget::setCombobox1()
