@@ -29,6 +29,12 @@ ChangeBillWidget::~ChangeBillWidget()
 	_userman = nullptr;
 }
 
+void ChangeBillWidget::clearWidget()
+{
+	getMoneyLineEdit()->clear();
+	getNoteTextEdit()->clear();
+}
+
 void ChangeBillWidget::setCurrencyCombobox()
 {
 	CurrencyManager* currman = new CurrencyManager(_userman);

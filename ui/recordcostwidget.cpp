@@ -45,6 +45,7 @@ void RecordCostWidget::addBill()
 		QMessageBox::information(this, "Sorry", "the bill cannot be saved!");
 	} else {
 		QMessageBox::information(this, "info", "the bill have been saved!");
+		clearWidget();
 	}
 }
 

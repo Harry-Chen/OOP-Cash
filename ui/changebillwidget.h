@@ -32,6 +32,7 @@ public:
 protected:
 	Ui::ChangeBillWidget *ui;
 	UserManager* _userman; // 不是自己分配的就不释放
+	void clearWidget();
 	virtual void setLabelNames() = 0; //QString strLabel1, QString strLabel2, QString strAmountLabel
 	virtual void setCombobox1() = 0;
 	virtual void setCombobox2() = 0;
