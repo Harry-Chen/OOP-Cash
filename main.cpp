@@ -17,7 +17,6 @@
 #include "model/account.h"
 #include "model/category.h"
 #include "model/bill.h"
-#include "DataVisualization/mymainwindow.h"
 #include "datavisualization/querywidget.h"
 #include "ui/oopcash_mainwindow.h"
 #include "ui/recordcostwidget.h"
@@ -41,9 +40,7 @@ int main(int argc, char *argv[])
     auto w = new OOPCash_MainWindow;
     w->show();
 
-    auto userman = new UserManager(DatabaseHelper::getDb());
-    auto myMainWindow = new MyMainWindow(0, userman);
-    myMainWindow->show();
+    //auto userman = new UserManager(DatabaseHelper::getDb());
 
     return a.exec();
 	

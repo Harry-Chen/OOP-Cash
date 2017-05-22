@@ -1,4 +1,4 @@
-#include "querywidget.h"
+﻿#include "querywidget.h"
 #include "ui_querywidget.h"
 #include "util/database_helper.h"
 #include <QStringList>
@@ -12,6 +12,16 @@ QueryWidget::QueryWidget(QWidget *parent) :
     connect(ui->Do, SIGNAL(released()), this, SLOT(Do()));
     ui->listWidget->setSelectionMode(QAbstractItemView::MultiSelection);
     ui->listWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    init();
+}
+
+void QueryWidget::init()
+{
+    names.clear();
+    ids.clear();
+    ui->listWidget->clear();
+    ui->timeFrom->setDateTime(QDateTime::fromTime_t(0));
+    ui->timeTo->setDateTime(QDateTime::currentDateTime());
 }
 
 void QueryWidget::setUserman(UserManager * _pUserManager)
@@ -74,7 +84,12 @@ void QueryWidget::Do()
 {
     Query query = Query::newQuery(DatabaseHelper::getDb());
     pQuery = &query;
-  //  pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
+    //pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
+
+    std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
+    std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
+
+
     if (ui->finished->currentText() != "both")
     {
         if(ui->finished->currentText() == "finished") pQuery->setFinished(true);
@@ -120,6 +135,11 @@ void QueryWidget::Do()
 
     }
 
+    if(!pQuery->doQuery().size())
+    {
+        logging::error("Empty! \n");
+        return;
+    }
 
     for(int i = 0; i < ids.size(); ++i)
         nameMap.insert(ids[i], names[i]);

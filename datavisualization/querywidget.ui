@@ -24,7 +24,7 @@
    </property>
    <item>
     <property name="text">
-     <string/>
+     <string>unslected</string>
     </property>
    </item>
    <item>
@@ -161,6 +161,11 @@
    <item>
     <property name="text">
      <string>byDay</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>byWeek</string>
     </property>
    </item>
    <item>
