@@ -16,7 +16,6 @@
 #include "model/account.h"
 #include "model/category.h"
 #include "model/bill.h"
-#include "DataVisualization/mymainwindow.h"
 #include "datavisualization/querywidget.h"
 #include "ui/oopcash_mainwindow.h"
 #include "ui/recordcostwidget.h"

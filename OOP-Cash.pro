@@ -40,7 +40,6 @@ SOURCES += main.cpp \
     model/bill.cpp \
     dao/billmanager.cpp \
     dao/query.cpp \
-    datavisualization/mymainwindow.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
     process/processor.cpp \
@@ -89,7 +88,6 @@ HEADERS  += \
     dao/categorymanager.h \
     dao/billmanager.h \
     dao/query.h \
-    datavisualization/mymainwindow.h \
     datavisualization/graphdock.h \
     datavisualization/querywidget.h \
     ui/oopcash_mainwindow.h \
@@ -102,11 +100,12 @@ HEADERS  += \
     ui/logindlg.h \
     ui/usersetdialog.h \
     ui/billdetailwidget.h \
-    ui/detailwidget.h
+    ui/detailwidget.h \
+    process/processor.h \
+    process/processorfactory.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
-    datavisualization/mymainwindow.ui \
     datavisualization/querywidget.ui \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
