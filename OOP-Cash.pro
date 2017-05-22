@@ -45,6 +45,13 @@ SOURCES += main.cpp \
     datavisualization/querywidget.cpp \
     process/processor.cpp \
     process/processorfactory.cpp
+    ui/oopcash_mainwindow.cpp \
+    ui/changebillwidget.cpp \
+    ui/editaccount.cpp \
+    ui/logindlg.cpp \
+    ui/recordcostwidget.cpp \
+    ui/logindlg.cpp
+
 
 INCLUDEPATH += include
 
@@ -87,3 +94,12 @@ FORMS    += \
     datavisualization/graphdock.ui \
     datavisualization/mymainwindow.ui \
     datavisualization/querywidget.ui
+    ui/oopcash_mainwindow.h \
+    ui/changebillwidget.h \
+    ui/editaccount.h \
+    ui/logindlg.h \
+    ui/recordcostwidget.h
+    ui/logindlg.h
+
+RESOURCES += \
+    uirsc.qrc
