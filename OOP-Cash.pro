@@ -44,16 +44,16 @@ SOURCES += main.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
     process/processor.cpp \
-    process/processorfactory.cpp
+    process/processorfactory.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/editaccount.cpp \
     ui/logindlg.cpp \
-    ui/recordcostwidget.cpp \
-    ui/logindlg.cpp
-
+    ui/recordcostwidget.cpp
 
 INCLUDEPATH += include
+
+debug:DEFINES += _DEBUG
 
 win32{
     Debug:LIBS += $$PWD\libs\win_x64\sqlpp11-connector-sqlite3_debug.lib
@@ -61,7 +61,6 @@ win32{
 }
 macx{
     LIBS += $$PWD/libs/darwin_x64/libsqlpp11-connector-sqlite3.a
-    debug:DEFINES += _DEBUG
 }
 
 HEADERS  += \
@@ -86,6 +85,11 @@ HEADERS  += \
     datavisualization/mymainwindow.h \
     datavisualization/graphdock.h \
     datavisualization/querywidget.h \
+    ui/oopcash_mainwindow.h \
+    ui/changebillwidget.h \
+    ui/editaccount.h \
+    ui/logindlg.h \
+    ui/recordcostwidget.h \
     process/processor.h \
     process/processorfactory.h
 
@@ -93,13 +97,11 @@ HEADERS  += \
 FORMS    += \
     datavisualization/graphdock.ui \
     datavisualization/mymainwindow.ui \
-    datavisualization/querywidget.ui
-    ui/oopcash_mainwindow.h \
-    ui/changebillwidget.h \
-    ui/editaccount.h \
-    ui/logindlg.h \
-    ui/recordcostwidget.h
-    ui/logindlg.h
+    datavisualization/querywidget.ui \
+    ui/oopcash_mainwindow.ui \
+    ui/changebillwidget.ui \
+    ui/editaccount.ui \
+    ui/logindlg.ui \
 
 RESOURCES += \
     uirsc.qrc
