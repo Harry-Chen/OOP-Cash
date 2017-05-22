@@ -14,7 +14,7 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 void ChangeBillWidget::init(UserManager* userman) {
 	//初始化userman;
 	_userman = userman;
-	//之后利用虚函数延迟初始化到子类
+    //之后利用虚函数延迟初始化到子类
 	setLabelNames();
 	setCombobox1();
 	setCombobox2();
