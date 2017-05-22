@@ -7,6 +7,7 @@
 #include "dao/usermanager.h"
 #include "model/user.h"
 
+#include "datavisualization/querywidget.h"
 #include "ui/logindlg.h"
 
 namespace Ui {
@@ -30,6 +31,7 @@ private slots:
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
+    QueryWidget * pQueryWidget;
     bool Isloggedin;
     ID u_id;
     void init();
