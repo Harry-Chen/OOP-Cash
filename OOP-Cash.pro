@@ -39,7 +39,7 @@ SOURCES += main.cpp \
     dao/query.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
-	datavisualization/tabledock.cpp \
+    datavisualization/tabledock.cpp \
     process/processor.cpp \
     process/processorfactory.cpp \
     process/balanceprocessor.cpp \
@@ -47,13 +47,13 @@ SOURCES += main.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
-    ui/recordcostwidget.cpp \
     ui/usersetdialog.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
     ui/edititemwidget.cpp \
     ui/edititemwidgetfactory.cpp \
-	ui/calendardialog.cpp \
+    ui/calendardialog.cpp \
+    ui/recordcostearnwidget.cpp \
     ui/applyChangeStrategy/applychangestrategy.cpp \
     ui/applyChangeStrategy/editaccountstrategy.cpp \
     ui/applyChangeStrategy/editcategorystrategy.cpp \
@@ -91,21 +91,21 @@ HEADERS  += \
     dao/query.h \
     datavisualization/graphdock.h \
     datavisualization/querywidget.h \
-	datavisualization/tabledock.h \
+    datavisualization/tabledock.h \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
-    ui/recordcostwidget.h \
     ui/usersetdialog.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
-	ui/calendardialog.h \
+    ui/calendardialog.h \
     process/processor.h \
     process/processorfactory.h \
     process/balanceprocessor.h \
     process/processorbase.h \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
+    ui/recordcostearnwidget.h \
     ui/applyChangeStrategy/applychangestrategy.h \
     ui/applyChangeStrategy/editaccountstrategy.h \
     ui/applyChangeStrategy/editcategorystrategy.h \

@@ -56,7 +56,7 @@ void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     Isloggedin = true;
     pQueryWidget = new QueryWidget(ui->QueryWidget);
     pQueryWidget->setUserman(userman);
-    pRecordCostWidget = new RecordCostWidget(ui->addTab);
+	pRecordCostWidget = new RecordCostEarnWidget(ui->addTab);
     pRecordCostWidget->init(userman);
     pDetailWidget = new DetailWidget(ui->detailTab, userman);
 
