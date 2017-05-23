@@ -57,7 +57,7 @@ void RecordCostEarnWidget::addBill()
 	auto newbill = new Bill(-1, -1, -1, _userman->getLoggedInUid(),\
 						 cate.id, money, curr.id, QDateTime::currentDateTime(),\
 						  true, date, getNoteTextEdit()->toPlainText());
-	if(!isCost) {
+	if(!isCost && !isTransfer) {
 		newbill->to = acc.id;
 	} else {
 		newbill->from = acc.id;
