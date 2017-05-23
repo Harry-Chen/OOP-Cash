@@ -12,6 +12,8 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 	ui->lineEditAmount->setValidator(new QDoubleValidator(ui->lineEditAmount));
 	calendar = new CalendarDialog(this);
 	connect(calendar, SIGNAL(seletedDateChanged()), this, SLOT(setDateByCalendar()));
+	ui->costBtn->setVisible(false);
+	ui->earnBtn->setVisible(false);
 }
 
 void ChangeBillWidget::init(UserManager* userman) {

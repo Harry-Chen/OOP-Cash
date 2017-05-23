@@ -2,7 +2,13 @@
 
 RecordCostWidget::RecordCostWidget(QWidget* parent):ChangeBillWidget(parent)
 {
-
+	isCost = true;
+	QRadioButton* cbtn = getCostBtn();
+	QRadioButton* ebtn = getEarnBtn();
+	cbtn->setVisible(true);
+	ebtn->setVisible(true);
+	connect(cbtn, SIGNAL(toggled(bool)), this, SLOT());
+	connect(ebtn, SIGNAL(toggled(bool)), this, SLOT());
 }
 
 void RecordCostWidget::addBill()
@@ -41,6 +47,11 @@ void RecordCostWidget::addBill()
 	auto newbill = new Bill(-1, acc.id, -1, _userman->getLoggedInUid(),\
 						 cate.id, money, curr.id, QDateTime::currentDateTime(),\
 						  true, date, getNoteTextEdit()->toPlainText());
+	if(isCost) {
+		newbill->from = acc.id;
+	} else {
+		newbill->to = acc.id;
+	}
 	if(billman->addItem(*newbill) == -1) {
 		QMessageBox::information(this, "Sorry", "the bill cannot be saved!");
 	} else {
@@ -49,11 +60,25 @@ void RecordCostWidget::addBill()
 	}
 }
 
+void RecordCostWidget::setIsCostFalse()
+{
+	isCost = false;
+	setLabelNames();
+}
+
+RecordCostWidget::setIsCostTrue(bool val)
+{
+	isCost = true;
+	setLabelNames();
+}
+
 void RecordCostWidget::setLabelNames()
 {
-	getLabel1()->setText("账目分类");
-	getLabel2()->setText("支出账户");
-	getLabel3()->setText("支出金额");
+	if(isCost) {
+		setCostLabelNames();
+	} else {
+		setEarnLabelNames();
+	}
 }
 
 void RecordCostWidget::setCombobox1()
@@ -72,4 +97,18 @@ void RecordCostWidget::setCombobox2()
 	ItemSearcher::instance()->getNameList(accman, accList);
 	getCombobox2()->clear();
 	getCombobox2()->addItems(accList);
+}
+
+void RecordCostWidget::setCostLabelNames()
+{
+	getLabel1()->setText("账目分类");
+	getLabel2()->setText("支出账户");
+	getLabel3()->setText("支出金额");
+}
+
+void RecordCostWidget::setEarnLabelNames()
+{
+	getLabel1()->setText("账目分类");
+	getLabel2()->setText("收入账户");
+	getLabel3()->setText("收入金额");
 }
