@@ -1,5 +1,5 @@
-﻿#ifndef CATADDER_H
-#define CATADDER_H
+﻿#ifndef CURADDER_H
+#define CURADDER_H
 #include "itemadder.h"
 #include "dao/currencymanager.h"
 #include "model/currency.h"
@@ -12,4 +12,4 @@ public:
     bool add(QJsonObject & _item);
 };
 
-#endif // CATADDER_H
+#endif // CURADDER_H

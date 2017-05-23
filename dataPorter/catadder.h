@@ -4,7 +4,8 @@
 #include "dao/categorymanager.h"
 #include "model/category.h"
 
-class catAdder : public itemAdder {
+class catAdder : public itemAdder
+{
     CategoryManager * catman;
 public:
     catAdder(QJsonObject & _obj, UserManager* _userman);
