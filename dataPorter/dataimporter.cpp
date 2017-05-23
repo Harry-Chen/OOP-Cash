@@ -6,8 +6,8 @@
 
 dataImporter::dataImporter(UserManager *_userman): userman(_userman) {
     adder = new itemAdder * [3];
-    adder[0] = new accAdder(obj, userman);
-    adder[1] = new curAdder(obj, userman);
+    adder[0] = new curAdder(obj, userman);
+    adder[1] = new accAdder(obj, userman);
     adder[2] = new billAdder(obj, userman);
 }
 
