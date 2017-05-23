@@ -14,16 +14,11 @@
    <string>DockWidget</string>
   </property>
   <widget class="QWidget" name="window">
-   <widget class="QCustomPlot" name="QCP" native="true">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>90</y>
-      <width>331</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QCustomPlot" name="QCP" native="true"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

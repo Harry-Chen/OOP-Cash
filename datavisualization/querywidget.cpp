@@ -62,14 +62,14 @@ void QueryWidget::getField(int _field)
         ids = map2.keys();
         break;
     }
-    case byCreator:
-    {
-        const auto& map3 = pUserManager->getAllItems();
-        foreach(auto temp, map3)
-            names.push_back(temp.nickname);
-        ids = map3.keys();
-        break;
-    }
+//    case byCreator:
+//    {
+//        const auto& map3 = pUserManager->getAllItems();
+//        foreach(auto temp, map3)
+//            names.push_back(temp.nickname);
+//        ids = map3.keys();
+//        break;
+//    }
     default:
     {
         logging::error("Wrong ShowType!\n");
@@ -82,12 +82,12 @@ void QueryWidget::getField(int _field)
 
 void QueryWidget::Do()
 {
-    Query query = Query::newQuery(DatabaseHelper::getDb());
-    pQuery = &query;
+    pQuery = &((Query::newQuery(DatabaseHelper::getDb())).addCreatorId(pUserManager->getLoggedInUid()));
+
     //pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
 
-    std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
-    std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
+   // std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
+   // std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
 
 
     if (ui->finished->currentText() != "both")
@@ -121,12 +121,12 @@ void QueryWidget::Do()
             if(isSelected[i]) pQuery->addToAccountId(ids[i]);
         break;
     }
-    case byCreator:
-    {
-        for(int i = 0; i < isSelected.size(); ++i)
-            if(isSelected[i]) pQuery->addCreatorId(ids[i]);
-        break;
-    }
+//    case byCreator:
+//    {
+//        for(int i = 0; i < isSelected.size(); ++i)
+//            if(isSelected[i]) pQuery->addCreatorId(ids[i]);
+//        break;
+//    }
     default:
     {
         logging::error("Wrong ShowType!\n");
@@ -134,8 +134,8 @@ void QueryWidget::Do()
     }
 
     }
-
-    if(!pQuery->doQuery().size())
+    const QVector<Bill> &bills = pQuery->doQuery();
+    if(!bills.size())
     {
         logging::error("Empty! \n");
         return;
@@ -145,7 +145,7 @@ void QueryWidget::Do()
         nameMap.insert(ids[i], names[i]);
 
     ProcessorFactory * pProcessorFactory = new ProcessorFactory;
-    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), pQuery, nameMap);
+    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), bills, nameMap);
     if(!pProcessor->processAll()) logging::error("fail to process\n");
     else setupPlot();/*plot*/
 }

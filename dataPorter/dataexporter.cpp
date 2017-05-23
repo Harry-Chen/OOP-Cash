@@ -5,24 +5,45 @@
 #include <QFile>
 #include <QTextStream>
 
-QJsonArray dataExporter::getJsArray(QVector<Bill> & _vectorBill)
-{
-    QJsonArray JsArBill;
+QJsonArray dataExporter::getCurrencyArray(){
+    QJsonArray arrayOfCurrency;
+    for(const Currency &c : curMap.values()){
+        QJsonObject o;
+        o.insert("name", c.name);
+        o.insert("rate", QString::number(c.rate));
+        arrayOfCurrency.append(o);
+    }
+    return arrayOfCurrency;
+}
 
-    int i = 0;
-    for(Bill theBill: _vectorBill) {
+QJsonArray dataExporter::getAccountArray(){
+    QJsonArray arrayOfAccount;
+    for(const Account &a : accMap.values()){
+        QJsonObject o;
+        o.insert("name", a.name);
+        o.insert("currency", curMap[a.cid].name);
+        arrayOfAccount.append(o);
+    }
+    return arrayOfAccount;
+}
+
+QJsonArray dataExporter::getBillArray(QVector<Bill> & _vectorBill)
+{
+    QJsonArray arrayOfBill;
+
+    for(const Bill& theBill: _vectorBill) {
         QJsonObject jsO;
-        jsO.insert("accFrom", accMap[theBill.from].name );
-        jsO.insert("accTo", accMap[theBill.to].name);
-        jsO.insert("catName", catMap[theBill.category].name);
+        jsO.insert("accFrom", theBill.from != -1 ? accMap[theBill.from].name : "-1");
+        jsO.insert("accTo", theBill.to != -1 ? accMap[theBill.to].name : "-1");
+        jsO.insert("catName", theBill.category != -1 ? catMap[theBill.category].name : "-1");
         jsO.insert("curName", curMap[theBill.currency].name);
         jsO.insert("quantity", theBill.quantity);
         jsO.insert("finished", theBill.finished);
-        jsO.insert("date", theBill.finished);
+        jsO.insert("date", theBill.date.toString("yyyy-MM-dd"));
         jsO.insert("note", theBill.note);
-        JsArBill.insert(i++,jsO);
+        arrayOfBill.append(jsO);
     }
-    return JsArBill;
+    return arrayOfBill;
 }
 
 dataExporter::dataExporter(UserManager *_userman): userman(_userman) {}
@@ -35,20 +56,27 @@ bool dataExporter::doExport() {
     accMap = accman->getAllItems();
     catMap = catman->getAllItems();
     curMap = curman->getAllItems();
-    exportBills = Query::newQuery(DatabaseHelper::getDb()).doQuery();
+    exportBills = Query::newQuery(DatabaseHelper::getDb())
+            .addCreatorId(userman->getLoggedInUid())
+            .doQuery();
 
-    auto &exportJsArray = getJsArray(exportBills);
-
+    auto &arrayOfCurrency = getCurrencyArray();
+    auto &arrayOfAccount = getAccountArray();
+    auto &exportJsArray = getBillArray(exportBills);
+    QJsonObject object;
+    object.insert("currency", arrayOfCurrency);
+    object.insert("account", arrayOfAccount);
+    object.insert("bills", exportJsArray);
     //output...
     QJsonDocument document;
-    document.setArray(exportJsArray);
-    QByteArray byte_array = document.toJson(QJsonDocument::Compact);
+    document.setObject(object);
+    QByteArray byte_array = document.toJson(QJsonDocument::Indented);
     QString outputStr(byte_array);
 
     QString path;
-    while(path == "") {
-        path = QFileDialog::getSaveFileName(nullptr, QObject::tr("选择导出路径"), "", QObject::tr("JS 对象标记 (*.json)"));
-    }
+    path = QFileDialog::getSaveFileName(nullptr, QObject::tr("选择导出路径"), "", QObject::tr("JS 对象标记 (*.json)"));
+    if(path.isEmpty()) //User cancel
+        return false;
     QFile outFile(path);
     if(!outFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(nullptr, "保存文件", "无法保存文件:\n" + outFile.errorString());

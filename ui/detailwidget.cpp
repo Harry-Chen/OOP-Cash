@@ -11,7 +11,8 @@ DetailWidget::DetailWidget(QWidget *parent, UserManager *_userman) :
 {
     ui->setupUi(this);
     //For test only
-    fillData(Query::newQuery(DatabaseHelper::getDb()).doQuery());
+    fillData(Query::newQuery(DatabaseHelper::getDb())
+             .addCreatorId(userman->getLoggedInUid()).doQuery());
 }
 
 DetailWidget::~DetailWidget()

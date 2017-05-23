@@ -14,6 +14,7 @@
 #include "dao/currencymanager.h"
 #include "dao/itemmanager.h"
 #include "util/itemsearcher.h"
+#include "edititemwidgetfactory.h"
 
 namespace Ui {
 class ChangeBillWidget;
@@ -32,6 +33,7 @@ public:
 protected:
 	Ui::ChangeBillWidget *ui;
 	UserManager* _userman; // 不是自己分配的就不释放
+	editItemWidget* _w;
 	void clearWidget();
 	virtual void setLabelNames() = 0; //QString strLabel1, QString strLabel2, QString strAmountLabel
 	virtual void setCombobox1() = 0;
@@ -49,7 +51,14 @@ protected:
 	QComboBox* getCombobox2();
 	QComboBox* getCurrencyCombobox();
 private slots:
-	void on_savebtn_released();
+	void on_savebtn_clicked();
+	void on_newCatebtn_clicked();
+	void on_editCatebtn_clicked();
+	void on_newCurrbtn_clicked();
+	void on_editCurrbtn_clicked();
+	void on_newAccbtn_clicked();
+	void on_editAccbtn_clicked();
+	void refresh();
 };
 
 #endif // CHANGEBILLWIDGET_H

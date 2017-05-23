@@ -6,6 +6,7 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 	QWidget(parent),
 	ui(new Ui::ChangeBillWidget)
 {
+	_w = nullptr;
 	_userman = nullptr;
 	ui->setupUi(this);
 	ui->lineEditAmount->setValidator(new QDoubleValidator(ui->lineEditAmount));
@@ -27,6 +28,13 @@ ChangeBillWidget::~ChangeBillWidget()
 {
 	delete ui;
 	_userman = nullptr;
+}
+
+void ChangeBillWidget::refresh()
+{
+	setCombobox1();
+	setCombobox2();
+	setCurrencyCombobox();
 }
 
 void ChangeBillWidget::clearWidget()
@@ -99,7 +107,49 @@ QComboBox* ChangeBillWidget::getCurrencyCombobox()
 	return ui->comboCurrency;
 }
 
-void ChangeBillWidget::on_savebtn_released()
+void ChangeBillWidget::on_savebtn_clicked()
 {
 	addBill();
+}
+
+void ChangeBillWidget::on_newCatebtn_clicked()
+{
+	_w = editItemWidgetFactory(_userman).getNewCategoryWidget(this);
+	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
+	_w->exec();
+}
+
+void ChangeBillWidget::on_editCatebtn_clicked()
+{
+	_w = editItemWidgetFactory(_userman).getEditCategoryWidget(this, getCombobox1()->currentText());
+	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
+	_w->exec();
+}
+
+void ChangeBillWidget::on_newCurrbtn_clicked()
+{
+	_w = editItemWidgetFactory(_userman).getNewCurrencyWidget(this);
+	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
+	_w->exec();
+}
+
+void ChangeBillWidget::on_editCurrbtn_clicked()
+{
+	_w = editItemWidgetFactory(_userman).getEditCurrencyWidget(this, getCurrencyCombobox()->currentText());
+	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
+	_w->exec();
+}
+
+void ChangeBillWidget::on_newAccbtn_clicked()
+{
+	_w = editItemWidgetFactory(_userman).getNewAccountWidget(this);
+	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
+	_w->exec();
+}
+
+void ChangeBillWidget::on_editAccbtn_clicked()
+{
+	_w = editItemWidgetFactory(_userman).getEditAccountWidget(this, getCombobox2()->currentText());
+	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
+	_w->exec();
 }

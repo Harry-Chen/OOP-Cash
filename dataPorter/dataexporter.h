@@ -26,7 +26,9 @@ private:
     QMap<ID, Category> catMap;
     QMap<ID, Currency> curMap;
     QVector<Bill> exportBills;
-    QJsonArray getJsArray(QVector<Bill>&);
+    QJsonArray getBillArray(QVector<Bill>&);
+    QJsonArray getCurrencyArray();
+    QJsonArray getAccountArray();
 
 public:
     dataExporter(UserManager * _userman);
