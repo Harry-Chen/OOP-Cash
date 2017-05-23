@@ -47,6 +47,7 @@ SOURCES += main.cpp \
     process/processorfactory.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
+    ui/editaccount.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
     util/itemsearcher.cpp \
@@ -97,6 +98,7 @@ HEADERS  += \
     datavisualization/querywidget.h \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
+    ui/editaccount.h \
     ui/logindlg.h \
     ui/recordcostwidget.h \
     dao/itemmanager.h \
@@ -118,6 +120,7 @@ FORMS    += \
     datavisualization/querywidget.ui \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
+    ui/editaccount.ui \
     ui/logindlg.ui \
     ui/edititemwidget.ui
 

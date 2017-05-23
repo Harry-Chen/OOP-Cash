@@ -362,6 +362,16 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>combo1</tabstop>
+  <tabstop>combo2</tabstop>
+  <tabstop>lineEditLoanName</tabstop>
+  <tabstop>lineEditTime</tabstop>
+  <tabstop>btnCalendar</tabstop>
+  <tabstop>lineEditAmount</tabstop>
+  <tabstop>comboCurrency</tabstop>
+  <tabstop>textEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -8,6 +8,9 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     ui->setupUi(this);
     userman = nullptr;
     init();
+    pQueryWidget = new QueryWidget(ui->statTab);
+    pQueryWidget->setUserman(userman);
+    pQueryWidget->show();
 }
 
 OOPCash_MainWindow::~OOPCash_MainWindow()
