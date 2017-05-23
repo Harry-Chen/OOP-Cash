@@ -29,30 +29,21 @@ QJsonArray dataExporter::getAccountArray(){
 
 QJsonArray dataExporter::getBillArray(QVector<Bill> & _vectorBill)
 {
-    QJsonArray JsArBill;
+    QJsonArray arrayOfBill;
 
     for(const Bill& theBill: _vectorBill) {
         QJsonObject jsO;
-        if(theBill.from != -1)
-            jsO.insert("accFrom", accMap[theBill.from].name);
-        else
-            jsO.insert("accFrom", "-1");
-        if(theBill.to != -1)
-            jsO.insert("accTo", accMap[theBill.to].name);
-        else
-            jsO.insert("accTo", "-1");
-        if(theBill.category != -1)
-            jsO.insert("catName", catMap[theBill.category].name);
-        else
-            jsO.insert("catName", "-1");
+        jsO.insert("accFrom", theBill.from != -1 ? accMap[theBill.from].name : "-1");
+        jsO.insert("accTo", theBill.to != -1 ? accMap[theBill.to].name : "-1");
+        jsO.insert("catName", theBill.category != -1 ? catMap[theBill.category].name : "-1");
         jsO.insert("curName", curMap[theBill.currency].name);
         jsO.insert("quantity", theBill.quantity);
         jsO.insert("finished", theBill.finished);
         jsO.insert("date", theBill.date.toString("yyyy-MM-dd"));
         jsO.insert("note", theBill.note);
-        JsArBill.append(jsO);
+        arrayOfBill.append(jsO);
     }
-    return JsArBill;
+    return arrayOfBill;
 }
 
 dataExporter::dataExporter(UserManager *_userman): userman(_userman) {}
