@@ -53,6 +53,10 @@ protected:
 	QComboBox* getCombobox1();
 	QComboBox* getCombobox2();
 	QComboBox* getCurrencyCombobox();
+
+public slots:
+    void refresh();
+
 private slots:
 	void on_savebtn_clicked();
 	void on_newCatebtn_clicked();
