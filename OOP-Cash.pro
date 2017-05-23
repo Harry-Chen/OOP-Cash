@@ -51,9 +51,10 @@ SOURCES += main.cpp \
     ui/recordcostwidget.cpp \
     util/itemsearcher.cpp \
     ui/usersetdialog.cpp \
-    ui/logindlg.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp
+    process/balanceprocessor.cpp \
+    process/processorbase.cpp
 
 
 INCLUDEPATH += include
@@ -102,7 +103,9 @@ HEADERS  += \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     process/processor.h \
-    process/processorfactory.h
+    process/processorfactory.h \
+    process/balanceprocessor.h \
+    process/processorbase.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
