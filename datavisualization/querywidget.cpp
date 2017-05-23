@@ -9,7 +9,7 @@ QueryWidget::QueryWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->selectField, SIGNAL(currentIndexChanged(int)), this, SLOT(getField(int)));
-    connect(ui->Do, SIGNAL(released()), this, SLOT(Do()));
+    connect(ui->Do, SIGNAL(clicked(bool)), this, SLOT(Do()));
     ui->listWidget->setSelectionMode(QAbstractItemView::MultiSelection);
     ui->listWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     init();

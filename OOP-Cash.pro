@@ -60,6 +60,7 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
     dataPorter/dataexporter.cpp \
+    datavisualization/tabledock.cpp \
     ui/calendardialog.cpp
 
 HEADERS  += \
@@ -104,9 +105,10 @@ HEADERS  += \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
     ui/applyChangeStrategy/addcurrencystrategy.h \
+    dataPorter/dataexporter.cpp \
+    datavisualization/tabledock.h \
     ui/calendardialog.h
-    ui/logindlg.h
-
+	
 FORMS    += \
     datavisualization/graphdock.ui \
     datavisualization/querywidget.ui \
@@ -117,6 +119,7 @@ FORMS    += \
     ui/detailwidget.ui \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
+    datavisualization/tabledock.ui \
     ui/calendardialog.ui
 
 RESOURCES += \
