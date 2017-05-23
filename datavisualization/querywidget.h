@@ -34,7 +34,7 @@ public:
 private:
     Ui::QueryWidget *ui;
     Query * pQuery;
-    Processor * pProcessor;
+    ProcessorBase * pProcessor;
     UserManager * pUserManager;
     QList <QString> names;
     QList <ID> ids;

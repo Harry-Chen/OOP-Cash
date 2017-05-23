@@ -2,7 +2,13 @@
 
 ProcessorBase::ProcessorBase()
 {
-
+    X.clear();
+    Y.clear();
+    matrix.clear();
+    QVector<int> temp(1,0);
+    matrix.push_back(temp);
+    X.push_back(QDate());
+    Y.push_back(0);
 }
 
 bool ProcessorBase::process(int i)
@@ -72,16 +78,14 @@ bool ProcessorBase::process(int i)
 
 void ProcessorBase::sortByX()
 {
-    for(int i = 0; i < X.size(); ++i)
+    for(int i = 0; i < X.size() - 1; ++i)
     {
-        int min = i;
-        for(int j = i+1; j < X.size(); ++j)
-            if(X[j] < X[min])
+        for(int j = 0; j < X.size() - i - 1; ++j)
+            if(X[j] > X[j + 1])
             {
-                min = j;
-                std::swap (X[i], X[min]);
+                std::swap (X[j], X[j + 1]);
                 for(int k = 0; k <Y.size(); ++k)
-                    std::swap (matrix[k][i], matrix[k][min]);
+                    std::swap (matrix[k][j], matrix[k][j + 1]);
             }
     }
 }
@@ -89,8 +93,8 @@ void ProcessorBase::sortByX()
 bool ProcessorBase::processAll()
 {
     int i = 0;
-    X[0] = getX(0);
-    Y[0] = getY(0);
+    X[0] = this->getX(0);
+    Y[0] = this->getY(0);
     while(process(i)) ++i;
     sortByX();
     return i == raw.size();

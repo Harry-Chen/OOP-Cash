@@ -1,13 +1,17 @@
 ﻿#include "addcurrencystrategy.h"
 
-void addCurrencyStrategy::applyChange()
+bool addCurrencyStrategy::applyChange()
 {
 	QString name = _w->getLineEditText1();
 	double rate = _w->getLineEditText2().toDouble();
 	Currency curr(-1, _userman->getLoggedInUid(), name, rate);
 	auto currman = new CurrencyManager(_userman);
-	currman->addItem(curr);
+	bool success = (currman->addItem(curr) != -1);
 	delete currman;
+	return success;
 }
 
-void addCurrencyStrategy::applyDelete() {}
+bool addCurrencyStrategy::applyDelete()
+{
+	return true;
+}

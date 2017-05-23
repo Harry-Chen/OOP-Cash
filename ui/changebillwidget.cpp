@@ -10,6 +10,10 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 	_userman = nullptr;
 	ui->setupUi(this);
 	ui->lineEditAmount->setValidator(new QDoubleValidator(ui->lineEditAmount));
+	calendar = new CalendarDialog(this);
+	connect(calendar, SIGNAL(seletedDateChanged()), this, SLOT(setDateByCalendar()));
+	ui->costBtn->setVisible(false);
+	ui->earnBtn->setVisible(false);
 }
 
 void ChangeBillWidget::init(UserManager* userman) {
@@ -19,9 +23,9 @@ void ChangeBillWidget::init(UserManager* userman) {
 	setLabelNames();
 	setCombobox1();
 	setCombobox2();
+	setCombobox3();
 	setCurrencyCombobox();
-	getLoanNameLabel()->setVisible(false);
-	getLoanNameLineEdit()->setVisible(false);
+	getTimeLineEdit()->setText(QDate().currentDate().toString("yyyy-MM-dd"));
 }
 
 ChangeBillWidget::~ChangeBillWidget()
@@ -34,7 +38,14 @@ void ChangeBillWidget::refresh()
 {
 	setCombobox1();
 	setCombobox2();
+	setCombobox3();
 	setCurrencyCombobox();
+}
+
+void ChangeBillWidget::setDateByCalendar()
+{
+	QDate date = calendar->getSelectedDate();
+	getTimeLineEdit()->setText(date.toString("yyyy-MM-dd"));
 }
 
 void ChangeBillWidget::clearWidget()
@@ -62,19 +73,29 @@ QLabel* ChangeBillWidget::getLabel2()
 	return ui->label2;
 }
 
-QLabel* ChangeBillWidget::getLabel3()
+QLabel*ChangeBillWidget::getLabel3()
+{
+	return ui->label3;
+}
+
+QLabel* ChangeBillWidget::getAmountLabel()
 {
 	return ui->labelAmount;
 }
 
-QLabel*ChangeBillWidget::getLoanNameLabel()
+QRadioButton*ChangeBillWidget::getCostBtn()
 {
-	return ui->labelLoadName;
+	return ui->costBtn;
 }
 
-QLineEdit*ChangeBillWidget::getLoanNameLineEdit()
+QRadioButton*ChangeBillWidget::getEarnBtn()
 {
-	return ui->lineEditLoanName;
+	return ui->earnBtn;
+}
+
+QRadioButton*ChangeBillWidget::getTransferBtn()
+{
+	return ui->tranferBtn;
 }
 
 QLineEdit*ChangeBillWidget::getTimeLineEdit()
@@ -100,6 +121,11 @@ QComboBox* ChangeBillWidget::getCombobox1()
 QComboBox* ChangeBillWidget::getCombobox2()
 {
 	return ui->combo2;
+}
+
+QComboBox*ChangeBillWidget::getCombobox3()
+{
+	return ui->combo3;
 }
 
 QComboBox* ChangeBillWidget::getCurrencyCombobox()
@@ -152,4 +178,9 @@ void ChangeBillWidget::on_editAccbtn_clicked()
 	_w = editItemWidgetFactory(_userman).getEditAccountWidget(this, getCombobox2()->currentText());
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
 	_w->exec();
+}
+
+void ChangeBillWidget::on_btnCalendar_clicked()
+{
+	calendar->setVisible(true);
 }

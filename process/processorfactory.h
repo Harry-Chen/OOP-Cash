@@ -19,7 +19,7 @@ class ProcessorFactory
     Processor * product;
 public:
     ProcessorFactory();
-    Processor * creatProcessor(int, int, const QVector<Bill> &, const QMap<ID, QString> & );
+    ProcessorBase * creatProcessor(int, int, const QVector<Bill> &, const QMap<ID, QString> & );
     void setTime();
     void setField();
 };

@@ -19,7 +19,7 @@ public:
 
     ProcessorBase();
     virtual ID getY(int i) = 0;
-    virtual QDate getX(int i) = 0;
+    virtual QDate getX(int i) {return raw[i].date;}
     bool process(int i);
     void sortByX();
     virtual bool processAll();

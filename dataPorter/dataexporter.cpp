@@ -71,15 +71,15 @@ bool dataExporter::doExport() {
             .addCreatorId(userman->getLoggedInUid())
             .doQuery();
 
-    auto &arrayOfCurrency = getCurrencyArray();
-    auto &arrayOfAccount = getAccountArray();
-    auto &arrayOfCategory = getCategoryArray();
-    auto &exportJsArray = getBillArray(exportBills);
+    const auto &arrayOfCurrency = getCurrencyArray();
+    const auto &arrayOfAccount = getAccountArray();
+    const auto &arrayOfCategory = getCategoryArray();
+    const auto &arrayOfBill = getBillArray(exportBills);
     QJsonObject object;
     object.insert("currency", arrayOfCurrency);
     object.insert("category", arrayOfCategory);
     object.insert("account", arrayOfAccount);
-    object.insert("bills", exportJsArray);
+    object.insert("bills", arrayOfBill);
     //output...
     QJsonDocument document;
     document.setObject(object);

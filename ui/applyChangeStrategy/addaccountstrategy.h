@@ -7,8 +7,8 @@ class addAccountStrategy : public applyChangeStrategy
 {
 public:
 	using applyChangeStrategy::applyChangeStrategy;
-	virtual void applyChange();
-	virtual void applyDelete();
+	virtual bool applyChange();
+	virtual bool applyDelete();
 };
 
 #endif // ADDACCOUNTSTRATEGY_H

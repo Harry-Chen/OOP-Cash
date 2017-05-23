@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QComboBox>
+#include <QMessageBox>
 
 #include "util/itemsearcher.h"
 
@@ -43,6 +44,8 @@ private slots:
 	void on_deletebtn_clicked();
 
 	void on_conformbtn_clicked();
+
+	void on_cancelbtn_clicked();
 
 private:
 	UserManager* _userman;
