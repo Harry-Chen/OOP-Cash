@@ -47,10 +47,18 @@ SOURCES += main.cpp \
     process/processorfactory.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
-    ui/editaccount.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
-    util/itemsearcher.cpp
+    util/itemsearcher.cpp \
+    ui/edititemwidget.cpp \
+    ui/edititemwidgetfactory.cpp \
+    ui/applyChangeStrategy/applychangestrategy.cpp \
+    ui/applyChangeStrategy/editaccountstrategy.cpp \
+    ui/applyChangeStrategy/editcategorystrategy.cpp \
+    ui/applyChangeStrategy/editcurrencystrategy.cpp \
+    ui/applyChangeStrategy/addaccountstrategy.cpp \
+    ui/applyChangeStrategy/addcategorystrategy.cpp \
+    ui/applyChangeStrategy/addcurrencystrategy.cpp
     ui/logindlg.cpp
 
 
@@ -89,11 +97,19 @@ HEADERS  += \
     datavisualization/querywidget.h \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
-    ui/editaccount.h \
     ui/logindlg.h \
     ui/recordcostwidget.h \
     dao/itemmanager.h \
-    util/itemsearcher.h
+    util/itemsearcher.h \
+    ui/edititemwidget.h \
+    ui/edititemwidgetfactory.h \
+    ui/applyChangeStrategy/applychangestrategy.h \
+    ui/applyChangeStrategy/editaccountstrategy.h \
+    ui/applyChangeStrategy/editcategorystrategy.h \
+    ui/applyChangeStrategy/editcurrencystrategy.h \
+    ui/applyChangeStrategy/addaccountstrategy.h \
+    ui/applyChangeStrategy/addcategorystrategy.h \
+    ui/applyChangeStrategy/addcurrencystrategy.h
     ui/logindlg.h
 
 FORMS    += \
@@ -102,8 +118,8 @@ FORMS    += \
     datavisualization/querywidget.ui \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
-    ui/editaccount.ui \
     ui/logindlg.ui \
+    ui/edititemwidget.ui
 
 RESOURCES += \
     uirsc.qrc

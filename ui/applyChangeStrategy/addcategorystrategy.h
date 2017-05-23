@@ -1,11 +1,13 @@
-#ifndef ADDCATEGORYSTRATEGY_H
+﻿#ifndef ADDCATEGORYSTRATEGY_H
 #define ADDCATEGORYSTRATEGY_H
 
+#include "applychangestrategy.h"
 
-class addCategoryStrategy
+class addCategoryStrategy : public applyChangeStrategy
 {
 public:
-	addCategoryStrategy();
+	using applyChangeStrategy::applyChangeStrategy;
+	virtual void applyChange();
 };
 
 #endif // ADDCATEGORYSTRATEGY_H

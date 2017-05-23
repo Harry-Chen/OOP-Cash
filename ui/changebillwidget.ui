@@ -325,6 +325,20 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="newCurrbtn">
+      <property name="text">
+       <string>新建货币种类</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="editCurrbtn">
+      <property name="text">
+       <string>编辑货币种类</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="newAccbtn">
       <property name="text">
        <string>新建资金账户</string>

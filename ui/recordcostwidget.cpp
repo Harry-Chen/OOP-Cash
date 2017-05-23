@@ -1,6 +1,6 @@
 ﻿#include "recordcostwidget.h"
 
-RecordCostWidget::RecordCostWidget()
+RecordCostWidget::RecordCostWidget(QWidget* parent):ChangeBillWidget(parent)
 {
 
 }

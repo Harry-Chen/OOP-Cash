@@ -1,11 +1,13 @@
-#ifndef NEWCURRENCYSTRATEGY_H
-#define NEWCURRENCYSTRATEGY_H
+﻿#ifndef ADDCURRENCYSTRATEGY_H
+#define ADDCURRENCYSTRATEGY_H
 
+#include "applychangestrategy.h"
 
-class newCurrencyStrategy
+class addCurrencyStrategy : public applyChangeStrategy
 {
 public:
-	newCurrencyStrategy();
+	using applyChangeStrategy::applyChangeStrategy;
+	virtual void applyChange();
 };
 
-#endif // NEWCURRENCYSTRATEGY_H
+#endif // ADDCURRENCYSTRATEGY_H

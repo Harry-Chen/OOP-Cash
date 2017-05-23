@@ -45,11 +45,12 @@ int main(int argc, char *argv[])
     auto myMainWindow = new MyMainWindow(0, userman);
     myMainWindow->show();
 
-    return a.exec();
+
 	
-//	RecordCostWidget* ww = new RecordCostWidget();
-//	ww->init(userman);
-//	ww->show();
+	RecordCostWidget* ww = new RecordCostWidget();
+	ww->init(userman);
+	ww->show();
+	 return a.exec();
 
     // auto *userman = new UserManager(DatabaseHelper::getDb());
     // User newUser(-1, "Test", "Test Test", "1234");
