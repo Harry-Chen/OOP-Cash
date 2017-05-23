@@ -1,6 +1,6 @@
 ﻿#include "addaccountstrategy.h"
 
-void addAccountStrategy::applyChange()
+bool addAccountStrategy::applyChange()
 {
 	QString newName = _w->getLineEditText2();
 	QString currName = _w->getComboboxText();
@@ -9,8 +9,12 @@ void addAccountStrategy::applyChange()
 	delete currman;
 	Account acc(-1, newName, _userman->getLoggedInUid(), curr.id);
 	auto accman = new AccountManager(_userman);
-	accman->addItem(acc);
+	bool success = (accman->addItem(acc) != -1);
 	delete accman;
+	return success;
 }
 
-void addAccountStrategy::applyDelete() {}
+bool addAccountStrategy::applyDelete()
+{
+	return true;
+}

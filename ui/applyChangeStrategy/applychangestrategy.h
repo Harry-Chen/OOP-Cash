@@ -8,8 +8,8 @@ class applyChangeStrategy
 {
 public:
 	applyChangeStrategy(editItemWidget* w, UserManager* userman);
-	virtual void applyChange() = 0;
-	virtual void applyDelete() = 0;
+	virtual bool applyChange() = 0;
+	virtual bool applyDelete() = 0;
 protected:
 	editItemWidget* _w;
 	UserManager* _userman;

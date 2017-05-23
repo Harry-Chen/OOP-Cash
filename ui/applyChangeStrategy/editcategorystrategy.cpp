@@ -1,21 +1,23 @@
 ﻿#include "editcategorystrategy.h"
 
-void editCategoryStrategy::applyChange()
+bool editCategoryStrategy::applyChange()
 {
 	auto cateman = new CategoryManager(_userman);
 	QString oldName = _w->getLabelText(0);
 	QString newName = _w->getLineEditText2();
 	Category cate = ItemSearcher::instance()->getItemByName(cateman, oldName);
 	cate.name = newName;
-	cateman->modifyItem(cate);
+	bool success = cateman->modifyItem(cate);
 	delete cateman;
+	return success;
 }
 
-void editCategoryStrategy::applyDelete()
+bool editCategoryStrategy::applyDelete()
 {
 	auto cateman = new CategoryManager(_userman);
 	QString name = _w->getLabelText(0);
 	Category cate = ItemSearcher::instance()->getItemByName(cateman, name);
-	cateman->removeItemById(cate.id);
+	bool success = cateman->removeItemById(cate.id);
 	delete cateman;
+	return success;
 }

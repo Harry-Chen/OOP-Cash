@@ -10,6 +10,8 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 	_userman = nullptr;
 	ui->setupUi(this);
 	ui->lineEditAmount->setValidator(new QDoubleValidator(ui->lineEditAmount));
+	calendar = new CalendarDialog(this);
+	connect(calendar, SIGNAL(seletedDateChanged()), this, SLOT(setDateByCalendar()));
 }
 
 void ChangeBillWidget::init(UserManager* userman) {
@@ -22,6 +24,7 @@ void ChangeBillWidget::init(UserManager* userman) {
 	setCurrencyCombobox();
 	getLoanNameLabel()->setVisible(false);
 	getLoanNameLineEdit()->setVisible(false);
+	getTimeLineEdit()->setText(QDate().currentDate().toString("yyyy-MM-dd"));
 }
 
 ChangeBillWidget::~ChangeBillWidget()
@@ -35,6 +38,12 @@ void ChangeBillWidget::refresh()
 	setCombobox1();
 	setCombobox2();
 	setCurrencyCombobox();
+}
+
+void ChangeBillWidget::setDateByCalendar()
+{
+	QDate date = calendar->getSelectedDate();
+	getTimeLineEdit()->setText(date.toString("yyyy-MM-dd"));
 }
 
 void ChangeBillWidget::clearWidget()
@@ -152,4 +161,9 @@ void ChangeBillWidget::on_editAccbtn_clicked()
 	_w = editItemWidgetFactory(_userman).getEditAccountWidget(this, getCombobox2()->currentText());
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
 	_w->exec();
+}
+
+void ChangeBillWidget::on_btnCalendar_clicked()
+{
+	calendar->setVisible(true);
 }
