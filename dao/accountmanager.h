@@ -11,11 +11,11 @@ class AccountManager : public ItemManager<Account>
 {
 private:
     ID uid = -1;
-    ID getIdByName(const QString &_name);
     using ItemManager<Account>::ItemManager;
 public:
     AccountManager(UserManager *userMan);
     QMap<ID,Account> getAllItems();
+    ID getIdByName(const QString &_name);
     ID addItem(const Account &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const Account &newItem);

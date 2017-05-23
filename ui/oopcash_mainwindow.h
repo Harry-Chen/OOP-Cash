@@ -9,11 +9,12 @@
 #include "datavisualization/querywidget.h"
 
 #include "ui/detailwidget.h"
-#include "ui/recordcostwidget.h"
+#include "ui/recordcostearnwidget.h"
 #include "ui/logindlg.h"
 #include "ui/usersetdialog.h"
 
 #include "dataPorter/dataexporter.h"
+#include "dataPorter/dataimporter.h"
 
 namespace Ui {
 class OOPCash_MainWindow;
@@ -27,6 +28,9 @@ public:
     explicit OOPCash_MainWindow(QWidget *parent = 0);
     ~OOPCash_MainWindow();
 
+signals:
+    void dataFreshSignal();
+
 public slots:
     void on_loginSuccess(ID);
     void on_userMapUpdate();
@@ -34,8 +38,8 @@ public slots:
 private slots:
     void on_loginoutButton_clicked();
     void on_setButton_clicked();
-
     void on_exportButton_clicked();
+    void on_importButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;
@@ -48,9 +52,9 @@ private:
     //Tab Pages
     DetailWidget * pDetailWidget;
     QueryWidget * pQueryWidget;
-    RecordCostWidget * pRecordCostWidget;
+    RecordCostEarnWidget * pRecordCostWidget;
     //Methods
-    void doLogout();
+    void initWidgets();
     void showloginDlg();
     void showUserSetDlg();
     void logout();

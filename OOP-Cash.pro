@@ -39,6 +39,7 @@ SOURCES += main.cpp \
     dao/query.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
+    datavisualization/tabledock.cpp \
     process/processor.cpp \
     process/processorfactory.cpp \
     process/balanceprocessor.cpp \
@@ -46,12 +47,14 @@ SOURCES += main.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
-    ui/recordcostwidget.cpp \
     ui/usersetdialog.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
     ui/edititemwidget.cpp \
     ui/edititemwidgetfactory.cpp \
+    ui/calendardialog.cpp \
+    ui/dateeditcalendar.cpp \
+    ui/recordcostearnwidget.cpp \
     ui/applyChangeStrategy/applychangestrategy.cpp \
     ui/applyChangeStrategy/editaccountstrategy.cpp \
     ui/applyChangeStrategy/editcategorystrategy.cpp \
@@ -60,9 +63,12 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
     dataPorter/dataexporter.cpp \
-    datavisualization/tabledock.cpp \
-    ui/calendardialog.cpp \
-    ui/dateeditcalendar.cpp
+    dataPorter/dataimporter.cpp \
+    dataPorter/itemadder.cpp \
+    dataPorter/accadder.cpp \
+    dataPorter/billadder.cpp \
+    dataPorter/curadder.cpp \
+    dataPorter/catadder.cpp 
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -86,19 +92,22 @@ HEADERS  += \
     dao/query.h \
     datavisualization/graphdock.h \
     datavisualization/querywidget.h \
+    datavisualization/tabledock.h \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
-    ui/recordcostwidget.h \
     ui/usersetdialog.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
+    ui/calendardialog.h \
+    ui/dateeditcalendar.h \
     process/processor.h \
     process/processorfactory.h \
     process/balanceprocessor.h \
     process/processorbase.h \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
+    ui/recordcostearnwidget.h \
     ui/applyChangeStrategy/applychangestrategy.h \
     ui/applyChangeStrategy/editaccountstrategy.h \
     ui/applyChangeStrategy/editcategorystrategy.h \
@@ -106,10 +115,13 @@ HEADERS  += \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
     ui/applyChangeStrategy/addcurrencystrategy.h \
-    dataPorter/dataexporter.cpp \
-    datavisualization/tabledock.h \
-    ui/calendardialog.h \
-    ui/dateeditcalendar.h
+    dataPorter/dataexporter.h \
+    dataPorter/dataimporter.h \
+    dataPorter/itemadder.h \
+    dataPorter/accadder.h \
+    dataPorter/billadder.h \
+    dataPorter/curadder.h \
+    dataPorter/catadder.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \

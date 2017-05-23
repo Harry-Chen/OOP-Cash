@@ -29,6 +29,7 @@ private:
     QJsonArray getBillArray(QVector<Bill>&);
     QJsonArray getCurrencyArray();
     QJsonArray getAccountArray();
+    QJsonArray getCategoryArray();
 
 public:
     dataExporter(UserManager * _userman);

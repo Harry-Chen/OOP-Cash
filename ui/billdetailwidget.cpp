@@ -16,7 +16,7 @@ void BillDetailWidget::fillData(const Bill &bill, UserManager *userman)
     auto acc = new AccountManager(userman);
     auto cat = new CategoryManager(userman);
     QString quantity, account, category;
-    quantity = QString::number(bill.quantity);
+    quantity = QString::number(((double)bill.quantity)/100);
     const auto & allAccounts = acc->getAllItems();
     const auto & allCategories = cat->getAllItems();
     if(bill.from == -1){

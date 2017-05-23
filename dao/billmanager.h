@@ -15,12 +15,12 @@ class BillManager : public ItemManager<Bill>
 {
 private:
     ID uid = -1;
-    ID getIdByName(const QString &_name);
     ID getIdByCtime(const QDateTime &_ctime);
     using ItemManager<Bill>::ItemManager;
 public:
     BillManager(UserManager *userMan);
     QMap<ID,Bill> getAllItems();
+    ID getIdByName(const QString &_name);
     ID addItem(const Bill &newItem);
     bool removeItemById(const int itemId);
     bool modifyItem(const Bill &newItem);

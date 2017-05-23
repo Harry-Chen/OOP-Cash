@@ -8,6 +8,7 @@
 #include <QTextEdit>
 #include <QMessageBox>
 #include <QCalendarWidget>
+#include <QRadioButton>
 #include "dao/usermanager.h"
 #include "dao/categorymanager.h"
 #include "dao/accountmanager.h"
@@ -41,18 +42,27 @@ protected:
 	virtual void setLabelNames() = 0; //QString strLabel1, QString strLabel2, QString strAmountLabel
 	virtual void setCombobox1() = 0;
 	virtual void setCombobox2() = 0;
+	virtual void setCombobox3() = 0;
 	void setCurrencyCombobox();
 	QLabel* getLabel1();
 	QLabel* getLabel2();
 	QLabel* getLabel3();
+	QLabel* getAmountLabel();
 	QLabel* getLoanNameLabel();
-	QLineEdit* getLoanNameLineEdit();
+	QRadioButton* getCostBtn();
+	QRadioButton* getEarnBtn();
+	QRadioButton* getTransferBtn();
 	QLineEdit* getTimeLineEdit();
 	QLineEdit* getMoneyLineEdit();
 	QTextEdit* getNoteTextEdit();
 	QComboBox* getCombobox1();
 	QComboBox* getCombobox2();
+	QComboBox* getCombobox3();
 	QComboBox* getCurrencyCombobox();
+
+public slots:
+    void refresh();
+
 private slots:
 	void on_savebtn_clicked();
 	void on_newCatebtn_clicked();
@@ -61,7 +71,6 @@ private slots:
 	void on_editCurrbtn_clicked();
 	void on_newAccbtn_clicked();
 	void on_editAccbtn_clicked();
-	void refresh();
 	void setDateByCalendar();
 	void on_btnCalendar_clicked();
 };
