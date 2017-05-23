@@ -116,40 +116,40 @@ void ChangeBillWidget::on_newCatebtn_clicked()
 {
 	_w = editItemWidgetFactory(_userman).getNewCategoryWidget(this);
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
-	_w->show();
+	_w->exec();
 }
 
 void ChangeBillWidget::on_editCatebtn_clicked()
 {
 	_w = editItemWidgetFactory(_userman).getEditCategoryWidget(this, getCombobox1()->currentText());
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
-	_w->show();
+	_w->exec();
 }
 
 void ChangeBillWidget::on_newCurrbtn_clicked()
 {
 	_w = editItemWidgetFactory(_userman).getNewCurrencyWidget(this);
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
-	_w->show();
+	_w->exec();
 }
 
 void ChangeBillWidget::on_editCurrbtn_clicked()
 {
 	_w = editItemWidgetFactory(_userman).getEditCurrencyWidget(this, getCombobox1()->currentText());
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
-	_w->show();
+	_w->exec();
 }
 
 void ChangeBillWidget::on_newAccbtn_clicked()
 {
 	_w = editItemWidgetFactory(_userman).getNewAccountWidget(this);
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
-	_w->show();
+	_w->exec();
 }
 
 void ChangeBillWidget::on_editAccbtn_clicked()
 {
-	_w = editItemWidgetFactory(_userman).getEditAccountWidget(this, getCombobox1()->currentText());
+	_w = editItemWidgetFactory(_userman).getEditAccountWidget(this, getCombobox2()->currentText());
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
-	_w->show();
+	_w->exec();
 }

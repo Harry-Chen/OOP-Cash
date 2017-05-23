@@ -27,14 +27,14 @@ public:
 	QString getLineEditText2();
 	QString getComboboxText();
 	QVector<QLabel*>* getlabelVector();
-	void setApplyChangeStrategy(applyChangeStrategy* _apply);
-	void setLabelName(QVector<QLabel*> & labelVector, const QStringList& namelist, const QVector<bool>& visiblelist);
-	void setLineEdit2(const QString&defaultText = "", bool visible = true);
-	void setLineEdit3(const QString&defaultText = "", bool visible = true);
-	void setDeleteBtn(bool enabled = true);
-	void setConformBtn(bool enabled = true);
-	void setCancelBtn(bool enabled = true);
-	void setCurrencyComboBox();
+	editItemWidget* setApplyChangeStrategy(applyChangeStrategy* _apply);
+	editItemWidget* setLabelName(QVector<QLabel*> & labelVector, const QStringList& namelist, const QVector<bool>& visiblelist);
+	editItemWidget* setLineEdit2(const QString&defaultText = "", bool visible = true);
+	editItemWidget* setLineEdit3(const QString&defaultText = "", bool visible = true);
+	editItemWidget* setCurrencyComboBox(bool visible = true);
+	editItemWidget* setDeleteBtn(bool enabled = true);
+	editItemWidget* setConformBtn(bool enabled = true);
+	editItemWidget* setCancelBtn(bool enabled = true);
 
 signals:
 	void modified();

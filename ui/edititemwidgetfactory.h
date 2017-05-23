@@ -27,7 +27,7 @@ private:
 					 const QStringList& namelist, const QVector<bool>& labvisiblelist, \
 					 const QString& defaultText2, const QString& defaultText3, \
 					 bool line2visible, bool line3visible, \
-					 const QVector<bool>& btnEnableList);
+					 const QVector<bool>& btnEnableList, bool currComboBoxVisible = true);
 };
 
 #endif // EDITITEMWIDGETFACTORY_H
