@@ -1,6 +1,6 @@
 ﻿#include "editaccountstrategy.h"
 
-void editAccountStrategy::applyChange()
+bool editAccountStrategy::applyChange()
 {
 	QString oldName = _w->getLabelText(0);
 	QString currName = _w->getComboboxText();
@@ -11,16 +11,18 @@ void editAccountStrategy::applyChange()
 	QString newName = _w->getLineEditText2();
 	acc.name = newName;
 	acc.cid = curr.id;
-	accman->modifyItem(acc);
+	bool success = accman->modifyItem(acc);
 	delete currman;
 	delete accman;
+	return success;
 }
 
-void editAccountStrategy::applyDelete()
+bool editAccountStrategy::applyDelete()
 {
 	auto accman = new AccountManager(_userman);
 	QString name = _w->getLabelText(0);
 	Account acc = ItemSearcher::instance()->getItemByName(accman, name);
-	accman->removeItemById(acc.id);
+	bool success = accman->removeItemById(acc.id);
 	delete accman;
+	return success;
 }

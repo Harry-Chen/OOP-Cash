@@ -174,6 +174,10 @@
         <property name="text">
          <string/>
         </property>
+        <property name="icon">
+         <iconset resource="../uirsc.qrc">
+          <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
+        </property>
         <property name="iconSize">
          <size>
           <width>30</width>
@@ -372,6 +376,8 @@
   <tabstop>comboCurrency</tabstop>
   <tabstop>textEdit</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../uirsc.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -58,7 +58,8 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/editcurrencystrategy.cpp \
     ui/applyChangeStrategy/addaccountstrategy.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
-    ui/applyChangeStrategy/addcurrencystrategy.cpp
+    ui/applyChangeStrategy/addcurrencystrategy.cpp \
+    ui/calendardialog.cpp
     ui/logindlg.cpp
 
 
@@ -111,7 +112,8 @@ HEADERS  += \
     ui/applyChangeStrategy/editcurrencystrategy.h \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
-    ui/applyChangeStrategy/addcurrencystrategy.h
+    ui/applyChangeStrategy/addcurrencystrategy.h \
+    ui/calendardialog.h
     ui/logindlg.h
 
 FORMS    += \
@@ -121,7 +123,8 @@ FORMS    += \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
     ui/logindlg.ui \
-    ui/edititemwidget.ui
+    ui/edititemwidget.ui \
+    ui/calendardialog.ui
 
 RESOURCES += \
     uirsc.qrc
