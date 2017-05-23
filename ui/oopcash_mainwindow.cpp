@@ -8,18 +8,10 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     ui->setupUi(this);
     userman = new UserManager(DatabaseHelper::getDb());
     userMap = userman->getAllItems();
-
-    pQueryWidget = new QueryWidget(ui->QueryWidget);
-    pQueryWidget->setUserman(userman);
-    pRecardCostWidget = new RecordCostWidget(ui->addTab);
-    pRecardCostWidget->init(userman);
-
-    init();
-
-    pQueryWidget->show();
-    pDetailWidget = new DetailWidget(ui->detailTab, userman);
-    pDetailWidget->show();
-    pRecardCostWidget->show();
+    pDetailWidget = nullptr;
+    pRecordCostWidget = nullptr;
+    pQueryWidget = nullptr;
+    doLogout();
 }
 
 OOPCash_MainWindow::~OOPCash_MainWindow()
@@ -27,18 +19,17 @@ OOPCash_MainWindow::~OOPCash_MainWindow()
     delete ui;
 }
 
-void OOPCash_MainWindow::init() {
+void OOPCash_MainWindow::doLogout() {
     Isloggedin = false;
+    delete pQueryWidget;
+    delete pRecordCostWidget;
+    delete pDetailWidget;
+    pQueryWidget = nullptr;
+    pRecordCostWidget = nullptr;
+    pDetailWidget = nullptr;
     ui->setButton->setEnabled(false);
     ui->tabWidget->setEnabled(false);
     ui->tabWidget->setCurrentIndex(0);
-//    if(userman != nullptr) {
-//        delete userman;
-//        userman = nullptr;
-//    }
-//    userman = new UserManager(DatabaseHelper::getDb());
-
-    //other init...
 }
 
 void OOPCash_MainWindow::showloginDlg() {
@@ -58,11 +49,20 @@ void OOPCash_MainWindow::logout() {
     userman->logout();
     ui->loginoutButton->setText("login");
     ui->usernameLabel->setText("好像还没有登录呢~");
-    init();         //clear data recieved...
+    doLogout();         //clear data recieved...
 }
 
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     Isloggedin = true;
+    pQueryWidget = new QueryWidget(ui->QueryWidget);
+    pQueryWidget->setUserman(userman);
+    pRecordCostWidget = new RecordCostWidget(ui->addTab);
+    pRecordCostWidget->init(userman);
+    pDetailWidget = new DetailWidget(ui->detailTab, userman);
+    pQueryWidget->show();
+    pDetailWidget->show();
+    pRecordCostWidget->show();
+
     ui->setButton->setEnabled(true);
     ui->tabWidget->setEnabled(true);
 

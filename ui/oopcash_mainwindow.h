@@ -40,17 +40,17 @@ private slots:
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
-    DetailWidget * pDetailWidget;
 
     QMap<ID,User> userMap;
 
     bool Isloggedin;
     ID u_id;
     //Tab Pages
+    DetailWidget * pDetailWidget;
     QueryWidget * pQueryWidget;
-    RecordCostWidget * pRecardCostWidget;
+    RecordCostWidget * pRecordCostWidget;
     //Methods
-    void init();
+    void doLogout();
     void showloginDlg();
     void showUserSetDlg();
     void logout();
