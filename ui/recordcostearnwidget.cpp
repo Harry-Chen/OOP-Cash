@@ -1,17 +1,17 @@
-﻿#include "recordcostwidget.h"
+﻿#include "recordcostearnwidget.h"
 
-RecordCostWidget::RecordCostWidget(QWidget* parent):ChangeBillWidget(parent)
+RecordCostEarnWidget::RecordCostEarnWidget(QWidget* parent):ChangeBillWidget(parent)
 {
 	isCost = true;
 	QRadioButton* cbtn = getCostBtn();
 	QRadioButton* ebtn = getEarnBtn();
 	cbtn->setVisible(true);
 	ebtn->setVisible(true);
-	connect(cbtn, SIGNAL(toggled(bool)), this, SLOT());
-	connect(ebtn, SIGNAL(toggled(bool)), this, SLOT());
+	connect(cbtn, SIGNAL(toggled(bool)), this, SLOT(setIsCostTrue()));
+	connect(ebtn, SIGNAL(toggled(bool)), this, SLOT(setIsCostFalse()));
 }
 
-void RecordCostWidget::addBill()
+void RecordCostEarnWidget::addBill()
 {
 	auto cateman = new CategoryManager(_userman);
 	auto accman = new AccountManager(_userman);
@@ -31,9 +31,9 @@ void RecordCostWidget::addBill()
 		QMessageBox::information(this, "Attention", "please input valid date and the date should be yyyy-MM-dd format");
 		valid = false;
 	}
-	double money;
+	int money;
 	if(getMoneyLineEdit()->hasAcceptableInput()) {
-		money = getMoneyLineEdit()->text().toDouble();
+		money = int(getMoneyLineEdit()->text().toDouble() * 100);
 	} else {
 		QMessageBox::information(this, "Attention", "the money should be double!");
 		valid = false;
@@ -60,19 +60,19 @@ void RecordCostWidget::addBill()
 	}
 }
 
-void RecordCostWidget::setIsCostFalse()
+void RecordCostEarnWidget::setIsCostFalse()
 {
 	isCost = false;
 	setLabelNames();
 }
 
-RecordCostWidget::setIsCostTrue(bool val)
+void RecordCostEarnWidget::setIsCostTrue()
 {
 	isCost = true;
 	setLabelNames();
 }
 
-void RecordCostWidget::setLabelNames()
+void RecordCostEarnWidget::setLabelNames()
 {
 	if(isCost) {
 		setCostLabelNames();
@@ -81,7 +81,7 @@ void RecordCostWidget::setLabelNames()
 	}
 }
 
-void RecordCostWidget::setCombobox1()
+void RecordCostEarnWidget::setCombobox1()
 {
 	CategoryManager* cateman = new CategoryManager(_userman);
 	QStringList cateList;
@@ -90,7 +90,7 @@ void RecordCostWidget::setCombobox1()
 	getCombobox1()->addItems(cateList);
 }
 
-void RecordCostWidget::setCombobox2()
+void RecordCostEarnWidget::setCombobox2()
 {
 	AccountManager* accman = new AccountManager(_userman);
 	QStringList accList;
@@ -99,14 +99,14 @@ void RecordCostWidget::setCombobox2()
 	getCombobox2()->addItems(accList);
 }
 
-void RecordCostWidget::setCostLabelNames()
+void RecordCostEarnWidget::setCostLabelNames()
 {
 	getLabel1()->setText("账目分类");
 	getLabel2()->setText("支出账户");
 	getLabel3()->setText("支出金额");
 }
 
-void RecordCostWidget::setEarnLabelNames()
+void RecordCostEarnWidget::setEarnLabelNames()
 {
 	getLabel1()->setText("账目分类");
 	getLabel2()->setText("收入账户");

@@ -83,6 +83,16 @@ QLabel*ChangeBillWidget::getLoanNameLabel()
 	return ui->labelLoadName;
 }
 
+QRadioButton*ChangeBillWidget::getCostBtn()
+{
+	return ui->costBtn;
+}
+
+QRadioButton*ChangeBillWidget::getEarnBtn()
+{
+	return ui->earnBtn;
+}
+
 QLineEdit*ChangeBillWidget::getLoanNameLineEdit()
 {
 	return ui->lineEditLoanName;

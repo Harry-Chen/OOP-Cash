@@ -8,6 +8,7 @@
 #include <QTextEdit>
 #include <QMessageBox>
 #include <QCalendarWidget>
+#include <QRadioButton>
 #include "dao/usermanager.h"
 #include "dao/categorymanager.h"
 #include "dao/accountmanager.h"
@@ -46,6 +47,8 @@ protected:
 	QLabel* getLabel2();
 	QLabel* getLabel3();
 	QLabel* getLoanNameLabel();
+	QRadioButton* getCostBtn();
+	QRadioButton* getEarnBtn();
 	QLineEdit* getLoanNameLineEdit();
 	QLineEdit* getTimeLineEdit();
 	QLineEdit* getMoneyLineEdit();

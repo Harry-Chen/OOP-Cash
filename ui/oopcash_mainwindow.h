@@ -9,7 +9,7 @@
 #include "datavisualization/querywidget.h"
 
 #include "ui/detailwidget.h"
-#include "ui/recordcostwidget.h"
+#include "ui/recordcostearnwidget.h"
 #include "ui/logindlg.h"
 #include "ui/usersetdialog.h"
 
@@ -48,7 +48,7 @@ private:
     //Tab Pages
     DetailWidget * pDetailWidget;
     QueryWidget * pQueryWidget;
-    RecordCostWidget * pRecordCostWidget;
+    RecordCostEarnWidget * pRecordCostWidget;
     //Methods
     void doLogout();
     void showloginDlg();

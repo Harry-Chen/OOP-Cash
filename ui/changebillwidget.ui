@@ -77,25 +77,6 @@
        <number>2</number>
       </property>
       <item>
-       <widget class="QLabel" name="labelOutlay">
-        <property name="minimumSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QLineEdit" name="lineEditAmount">
         <property name="minimumSize">
          <size>
@@ -325,14 +306,14 @@
     <item>
      <widget class="QPushButton" name="newCatebtn">
       <property name="text">
-       <string>新建消费分类</string>
+       <string>新建收支分类</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="editCatebtn">
       <property name="text">
-       <string>编辑消费分类</string>
+       <string>编辑收支分类</string>
       </property>
      </widget>
     </item>

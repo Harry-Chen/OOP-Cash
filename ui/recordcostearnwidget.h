@@ -3,13 +3,14 @@
 
 #include "changebillwidget.h"
 #include <QRadioButton>
+#include <QPixmap>
 
-class RecordCostWidget : public ChangeBillWidget
+class RecordCostEarnWidget : public ChangeBillWidget
 {
 	Q_OBJECT
 
 public:
-	RecordCostWidget(QWidget* parent = nullptr);
+	RecordCostEarnWidget(QWidget* parent = nullptr);
 public slots:
 	virtual void addBill();
 	void setIsCostTrue();
@@ -19,6 +20,8 @@ protected:
 	virtual void setCombobox1();
 	virtual void setCombobox2();
 private:
+	QPixmap* costIcon;
+	QPixmap* earnIcon;
 	bool isCost;
 	void setCostLabelNames();
 	void setEarnLabelNames();

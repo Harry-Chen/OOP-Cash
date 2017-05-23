@@ -46,7 +46,6 @@ SOURCES += main.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
-    ui/recordcostwidget.cpp \
     ui/usersetdialog.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
@@ -61,7 +60,8 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
     dataPorter/dataexporter.cpp \
     datavisualization/tabledock.cpp \
-    ui/calendardialog.cpp
+    ui/calendardialog.cpp \
+    ui/recordcostearnwidget.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -88,7 +88,6 @@ HEADERS  += \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
-    ui/recordcostwidget.h \
     ui/usersetdialog.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
@@ -107,7 +106,8 @@ HEADERS  += \
     ui/applyChangeStrategy/addcurrencystrategy.h \
     dataPorter/dataexporter.cpp \
     datavisualization/tabledock.h \
-    ui/calendardialog.h
+    ui/calendardialog.h \
+    ui/recordcostearnwidget.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \
