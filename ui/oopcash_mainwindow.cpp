@@ -93,3 +93,9 @@ void OOPCash_MainWindow::on_exportButton_clicked()
     auto exportor = new dataExporter(userman);
     exportor->doExport();
 }
+
+void OOPCash_MainWindow::on_importButton_clicked()
+{
+    auto importor = new dataImporter(userman);
+    importor->doImport();
+}

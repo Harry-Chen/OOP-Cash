@@ -27,6 +27,17 @@ QJsonArray dataExporter::getAccountArray(){
     return arrayOfAccount;
 }
 
+QJsonArray dataExporter::getCategoryArray()
+{
+    QJsonArray arrayOfCategory;
+    for(const Category &c : catMap.values()){
+        QJsonObject o;
+        o.insert("name", c.name);
+        arrayOfCategory.append(o);
+    }
+    return arrayOfCategory;
+}
+
 QJsonArray dataExporter::getBillArray(QVector<Bill> & _vectorBill)
 {
     QJsonArray arrayOfBill;
@@ -62,11 +73,13 @@ bool dataExporter::doExport() {
 
     const auto &arrayOfCurrency = getCurrencyArray();
     const auto &arrayOfAccount = getAccountArray();
-    const auto &exportJsArray = getBillArray(exportBills);
+    const auto &arrayOfCategory = getCategoryArray();
+    const auto &arrayOfBill = getBillArray(exportBills);
     QJsonObject object;
     object.insert("currency", arrayOfCurrency);
+    object.insert("category", arrayOfCategory);
     object.insert("account", arrayOfAccount);
-    object.insert("bills", exportJsArray);
+    object.insert("bills", arrayOfBill);
     //output...
     QJsonDocument document;
     document.setObject(object);

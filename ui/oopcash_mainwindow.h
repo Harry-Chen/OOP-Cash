@@ -14,6 +14,7 @@
 #include "ui/usersetdialog.h"
 
 #include "dataPorter/dataexporter.h"
+#include "dataPorter/dataimporter.h"
 
 namespace Ui {
 class OOPCash_MainWindow;
@@ -36,6 +37,8 @@ private slots:
     void on_setButton_clicked();
 
     void on_exportButton_clicked();
+
+    void on_importButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;
