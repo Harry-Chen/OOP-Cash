@@ -46,15 +46,24 @@ SOURCES += main.cpp \
     process/processorfactory.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
-    ui/editaccount.cpp \
     ui/logindlg.cpp \
     ui/recordcostwidget.cpp \
     util/itemsearcher.cpp \
     ui/usersetdialog.cpp \
     ui/billdetailwidget.cpp \
-    ui/detailwidget.cpp
+    ui/detailwidget.cpp \
     process/balanceprocessor.cpp \
-    process/processorbase.cpp
+    process/processorbase.cpp \
+    ui/edititemwidget.cpp \
+    ui/edititemwidgetfactory.cpp \
+    ui/applyChangeStrategy/applychangestrategy.cpp \
+    ui/applyChangeStrategy/editaccountstrategy.cpp \
+    ui/applyChangeStrategy/editcategorystrategy.cpp \
+    ui/applyChangeStrategy/editcurrencystrategy.cpp \
+    ui/applyChangeStrategy/addaccountstrategy.cpp \
+    ui/applyChangeStrategy/addcategorystrategy.cpp \
+    ui/applyChangeStrategy/addcurrencystrategy.cpp \
+    dataPorter/dataexporter.cpp
 
 
 INCLUDEPATH += include
@@ -93,30 +102,38 @@ HEADERS  += \
     datavisualization/querywidget.h \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
-    ui/editaccount.h \
     ui/logindlg.h \
     ui/recordcostwidget.h \
     dao/itemmanager.h \
     util/itemsearcher.h \
-    ui/logindlg.h \
     ui/usersetdialog.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     process/processor.h \
     process/processorfactory.h \
     process/balanceprocessor.h \
-    process/processorbase.h
+    process/processorbase.h \
+    ui/edititemwidget.h \
+    ui/edititemwidgetfactory.h \
+    ui/applyChangeStrategy/applychangestrategy.h \
+    ui/applyChangeStrategy/editaccountstrategy.h \
+    ui/applyChangeStrategy/editcategorystrategy.h \
+    ui/applyChangeStrategy/editcurrencystrategy.h \
+    ui/applyChangeStrategy/addaccountstrategy.h \
+    ui/applyChangeStrategy/addcategorystrategy.h \
+    ui/applyChangeStrategy/addcurrencystrategy.h \
+    dataPorter/dataexporter.cpp
 
 FORMS    += \
     datavisualization/graphdock.ui \
     datavisualization/querywidget.ui \
     ui/oopcash_mainwindow.ui \
     ui/changebillwidget.ui \
-    ui/editaccount.ui \
-    ui/logindlg.ui \
     ui/usersetdialog.ui \
     ui/billdetailwidget.ui \
-    ui/detailwidget.ui
+    ui/detailwidget.ui \
+    ui/logindlg.ui \
+    ui/edititemwidget.ui
 
 RESOURCES += \
     uirsc.qrc

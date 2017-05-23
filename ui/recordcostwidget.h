@@ -8,7 +8,7 @@ class RecordCostWidget : public ChangeBillWidget
 	Q_OBJECT
 
 public:
-    RecordCostWidget(QWidget *parent);
+	RecordCostWidget(QWidget* parent = nullptr);
 public slots:
 	virtual void addBill();
 protected:
