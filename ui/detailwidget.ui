@@ -48,9 +48,9 @@
         <widget class="QDateEdit" name="timeTo"/>
        </item>
        <item row="4" column="0">
-        <widget class="QPushButton" name="consult">
+        <widget class="QPushButton" name="refresh">
          <property name="text">
-          <string>consult</string>
+          <string>refresh</string>
          </property>
         </widget>
        </item>

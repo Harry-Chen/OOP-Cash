@@ -13,17 +13,20 @@ bool BalanceProcessor::processAll()
 {
     for(int i = 0; i < raw.size(); ++i)
     {
-        int indexFrom = accountIds.indexOf(userId);
-        int indexTo = accountIds.indexOf(userId);
-        if (indexFrom != -1 && indexTo != -1)
-            raw[i].quantity = 0;
-        else if (indexFrom != -1 && indexTo == -1)
-            raw[i].quantity = -raw[i].quantity;
-        else if (indexFrom == -1 && indexTo != -1);
-        else
-        {
-            logging::error("An abnormal bill!\n");
-        }
+        if(raw[i].to == -1) raw[i].quantity = -raw[i].quantity;
+        else if(raw[i].from == -1) ;
+        else raw[i].quantity = 0;
+//        int indexFrom = accountIds.indexOf(userId);
+//        int indexTo = accountIds.indexOf(userId);
+//        if (indexFrom != -1 && indexTo != -1)
+//            raw[i].quantity = 0;
+//        else if (indexFrom != -1 && indexTo == -1)
+//            raw[i].quantity = -raw[i].quantity;
+//        else if (indexFrom == -1 && indexTo != -1);
+//        else
+//        {
+//            logging::error("An abnormal bill!\n");
+//        }
     }
     ProcessorBase::processAll();
     for(int i = 0; i < matrix.size(); ++i)

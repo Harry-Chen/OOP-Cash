@@ -60,9 +60,9 @@ bool dataExporter::doExport() {
             .addCreatorId(userman->getLoggedInUid())
             .doQuery();
 
-    auto arrayOfCurrency = getCurrencyArray();
-    auto arrayOfAccount = getAccountArray();
-    auto exportJsArray = getBillArray(exportBills);
+    const auto &arrayOfCurrency = getCurrencyArray();
+    const auto &arrayOfAccount = getAccountArray();
+    const auto &exportJsArray = getBillArray(exportBills);
     QJsonObject object;
     object.insert("currency", arrayOfCurrency);
     object.insert("account", arrayOfAccount);
