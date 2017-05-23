@@ -12,3 +12,12 @@ void editCurrencyStrategy::applyChange()
 	currman->modifyItem(curr);
 	delete currman;
 }
+
+void editCurrencyStrategy::applyDelete()
+{
+	QString name = _w->getLabelText(0);
+	auto currman = new CurrencyManager(_userman);
+	Currency curr = ItemSearcher::instance()->getItemByName(currman, name);
+	currman->removeItemById(curr.id);
+	delete currman;
+}

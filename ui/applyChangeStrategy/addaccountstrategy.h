@@ -8,6 +8,7 @@ class addAccountStrategy : public applyChangeStrategy
 public:
 	using applyChangeStrategy::applyChangeStrategy;
 	virtual void applyChange();
+	virtual void applyDelete();
 };
 
 #endif // ADDACCOUNTSTRATEGY_H

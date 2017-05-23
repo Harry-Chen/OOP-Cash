@@ -135,7 +135,7 @@ void ChangeBillWidget::on_newCurrbtn_clicked()
 
 void ChangeBillWidget::on_editCurrbtn_clicked()
 {
-	_w = editItemWidgetFactory(_userman).getEditCurrencyWidget(this, getCombobox1()->currentText());
+	_w = editItemWidgetFactory(_userman).getEditCurrencyWidget(this, getCurrencyCombobox()->currentText());
 	connect(_w, SIGNAL(modified()), this, SLOT(refresh()));
 	_w->exec();
 }

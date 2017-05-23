@@ -64,7 +64,7 @@ editItemWidget*editItemWidgetFactory::getEditCategoryWidget(QWidget* parent, con
 	QVector<bool> labvisiblelist;
 	labvisiblelist << true << false << true << false;
 	QVector<bool> btnEnableList;
-	btnEnableList << false << true << true;
+	btnEnableList << true << true << true;
 	auto ans = buildWidget(parent, "编辑种类", labnamelist, labvisiblelist, "", "", false, true, btnEnableList, false);
 	ans->setApplyChangeStrategy(new editCategoryStrategy(ans, _userman));
 	return ans;

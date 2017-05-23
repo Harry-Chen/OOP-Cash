@@ -113,7 +113,9 @@ QVector<QLabel*>* editItemWidget::getlabelVector()
 
 void editItemWidget::on_deletebtn_clicked()
 {
-
+	apply->applyDelete();
+	emit modified();
+	this->close();
 }
 
 void editItemWidget::on_conformbtn_clicked()

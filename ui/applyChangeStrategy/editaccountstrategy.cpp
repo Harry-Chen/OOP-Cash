@@ -15,3 +15,12 @@ void editAccountStrategy::applyChange()
 	delete currman;
 	delete accman;
 }
+
+void editAccountStrategy::applyDelete()
+{
+	auto accman = new AccountManager(_userman);
+	QString name = _w->getLabelText(0);
+	Account acc = ItemSearcher::instance()->getItemByName(accman, name);
+	accman->removeItemById(acc.id);
+	delete accman;
+}

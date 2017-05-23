@@ -8,6 +8,7 @@ class editCategoryStrategy : public applyChangeStrategy
 public:
 	using applyChangeStrategy::applyChangeStrategy;
 	virtual void applyChange();
+	virtual void applyDelete();
 };
 
 #endif // EDITCATEGORYSTRATEGY_H

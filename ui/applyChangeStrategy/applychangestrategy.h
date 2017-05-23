@@ -9,6 +9,7 @@ class applyChangeStrategy
 public:
 	applyChangeStrategy(editItemWidget* w, UserManager* userman);
 	virtual void applyChange() = 0;
+	virtual void applyDelete() = 0;
 protected:
 	editItemWidget* _w;
 	UserManager* _userman;

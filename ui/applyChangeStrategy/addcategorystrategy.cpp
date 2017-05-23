@@ -8,3 +8,5 @@ void addCategoryStrategy::applyChange()
 	cateman->addItem(cate);
 	delete cateman;
 }
+
+void addCategoryStrategy::applyDelete() {}

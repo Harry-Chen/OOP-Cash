@@ -10,3 +10,12 @@ void editCategoryStrategy::applyChange()
 	cateman->modifyItem(cate);
 	delete cateman;
 }
+
+void editCategoryStrategy::applyDelete()
+{
+	auto cateman = new CategoryManager(_userman);
+	QString name = _w->getLabelText(0);
+	Category cate = ItemSearcher::instance()->getItemByName(cateman, name);
+	cateman->removeItemById(cate.id);
+	delete cateman;
+}

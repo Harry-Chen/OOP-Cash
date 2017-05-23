@@ -9,3 +9,5 @@ void addCurrencyStrategy::applyChange()
 	currman->addItem(curr);
 	delete currman;
 }
+
+void addCurrencyStrategy::applyDelete() {}

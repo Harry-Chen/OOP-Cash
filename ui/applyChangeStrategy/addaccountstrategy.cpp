@@ -12,3 +12,5 @@ void addAccountStrategy::applyChange()
 	accman->addItem(acc);
 	delete accman;
 }
+
+void addAccountStrategy::applyDelete() {}

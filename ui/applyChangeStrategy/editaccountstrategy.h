@@ -9,6 +9,7 @@ class editAccountStrategy : public applyChangeStrategy
 public:
 	using applyChangeStrategy::applyChangeStrategy;
 	virtual void applyChange();
+	virtual void applyDelete();
 };
 
 #endif // EDITACCOUNTSTRATEGY_H
