@@ -32,7 +32,7 @@ bool ProcessorBase::process(int i)
         X.push_back(getX(i));
         matrix[Y.size() - 1][X.size() - 1] += raw[i].quantity;
     }
-
+/*
 //    for(int ii = 0 ; ii < matrix.size() ;++ii)
 //        if(isSameY(i, ii))
 //            {
@@ -66,6 +66,7 @@ bool ProcessorBase::process(int i)
 //    matrix.end()->push_back(raw[i].quantity);
 //    for(int _i = 0; _i < matrix.size() - 1; ++_i)
 //        matrix[_i].push_back(0);
+*/
     return true;
 }
 

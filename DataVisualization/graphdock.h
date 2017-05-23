@@ -4,6 +4,7 @@
 #include <QDockWidget>
 #include "qcustomplot.h"
 #include "process/processor.h"
+#include "process/balanceprocessor.h"
 
 namespace Ui {
 class GraphDock;
@@ -14,12 +15,12 @@ class GraphDock : public QDockWidget
     Q_OBJECT
 
 public:
-    explicit GraphDock(Processor * ,QWidget *parent = 0);
+    explicit GraphDock(ProcessorBase * ,QWidget *parent = 0);
     ~GraphDock();
 
 private:
     Ui::GraphDock *ui;
-    Processor * pProcessor;
+    ProcessorBase * pProcessor;
 
     void setupDemo1(QCustomPlot *customPlot);
     void setupDemo2(QCustomPlot *customPlot);
