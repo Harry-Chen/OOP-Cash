@@ -1,15 +1,23 @@
 ﻿#include "querywidget.h"
 #include "ui_querywidget.h"
 #include "util/database_helper.h"
+#include "ui/dateeditcalendar.h"
 #include <QStringList>
+#include "ui/calendardialog.h"
 
 QueryWidget::QueryWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::QueryWidget)
 {
     ui->setupUi(this);
+    calendarFrom = new CalendarDialog(this);
+    calendarTo = new CalendarDialog(this);
     connect(ui->selectField, SIGNAL(currentIndexChanged(int)), this, SLOT(getField(int)));
     connect(ui->Do, SIGNAL(clicked(bool)), this, SLOT(Do()));
+    connect(ui->btnCalendarFrom,SIGNAL(clicked(bool)),this,SLOT(setupCalendarFrom()));
+    connect(ui->btnCalendarTo,SIGNAL(clicked(bool)),this,SLOT(setupCalendarTo()));
+    connect(calendarFrom, SIGNAL(seletedDateChanged()),this, SLOT(setDateFrom()));
+    connect(calendarTo, SIGNAL(seletedDateChanged()),this, SLOT(setDateTo()));
     ui->listWidget->setSelectionMode(QAbstractItemView::MultiSelection);
     ui->listWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     init();
@@ -137,10 +145,15 @@ void QueryWidget::Do()
     const QVector<Bill> &bills = pQuery->doQuery();
     if(!bills.size())
     {
+        QMessageBox::information(0,"","无相应账单\n");
         logging::error("Empty! \n");
         return;
     }
-
+    if(ui->selectField->currentIndex() == 0)
+    {
+        QMessageBox::information(0,"","请先选择查询类型\n");
+        return;
+    }
     for(int i = 0; i < ids.size(); ++i)
         nameMap.insert(ids[i], names[i]);
 
@@ -155,4 +168,24 @@ void QueryWidget::setupPlot()
 {
     GraphDock * GraphDockPtr = new GraphDock(pProcessor);
     GraphDockPtr->show();
+}
+
+void QueryWidget::setupCalendarFrom()
+{
+    calendarFrom->setVisible(true);
+}
+
+void QueryWidget::setupCalendarTo()
+{
+    calendarTo->setVisible(true);
+}
+
+void QueryWidget::setDateFrom()
+{
+    ui->timeFrom->setDate(calendarFrom->getSelectedDate());
+}
+
+void QueryWidget::setDateTo()
+{
+    ui->timeTo->setDate(calendarTo->getSelectedDate());
 }

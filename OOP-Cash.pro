@@ -53,6 +53,7 @@ SOURCES += main.cpp \
     ui/edititemwidget.cpp \
     ui/edititemwidgetfactory.cpp \
     ui/calendardialog.cpp \
+    ui/dateeditcalendar.cpp \
     ui/recordcostearnwidget.cpp \
     ui/applyChangeStrategy/applychangestrategy.cpp \
     ui/applyChangeStrategy/editaccountstrategy.cpp \
@@ -67,7 +68,7 @@ SOURCES += main.cpp \
     dataPorter/accadder.cpp \
     dataPorter/billadder.cpp \
     dataPorter/curadder.cpp \
-    dataPorter/catadder.cpp
+    dataPorter/catadder.cpp 
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -99,6 +100,7 @@ HEADERS  += \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     ui/calendardialog.h \
+    ui/dateeditcalendar.h \
     process/processor.h \
     process/processorfactory.h \
     process/balanceprocessor.h \
@@ -120,7 +122,7 @@ HEADERS  += \
     dataPorter/billadder.h \
     dataPorter/curadder.h \
     dataPorter/catadder.h
-
+	
 FORMS    += \
     datavisualization/graphdock.ui \
     datavisualization/querywidget.ui \
@@ -132,7 +134,8 @@ FORMS    += \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
     datavisualization/tabledock.ui \
-    ui/calendardialog.ui
+    ui/calendardialog.ui \
+    ui/dateeditcalendar.ui
 
 RESOURCES += \
     uirsc.qrc
