@@ -24,9 +24,6 @@ void ProcessorFactory::setTime()
     case ProcessorType::byDay:
         product->setGetX([](QDate date){return date;});
         break;
-    case ProcessorType::byWeek:
-        product->setGetX([](QDate date){return date;});
-        break;
     case ProcessorType::byMonth:
         product->setGetX([](QDate date){return QDate(date.year(),date.month(),INIT_DATE);});
         break;
@@ -54,6 +51,7 @@ void ProcessorFactory::setField()
 //    case ProcessorType::byCreator:
 //        product->setGetY([](Bill bill){return bill.creator;});
     default:
+        //QMessageBox()
         break;
     }
 }

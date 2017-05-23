@@ -217,7 +217,7 @@ void GraphDock::setupMyDemo(QCustomPlot *customPlot)
     for (int gi=0; gi < names.size(); ++gi)
     {
       customPlot->addGraph();
-      QColor color(20+300/4.0*gi,70*(1.6-gi/4.0), 150, 200);
+      QColor color(20+300/4.0*gi,70*(1.6-gi/4.0), 150, 250);
       customPlot->graph()->setLineStyle(QCPGraph::lsLine);
       customPlot->graph()->setPen(QPen(color.lighter(200)));
       customPlot->graph()->setName(names[gi]);
@@ -238,7 +238,7 @@ void GraphDock::setupMyDemo(QCustomPlot *customPlot)
 
 
     QSharedPointer<QCPAxisTickerDateTime> dateTicker(new QCPAxisTickerDateTime);
-    dateTicker->setDateTimeFormat("d. MMMM\nyyyy");
+    dateTicker->setDateTimeFormat("yyyy\nMMMM. d");
     customPlot->xAxis->setTicker(dateTicker);
     // configure left axis text labels:
     //QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);

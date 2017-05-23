@@ -17,10 +17,11 @@ public:
 	~CalendarDialog();
 signals:
 	void seletedDateChanged();
+    //void dateClicked(QDate);
 private slots:
 	void on_conformBtn_clicked();
 
-private:
+public:
 	Ui::CalendarDialog *ui;
 };
 

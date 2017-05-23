@@ -29,13 +29,13 @@ void BillDetailWidget::fillData(const Bill &bill, UserManager *userman)
     else{
         account = allAccounts[bill.from].name + "->" + allAccounts[bill.to].name;
     }
-    quantity.prepend("￥");
+    quantity.prepend("￥").prepend("金额\n");
     category = allCategories[bill.category].name;
     ui->labelQuantity->setText(quantity);
-    ui->labelNote->setText(bill.note);
-    ui->labelDate->setText(bill.date.toString("yyyy-MM-dd"));
-    ui->labelAccount->setText(account);
-    ui->labelCategory->setText(category);
+    ui->labelNote->setText("关键字\n" + bill.note);
+    ui->labelDate->setText(bill.date.toString("yyyy-MM-dd").prepend("日期\n"));
+    ui->labelAccount->setText(account.prepend("帐户\n"));
+    ui->labelCategory->setText(category.prepend("类别\n"));
 }
 
 BillDetailWidget::~BillDetailWidget()

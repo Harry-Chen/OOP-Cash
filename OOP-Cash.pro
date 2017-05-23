@@ -61,7 +61,8 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
     dataPorter/dataexporter.cpp \
     datavisualization/tabledock.cpp \
-    ui/calendardialog.cpp
+    ui/calendardialog.cpp \
+    ui/dateeditcalendar.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -107,7 +108,8 @@ HEADERS  += \
     ui/applyChangeStrategy/addcurrencystrategy.h \
     dataPorter/dataexporter.cpp \
     datavisualization/tabledock.h \
-    ui/calendardialog.h
+    ui/calendardialog.h \
+    ui/dateeditcalendar.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \
@@ -120,7 +122,8 @@ FORMS    += \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
     datavisualization/tabledock.ui \
-    ui/calendardialog.ui
+    ui/calendardialog.ui \
+    ui/dateeditcalendar.ui
 
 RESOURCES += \
     uirsc.qrc
