@@ -11,7 +11,7 @@ OOPCash_MainWindow::OOPCash_MainWindow(QWidget *parent) :
     pDetailWidget = nullptr;
     pRecordCostWidget = nullptr;
     pQueryWidget = nullptr;
-    doLogout();
+    initWidgets();
 }
 
 OOPCash_MainWindow::~OOPCash_MainWindow()
@@ -19,7 +19,7 @@ OOPCash_MainWindow::~OOPCash_MainWindow()
     delete ui;
 }
 
-void OOPCash_MainWindow::doLogout() {
+void OOPCash_MainWindow::initWidgets() {
     Isloggedin = false;
     delete pQueryWidget;
     delete pRecordCostWidget;
@@ -49,7 +49,7 @@ void OOPCash_MainWindow::logout() {
     userman->logout();
     ui->loginoutButton->setText("login");
     ui->usernameLabel->setText("好像还没有登录呢~");
-    doLogout();         //clear data recieved...
+    initWidgets();         //clear data recieved...
 }
 
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
@@ -59,6 +59,9 @@ void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     pRecordCostWidget = new RecordCostWidget(ui->addTab);
     pRecordCostWidget->init(userman);
     pDetailWidget = new DetailWidget(ui->detailTab, userman);
+
+    connect(this, SIGNAL(dataFreshSignal()), pRecordCostWidget, SLOT(refresh()));
+
     pQueryWidget->show();
     pDetailWidget->show();
     pRecordCostWidget->show();
@@ -97,5 +100,7 @@ void OOPCash_MainWindow::on_exportButton_clicked()
 void OOPCash_MainWindow::on_importButton_clicked()
 {
     auto importor = new dataImporter(userman);
-    importor->doImport();
+    if(importor->doImport()) {
+        emit dataFreshSignal();
+    }
 }
