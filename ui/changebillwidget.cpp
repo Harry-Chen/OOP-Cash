@@ -23,9 +23,8 @@ void ChangeBillWidget::init(UserManager* userman) {
 	setLabelNames();
 	setCombobox1();
 	setCombobox2();
+	setCombobox3();
 	setCurrencyCombobox();
-	getLoanNameLabel()->setVisible(false);
-	getLoanNameLineEdit()->setVisible(false);
 	getTimeLineEdit()->setText(QDate().currentDate().toString("yyyy-MM-dd"));
 }
 
@@ -39,6 +38,7 @@ void ChangeBillWidget::refresh()
 {
 	setCombobox1();
 	setCombobox2();
+	setCombobox3();
 	setCurrencyCombobox();
 }
 
@@ -73,14 +73,14 @@ QLabel* ChangeBillWidget::getLabel2()
 	return ui->label2;
 }
 
-QLabel* ChangeBillWidget::getLabel3()
+QLabel*ChangeBillWidget::getLabel3()
 {
-	return ui->labelAmount;
+	return ui->label3;
 }
 
-QLabel*ChangeBillWidget::getLoanNameLabel()
+QLabel* ChangeBillWidget::getAmountLabel()
 {
-	return ui->labelLoadName;
+	return ui->labelAmount;
 }
 
 QRadioButton*ChangeBillWidget::getCostBtn()
@@ -93,9 +93,9 @@ QRadioButton*ChangeBillWidget::getEarnBtn()
 	return ui->earnBtn;
 }
 
-QLineEdit*ChangeBillWidget::getLoanNameLineEdit()
+QRadioButton*ChangeBillWidget::getTransferBtn()
 {
-	return ui->lineEditLoanName;
+	return ui->tranferBtn;
 }
 
 QLineEdit*ChangeBillWidget::getTimeLineEdit()
@@ -121,6 +121,11 @@ QComboBox* ChangeBillWidget::getCombobox1()
 QComboBox* ChangeBillWidget::getCombobox2()
 {
 	return ui->combo2;
+}
+
+QComboBox*ChangeBillWidget::getCombobox3()
+{
+	return ui->combo3;
 }
 
 QComboBox* ChangeBillWidget::getCurrencyCombobox()

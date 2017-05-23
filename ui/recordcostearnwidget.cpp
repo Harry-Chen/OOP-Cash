@@ -3,12 +3,16 @@
 RecordCostEarnWidget::RecordCostEarnWidget(QWidget* parent):ChangeBillWidget(parent)
 {
 	isCost = true;
+	isTransfer = false;
 	QRadioButton* cbtn = getCostBtn();
 	QRadioButton* ebtn = getEarnBtn();
+	QRadioButton* tbtn = getTransferBtn();
 	cbtn->setVisible(true);
 	ebtn->setVisible(true);
+	tbtn->setVisible(true);
 	connect(cbtn, SIGNAL(toggled(bool)), this, SLOT(setIsCostTrue()));
 	connect(ebtn, SIGNAL(toggled(bool)), this, SLOT(setIsCostFalse()));
+	connect(tbtn, SIGNAL(toggled(bool)), this, SLOT(setIsTransfer()));
 }
 
 void RecordCostEarnWidget::addBill()
@@ -19,6 +23,12 @@ void RecordCostEarnWidget::addBill()
 
 	auto cate = ItemSearcher::instance()->getItemByName(cateman, getCombobox1()->currentText());
 	auto acc = ItemSearcher::instance()->getItemByName(accman, getCombobox2()->currentText());
+	Account accTo;
+	if(isTransfer) {
+		accTo = ItemSearcher::instance()->getItemByName(accman, getCombobox3()->currentText());
+	} else {
+		accTo.id = -1;
+	}
 	auto curr = ItemSearcher::instance()->getItemByName(currman, getCurrencyCombobox()->currentText());
 	delete cateman;
 	delete accman;
@@ -44,13 +54,14 @@ void RecordCostEarnWidget::addBill()
 	} //else
 
 	auto billman = new BillManager(_userman);
-	auto newbill = new Bill(-1, acc.id, -1, _userman->getLoggedInUid(),\
+	auto newbill = new Bill(-1, -1, -1, _userman->getLoggedInUid(),\
 						 cate.id, money, curr.id, QDateTime::currentDateTime(),\
 						  true, date, getNoteTextEdit()->toPlainText());
-	if(isCost) {
-		newbill->from = acc.id;
-	} else {
+	if(!isCost) {
 		newbill->to = acc.id;
+	} else {
+		newbill->from = acc.id;
+		newbill->to = accTo.id;
 	}
 	if(billman->addItem(*newbill) == -1) {
 		QMessageBox::information(this, "Sorry", "the bill cannot be saved!");
@@ -63,18 +74,29 @@ void RecordCostEarnWidget::addBill()
 void RecordCostEarnWidget::setIsCostFalse()
 {
 	isCost = false;
+	isTransfer = false;
+	setLabelNames();
+}
+
+void RecordCostEarnWidget::setIsTransfer()
+{
+	isTransfer = true;
+	isCost = false;
 	setLabelNames();
 }
 
 void RecordCostEarnWidget::setIsCostTrue()
 {
 	isCost = true;
+	isTransfer = false;
 	setLabelNames();
 }
 
 void RecordCostEarnWidget::setLabelNames()
 {
-	if(isCost) {
+	if(isTransfer) {
+		setTransferLabelNames();
+	} else if(isCost) {
 		setCostLabelNames();
 	} else {
 		setEarnLabelNames();
@@ -99,16 +121,39 @@ void RecordCostEarnWidget::setCombobox2()
 	getCombobox2()->addItems(accList);
 }
 
+void RecordCostEarnWidget::setCombobox3()
+{
+	AccountManager* accman = new AccountManager(_userman);
+	QStringList accList;
+	ItemSearcher::instance()->getNameList(accman, accList);
+	getCombobox3()->clear();
+	getCombobox3()->addItems(accList);
+}
+
 void RecordCostEarnWidget::setCostLabelNames()
 {
 	getLabel1()->setText("账目分类");
 	getLabel2()->setText("支出账户");
-	getLabel3()->setText("支出金额");
+	getAmountLabel()->setText("支出金额");
+	getLabel3()->setVisible(false);
+	getCombobox3()->setVisible(false);
 }
 
 void RecordCostEarnWidget::setEarnLabelNames()
 {
 	getLabel1()->setText("账目分类");
 	getLabel2()->setText("收入账户");
-	getLabel3()->setText("收入金额");
+	getAmountLabel()->setText("收入金额");
+	getLabel3()->setVisible(false);
+	getCombobox3()->setVisible(false);
+}
+
+void RecordCostEarnWidget::setTransferLabelNames()
+{
+	getLabel1()->setText("账目分类");
+	getLabel2()->setText("转出账户");
+	getLabel3()->setText("转入账户");
+	getLabel3()->setVisible(true);
+	getCombobox3()->setVisible(true);
+	getAmountLabel()->setText("转账金额");
 }
