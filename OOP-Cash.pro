@@ -59,7 +59,12 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addaccountstrategy.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
-    dataPorter/dataexporter.cpp
+    dataPorter/dataexporter.cpp \
+    dataPorter/dataimporter.cpp \
+    dataPorter/itemadder.cpp \
+    dataPorter/accadder.cpp \
+    dataPorter/billadder.cpp \
+    dataPorter/curadder.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -103,7 +108,12 @@ HEADERS  += \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
     ui/applyChangeStrategy/addcurrencystrategy.h \
-    dataPorter/dataexporter.cpp
+    dataPorter/dataexporter.h \
+    dataPorter/dataimporter.h \
+    dataPorter/itemadder.h \
+    dataPorter/accadder.h \
+    dataPorter/billadder.h \
+    dataPorter/curadder.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
