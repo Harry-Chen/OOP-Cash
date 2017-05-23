@@ -4,10 +4,11 @@
 #include <QVector>
 #include "process/processor.h"
 #include "model/bill.h"
+#include <QMessageBox>
 
 namespace ProcessorType
 {
-    enum Time {byDay, byWeek, byMonth, byYear};
+    enum Time {byDay,byMonth, byYear};
     enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreator };
 }
 
