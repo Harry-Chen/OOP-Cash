@@ -64,7 +64,8 @@ SOURCES += main.cpp \
     dataPorter/itemadder.cpp \
     dataPorter/accadder.cpp \
     dataPorter/billadder.cpp \
-    dataPorter/curadder.cpp
+    dataPorter/curadder.cpp \
+    dataPorter/catadder.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -113,7 +114,8 @@ HEADERS  += \
     dataPorter/itemadder.h \
     dataPorter/accadder.h \
     dataPorter/billadder.h \
-    dataPorter/curadder.h
+    dataPorter/curadder.h \
+    dataPorter/catadder.h
 
 FORMS    += \
     datavisualization/graphdock.ui \

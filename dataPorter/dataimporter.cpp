@@ -5,15 +5,16 @@
 #include <QTextStream>
 
 dataImporter::dataImporter(UserManager *_userman): userman(_userman) {
-    adder = new itemAdder * [3];
+    adder = new itemAdder * [4];
     adder[0] = new curAdder(obj, userman);
-    adder[1] = new accAdder(obj, userman);
-    adder[2] = new billAdder(obj, userman);
+    adder[1] = new catAdder(obj, userman);
+    adder[2] = new accAdder(obj, userman);
+    adder[3] = new billAdder(obj, userman);
 }
 
 bool dataImporter::doImport() {
     QString path;
-    path = QFileDialog::getSaveFileName(nullptr, QObject::tr("选择导入文件"), "", QObject::tr("JS 对象标记 (*.json)"));
+    path = QFileDialog::getOpenFileName(nullptr, QObject::tr("选择导入文件"), "", QObject::tr("JS 对象标记 (*.json)"));
     if(path.isEmpty()) //User cancel
         return false;
     QFile inFile(path);
@@ -38,7 +39,7 @@ bool dataImporter::doImport() {
     obj = parse_document.object();
 
     //add three arrays...
-    for(int i=0; i<3; ++i) {
+    for(int i=0; i<4; ++i) {
         if(!(adder[i]->additems()))
             return false;
     }

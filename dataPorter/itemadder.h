@@ -8,12 +8,11 @@ class itemAdder
 {
 protected:
     QString key;
-    QJsonObject obj;
-    //ItemManager* man;
+    QJsonObject &obj;
     UserManager* userman;
 
 public:
-    itemAdder(const QJsonObject & _obj, UserManager* _userman);
+    itemAdder(QJsonObject & _obj, UserManager* _userman);
     bool additems();
     virtual bool add(QJsonObject & _item) = 0;
 };

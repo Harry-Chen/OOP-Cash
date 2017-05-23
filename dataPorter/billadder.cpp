@@ -2,7 +2,7 @@
 #include <QDate>
 #include <QDateTime>
 
-billAdder::billAdder(const QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
+billAdder::billAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
     key = "bills";
     accman = new AccountManager(userman);
     catman = new CategoryManager(userman);

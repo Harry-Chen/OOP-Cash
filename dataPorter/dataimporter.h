@@ -8,6 +8,7 @@
 #include "accadder.h"
 #include "curadder.h"
 #include "billadder.h"
+#include "catadder.h"
 
 class dataImporter {
 private:

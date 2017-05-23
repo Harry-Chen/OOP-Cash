@@ -1,6 +1,6 @@
 ﻿#include "curadder.h"
 
-curAdder::curAdder(const QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
+curAdder::curAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
     key = "currency";
     curman = new CurrencyManager(userman);
 }

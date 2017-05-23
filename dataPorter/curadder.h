@@ -8,7 +8,7 @@ class curAdder : public itemAdder
 {
     CurrencyManager * curman;
 public:
-    curAdder(const QJsonObject &_obj, UserManager * _userman);
+    curAdder(QJsonObject &_obj, UserManager * _userman);
     bool add(QJsonObject & _item);
 };
 

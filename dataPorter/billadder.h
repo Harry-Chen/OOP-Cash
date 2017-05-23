@@ -16,7 +16,7 @@ class billAdder : public itemAdder
     BillManager * billman;
 
 public:
-    billAdder(const QJsonObject &_obj, UserManager* _userman);
+    billAdder(QJsonObject &_obj, UserManager* _userman);
     bool add(QJsonObject &_item);
 };
 

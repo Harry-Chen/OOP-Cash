@@ -12,7 +12,7 @@ class accAdder : public itemAdder
     CurrencyManager * curman;
 
 public:
-    accAdder(const QJsonObject & _obj, UserManager* _userman);
+    accAdder(QJsonObject & _obj, UserManager* _userman);
     bool add(QJsonObject &_item);
 };
 

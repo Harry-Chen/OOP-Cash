@@ -1,6 +1,6 @@
 ﻿#include "accadder.h"
 
-accAdder::accAdder(const QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
+accAdder::accAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
     key = "account";
     accman = new AccountManager(userman);
     curman = new CurrencyManager(userman);

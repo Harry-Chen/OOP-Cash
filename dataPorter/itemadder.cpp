@@ -3,7 +3,7 @@
 #include <QJsonArray>
 #include <QString>
 
-itemAdder::itemAdder(const QJsonObject & _obj, UserManager *_userman): obj(_obj), userman(_userman) {}
+itemAdder::itemAdder(QJsonObject & _obj, UserManager *_userman): obj(_obj), userman(_userman) {}
 
 bool itemAdder::additems() {
     if(!(obj.contains(key))) {
