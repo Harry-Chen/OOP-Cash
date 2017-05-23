@@ -7,7 +7,7 @@ ProcessorFactory::ProcessorFactory()
 
 }
 
-Processor * ProcessorFactory::creatProcessor(int _time, int _field, const QVector<Bill> & _bills,  const QMap<ID, QString>& _nameMap)
+ProcessorBase * ProcessorFactory::creatProcessor(int _time, int _field, const QVector<Bill> & _bills,  const QMap<ID, QString>& _nameMap)
 {
     time = _time;
     field = _field;

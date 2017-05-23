@@ -2,7 +2,13 @@
 
 ProcessorBase::ProcessorBase()
 {
-
+    X.clear();
+    Y.clear();
+    matrix.clear();
+    QVector<int> temp(1,0);
+    matrix.push_back(temp);
+    X.push_back(QDate());
+    Y.push_back(0);
 }
 
 bool ProcessorBase::process(int i)
@@ -89,8 +95,8 @@ void ProcessorBase::sortByX()
 bool ProcessorBase::processAll()
 {
     int i = 0;
-    X[0] = getX(0);
-    Y[0] = getY(0);
+    X[0] = this->getX(0);
+    Y[0] = this->getY(0);
     while(process(i)) ++i;
     sortByX();
     return i == raw.size();

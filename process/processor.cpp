@@ -25,12 +25,6 @@ Processor::Processor(const QVector<Bill> &bills, const QMap<ID, QString> &_nameM
 {
     raw = bills;
     nameMap = _nameMap;
-    X.clear();
-    Y.clear();
-    QVector<int> temp(1,0);
-    matrix.push_back(temp);
-    X.push_back(QDate());
-    Y.push_back(0);
    // std::cout << raw.size() << std::endl;
 }
 

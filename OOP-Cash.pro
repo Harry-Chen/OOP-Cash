@@ -59,7 +59,8 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addaccountstrategy.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
-    dataPorter/dataexporter.cpp
+    dataPorter/dataexporter.cpp \
+    datavisualization/tabledock.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -103,7 +104,8 @@ HEADERS  += \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
     ui/applyChangeStrategy/addcurrencystrategy.h \
-    dataPorter/dataexporter.cpp
+    dataPorter/dataexporter.cpp \
+    datavisualization/tabledock.h
 
 FORMS    += \
     datavisualization/graphdock.ui \
@@ -114,7 +116,8 @@ FORMS    += \
     ui/billdetailwidget.ui \
     ui/detailwidget.ui \
     ui/logindlg.ui \
-    ui/edititemwidget.ui
+    ui/edititemwidget.ui \
+    datavisualization/tabledock.ui
 
 RESOURCES += \
     uirsc.qrc
