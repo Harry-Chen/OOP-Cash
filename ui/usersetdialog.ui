@@ -6,14 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>226</width>
-    <height>150</height>
+    <width>244</width>
+    <height>142</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
@@ -21,18 +24,18 @@
        <property name="text">
         <string>昵　　称：</string>
        </property>
+       <property name="buddy">
+        <cstring>nicknameEdit</cstring>
+       </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="nicknameEdit"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="passwordLabel">
+     <item row="2" column="0">
+      <widget class="QLabel" name="pwAgainLabel">
        <property name="text">
-        <string>新 密 码：</string>
+        <string>确认密码：</string>
        </property>
        <property name="buddy">
-        <cstring>passwordEdit</cstring>
+        <cstring>pwAgainEdit</cstring>
        </property>
       </widget>
      </item>
@@ -49,66 +52,39 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="pwAgainLabel">
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="pwAgainEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="passwordLabel">
        <property name="text">
-        <string>确认密码：</string>
+        <string>新 密 码：</string>
        </property>
        <property name="buddy">
-        <cstring>pwAgainEdit</cstring>
+        <cstring>passwordEdit</cstring>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="pwAgainEdit"/>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="nicknameEdit"/>
      </item>
     </layout>
    </item>
    <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <widget class="QPushButton" name="freshButton">
+     <property name="text">
+      <string>更新</string>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>nicknameEdit</tabstop>
+  <tabstop>passwordEdit</tabstop>
+  <tabstop>pwAgainEdit</tabstop>
+  <tabstop>freshButton</tabstop>
+ </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>userSetDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>userSetDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -1,4 +1,4 @@
-#include <QMessageBox>
+﻿#include <QMessageBox>
 #include "logindlg.h"
 #include "ui_logindlg.h"
 #include "model/user.h"
@@ -10,6 +10,7 @@ loginDlg::loginDlg(UserManager *usermanInfo, QWidget *parent) :
     ui(new Ui::loginDlg)
 {
     ui->setupUi(this);
+
     ui->nicknameEdit->hide();
     ui->nicknameLabel->hide();
     ui->pwAgainEdit->hide();
@@ -26,7 +27,7 @@ loginDlg::~loginDlg()
 }
 
 bool loginDlg::login() {
-    auto newuser = new User(-1, ui->usernameEdit->text(),QString(), ui->passwordEdit->text());
+    auto newuser = new User(-1, ui->usernameEdit->text(), QString(), ui->passwordEdit->text());
     u_id = userman->login(*newuser);
     return ( (u_id == -1) ? false : true );
 }
@@ -59,7 +60,7 @@ void loginDlg::on_loginButton_clicked()
 
     //log in...
     if(login()) {
-        emit loginSuccessSignal(u_id, ui->usernameEdit->text());
+        emit loginSuccessSignal(u_id);
         this->close();
     }
     else {
@@ -74,6 +75,7 @@ void loginDlg::on_switchButton_clicked()
     ui->nicknameEdit->clear();
     ui->passwordEdit->clear();
     ui->pwAgainEdit->clear();
+    this->setWindowTitle((switchButtonPressed ? "注册" : "登录"));
     ui->loginButton->setText((switchButtonPressed ? "signin" : "login"));
     ui->switchButton->setText(switchButtonPressed ? "登录" : "注册");
     ui->nicknameEdit->setVisible(switchButtonPressed);

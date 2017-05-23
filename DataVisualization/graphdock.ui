@@ -17,10 +17,10 @@
    <widget class="QCustomPlot" name="QCP" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>90</y>
-      <width>331</width>
-      <height>251</height>
+      <x>10</x>
+      <y>20</y>
+      <width>371</width>
+      <height>361</height>
      </rect>
     </property>
    </widget>

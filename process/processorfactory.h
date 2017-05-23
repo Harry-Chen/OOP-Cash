@@ -1,4 +1,4 @@
-#ifndef PROCESSORFACTORY_H
+﻿#ifndef PROCESSORFACTORY_H
 #define PROCESSORFACTORY_H
 
 #include <QVector>
@@ -19,7 +19,7 @@ class ProcessorFactory
     Processor * product;
 public:
     ProcessorFactory();
-    Processor * creatProcessor(int, int, Query *, const QMap<ID, QString> & );
+    Processor * creatProcessor(int, int, const QVector<Bill> &, const QMap<ID, QString> & );
     void setTime();
     void setField();
 };

@@ -3,7 +3,6 @@
 #include <QFile>
 #include "util/database_helper.h"
 #include "util/configuration.h"
-#include "util/common.h"
 
 namespace sql = sqlpp::sqlite3;
 

@@ -1,8 +1,7 @@
-#ifndef LOGINDLG_H
+﻿#ifndef LOGINDLG_H
 #define LOGINDLG_H
 
 #include <QDialog>
-#include "util/constants.h"
 #include "dao/usermanager.h"
 
 namespace Ui {
@@ -18,7 +17,8 @@ public:
     ~loginDlg();
 
 signals:
-    void loginSuccessSignal(ID, QString);
+    void loginSuccessSignal(ID);
+    void userMapUpdate();
 
 private slots:
     void on_loginButton_clicked();

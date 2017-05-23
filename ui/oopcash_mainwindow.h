@@ -1,14 +1,19 @@
-#ifndef OOPCASH_MAINWINDOW_H
+﻿#ifndef OOPCASH_MAINWINDOW_H
 #define OOPCASH_MAINWINDOW_H
 
 #include <QMainWindow>
-#include "util/constants.h"
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "model/user.h"
 
 #include "datavisualization/querywidget.h"
+
+#include "ui/detailwidget.h"
+#include "ui/recordcostwidget.h"
 #include "ui/logindlg.h"
+#include "ui/usersetdialog.h"
+
+#include "dataPorter/dataexporter.h"
 
 namespace Ui {
 class OOPCash_MainWindow;
@@ -23,20 +28,31 @@ public:
     ~OOPCash_MainWindow();
 
 public slots:
-    void on_loginSuccess(ID, QString);
+    void on_loginSuccess(ID);
+    void on_userMapUpdate();
 
 private slots:
     void on_loginoutButton_clicked();
+    void on_setButton_clicked();
+
+    void on_exportButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
-    QueryWidget * pQueryWidget;
+
+    QMap<ID,User> userMap;
+
     bool Isloggedin;
     ID u_id;
-    void init();
-
+    //Tab Pages
+    DetailWidget * pDetailWidget;
+    QueryWidget * pQueryWidget;
+    RecordCostWidget * pRecordCostWidget;
+    //Methods
+    void doLogout();
     void showloginDlg();
+    void showUserSetDlg();
     void logout();
 
 };

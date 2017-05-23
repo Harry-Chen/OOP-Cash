@@ -6,90 +6,47 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>407</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QComboBox" name="selectField">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>20</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by category</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by account-from</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by account-to</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>by creator</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
-   </item>
-  </widget>
   <widget class="QPushButton" name="Do">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>150</x>
      <y>240</y>
      <width>80</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string>consult</string>
+    <string>plot</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>160</y>
-     <width>102</width>
-     <height>130</height>
+     <x>210</x>
+     <y>20</y>
+     <width>161</width>
+     <height>181</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="Date">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>start time</string>
-      </property>
-      <property name="buddy">
-       <cstring>timeFrom</cstring>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDateEdit" name="timeFrom"/>
-    </item>
-    <item>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>200</width>
+     <height>178</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="6" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
        <string>end time</string>
@@ -99,81 +56,145 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item row="5" column="1">
+     <widget class="QDateEdit" name="timeFrom"/>
+    </item>
+    <item row="6" column="1">
      <widget class="QDateEdit" name="timeTo"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="finished">
+      <item>
+       <property name="text">
+        <string>both</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>finished</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>unfinished</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="keyWord"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>keyWord</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>start time</string>
+      </property>
+      <property name="buddy">
+       <cstring>timeFrom</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>TimeSpan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" rowspan="2">
+     <widget class="QComboBox" name="timeType">
+      <item>
+       <property name="text">
+        <string>byDay</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>byWeek</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>byMonth</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>byYear</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Field</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="selectField">
+      <item>
+       <property name="text">
+        <string>unslected</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>by category</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>by account-from</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>by account-to</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>by creator</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="0" rowspan="2">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>whether 
+ finished</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QLineEdit" name="keyWord">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>120</y>
-     <width>113</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="finished">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>80</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>both</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>finished</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>unfinished</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QListWidget" name="listWidget">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>30</y>
-     <width>151</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="timeType">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>50</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>byDay</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>byMonth</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>byYear</string>
-    </property>
-   </item>
-  </widget>
+  <zorder>selectField</zorder>
+  <zorder>Do</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>keyWord</zorder>
+  <zorder>finished</zorder>
+  <zorder>listWidget</zorder>
+  <zorder>timeType</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label</zorder>
  </widget>
  <resources/>
  <connections/>
