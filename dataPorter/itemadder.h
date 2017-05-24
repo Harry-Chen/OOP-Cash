@@ -14,7 +14,7 @@ protected:
 public:
     itemAdder(QJsonObject & _obj, UserManager* _userman);
     bool additems();
-    virtual bool add(QJsonObject & _item) = 0;
+    virtual bool add(QJsonObject  _item) = 0;
 };
 
 #endif // ITEMADDER_H

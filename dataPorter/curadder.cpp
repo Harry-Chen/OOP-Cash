@@ -5,7 +5,7 @@ curAdder::curAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, 
     curman = new CurrencyManager(userman);
 }
 
-bool curAdder::add(QJsonObject &_item) {
+bool curAdder::add(QJsonObject _item) {
     if(!(_item.contains("name")
          && _item.contains("rate")
       )) {

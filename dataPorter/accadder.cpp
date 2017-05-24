@@ -6,7 +6,7 @@ accAdder::accAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, 
     curman = new CurrencyManager(userman);
 }
 
-bool accAdder::add(QJsonObject & _item) {
+bool accAdder::add(QJsonObject _item) {
     if(!(_item.contains("name") && _item.contains("currency"))) {
         return false;
     }

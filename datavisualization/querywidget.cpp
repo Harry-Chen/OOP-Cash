@@ -92,7 +92,7 @@ void QueryWidget::Do()
 {
     pQuery = &((Query::newQuery(DatabaseHelper::getDb())).addCreatorId(pUserManager->getLoggedInUid()));
 
-    //pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
+    pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
 
    // std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
    // std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
