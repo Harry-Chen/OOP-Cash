@@ -29,7 +29,7 @@ void OOPCash_MainWindow::initWidgets() {
     pDetailWidget = nullptr;
     ui->setButton->setEnabled(false);
     ui->tabWidget->setEnabled(false);
-    ui->tabWidget->setCurrentIndex(0);
+    ui->tabWidget->setCurrentIndex(tabIndex::home);
 }
 
 void OOPCash_MainWindow::showloginDlg() {
@@ -54,9 +54,9 @@ void OOPCash_MainWindow::logout() {
 
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     Isloggedin = true;
-    pQueryWidget = new QueryWidget(ui->QueryWidget);
+    pQueryWidget = new QueryWidget(ui->queryTab);
     pQueryWidget->setUserman(userman);
-	pRecordCostWidget = new RecordCostEarnWidget(ui->addTab);
+    pRecordCostWidget = new RecordCostEarnWidget(ui->addTab);
     pRecordCostWidget->init(userman);
     pDetailWidget = new DetailWidget(ui->detailTab, userman);
 
@@ -104,4 +104,20 @@ void OOPCash_MainWindow::on_importButton_clicked()
     if(importor->doImport()) {
         emit dataFreshSignal();
     }
+}
+
+void OOPCash_MainWindow::on_addButton_clicked() {
+    ui->tabWidget->setCurrentIndex(tabIndex::add);
+}
+
+void OOPCash_MainWindow::on_queryButton_clicked() {
+    ui->tabWidget->setCurrentIndex(tabIndex::query);
+}
+
+void OOPCash_MainWindow::on_detailButton_clicked() {
+    ui->tabWidget->setCurrentIndex(tabIndex::detail);
+}
+
+void OOPCash_MainWindow::on_userconfigButton_clicked() {
+    ui->setButton->click();
 }

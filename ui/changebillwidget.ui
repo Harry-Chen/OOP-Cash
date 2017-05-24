@@ -6,320 +6,341 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
-    <height>258</height>
+    <width>550</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="WindMain" native="true">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>433</width>
-     <height>240</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>433</width>
-     <height>240</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>433</width>
-     <height>240</height>
-    </size>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0" colspan="3">
-     <layout class="QGridLayout" name="gridLayout_3">
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="combo2">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>200</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label2">
-        <property name="text">
-         <string>转出账户</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="labelAmount">
-        <property name="text">
-         <string>交易金额</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="lineEditAmount">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>150</width>
-          <height>20</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QComboBox" name="comboCurrency"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label1">
-        <property name="text">
-         <string>账户类别</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="labelTime">
-        <property name="text">
-         <string>交易日期</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>188</width>
-          <height>17</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="1">
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLineEdit" name="lineEditTime">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>120</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnCalendar">
-          <property name="minimumSize">
-           <size>
-            <width>30</width>
-            <height>23</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>30</width>
-            <height>23</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="../uirsc.qrc">
-            <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>30</width>
-            <height>23</height>
-           </size>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QWidget" name="WindMain" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>433</width>
+         <height>240</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>433</width>
+         <height>240</height>
+        </size>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="2" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="combo2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineEditAmount">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>20</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelAmount">
+              <property name="text">
+               <string>交易金额</string>
+              </property>
+              <property name="buddy">
+               <cstring>lineEditAmount</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QComboBox" name="comboCurrency"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label2">
+              <property name="text">
+               <string>转出账户</string>
+              </property>
+              <property name="buddy">
+               <cstring>combo2</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label1">
+              <property name="text">
+               <string>账户类别</string>
+              </property>
+              <property name="buddy">
+               <cstring>combo1</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLineEdit" name="lineEditTime">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>120</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCalendar">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>23</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>23</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../uirsc.qrc">
+                  <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>23</height>
+                 </size>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelTime">
+              <property name="text">
+               <string>交易日期</string>
+              </property>
+              <property name="buddy">
+               <cstring>lineEditTime</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>188</width>
+                <height>17</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="2">
+             <layout class="QFormLayout" name="formLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label3">
+                <property name="text">
+                 <string>转入账户</string>
+                </property>
+                <property name="buddy">
+                 <cstring>combo3</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="combo3"/>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="combo1"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="labelNote">
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>备忘说明</string>
+                </property>
+                <property name="buddy">
+                 <cstring>textEdit</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_2">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetDefaultConstraint</enum>
+                </property>
+                <item>
+                 <widget class="QRadioButton" name="costBtn">
+                  <property name="text">
+                   <string>支出</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="earnBtn">
+                  <property name="text">
+                   <string>收入</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="tranferBtn">
+                  <property name="text">
+                   <string>转账</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="textEdit"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
        </layout>
-      </item>
-      <item row="0" column="2">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="combo1"/>
-      </item>
-      <item row="1" column="2">
-       <layout class="QFormLayout" name="formLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label3">
-          <property name="text">
-           <string>转入账户</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="combo3"/>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="labelNote">
-      <property name="maximumSize">
-       <size>
-        <width>60</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>备忘说明</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" rowspan="2">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetDefaultConstraint</enum>
-      </property>
-      <item>
-       <widget class="QRadioButton" name="costBtn">
-        <property name="text">
-         <string>支出</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="earnBtn">
-        <property name="text">
-         <string>收入</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="tranferBtn">
-        <property name="text">
-         <string>转账</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="1" rowspan="3" colspan="2">
-     <widget class="QTextEdit" name="textEdit"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>449</x>
-     <y>9</y>
-     <width>131</width>
-     <height>241</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="newCatebtn">
-      <property name="text">
-       <string>新建收支分类</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="editCatebtn">
-      <property name="text">
-       <string>编辑收支分类</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="newCurrbtn">
-      <property name="text">
-       <string>新建货币种类</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="editCurrbtn">
-      <property name="text">
-       <string>编辑货币种类</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="newAccbtn">
-      <property name="text">
-       <string>新建资金账户</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="editAccbtn">
-      <property name="text">
-       <string>编辑资金账户</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="savebtn">
-      <property name="text">
-       <string>保存并继续</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="newCatebtn">
+         <property name="text">
+          <string>新建收支分类</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="editCatebtn">
+         <property name="text">
+          <string>编辑收支分类</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="newCurrbtn">
+         <property name="text">
+          <string>新建货币种类</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="editCurrbtn">
+         <property name="text">
+          <string>编辑货币种类</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="newAccbtn">
+         <property name="text">
+          <string>新建资金账户</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="editAccbtn">
+         <property name="text">
+          <string>编辑资金账户</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="savebtn">
+         <property name="text">
+          <string>保存并继续</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <tabstops>
   <tabstop>combo2</tabstop>
-  <tabstop>textEdit</tabstop>
  </tabstops>
  <resources>
   <include location="../uirsc.qrc"/>

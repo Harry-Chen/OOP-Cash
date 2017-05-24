@@ -20,8 +20,10 @@ bool itemAdder::additems() {
     int add_attempt = 0, add_success = 0;
     for(auto _item: js_array) {
         add_attempt++;
-        if(_item.isObject())
-            add_success += add(_item.toObject());
+        if(_item.isObject()) {
+            QJsonObject _itemObj = _item.toObject();
+            add_success += add(_itemObj);
+        }
     }
     QMessageBox::information(nullptr, "导入成功" + key, "成功导入 " + QString::number(add_success) + "条\n文件内共 " + QString::number(add_attempt) + "条" );
     return true;
