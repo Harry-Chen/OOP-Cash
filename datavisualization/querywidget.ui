@@ -35,6 +35,15 @@
      <height>181</height>
     </rect>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::MultiSelection</enum>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
@@ -117,7 +126,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -267,16 +276,6 @@
      <string>by account-to</string>
     </property>
    </item>
-   <item>
-    <property name="text">
-     <string>by creator</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
-   </item>
   </widget>
   <widget class="QLineEdit" name="keyWord">
    <property name="geometry">
@@ -317,11 +316,19 @@
     <cstring>timeFrom</cstring>
    </property>
   </widget>
+  <zorder>label_5</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_6</zorder>
+  <zorder>timeType</zorder>
+  <zorder>finished</zorder>
+  <zorder>selectField</zorder>
+  <zorder>keyWord</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label</zorder>
   <zorder>Do</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>listWidget</zorder>
-  <zorder>btnCalendarFrom</zorder>
-  <zorder>btnCalendarTo</zorder>
  </widget>
  <resources>
   <include location="../uirsc.qrc"/>

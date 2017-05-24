@@ -9,7 +9,7 @@ class catAdder : public itemAdder
     CategoryManager * catman;
 public:
     catAdder(QJsonObject & _obj, UserManager* _userman);
-    bool add(QJsonObject & _item);
+    bool add(QJsonObject _item);
 };
 
 #endif // CATADDER_H

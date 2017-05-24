@@ -23,8 +23,8 @@ bool dataImporter::doImport() {
         return false;
     }
     QTextStream readin(&inFile);
-    QString &inputStr = readin.readAll();
-    QByteArray &inputByteArray = inputStr.toUtf8();
+    const QString &inputStr = readin.readAll();
+    const QByteArray &inputByteArray = inputStr.toUtf8();
 
     QJsonParseError json_error;
     QJsonDocument parse_document = QJsonDocument::fromJson(inputByteArray, &json_error);

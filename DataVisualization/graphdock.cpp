@@ -206,7 +206,7 @@ void GraphDock::setupMyDemo(QCustomPlot *customPlot)
     for(int i = 0; i < names.size(); i++)
     {
         for(int j = 0; j < time_date.size(); j++)
-            temp.push_back((double)value[i][j]);
+            temp.push_back((double)value[i][j]/100);
         value_double.push_back(temp);
         temp.clear();
      }
