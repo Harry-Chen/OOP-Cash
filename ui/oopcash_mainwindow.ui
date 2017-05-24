@@ -111,7 +111,7 @@
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="homeTab">
          <attribute name="title">
@@ -204,19 +204,31 @@
          <attribute name="title">
           <string>记账</string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_4"/>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_addTab"/>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="detailTab">
          <attribute name="title">
           <string>明细</string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_4"/>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_detailTab"/>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="queryTab">
          <attribute name="title">
           <string>统计</string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_6"/>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_queryTab"/>
+          </item>
+         </layout>
         </widget>
         <widget class="QWidget" name="portTab">
          <attribute name="title">
