@@ -1,4 +1,4 @@
-#ifndef QUERYWIDGET_H
+﻿#ifndef QUERYWIDGET_H
 #define QUERYWIDGET_H
 
 #include <QWidget>
@@ -13,8 +13,9 @@
 #include "dao/billmanager.h"
 #include "util/database_helper.h"
 #include "datavisualization/graphdock.h"
+#include "ui/calendardialog.h"
 
-enum Time {byDay, byWeek, byMonth, byYear};
+enum Time {byDay, byMonth, byYear};
 enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreator };
 
 namespace Ui {
@@ -27,6 +28,10 @@ class QueryWidget : public QWidget
 public slots:
     void getField(int);
     void Do ();
+    void setupCalendarFrom();
+    void setupCalendarTo();
+    void setDateFrom();
+    void setDateTo();
 public:
     explicit QueryWidget(QWidget *parent = 0);
     void setUserman( UserManager *);
@@ -34,8 +39,10 @@ public:
 private:
     Ui::QueryWidget *ui;
     Query * pQuery;
-    Processor * pProcessor;
+    ProcessorBase * pProcessor;
     UserManager * pUserManager;
+    CalendarDialog * calendarFrom;
+    CalendarDialog * calendarTo;
     QList <QString> names;
     QList <ID> ids;
     std::vector<bool> isSelected;
@@ -43,6 +50,7 @@ private:
     QMap <ID, QString> nameMap;
 
     void setupPlot();
+    void init();
 };
 
 #endif // QUERYWIDGET_H

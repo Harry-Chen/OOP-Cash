@@ -1,17 +1,35 @@
-#include "querywidget.h"
+﻿#include "querywidget.h"
 #include "ui_querywidget.h"
 #include "util/database_helper.h"
+#include "ui/dateeditcalendar.h"
 #include <QStringList>
+#include "ui/calendardialog.h"
 
 QueryWidget::QueryWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::QueryWidget)
 {
     ui->setupUi(this);
+    calendarFrom = new CalendarDialog(this);
+    calendarTo = new CalendarDialog(this);
     connect(ui->selectField, SIGNAL(currentIndexChanged(int)), this, SLOT(getField(int)));
-    connect(ui->Do, SIGNAL(released()), this, SLOT(Do()));
+    connect(ui->Do, SIGNAL(clicked(bool)), this, SLOT(Do()));
+    connect(ui->btnCalendarFrom,SIGNAL(clicked(bool)),this,SLOT(setupCalendarFrom()));
+    connect(ui->btnCalendarTo,SIGNAL(clicked(bool)),this,SLOT(setupCalendarTo()));
+    connect(calendarFrom, SIGNAL(seletedDateChanged()),this, SLOT(setDateFrom()));
+    connect(calendarTo, SIGNAL(seletedDateChanged()),this, SLOT(setDateTo()));
     ui->listWidget->setSelectionMode(QAbstractItemView::MultiSelection);
     ui->listWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    init();
+}
+
+void QueryWidget::init()
+{
+    names.clear();
+    ids.clear();
+    ui->listWidget->clear();
+    ui->timeFrom->setDateTime(QDateTime::fromTime_t(0));
+    ui->timeTo->setDateTime(QDateTime::currentDateTime());
 }
 
 void QueryWidget::setUserman(UserManager * _pUserManager)
@@ -52,14 +70,14 @@ void QueryWidget::getField(int _field)
         ids = map2.keys();
         break;
     }
-    case byCreator:
-    {
-        const auto& map3 = pUserManager->getAllItems();
-        foreach(auto temp, map3)
-            names.push_back(temp.nickname);
-        ids = map3.keys();
-        break;
-    }
+//    case byCreator:
+//    {
+//        const auto& map3 = pUserManager->getAllItems();
+//        foreach(auto temp, map3)
+//            names.push_back(temp.nickname);
+//        ids = map3.keys();
+//        break;
+//    }
     default:
     {
         logging::error("Wrong ShowType!\n");
@@ -72,9 +90,14 @@ void QueryWidget::getField(int _field)
 
 void QueryWidget::Do()
 {
-    Query query = Query::newQuery(DatabaseHelper::getDb());
-    pQuery = &query;
-  //  pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
+    pQuery = &((Query::newQuery(DatabaseHelper::getDb())).addCreatorId(pUserManager->getLoggedInUid()));
+
+    //pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
+
+   // std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
+   // std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
+
+
     if (ui->finished->currentText() != "both")
     {
         if(ui->finished->currentText() == "finished") pQuery->setFinished(true);
@@ -106,12 +129,12 @@ void QueryWidget::Do()
             if(isSelected[i]) pQuery->addToAccountId(ids[i]);
         break;
     }
-    case byCreator:
-    {
-        for(int i = 0; i < isSelected.size(); ++i)
-            if(isSelected[i]) pQuery->addCreatorId(ids[i]);
-        break;
-    }
+//    case byCreator:
+//    {
+//        for(int i = 0; i < isSelected.size(); ++i)
+//            if(isSelected[i]) pQuery->addCreatorId(ids[i]);
+//        break;
+//    }
     default:
     {
         logging::error("Wrong ShowType!\n");
@@ -119,13 +142,23 @@ void QueryWidget::Do()
     }
 
     }
-
-
+    const QVector<Bill> &bills = pQuery->doQuery();
+    if(!bills.size())
+    {
+        QMessageBox::information(0,"","无相应账单\n");
+        logging::error("Empty! \n");
+        return;
+    }
+    if(ui->selectField->currentIndex() == 0)
+    {
+        QMessageBox::information(0,"","请先选择查询类型\n");
+        return;
+    }
     for(int i = 0; i < ids.size(); ++i)
         nameMap.insert(ids[i], names[i]);
 
     ProcessorFactory * pProcessorFactory = new ProcessorFactory;
-    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), pQuery, nameMap);
+    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), bills, nameMap);
     if(!pProcessor->processAll()) logging::error("fail to process\n");
     else setupPlot();/*plot*/
 }
@@ -135,4 +168,24 @@ void QueryWidget::setupPlot()
 {
     GraphDock * GraphDockPtr = new GraphDock(pProcessor);
     GraphDockPtr->show();
+}
+
+void QueryWidget::setupCalendarFrom()
+{
+    calendarFrom->setVisible(true);
+}
+
+void QueryWidget::setupCalendarTo()
+{
+    calendarTo->setVisible(true);
+}
+
+void QueryWidget::setDateFrom()
+{
+    ui->timeFrom->setDate(calendarFrom->getSelectedDate());
+}
+
+void QueryWidget::setDateTo()
+{
+    ui->timeTo->setDate(calendarTo->getSelectedDate());
 }

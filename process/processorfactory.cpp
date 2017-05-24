@@ -1,15 +1,17 @@
-#include "processorfactory.h"
+﻿#include "processorfactory.h"
+
+#define INIT_DATE 1
 
 ProcessorFactory::ProcessorFactory()
 {
 
 }
 
-Processor * ProcessorFactory::creatProcessor(int _time, int _field, Query * pQuery,  const QMap<ID, QString>& _nameMap)
+ProcessorBase * ProcessorFactory::creatProcessor(int _time, int _field, const QVector<Bill> & _bills,  const QMap<ID, QString>& _nameMap)
 {
     time = _time;
     field = _field;
-    product = new Processor (pQuery, _nameMap);
+    product = new Processor (_bills, _nameMap);
     setTime();
     setField();
     return product;
@@ -20,14 +22,13 @@ void ProcessorFactory::setTime()
     switch (time)
     {
     case ProcessorType::byDay:
-        product->setIsSameX([](const QDate& date1, const QDate& date2){return date1 == date2;});
-        product->timeSpan = 24*3600;
+        product->setGetX([](QDate date){return date;});
         break;
     case ProcessorType::byMonth:
-        product->setIsSameX([](const QDate& date1, const QDate& date2){return date1.month() == date2.month() && date1.year() == date2.year();});
+        product->setGetX([](QDate date){return QDate(date.year(),date.month(),INIT_DATE);});
         break;
     case ProcessorType::byYear:
-        product->setIsSameX([](const QDate& date1, const QDate& date2){return date1.year() == date2.year();});
+        product->setGetX([](QDate date){return QDate(date.year(),INIT_DATE,INIT_DATE);});
         break;
     default:
         break;
@@ -47,9 +48,10 @@ void ProcessorFactory::setField()
     case ProcessorType::byAccountTo:
         product->setGetY([](Bill bill){return bill.to;});
         break;
-    case ProcessorType::byCreator:
-        product->setGetY([](Bill bill){return bill.creator;});
+//    case ProcessorType::byCreator:
+//        product->setGetY([](Bill bill){return bill.creator;});
     default:
+        //QMessageBox()
         break;
     }
 }

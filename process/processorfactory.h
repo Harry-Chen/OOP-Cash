@@ -1,13 +1,14 @@
-#ifndef PROCESSORFACTORY_H
+﻿#ifndef PROCESSORFACTORY_H
 #define PROCESSORFACTORY_H
 
 #include <QVector>
 #include "process/processor.h"
 #include "model/bill.h"
+#include <QMessageBox>
 
 namespace ProcessorType
 {
-    enum Time {byDay, byWeek, byMonth, byYear};
+    enum Time {byDay,byMonth, byYear};
     enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreator };
 }
 
@@ -19,7 +20,7 @@ class ProcessorFactory
     Processor * product;
 public:
     ProcessorFactory();
-    Processor * creatProcessor(int, int, Query *, const QMap<ID, QString> & );
+    ProcessorBase * creatProcessor(int, int, const QVector<Bill> &, const QMap<ID, QString> & );
     void setTime();
     void setField();
 };
