@@ -39,13 +39,9 @@ private slots:
     void on_setButton_clicked();
     void on_exportButton_clicked();
     void on_importButton_clicked();
-
     void on_addButton_clicked();
-
     void on_queryButton_clicked();
-
     void on_detailButton_clicked();
-
     void on_userconfigButton_clicked();
 
 private:
