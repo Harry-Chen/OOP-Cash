@@ -47,7 +47,6 @@ void loginDlg::on_loginButton_clicked()
     //sign in...
     if(switchButtonPressed) {
         if(signin()) {
-            emit userMapUpdate();
             QMessageBox::information(this, "注册成功", \
                                      "You've signed in successfully!\nPlease remember your username and password.\n" \
                                      + ui->usernameEdit->text() + ", welcome to OOP-Cash!");
