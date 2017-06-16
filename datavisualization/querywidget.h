@@ -6,7 +6,7 @@
 #include "dao/query.h"
 //#include "process/processor.h"
 //#include "process/processorfactory.h"
-#include "plot/processor/processor.h"
+//#include "plot/processor/processor.h"
 #include "plot/billsplotsystem.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
@@ -41,7 +41,6 @@ public:
 private:
     Ui::QueryWidget *ui;
     Query * pQuery;
-    Processor * pProcessor;
     UserManager * pUserManager;
     CalendarDialog * calendarFrom;
     CalendarDialog * calendarTo;

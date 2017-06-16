@@ -5,7 +5,7 @@ BalancePlotSystem::BalancePlotSystem()
 
 }
 
-Processor * BalancePlotSystem::createProcessor(const QVector<Bill> &_bills, const QMap<ID, QString> &_nameMap, Plot::Time _time, Plot::Field _field)
+Processor * BalancePlotSystem::createProcessor(const QVector<Bill> &_bills, const QMap<ID, QString> &_nameMap, Plot::Time _time, Plot::Field _field = Plot::byCreater)
 {
     return new BalanceProcessor(_bills, _nameMap);
 }

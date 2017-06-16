@@ -6,6 +6,7 @@
 
 #include "dao/usermanager.h"
 #include "model/bill.h"
+#include "plot/balanceplotsystem.h"
 
 namespace Ui {
 class DetailWidget;

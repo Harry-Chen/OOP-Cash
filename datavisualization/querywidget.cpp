@@ -142,11 +142,18 @@ void QueryWidget::Do()
     for(int i = 0; i < ids.size(); ++i)
         nameMap.insert(ids[i], names[i]);
 
-    //ProcessorFactory * pProcessorFactory = new ProcessorFactory;
     PlotSystem * pPlotSystem = new BillsPlotSystem;
-    pProcessor = pPlotSystem ->createProcessor(bills, nameMap, static_cast<Plot::Time> (ui->timeType->currentIndex()),static_cast<Plot::Field> (ui->selectField->currentIndex()));
+    Processor * pProcessor = pPlotSystem ->createProcessor(bills, nameMap, static_cast<Plot::Time> (ui->timeType->currentIndex()),static_cast<Plot::Field> (ui->selectField->currentIndex()));
     if(!pProcessor->ProcessAll()) logging::error("fail to process\n");
-    else setupPlot();/*plot*/
+    else
+    {
+        Plotter * pPlotter = pPlotSystem->createPlotter(pProcessor->GetFieldnames(), pProcessor->GetDates(), pProcessor->GetValues());
+        GraphDock * GraphDockPtr = new GraphDock(pPlotter);
+        GraphDockPtr->show();
+    }
+//    delete pPlotSystem;
+//    delete pProcessor;
+//    delete pPlotter;
 }
 
 
