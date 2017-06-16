@@ -1,11 +1,11 @@
-﻿#include "billsplotter.h"
+﻿#include "barplotter.h"
 
 //BillsPlotter::BillsPlotter()
 //{
 
 //}
 
-void BillsPlotter::plot(QCustomPlot *custom_plot)
+void BarPlotter::plot(QCustomPlot *custom_plot)
 {
 
 }

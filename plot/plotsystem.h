@@ -13,7 +13,7 @@
 namespace Plot
 {
     enum Time {byDay,byMonth, byYear};
-    enum Field { byCategory = 1, byAccountFrom, byAccountTo};
+    enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreater};
 }
 class PlotSystem
 {

@@ -72,7 +72,9 @@ SOURCES += main.cpp \
     plot/billsplotsystem.cpp \
     plot/processor/billsprocessor.cpp \
     plot/plotter/billsplotter.cpp \
-    plot/processor/balanceprocessor.cpp
+    plot/processor/balanceprocessor.cpp \
+    plot/plotter/lineplotter.cpp \
+    plot/balanceplotsystem.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -130,8 +132,10 @@ HEADERS  += \
     plot/processor/processor.h \
     plot/billsplotsystem.h \
     plot/processor/billsprocessor.h \
-    plot/plotter/billsplotter.h \
-    plot/processor/balanceprocessor.h
+    plot/processor/balanceprocessor.h \
+    plot/plotter/barplotter.h \
+    plot/plotter/lineplotter.h \
+    plot/balanceplotsystem.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \

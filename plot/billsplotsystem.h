@@ -3,8 +3,7 @@
 
 #include "plot/plotsystem.h"
 #include "plot/processor/billsprocessor.h"
-#include "plot/plotter/billsplotter.h"
-//#include <QDate>
+#include "plot/plotter/barplotter.h"
 
 #define INIT_DATE 1
 

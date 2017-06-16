@@ -43,5 +43,5 @@ Processor * BillsPlotSystem::createProcessor(const QVector<Bill> &_bills, const 
 
 Plotter * BillsPlotSystem::createPlotter(const QVector<QString> &_fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > &_values)
 {
-    return new BillsPlotter(_fieldnames, _dates, _values);
+    return new BarPlotter(_fieldnames, _dates, _values);
 }

@@ -8,7 +8,6 @@ class BillsProcessor : public Processor
     ID (* GetFieldnameptr) (const Bill &);
     QDate (*GetDateptr) (const QDate &);
 public:
-    //BillsProcessor();
     using Processor::Processor;
     void SetGetFieldname (ID (*func) (const Bill &)) {GetFieldnameptr = func;}
     void SetGetDate (QDate (*func) (const QDate &)) {GetDateptr = func;}

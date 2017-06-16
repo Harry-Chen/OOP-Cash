@@ -5,10 +5,10 @@
 
 class BalanceProcessor : public Processor
 {
+    ID GetFieldname(int i);
 public:
-    //BalanceProcessor();
     using Processor::Processor;
-
+    bool ProcessAll();
 };
 
 #endif // BALANCEPROCESSOR_H

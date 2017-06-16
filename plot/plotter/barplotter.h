@@ -3,12 +3,10 @@
 
 #include "plot/plotter/plotter.h"
 
-class BillsPlotter : public Plotter
+class BarPlotter : public Plotter
 {
 public:
-    //BillsPlotter();
     using Plotter::Plotter;
-
     void plot(QCustomPlot *custom_plot);
 };
 
