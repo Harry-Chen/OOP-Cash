@@ -24,7 +24,7 @@ public:
     void sortByX();
     virtual bool processAll();
     QVector <QDate> getXvector() {return X;}
-    virtual QVector <QString> getYvector();
+    virtual const QVector<QString> & getYvector();
     QVector < QVector <int> > getMatrix() {return matrix;}
     virtual ~ProcessorBase(){}
 };

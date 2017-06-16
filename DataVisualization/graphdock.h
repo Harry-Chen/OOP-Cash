@@ -3,8 +3,10 @@
 
 #include <QDockWidget>
 #include "qcustomplot.h"
-#include "process/processor.h"
-#include "process/balanceprocessor.h"
+//#include "process/processor.h"
+//#include "plot/processor/processor.h"
+#include "plot/plotter/plotter.h"
+//#include "process/balanceprocessor.h"
 
 namespace Ui {
 class GraphDock;
@@ -15,16 +17,16 @@ class GraphDock : public QDockWidget
     Q_OBJECT
 
 public:
-    explicit GraphDock(ProcessorBase * ,QWidget *parent = 0);
+    explicit GraphDock(Plotter * ,QWidget *parent = 0);
     ~GraphDock();
 
 private:
     Ui::GraphDock *ui;
-    ProcessorBase * pProcessor;
+    Plotter * pPlotter;
 
     void setupDemo1(QCustomPlot *customPlot);
     void setupDemo2(QCustomPlot *customPlot);
-    void setupMyDemo(QCustomPlot *customPlot);
+    void setupMyDemo(QCustomPlot *customPlot){pPlotter -> plot(customPlot);}
 };
 
 #endif // GRAPHDOCK_H

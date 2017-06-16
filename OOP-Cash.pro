@@ -39,11 +39,10 @@ SOURCES += main.cpp \
     dao/query.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
-    datavisualization/tabledock.cpp \
-    process/processor.cpp \
-    process/processorfactory.cpp \
-    process/balanceprocessor.cpp \
-    process/processorbase.cpp \
+    #process/processor.cpp \
+    #process/processorfactory.cpp \
+    #process/balanceprocessor.cpp \
+    #process/processorbase.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
@@ -68,7 +67,12 @@ SOURCES += main.cpp \
     dataPorter/accadder.cpp \
     dataPorter/billadder.cpp \
     dataPorter/curadder.cpp \
-    dataPorter/catadder.cpp 
+    dataPorter/catadder.cpp \  
+    plot/processor/processor.cpp \
+    plot/billsplotsystem.cpp \
+    plot/processor/billsprocessor.cpp \
+    plot/plotter/billsplotter.cpp \
+    plot/processor/balanceprocessor.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -92,7 +96,6 @@ HEADERS  += \
     dao/query.h \
     datavisualization/graphdock.h \
     datavisualization/querywidget.h \
-    datavisualization/tabledock.h \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
@@ -101,10 +104,10 @@ HEADERS  += \
     ui/detailwidget.h \
     ui/calendardialog.h \
     ui/dateeditcalendar.h \
-    process/processor.h \
-    process/processorfactory.h \
-    process/balanceprocessor.h \
-    process/processorbase.h \
+    #process/processor.h \
+    #process/processorfactory.h \
+    #process/balanceprocessor.h \
+    #process/processorbase.h \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
     ui/recordcostearnwidget.h \
@@ -121,7 +124,14 @@ HEADERS  += \
     dataPorter/accadder.h \
     dataPorter/billadder.h \
     dataPorter/curadder.h \
-    dataPorter/catadder.h
+    dataPorter/catadder.h \
+    plot/plotsystem.h \
+    plot/plotter/plotter.h \
+    plot/processor/processor.h \
+    plot/billsplotsystem.h \
+    plot/processor/billsprocessor.h \
+    plot/plotter/billsplotter.h \
+    plot/processor/balanceprocessor.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \
@@ -133,7 +143,6 @@ FORMS    += \
     ui/detailwidget.ui \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
-    datavisualization/tabledock.ui \
     ui/calendardialog.ui \
     ui/dateeditcalendar.ui
 
