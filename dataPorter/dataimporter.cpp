@@ -19,7 +19,7 @@ bool dataImporter::doImport() {
         return false;
     QFile inFile(path);
     if(!inFile.open(QFile::ReadOnly | QFile::Text)) {
-        QMessageBox::warning(nullptr, "导入文件", "无法打开文件:\n" + inFile.errorString());
+        QMessageBox::warning(nullptr, QObject::tr("导入文件"), QObject::tr("无法打开文件:\n%1").arg(inFile.errorString()));
         return false;
     }
     QTextStream readin(&inFile);
@@ -29,11 +29,11 @@ bool dataImporter::doImport() {
     QJsonParseError json_error;
     QJsonDocument parse_document = QJsonDocument::fromJson(inputByteArray, &json_error);
     if(json_error.error != QJsonParseError::NoError) {
-        QMessageBox::critical(nullptr, "导入失败", "发生了不可名状的错误>.<");
+        QMessageBox::critical(nullptr, QObject::tr("导入失败"), QObject::tr("发生了不可名状的错误>.<"));
         return false;
     }
     if(!parse_document.isObject()) {
-        QMessageBox::critical(nullptr, "导入失败", "导入文件格式有误哦>.<");
+        QMessageBox::critical(nullptr, QObject::tr("导入失败"), QObject::tr("导入文件格式有误哦>.<"));
         return false;
     }
     obj = parse_document.object();
@@ -43,7 +43,7 @@ bool dataImporter::doImport() {
         if(!(adder[i]->additems()))
             return false;
     }
-    QMessageBox::information(nullptr, "导入成功", "快去查看自己的账单吧~！");
+    QMessageBox::information(nullptr, QObject::tr("导入成功"), QObject::tr("快去查看自己的账单吧~！"));
     return true;
 }
 

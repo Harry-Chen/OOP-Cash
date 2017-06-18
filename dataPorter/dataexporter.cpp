@@ -92,11 +92,11 @@ bool dataExporter::doExport() {
         return false;
     QFile outFile(path);
     if(!outFile.open(QFile::WriteOnly | QFile::Text)) {
-        QMessageBox::warning(nullptr, "保存文件", "无法保存文件:\n" + outFile.errorString());
+        QMessageBox::warning(nullptr, QObject::tr("保存文件"), QObject::tr("无法保存文件:\n%1").arg(outFile.errorString()));
         return false;
     }
     QTextStream out(&outFile);
     out << outputStr;
-    QMessageBox::information(nullptr, "导出", "导出成功!");
+    QMessageBox::information(nullptr, QObject::tr("导出"), QObject::tr("导出成功!"));
     return true;
 }

@@ -88,7 +88,7 @@
      <item>
       <widget class="QPushButton" name="loginButton">
        <property name="text">
-        <string>login</string>
+        <string>登录</string>
        </property>
       </widget>
      </item>

@@ -47,8 +47,8 @@ void OOPCash_MainWindow::showUserSetDlg() {
 
 void OOPCash_MainWindow::logout() {
     userman->logout();
-    ui->loginoutButton->setText("login");
-    ui->usernameLabel->setText("好像还没有登录呢~");
+    ui->loginoutButton->setText(QObject::tr("登录"));
+    ui->usernameLabel->setText(QObject::tr("好像还没有登录呢~"));
     initWidgets();         //clear data recieved...
 }
 
@@ -73,7 +73,7 @@ void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     u_id = idInfo;
     User theUser = userMap[u_id];
     ui->usernameLabel->setText(theUser.nickname.isEmpty() ? theUser.username : theUser.nickname);
-    ui->loginoutButton->setText("logout");
+    ui->loginoutButton->setText(QObject::tr("登出"));
 }
 
 void OOPCash_MainWindow::on_userMapUpdate() {

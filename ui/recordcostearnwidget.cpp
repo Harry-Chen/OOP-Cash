@@ -38,14 +38,14 @@ void RecordCostEarnWidget::addBill()
 
 	QDate date = QDate::fromString(getTimeLineEdit()->text(), "yyyy-MM-dd");
 	if(!date.isValid()) {
-		QMessageBox::information(this, "Attention", "please input valid date and the date should be yyyy-MM-dd format");
+        QMessageBox::information(this, QObject::tr("错误"), QObject::tr("日期格式有误，应为：%1").arg("yyyy-MM-dd"));
 		valid = false;
 	}
 	int money;
 	if(getMoneyLineEdit()->hasAcceptableInput()) {
 		money = int(getMoneyLineEdit()->text().toDouble() * 100);
 	} else {
-		QMessageBox::information(this, "Attention", "the money should be double!");
+        QMessageBox::information(this, QObject::tr("错误"), QObject::tr("金额格式有误"));
 		valid = false;
 	}
 
@@ -64,9 +64,9 @@ void RecordCostEarnWidget::addBill()
 		newbill->to = accTo.id;
 	}
 	if(billman->addItem(*newbill) == -1) {
-		QMessageBox::information(this, "Sorry", "the bill cannot be saved!");
+        QMessageBox::information(this, QObject::tr("抱歉"), QObject::tr("保存账单时发生错误"));
 	} else {
-		QMessageBox::information(this, "info", "the bill have been saved!");
+        QMessageBox::information(this, QObject::tr("提醒"), QObject::tr("账单保存成功"));
 		clearWidget();
 	}
 }
@@ -132,28 +132,28 @@ void RecordCostEarnWidget::setCombobox3()
 
 void RecordCostEarnWidget::setCostLabelNames()
 {
-	getLabel1()->setText("账目分类");
-	getLabel2()->setText("支出账户");
-	getAmountLabel()->setText("支出金额");
+    getLabel1()->setText(QObject::tr("账目分类"));
+    getLabel2()->setText(QObject::tr("支出账户"));
+    getAmountLabel()->setText(QObject::tr("支出金额"));
 	getLabel3()->setVisible(false);
 	getCombobox3()->setVisible(false);
 }
 
 void RecordCostEarnWidget::setEarnLabelNames()
 {
-	getLabel1()->setText("账目分类");
-	getLabel2()->setText("收入账户");
-	getAmountLabel()->setText("收入金额");
+    getLabel1()->setText(QObject::tr("账目分类"));
+    getLabel2()->setText(QObject::tr("收入账户"));
+    getAmountLabel()->setText(QObject::tr("收入金额"));
 	getLabel3()->setVisible(false);
 	getCombobox3()->setVisible(false);
 }
 
 void RecordCostEarnWidget::setTransferLabelNames()
 {
-	getLabel1()->setText("账目分类");
-	getLabel2()->setText("转出账户");
-	getLabel3()->setText("转入账户");
+    getLabel1()->setText(QObject::tr("账目分类"));
+    getLabel2()->setText(QObject::tr("转出账户"));
+    getLabel3()->setText(QObject::tr("转入账户"));
 	getLabel3()->setVisible(true);
 	getCombobox3()->setVisible(true);
-	getAmountLabel()->setText("转账金额");
+    getAmountLabel()->setText(QObject::tr("转账金额"));
 }

@@ -9,6 +9,8 @@ INCLUDEPATH += include
 
 PRECOMPILED_HEADER += util/common.h
 
+TRANSLATIONS += lang/en_US.ts
+
 debug:DEFINES += _DEBUG
 
 win32{

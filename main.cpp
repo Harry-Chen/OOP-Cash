@@ -27,6 +27,11 @@ int main(int argc, char *argv[])
     logging::Logger::instance().setMinLevel(logging::l_info);
 #endif
 	
+    //The qm file need to be put in the working directory of the program
+    QTranslator translator;
+    translator.load("en_US.qm");
+    a.installTranslator(&translator);
+
 	logging::trace("Application Start===========");
     DatabaseHelper::initializeDatabase();
 	

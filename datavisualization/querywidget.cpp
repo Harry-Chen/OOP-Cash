@@ -130,13 +130,13 @@ void QueryWidget::Do()
     const QVector<Bill> &bills = pQuery->doQuery();
     if(!bills.size())
     {
-        QMessageBox::information(0,"","无相应账单\n");
+        QMessageBox::information(0,"",QObject::tr("无相应账单\n"));
         logging::error("Empty! \n");
         return;
     }
     if(ui->selectField->currentIndex() == 0)
     {
-        QMessageBox::information(0,"","请先选择查询类型\n");
+        QMessageBox::information(0,"",QObject::tr("请先选择查询类型\n"));
         return;
     }
     for(int i = 0; i < ids.size(); ++i)
