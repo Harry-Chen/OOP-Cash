@@ -50,10 +50,25 @@ void DetailWidget::consult()
 
 void DetailWidget::plot()
 {
-    ProcessorBase * pProcessor = new BalanceProcessor(ui->timeFrom->date(),ui->timeTo->date(),userman);
-    if(!pProcessor->processAll()) logging::error("fail to process\n");
-    else{
-    GraphDock * GraphDockPtr = new GraphDock(pProcessor);
-    GraphDockPtr->show();
+//    ProcessorBase * pProcessor = new BalanceProcessor(ui->timeFrom->date(),ui->timeTo->date(),userman);
+//    if(!pProcessor->processAll()) logging::error("fail to process\n");
+//    else{
+//    GraphDock * GraphDockPtr = new GraphDock(pProcessor);
+//    GraphDockPtr->show();
+//    }
+    QVector<Bill> bills = Query::newQuery(DatabaseHelper::getDb())
+            .addCreatorId(userman->getLoggedInUid())
+            .setDateRange(ui->timeFrom->date(), ui->timeTo->date())
+            .doQuery();
+    QMap <ID, QString> nameMap;
+    nameMap.insert(userman->getLoggedInUid(), userman->getAllItems()[userman->getLoggedInUid()].nickname);
+    PlotSystem * pPlotSystem = new BalancePlotSystem;
+    Processor * pProcessor = pPlotSystem ->createProcessor(bills, nameMap);
+    if(!pProcessor->ProcessAll()) logging::error("fail to process\n");
+    else
+    {
+        Plotter * pPlotter = pPlotSystem->createPlotter(pProcessor->GetFieldnames(), pProcessor->GetDates(), pProcessor->GetValues());
+        GraphDock * GraphDockPtr = new GraphDock(pPlotter);
+        GraphDockPtr->show();
     }
 }

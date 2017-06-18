@@ -48,8 +48,6 @@ void ProcessorFactory::setField()
     case ProcessorType::byAccountTo:
         product->setGetY([](Bill bill){return bill.to;});
         break;
-//    case ProcessorType::byCreator:
-//        product->setGetY([](Bill bill){return bill.creator;});
     default:
         //QMessageBox()
         break;

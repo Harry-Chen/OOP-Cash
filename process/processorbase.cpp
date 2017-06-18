@@ -38,6 +38,8 @@ bool ProcessorBase::process(int i)
         X.push_back(getX(i));
         matrix[Y.size() - 1][X.size() - 1] += raw[i].quantity;
     }
+    return true;
+}
 /*
 //    for(int ii = 0 ; ii < matrix.size() ;++ii)
 //        if(isSameY(i, ii))
@@ -73,8 +75,7 @@ bool ProcessorBase::process(int i)
 //    for(int _i = 0; _i < matrix.size() - 1; ++_i)
 //        matrix[_i].push_back(0);
 */
-    return true;
-}
+
 
 void ProcessorBase::sortByX()
 {
@@ -100,7 +101,7 @@ bool ProcessorBase::processAll()
     return i == raw.size();
 }
 
-QVector<QString> ProcessorBase::getYvector()
+const QVector<QString> & ProcessorBase::getYvector()
 {
     QVector <QString> result;
     for(int i = 0; i < Y.size(); ++i)

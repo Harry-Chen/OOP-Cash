@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>plot</string>
+    <string>画图</string>
    </property>
   </widget>
   <widget class="QListWidget" name="listWidget">
@@ -55,8 +55,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>whether 
- finished</string>
+    <string>类型</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -69,7 +68,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>end time</string>
+    <string>终止时间</string>
    </property>
    <property name="buddy">
     <cstring>timeTo</cstring>
@@ -85,7 +84,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Field</string>
+    <string>字段</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -98,7 +97,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>keyWord</string>
+    <string>关键词</string>
    </property>
   </widget>
   <widget class="QComboBox" name="timeType">
@@ -112,17 +111,17 @@
    </property>
    <item>
     <property name="text">
-     <string>byDay</string>
+     <string>日</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>byMonth</string>
+     <string>月</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>byYear</string>
+     <string>年</string>
     </property>
    </item>
   </widget>
@@ -233,17 +232,17 @@
    </property>
    <item>
     <property name="text">
-     <string>both</string>
+     <string>已完成与未完成</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>finished</string>
+     <string>仅已完成</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>unfinished</string>
+     <string>仅未完成</string>
     </property>
    </item>
   </widget>
@@ -258,22 +257,22 @@
    </property>
    <item>
     <property name="text">
-     <string>unslected</string>
+     <string>未选择</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>by category</string>
+     <string>按类型</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>by account-from</string>
+     <string>按支出账户</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>by account-to</string>
+     <string>按收入账户</string>
     </property>
    </item>
   </widget>
@@ -297,7 +296,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>TimeSpan</string>
+    <string>时间间隔</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -310,7 +309,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>start time</string>
+    <string>起始时间</string>
    </property>
    <property name="buddy">
     <cstring>timeFrom</cstring>

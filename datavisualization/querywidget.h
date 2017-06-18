@@ -4,8 +4,10 @@
 #include <QWidget>
 #include <QString>
 #include "dao/query.h"
-#include "process/processor.h"
-#include "process/processorfactory.h"
+//#include "process/processor.h"
+//#include "process/processorfactory.h"
+//#include "plot/processor/processor.h"
+#include "plot/billsplotsystem.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
 #include "dao/accountmanager.h"
@@ -39,7 +41,6 @@ public:
 private:
     Ui::QueryWidget *ui;
     Query * pQuery;
-    ProcessorBase * pProcessor;
     UserManager * pUserManager;
     CalendarDialog * calendarFrom;
     CalendarDialog * calendarTo;

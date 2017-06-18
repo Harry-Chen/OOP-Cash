@@ -9,7 +9,7 @@
 namespace ProcessorType
 {
     enum Time {byDay,byMonth, byYear};
-    enum Field { byCategory = 1, byAccountFrom, byAccountTo, byCreator };
+    enum Field { byCategory = 1, byAccountFrom, byAccountTo};
 }
 
 class ProcessorFactory
