@@ -1,4 +1,11 @@
-﻿#include <QApplication>
+﻿/**
+ * @file   main.cpp
+ * @author Harry Chen <harry-chen@outlook.com>
+ * @date   2017.0501
+ * @brief  Main entrance of the program
+ */
+
+#include <QApplication>
 #include <sqlpp11/sqlpp11.h>
 
 #include "ui/oopcash_mainwindow.h"
@@ -8,7 +15,6 @@ namespace sql = sqlpp::sqlite3;
 //#define GENERATE_DATA
 
 #ifndef GENERATE_DATA
-
 
 int main(int argc, char *argv[])
 {
