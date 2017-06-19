@@ -50,12 +50,6 @@ void DetailWidget::consult()
 
 void DetailWidget::plot()
 {
-//    ProcessorBase * pProcessor = new BalanceProcessor(ui->timeFrom->date(),ui->timeTo->date(),userman);
-//    if(!pProcessor->processAll()) logging::error("fail to process\n");
-//    else{
-//    GraphDock * GraphDockPtr = new GraphDock(pProcessor);
-//    GraphDockPtr->show();
-//    }
     QVector<Bill> bills = Query::newQuery(DatabaseHelper::getDb())
             .addCreatorId(userman->getLoggedInUid())
             .setDateRange(ui->timeFrom->date(), ui->timeTo->date())

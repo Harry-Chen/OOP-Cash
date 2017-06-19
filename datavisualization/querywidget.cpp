@@ -151,17 +151,10 @@ void QueryWidget::Do()
         GraphDock * GraphDockPtr = new GraphDock(pPlotter);
         GraphDockPtr->show();
     }
-//    delete pPlotSystem;
-//    delete pProcessor;
-//    delete pPlotter;
+    delete pPlotSystem;
+    delete pProcessor;
 }
 
-
-void QueryWidget::setupPlot()
-{
-    //GraphDock * GraphDockPtr = new GraphDock(pProcessor);
-    //GraphDockPtr->show();
-}
 
 void QueryWidget::setupCalendarFrom()
 {

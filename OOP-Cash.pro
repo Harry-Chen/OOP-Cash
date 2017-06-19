@@ -73,10 +73,10 @@ SOURCES += main.cpp \
     plot/processor/processor.cpp \
     plot/billsplotsystem.cpp \
     plot/processor/billsprocessor.cpp \
-    plot/plotter/billsplotter.cpp \
     plot/processor/balanceprocessor.cpp \
     plot/plotter/lineplotter.cpp \
-    plot/balanceplotsystem.cpp
+    plot/balanceplotsystem.cpp \
+    plot/plotter/barsplotter.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
