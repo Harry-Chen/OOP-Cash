@@ -5,16 +5,15 @@
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "model/user.h"
-
 #include "datavisualization/querywidget.h"
-
 #include "ui/detailwidget.h"
 #include "ui/recordcostearnwidget.h"
 #include "ui/logindlg.h"
 #include "ui/usersetdialog.h"
-
 #include "dataPorter/dataexporter.h"
 #include "dataPorter/dataimporter.h"
+
+enum tabIndex{home=0, add, detail, query, port};
 
 namespace Ui {
 class OOPCash_MainWindow;
@@ -40,6 +39,10 @@ private slots:
     void on_setButton_clicked();
     void on_exportButton_clicked();
     void on_importButton_clicked();
+    void on_addButton_clicked();
+    void on_queryButton_clicked();
+    void on_detailButton_clicked();
+    void on_userconfigButton_clicked();
 
 private:
     Ui::OOPCash_MainWindow *ui;

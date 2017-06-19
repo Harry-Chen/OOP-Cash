@@ -38,7 +38,7 @@ bool Processor::ProcessAll()
     return i == bills_.size();
 }
 
-const QVector<QString> & Processor::GetFieldnames()
+const QVector<QString> Processor::GetFieldnames()
 {
     QVector <QString> result;
     for(int i = 0; i < fieldnames_.size(); ++i)

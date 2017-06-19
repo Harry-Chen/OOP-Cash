@@ -6,5 +6,7 @@
         <file>icons/55.png</file>
         <file>icons/56.png</file>
         <file alias="settings">icons/settings.png</file>
+        <file alias="logo">icons/logo.png</file>
+        <file alias="logo_small">icons/logo_small.png</file>
     </qresource>
 </RCC>

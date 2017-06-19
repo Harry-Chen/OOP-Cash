@@ -29,7 +29,7 @@ void OOPCash_MainWindow::initWidgets() {
     pDetailWidget = nullptr;
     ui->setButton->setEnabled(false);
     ui->tabWidget->setEnabled(false);
-    ui->tabWidget->setCurrentIndex(0);
+    ui->tabWidget->setCurrentIndex(tabIndex::home);
 }
 
 void OOPCash_MainWindow::showloginDlg() {
@@ -47,24 +47,25 @@ void OOPCash_MainWindow::showUserSetDlg() {
 
 void OOPCash_MainWindow::logout() {
     userman->logout();
-    ui->loginoutButton->setText("login");
-    ui->usernameLabel->setText("好像还没有登录呢~");
+    ui->loginoutButton->setText(QObject::tr("登录"));
+    ui->usernameLabel->setText(QObject::tr("好像还没有登录呢~"));
     initWidgets();         //clear data recieved...
 }
 
 void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     Isloggedin = true;
-    pQueryWidget = new QueryWidget(ui->QueryWidget);
+    pQueryWidget = new QueryWidget(ui->queryTab);
     pQueryWidget->setUserman(userman);
-	pRecordCostWidget = new RecordCostEarnWidget(ui->addTab);
+    pRecordCostWidget = new RecordCostEarnWidget(ui->addTab);
     pRecordCostWidget->init(userman);
     pDetailWidget = new DetailWidget(ui->detailTab, userman);
 
     connect(this, SIGNAL(dataFreshSignal()), pRecordCostWidget, SLOT(refresh()));
+    connect(this, SIGNAL(dataFreshSignal()), pDetailWidget, SLOT(consult()));
 
-    pQueryWidget->show();
-    pDetailWidget->show();
-    pRecordCostWidget->show();
+    ui->gridLayout_queryTab->addWidget(pQueryWidget);
+    ui->gridLayout_addTab->addWidget(pRecordCostWidget);
+    ui->gridLayout_detailTab->addWidget(pDetailWidget);
 
     ui->setButton->setEnabled(true);
     ui->tabWidget->setEnabled(true);
@@ -72,7 +73,7 @@ void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     u_id = idInfo;
     User theUser = userMap[u_id];
     ui->usernameLabel->setText(theUser.nickname.isEmpty() ? theUser.username : theUser.nickname);
-    ui->loginoutButton->setText("logout");
+    ui->loginoutButton->setText(QObject::tr("登出"));
 }
 
 void OOPCash_MainWindow::on_userMapUpdate() {
@@ -103,4 +104,20 @@ void OOPCash_MainWindow::on_importButton_clicked()
     if(importor->doImport()) {
         emit dataFreshSignal();
     }
+}
+
+void OOPCash_MainWindow::on_addButton_clicked() {
+    ui->tabWidget->setCurrentIndex(tabIndex::add);
+}
+
+void OOPCash_MainWindow::on_queryButton_clicked() {
+    ui->tabWidget->setCurrentIndex(tabIndex::query);
+}
+
+void OOPCash_MainWindow::on_detailButton_clicked() {
+    ui->tabWidget->setCurrentIndex(tabIndex::detail);
+}
+
+void OOPCash_MainWindow::on_userconfigButton_clicked() {
+    ui->setButton->click();
 }

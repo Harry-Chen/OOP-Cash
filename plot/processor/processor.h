@@ -20,7 +20,7 @@ public:
     virtual ~Processor(){}
     virtual bool ProcessAll();//缺省实现为逐个运行Process(i),不做其他处理
     virtual const QVector<QDate> & GetDates() {return dates_;}
-    virtual const QVector<QString> & GetFieldnames();
+    virtual const QVector<QString> GetFieldnames();
     virtual const QVector < QVector <int> > & GetValues() {return matrix_;}
 
 protected:
