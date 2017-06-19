@@ -15,6 +15,7 @@ GraphDock::GraphDock (Plotter * _pPlotter, QWidget * parent):
 GraphDock::~GraphDock()
 {
     delete ui;
+    if(pPlotter) delete pPlotter;
 }
 /*
 
