@@ -83,7 +83,7 @@ void DatabaseHelper::initializeDatabaseConnection(const QString &path)
     config->path_to_database = path.toStdString();
     config->flags = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
 #ifdef _DEBUG
-    config->debug = true;
+	config->debug = true;
 #endif
     db = new sql::connection(*config);
 }

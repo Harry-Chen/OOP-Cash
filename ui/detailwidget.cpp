@@ -19,8 +19,8 @@ DetailWidget::DetailWidget(QWidget *parent, UserManager *_userman) :
     ui->timeFrom->setDateTime(QDateTime::fromTime_t(0));
     ui->timeTo->setDateTime(QDateTime::currentDateTime());
     //For test only
-    fillData(Query::newQuery(DatabaseHelper::getDb())
-             .addCreatorId(userman->getLoggedInUid()).doQuery());
+//	fillData(Query::newQuery(DatabaseHelper::getDb())
+//			 .addCreatorId(userman->getLoggedInUid()).doQuery());
 }
 
 DetailWidget::~DetailWidget()
