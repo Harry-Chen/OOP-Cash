@@ -1,4 +1,11 @@
-﻿#include <QApplication>
+﻿/**
+ * @file   main.cpp
+ * @author Harry Chen <harry-chen@outlook.com>
+ * @date   2017.0501
+ * @brief  Main entrance of the program
+ */
+
+#include <QApplication>
 #include <sqlpp11/sqlpp11.h>
 
 #include "ui/oopcash_mainwindow.h"
@@ -8,7 +15,6 @@ namespace sql = sqlpp::sqlite3;
 //#define GENERATE_DATA
 
 #ifndef GENERATE_DATA
-
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +27,11 @@ int main(int argc, char *argv[])
     logging::Logger::instance().setMinLevel(logging::l_info);
 #endif
 	
+    //The qm file need to be put in the working directory of the program
+    QTranslator translator;
+    translator.load("en_US.qm");
+    a.installTranslator(&translator);
+
 	logging::trace("Application Start===========");
     DatabaseHelper::initializeDatabase();
 	

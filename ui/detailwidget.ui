@@ -38,7 +38,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>start time</string>
+        <string>起始时间</string>
        </property>
        <property name="buddy">
         <cstring>timeFrom</cstring>
@@ -51,7 +51,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>end time</string>
+        <string>结束时间</string>
        </property>
        <property name="buddy">
         <cstring>timeTo</cstring>
@@ -64,14 +64,14 @@
      <item>
       <widget class="QPushButton" name="refresh">
        <property name="text">
-        <string>refresh</string>
+        <string>查询</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="plot">
        <property name="text">
-        <string>plot</string>
+        <string>绘图</string>
        </property>
       </widget>
      </item>

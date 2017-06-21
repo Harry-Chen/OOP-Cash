@@ -113,17 +113,17 @@ QVector<QLabel*>* editItemWidget::getlabelVector()
 
 void editItemWidget::on_deletebtn_clicked()
 {
-	if(QMessageBox::Yes == QMessageBox::question(this, "注意!", \
-												 "删除此条目会导致相关账单被连带删除, 是否继续?", \
+    if(QMessageBox::Yes == QMessageBox::question(this, QObject::tr("注意!"), \
+                                                 QObject::tr("删除此条目会导致相关账单被连带删除, 是否继续?"), \
 												 QMessageBox::Yes|QMessageBox::No, \
 												 QMessageBox::Yes))
 	{
 		bool success = apply->applyDelete();
 		emit modified();
 		if(success) {
-			QMessageBox::information(this, "", "成功删除条目");
+            QMessageBox::information(this, "", QObject::tr("成功删除条目"));
 		} else {
-			QMessageBox::information(this, "", "发生了一些奇怪的事情, 删除失败");
+            QMessageBox::information(this, "", QObject::tr("发生了一些奇怪的事情, 删除失败"));
 		}
 	}
 	this->close();
@@ -134,10 +134,10 @@ void editItemWidget::on_conformbtn_clicked()
 	bool success = apply->applyChange();
 	if(success) {
 		emit modified();
-		QMessageBox::information(this, "", "编辑成功");
+        QMessageBox::information(this, "", QObject::tr("编辑成功"));
 		this->close();
 	}else {
-		QMessageBox::information(this, "", "此条目已经存在, 添加失败");
+        QMessageBox::information(this, "", QObject::tr("此条目已经存在, 添加失败"));
 	}
 }
 

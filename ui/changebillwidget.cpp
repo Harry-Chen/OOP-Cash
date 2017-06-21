@@ -25,7 +25,7 @@ void ChangeBillWidget::init(UserManager* userman) {
 	setCombobox2();
 	setCombobox3();
 	setCurrencyCombobox();
-	getTimeLineEdit()->setText(QDate().currentDate().toString("yyyy-MM-dd"));
+    getTimeLineEdit()->setText(QDate().currentDate().toString(QObject::tr("yyyy-MM-dd")));
 }
 
 ChangeBillWidget::~ChangeBillWidget()

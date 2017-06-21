@@ -34,7 +34,7 @@ bool loginDlg::login() {
 
 bool loginDlg::signin() {
     if(ui->passwordEdit->text() != ui->pwAgainEdit->text()) {
-        QMessageBox::warning(this, "Sign failed", "Two passwords are not the same.");
+        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("密码不一致"));
         return false;
     }
     User newuser(-1, ui->usernameEdit->text(), ui->nicknameEdit->text(), ui->passwordEdit->text());
@@ -47,13 +47,13 @@ void loginDlg::on_loginButton_clicked()
     //sign in...
     if(switchButtonPressed) {
         if(signin()) {
-            QMessageBox::information(this, "注册成功", \
-                                     "You've signed in successfully!\nPlease remember your username and password.\n" \
-                                     + ui->usernameEdit->text() + ", welcome to OOP-Cash!");
+            QMessageBox::information(this, QObject::tr("注册成功"), \
+                                     QObject::tr("请牢记您的用户名和密码.\n") \
+                                     + ui->usernameEdit->text() + QObject::tr("，欢迎使用 Expensé！"));
             ui->switchButton->click();
         }
         else {
-            QMessageBox::warning(this, "注册失败", "The username has been used.");
+            QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("用户名已被使用"));
         }
         return;
     }
@@ -64,9 +64,10 @@ void loginDlg::on_loginButton_clicked()
         this->close();
     }
     else {
-        QMessageBox::warning(this, "登录失败", "用户名或密码错误");
+        QMessageBox::warning(this, QObject::tr("登录失败"), QObject::tr("用户名或密码错误"));
     }
 }
+
 
 void loginDlg::on_switchButton_clicked()
 {
@@ -75,9 +76,9 @@ void loginDlg::on_switchButton_clicked()
     ui->nicknameEdit->clear();
     ui->passwordEdit->clear();
     ui->pwAgainEdit->clear();
-    this->setWindowTitle((switchButtonPressed ? "注册" : "登录"));
-    ui->loginButton->setText((switchButtonPressed ? "signin" : "login"));
-    ui->switchButton->setText(switchButtonPressed ? "登录" : "注册");
+    this->setWindowTitle((switchButtonPressed ? QObject::tr("注册") : QObject::tr("登录")));
+    ui->loginButton->setText((switchButtonPressed ? QObject::tr("注册") : QObject::tr("登录")));
+    ui->switchButton->setText(switchButtonPressed ? QObject::tr("登录") : QObject::tr("注册"));
     ui->nicknameEdit->setVisible(switchButtonPressed);
     ui->nicknameLabel->setVisible(switchButtonPressed);
     ui->pwAgainLabel->setVisible(switchButtonPressed);

@@ -2,8 +2,8 @@
 
 BalanceProcessor::BalanceProcessor(const QDate & dateFrom, const QDate & dateTo, UserManager * userman)
 {
-     userId = userman->getLoggedInUid();
-     accountIds = AccountManager(userman).getAllItems().keys();
+     //userId = userman->getLoggedInUid();
+     //accountIds = AccountManager(userman).getAllItems().keys();
      raw =  Query::newQuery(DatabaseHelper::getDb()).addCreatorId(userman->getLoggedInUid())
                 .setDateRange(dateFrom,dateTo).doQuery();
       nameMap.insert(userman->getLoggedInUid(), userman->getAllItems()[userman->getLoggedInUid()].nickname);

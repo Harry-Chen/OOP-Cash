@@ -70,14 +70,6 @@ void QueryWidget::getField(int _field)
         ids = map2.keys();
         break;
     }
-//    case byCreator:
-//    {
-//        const auto& map3 = pUserManager->getAllItems();
-//        foreach(auto temp, map3)
-//            names.push_back(temp.nickname);
-//        ids = map3.keys();
-//        break;
-//    }
     default:
     {
         logging::error("Wrong ShowType!\n");
@@ -97,7 +89,6 @@ void QueryWidget::Do()
    // std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
    // std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
 
-
     if (ui->finished->currentText() != "both")
     {
         if(ui->finished->currentText() == "finished") pQuery->setFinished(true);
@@ -113,28 +104,22 @@ void QueryWidget::Do()
     {
     case byCategory:
     {
-        for(int i = 0; i < isSelected.size(); ++i)
+        for(int i = 0; i < (int)isSelected.size(); ++i)
             if(isSelected[i]) pQuery->addCategoryId(ids[i]);
         break;
     }
     case byAccountFrom:
     {
-        for(int i = 0; i < isSelected.size(); ++i)
+        for(int i = 0; i < (int)isSelected.size(); ++i)
             if(isSelected[i]) pQuery->addFromAccountId(ids[i]);
         break;
     }
     case byAccountTo:
     {
-        for(int i = 0; i < isSelected.size(); ++i)
+        for(int i = 0; i < (int)isSelected.size(); ++i)
             if(isSelected[i]) pQuery->addToAccountId(ids[i]);
         break;
     }
-//    case byCreator:
-//    {
-//        for(int i = 0; i < isSelected.size(); ++i)
-//            if(isSelected[i]) pQuery->addCreatorId(ids[i]);
-//        break;
-//    }
     default:
     {
         logging::error("Wrong ShowType!\n");
@@ -145,29 +130,37 @@ void QueryWidget::Do()
     const QVector<Bill> &bills = pQuery->doQuery();
     if(!bills.size())
     {
-        QMessageBox::information(0,"","无相应账单\n");
+        QMessageBox::information(0,"",QObject::tr("无相应账单\n"));
         logging::error("Empty! \n");
         return;
     }
     if(ui->selectField->currentIndex() == 0)
     {
-        QMessageBox::information(0,"","请先选择查询类型\n");
+        QMessageBox::information(0,"",QObject::tr("请先选择查询类型\n"));
         return;
     }
     for(int i = 0; i < ids.size(); ++i)
         nameMap.insert(ids[i], names[i]);
 
-    ProcessorFactory * pProcessorFactory = new ProcessorFactory;
-    pProcessor = pProcessorFactory->creatProcessor(ui->timeType->currentIndex(), ui->selectField->currentIndex(), bills, nameMap);
-    if(!pProcessor->processAll()) logging::error("fail to process\n");
-    else setupPlot();/*plot*/
+    PlotSystem * pPlotSystem = new BillsPlotSystem;
+    Processor * pProcessor = pPlotSystem ->createProcessor(bills, nameMap, static_cast<Plot::Time> (ui->timeType->currentIndex()),static_cast<Plot::Field> (ui->selectField->currentIndex()));
+    if(!pProcessor->ProcessAll()) logging::error("fail to process\n");
+    else
+    {
+        Plotter * pPlotter = pPlotSystem->createPlotter(pProcessor->GetFieldnames(), pProcessor->GetDates(), pProcessor->GetValues());
+        GraphDock * GraphDockPtr = new GraphDock(pPlotter);
+        GraphDockPtr->show();
+    }
+//    delete pPlotSystem;
+//    delete pProcessor;
+//    delete pPlotter;
 }
 
 
 void QueryWidget::setupPlot()
 {
-    GraphDock * GraphDockPtr = new GraphDock(pProcessor);
-    GraphDockPtr->show();
+    //GraphDock * GraphDockPtr = new GraphDock(pProcessor);
+    //GraphDockPtr->show();
 }
 
 void QueryWidget::setupCalendarFrom()
