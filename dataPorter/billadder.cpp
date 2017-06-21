@@ -10,7 +10,7 @@ billAdder::billAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj
     billman = new BillManager(userman);
 }
 
-bool billAdder::add(QJsonObject &_item) {
+bool billAdder::add(QJsonObject _item) {
     if(!(   _item.contains("accFrom")
             && _item.contains("accTo")
             && _item.contains("catName")

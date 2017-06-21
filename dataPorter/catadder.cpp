@@ -5,7 +5,7 @@ catAdder::catAdder(QJsonObject &_obj, UserManager *_userman): itemAdder(_obj, _u
     catman = new CategoryManager(userman);
 }
 
-bool catAdder::add(QJsonObject &_item) {
+bool catAdder::add(QJsonObject _item) {
     if(!(_item.contains("name"))) {
         return false;
     }

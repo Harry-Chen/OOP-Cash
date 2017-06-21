@@ -13,7 +13,7 @@ class accAdder : public itemAdder
 
 public:
     accAdder(QJsonObject & _obj, UserManager* _userman);
-    bool add(QJsonObject &_item);
+    bool add(QJsonObject _item);
 };
 
 #endif // ACCADDER_H
