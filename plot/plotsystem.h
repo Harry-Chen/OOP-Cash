@@ -22,7 +22,7 @@ protected:
 public:
     PlotSystem(){}
     virtual Processor * createProcessor(const QVector<Bill> & _bills, const QMap<ID, QString> & _nameMap, Plot::Time  _time = Plot::byDay, Plot::Field _field = Plot::byCreater) = 0;
-    virtual Plotter * createPlotter(const QVector<QString> & _fieldnames, const QVector<QDate> _dates, const QVector< QVector<int> > & _values ) = 0;
+    virtual Plotter * createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector< QVector<int> > _values ) = 0;
     virtual ~PlotSystem(){}
 };
 

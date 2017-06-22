@@ -41,7 +41,7 @@ Processor * BillsPlotSystem::createProcessor(const QVector<Bill> &_bills, const 
     return dynamic_cast<Processor *> (pProcessor);
 }
 
-Plotter * BillsPlotSystem::createPlotter(const QVector<QString> &_fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > &_values)
+Plotter * BillsPlotSystem::createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > _values)
 {
     return new BarPlotter(_fieldnames, _dates, _values);
 }

@@ -48,6 +48,7 @@ SOURCES += main.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
+	ui/usersetdlg.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
     ui/edititemwidget.cpp \
@@ -72,11 +73,10 @@ SOURCES += main.cpp \
     plot/processor/processor.cpp \
     plot/billsplotsystem.cpp \
     plot/processor/billsprocessor.cpp \
-    plot/plotter/billsplotter.cpp \
     plot/processor/balanceprocessor.cpp \
     plot/plotter/lineplotter.cpp \
     plot/balanceplotsystem.cpp \
-    ui/usersetdlg.cpp
+    plot/plotter/barsplotter.cpp
 
 HEADERS  += \
     include/qcustomplot.h \

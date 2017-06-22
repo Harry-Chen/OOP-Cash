@@ -10,7 +10,7 @@ class BalancePlotSystem : public PlotSystem
 public:
     BalancePlotSystem();
     Processor * createProcessor(const QVector<Bill> & _bills, const QMap<ID, QString> & _nameMap, Plot::Time _time, Plot::Field _field);
-    Plotter * createPlotter(const QVector<QString> &_fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > &_values);
+    Plotter * createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > _values);
 };
 
 #endif // BALANCEPLOTSYSTEM_H
