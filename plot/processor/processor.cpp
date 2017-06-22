@@ -77,7 +77,8 @@ void Processor::Sort()
             if(dates_[j] < dates_[j - 1])
             {
                 std::swap(dates_[j], dates_[j - 1]);
-                std::swap(matrix_[j], matrix[j - 1]);
+                for(int k = 0; k < matrix_.size(); ++k)
+                    std::swap(matrix_[k][j], matrix_[k][j - 1]);
             }
         }
 }

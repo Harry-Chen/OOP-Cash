@@ -26,10 +26,10 @@
 void LinePlotter::plot(QCustomPlot *custom_plot)
 {
     QVector<double> time_double;
-    QVector<QVector<double>> value_double;
+    QVector<QVector<double> > value_double;
     QVector<double> temp;
     for(int j = 0; j < dates_.size(); j++)
-        temp.push_back(-(double)values_[0][j]/100);
+        temp.push_back((double)values_[0][j]/100);
       value_double.push_back(temp);
       temp.clear();
 

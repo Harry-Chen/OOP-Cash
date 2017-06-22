@@ -27,7 +27,7 @@ bool BalanceProcessor::ProcessAll()
 {
     for(int i = 0; i < bills_.size(); ++i)
     {
-        if(bills_[i].to == -1) bills_[i].quantity = -bills_[i].quantity;
+        if(bills_[i].to == -1) bills_[i].quantity = - bills_[i].quantity;
         else if(bills_[i].from == -1) ;
         else bills_[i].quantity = 0;
     }
