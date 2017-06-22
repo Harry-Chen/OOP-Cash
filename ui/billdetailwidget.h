@@ -25,6 +25,7 @@
 #define BILLDETAILWIDGET_H
 
 #include <QWidget>
+#include <QMessageBox>
 #include "model/bill.h"
 #include "dao/usermanager.h"
 #include "dao/categorymanager.h"
@@ -50,9 +51,14 @@ public:
      */
 	void fillData(const Bill& bill, const QMap<ID, Account>& allAccounts, const QMap<ID, Category>& allCategories);
     ~BillDetailWidget();
+signals:
+	void delBill(const Bill& bill);
+private slots:
+	void on_removeButton_clicked();
 
 private:
     Ui::BillDetailWidget *ui;
+	Bill m_bill;
 };
 
 #endif // BILLDETAILWIDGET_H

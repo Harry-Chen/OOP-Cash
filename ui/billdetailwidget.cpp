@@ -29,10 +29,12 @@ BillDetailWidget::BillDetailWidget(QWidget *parent) :
     ui(new Ui::BillDetailWidget)
 {
     ui->setupUi(this);
+	ui->removeButton->setText(QObject::tr("移除"));
 }
 
 void BillDetailWidget::fillData(const Bill &bill, const QMap<ID, Account>& allAccounts, const QMap<ID, Category>& allCategories)
 {
+	m_bill = bill;
     QString quantity, account, category;
     quantity = QString::number(((double)bill.quantity)/100);
     if(bill.from == -1){
@@ -57,4 +59,19 @@ void BillDetailWidget::fillData(const Bill &bill, const QMap<ID, Account>& allAc
 BillDetailWidget::~BillDetailWidget()
 {
     delete ui;
+}
+
+void BillDetailWidget::on_removeButton_clicked()
+{
+	if(QMessageBox::Yes == QMessageBox::question(this, QObject::tr("注意"),\
+						  QObject::tr("此操作将移除这条账单记录\n是否继续？"),\
+						  QMessageBox::Yes|QMessageBox::No,\
+						  QMessageBox::Yes))
+	{
+		emit delBill(m_bill);
+	}
+	else
+	{
+		return;
+	}
 }
