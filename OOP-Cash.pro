@@ -3,6 +3,8 @@ QT       += core gui widgets printsupport
 TARGET = OOP-Cash
 TEMPLATE = app
 
+CONFIG += c++11
+
 DEFINES += QT_DEPRECATED_WARNINGS
 
 INCLUDEPATH += include
