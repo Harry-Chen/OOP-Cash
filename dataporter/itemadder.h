@@ -23,9 +23,12 @@
 
 #ifndef ITEMADDER_H
 #define ITEMADDER_H
-#include "dao/usermanager.h"
+
 #include <QString>
 #include <QJsonObject>
+
+#include "dao/usermanager.h"
+
 
 /**
  * @brief Abstract adder of items

@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <sstream>
+
 #include "util/constants.h"
 #include "database/tables.h"
 #include "model/currency.h"

@@ -23,10 +23,11 @@
 
 #ifndef ACCADDER_H
 #define ACCADDER_H
-#include "itemadder.h"
+
 #include "dao/accountmanager.h"
 #include "dao/currencymanager.h"
 #include "model/account.h"
+#include "itemadder.h"
 
 /**
  * @brief the adder of accounts

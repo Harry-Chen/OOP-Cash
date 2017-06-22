@@ -21,9 +21,10 @@
  * @brief  Implementation file of class BillAdder
  */
 
-#include "billadder.h"
 #include <QDate>
 #include <QDateTime>
+
+#include "billadder.h"
 
 BillAdder::BillAdder(QJsonObject & _obj, UserManager *_userman) : ItemAdder(_obj, _userman) {
     key = "bills";

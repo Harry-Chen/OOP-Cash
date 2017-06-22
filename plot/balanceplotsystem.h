@@ -1,7 +1,7 @@
 ﻿#ifndef BALANCEPLOTSYSTEM_H
 #define BALANCEPLOTSYSTEM_H
 
-#include "plot/plotsystem.h"
+#include "plotsystem.h"
 #include "plot/processor/balanceprocessor.h"
 #include "plot/plotter/lineplotter.h"
 

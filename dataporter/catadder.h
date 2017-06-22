@@ -23,9 +23,10 @@
 
 #ifndef CATADDER_H
 #define CATADDER_H
-#include "itemadder.h"
+
 #include "dao/categorymanager.h"
 #include "model/category.h"
+#include "itemadder.h"
 
 /**
  * @brief the adder of category

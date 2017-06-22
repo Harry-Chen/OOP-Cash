@@ -27,6 +27,7 @@
 #include <QSettings>
 #include <QApplication>
 #include <QVariant>
+
 #include "util/constants.h"
 #include "logging/logger.h"
 

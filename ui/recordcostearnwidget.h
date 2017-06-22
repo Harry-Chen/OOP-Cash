@@ -1,8 +1,9 @@
 ﻿#ifndef RECORDCOSTWIDGET_H
 #define RECORDCOSTWIDGET_H
 
-#include "changebillwidget.h"
 #include <QRadioButton>
+
+#include "changebillwidget.h"
 
 class RecordCostEarnWidget : public ChangeBillWidget
 {

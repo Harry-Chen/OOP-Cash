@@ -25,6 +25,7 @@
 #define LOGINDLG_H
 
 #include <QDialog>
+
 #include "dao/usermanager.h"
 
 namespace Ui {

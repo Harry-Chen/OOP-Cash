@@ -1,8 +1,8 @@
 ﻿#ifndef EDITACCOUNTSTRATEGY_H
 #define EDITACCOUNTSTRATEGY_H
 
-#include "applychangestrategy.h"
 #include "dao/accountmanager.h"
+#include "applychangestrategy.h"
 
 class editAccountStrategy : public applyChangeStrategy
 {

@@ -2,7 +2,8 @@
 #define GRAPHDOCK_H
 
 #include <QDockWidget>
-#include "qcustomplot.h"
+#include <qcustomplot.h>
+
 #include "plot/plotter/plotter.h"
 
 namespace Ui {

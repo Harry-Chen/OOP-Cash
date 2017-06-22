@@ -1,7 +1,7 @@
 ﻿#ifndef BILLSPLOTTER_H
 #define BILLSPLOTTER_H
 
-#include "plot/plotter/plotter.h"
+#include "plotter.h"
 
 class BarPlotter : public Plotter
 {

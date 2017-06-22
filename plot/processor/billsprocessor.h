@@ -1,7 +1,7 @@
 ﻿#ifndef BILLSPROCESSOR_H
 #define BILLSPROCESSOR_H
 
-#include "plot/processor/processor.h"
+#include "processor.h"
 
 class BillsProcessor : public Processor
 {

@@ -25,6 +25,7 @@
 #define BILLDETAILWIDGET_H
 
 #include <QWidget>
+
 #include "model/bill.h"
 #include "dao/usermanager.h"
 #include "dao/categorymanager.h"
