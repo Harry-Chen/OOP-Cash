@@ -17,7 +17,7 @@
 /**
  * @file   detailwidget.cpp
  * @author ...
- * @author Zeping Niu
+ * @author Zeping Niu <nnznk12@gmail.com>
  * @date   2017.05
  * @brief  Implementation file of class DetailWidget
  */
@@ -82,7 +82,7 @@ void DetailWidget::consult()
 	class BillComparer {
 	public:
 		bool operator() (const Bill& b1, const Bill& b2) {
-			return b1.date < b2.date;
+			return b2.date < b1.date;
 		}
 	};
 	std::sort(billVector.begin(), billVector.end(), BillComparer());
