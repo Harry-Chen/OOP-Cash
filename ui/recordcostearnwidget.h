@@ -3,7 +3,6 @@
 
 #include "changebillwidget.h"
 #include <QRadioButton>
-#include <QPixmap>
 
 class RecordCostEarnWidget : public ChangeBillWidget
 {
@@ -22,8 +21,6 @@ protected:
 	virtual void setCombobox2();
 	virtual void setCombobox3();
 private:
-	QPixmap* costIcon;
-	QPixmap* earnIcon;
 	bool isCost;
 	bool isTransfer;
 	void setCostLabelNames();
