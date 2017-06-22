@@ -17,9 +17,11 @@
 /**
  * @file   billdetailwidget.h
  * @author Harry Chen <harry-chen@outlook.com>
+ * @author Zeping Niu <nnznk12@gmail.com>
  * @date   2017.05
  * @brief  Header file of class BillDetailWidget
  */
+
 
 #ifndef BILLDETAILWIDGET_H
 #define BILLDETAILWIDGET_H
@@ -39,27 +41,33 @@ class BillDetailWidget;
 /**
  * @brief Widget to show the detail info of one specific Bill
  */
+
 class BillDetailWidget : public QWidget
 {
     Q_OBJECT
 
 public:
     explicit BillDetailWidget(QWidget *parent = 0);
-    /**
-     * @brief fill the widget with data provided
-     * @param bill the Bill to display
-     * @param userman pointer to UserManager
-     */
+	/**
+	 * @brief fill the widget with data provided
+	 * @param bill the Bill to display
+	 * @param allAccounts ID-Account Map of all accounts
+	 * @param allCategories ID-Category Map of all categories
+	 */
 	void fillData(const Bill& bill, const QMap<ID, Account>& allAccounts, const QMap<ID, Category>& allCategories);
     ~BillDetailWidget();
-	ID _billId;
 signals:
+	/**
+	 * @brief pass the bill id to the DetailWidget to delete bill in sqlite
+	 * @param billId //
+	 */
 	void delBillSignal(ID billId);
 private slots:
 	void on_removeButton_clicked();
 
 private:
     Ui::BillDetailWidget *ui;
+	ID _billId; //< the id of bill displayed in this widget
 };
 
 #endif // BILLDETAILWIDGET_H

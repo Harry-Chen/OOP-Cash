@@ -17,6 +17,7 @@
 /**
  * @file   billdetailwidget.cpp
  * @author Harry Chen <harry-chen@outlook.com>
+ * @author Zeping Niu <nnznk12@gmail.com>
  * @date   2017.05
  * @brief  Implementation file of class BillDetailWidget
  */
