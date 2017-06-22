@@ -74,7 +74,7 @@ SOURCES += main.cpp \
     plot/processor/balanceprocessor.cpp \
     plot/plotter/lineplotter.cpp \
     plot/balanceplotsystem.cpp \
-    plot/plotter/barsplotter.cpp
+    plot/plotter/barplotter.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
