@@ -45,32 +45,61 @@ namespace Ui {
 class QueryWidget;
 }
 
+/**
+ * @brief The QueryWidget class, control the querytab in mainwindow
+ */
 class QueryWidget : public QWidget
 {
     Q_OBJECT
 public slots:
-    void getField(int);
-    void Do ();
+    /**
+     * @brief setup Calendar
+     */
     void setupCalendarFrom();
     void setupCalendarTo();
+    /**
+     * @brief get date from gui widget
+     */
     void setDateFrom();
     void setDateTo();
+
+    /**
+     * @brief getField for gui QComboBox
+     */
+    void getField(int);
+    /**
+     * @brief do query and plot when "plot" button is clicked
+     */
+    void Do ();
 public:
+    /**
+     * @brief construct a QueryWidget
+     * @param parent
+     */
     explicit QueryWidget(QWidget *parent = 0);
+    /**
+     * @brief set the Userman
+     */
     void setUserman( UserManager *);
     ~QueryWidget();
 private:
+
+
     Ui::QueryWidget *ui;
-    Query * pQuery;
-    UserManager * pUserManager;
     CalendarDialog * calendarFrom;
     CalendarDialog * calendarTo;
+    Query * pQuery;
+    UserManager * pUserManager;
+
     QList <QString> names;
     QList <ID> ids;
-    std::vector<bool> isSelected;
+    std::vector<bool> isSelected;///< which items in QListWidget are selecter
     int field;
     QMap <ID, QString> nameMap;
 
+    /**
+     * @brief init the widget
+     */
     void init();
 };
 

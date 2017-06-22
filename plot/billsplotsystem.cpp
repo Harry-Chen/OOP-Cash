@@ -23,11 +23,6 @@
 
 #include "billsplotsystem.h"
 
-BillsPlotSystem::BillsPlotSystem()
-{
-
-}
-
 Processor * BillsPlotSystem::createProcessor(const QVector<Bill> &_bills, const QMap<ID, QString> &_nameMap, Plot::Time _time, Plot::Field _field)
 {
     BillsProcessor * pProcessor = new BillsProcessor ( _bills, _nameMap);

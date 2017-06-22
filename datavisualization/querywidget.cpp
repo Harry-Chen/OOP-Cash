@@ -82,6 +82,7 @@ void QueryWidget::getField(int _field)
         foreach(auto temp, map1)
             names.push_back(temp.name);
         ids = map1.keys();
+        delete newCategoryManager;
         break;
     }
     case byAccountFrom:
@@ -92,6 +93,7 @@ void QueryWidget::getField(int _field)
         foreach(auto temp, map2)
             names.push_back(temp.name);
         ids = map2.keys();
+        delete newAccountManager;
         break;
     }
     default:
@@ -107,12 +109,7 @@ void QueryWidget::getField(int _field)
 void QueryWidget::Do()
 {
     pQuery = &((Query::newQuery(DatabaseHelper::getDb())).addCreatorId(pUserManager->getLoggedInUid()));
-
     pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
-
-   // std::cout << ui->timeFrom->date().toString("dd.MM.yyyy").toStdString() << std::endl;
-   // std::cout << ui->timeTo->date().toString("dd.MM.yyyy").toStdString() << std::endl;
-
     if (ui->finished->currentText() != "both")
     {
         if(ui->finished->currentText() == "finished") pQuery->setFinished(true);

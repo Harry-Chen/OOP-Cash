@@ -68,3 +68,16 @@ const QVector<QString> Processor::GetFieldnames()
         result.push_back(nameMap_.value(fieldnames_[i]));
     return result;
 }
+
+void Processor::Sort()
+{
+    for(int i = 0; i < dates_.size(); ++i)
+        for(int j = 1; j < dates_.size() - i; ++j)
+        {
+            if(dates_[j] < dates_[j - 1])
+            {
+                std::swap(dates_[j], dates_[j - 1]);
+                std::swap(matrix_[j], matrix[j - 1]);
+            }
+        }
+}

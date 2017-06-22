@@ -26,10 +26,17 @@
 
 #include "plotter.h"
 
+/**
+ * @brief The LinePlotter class, a concrete product, plot a linechart
+ */
 class LinePlotter : public Plotter
 {
 public:
     using Plotter::Plotter;
+    /**
+     * @brief overload plot in Plotter
+     * @param custom_plot a ptr to a QCustomPlot
+     */
     void plot(QCustomPlot *custom_plot);
 };
 

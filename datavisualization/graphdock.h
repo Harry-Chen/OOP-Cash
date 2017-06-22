@@ -33,17 +33,32 @@ namespace Ui {
 class GraphDock;
 }
 
+/**
+ * @brief The GraphDock class, generate a dock to show the chart
+ */
 class GraphDock : public QDockWidget
 {
     Q_OBJECT
 
 public:
-    explicit GraphDock(Plotter * ,QWidget *parent = 0);
+    /**
+     * @brief construct a GraphDock and init is with ptr to a plotter and ptr to its parent
+     * @param _pPlotter ptr to a plotter
+     * @param parent the parent of this dock (which is 0)
+     */
+    explicit GraphDock(Plotter * _pPlotter,QWidget *parent = 0);
+    /**
+      * @brief destruct the GraphDock, delete pPlotter if it's not null
+      */
     ~GraphDock();
 
 private:
     Ui::GraphDock *ui;
     Plotter * pPlotter;
+    /**
+     * @brief setup the plotter to plot, delegates the opperations to plotter
+     * @param ptr to QCustomPlot
+     */
     void setupMyDemo(QCustomPlot *customPlot){pPlotter -> plot(customPlot);}
 };
 

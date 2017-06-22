@@ -26,10 +26,17 @@
 
 #include "plotter.h"
 
+/**
+ * @brief The BarPlotter class, a concrete product, plot a barchart
+ */
 class BarPlotter : public Plotter
 {
 public:
     using Plotter::Plotter;
+    /**
+     * @brief overload plot in Plotter
+     * @param custom_plot a ptr to a QCustomPlot
+     */
     void plot(QCustomPlot *custom_plot);
 };
 

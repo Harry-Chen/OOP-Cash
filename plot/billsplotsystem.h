@@ -28,13 +28,26 @@
 #include "plot/processor/billsprocessor.h"
 #include "plot/plotter/barplotter.h"
 
-#define INIT_DATE 1
+#define INIT_DATE 1 ///< when part of Date is to be ignored, it should be inited with this number
 
+/**
+ * @brief The BillsPlotSystem class, an concrete factory
+ */
 class BillsPlotSystem : public PlotSystem
 {
 public:
-    BillsPlotSystem();
+    BillsPlotSystem(){}
+    /**
+     * @brief create a BillsProcessor
+     * @param same with the one in PlotSystem (the base class)
+     * @return a pointer to BillsProcessor
+     */
     Processor * createProcessor(const QVector<Bill> & _bills, const QMap<ID, QString> & _nameMap, Plot::Time _time, Plot::Field _field);
+    /**
+     * @brief create a LinePlotter
+     * @param same with the one in PlotSystem (the base class)
+     * @return a pointer to LinePlotter
+     */
     Plotter * createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > _values);
 };
 

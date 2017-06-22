@@ -21,21 +21,33 @@
  * @brief  Header file of class Plotter
  */
 
-//产品系列2的基类
 #ifndef PLOTTER_H
 #define PLOTTER_H
 
 #include <qcustomplot.h>
 
+/**
+ * @brief The Plotter class, an abstract product, plot a chart using QCustomPlot(the builder)
+ */
 class Plotter : public QWidget
 {
 
 public:
+    /**
+     * @brief construct a Plotter by data
+     * @param _fieldnames QVector of fieldnames, corresponding to graphs
+     * @param _dates QVector of dates, which is the key (xAxis) in graph
+     * @param _values Matrix of values, which is the value (yAxis) in graph
+     */
     Plotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector< QVector<int> > _values)
         :fieldnames_(_fieldnames),
           dates_(_dates),
           values_(_values)
     {}
+    /**
+     * @brief plot the chart
+     * @param custom_plot ptr to a QCustomPlot
+     */
     virtual void plot(QCustomPlot * custom_plot) = 0;
     virtual ~Plotter(){}
 protected:

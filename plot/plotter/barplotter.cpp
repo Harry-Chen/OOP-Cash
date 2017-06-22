@@ -25,11 +25,6 @@
 
 void BarPlotter::plot(QCustomPlot *custom_plot)
 {
-//    if(dates_.size() > 80)
-//    {
-//        QMessageBox::information(0,"",QObject::tr("数据过多，拖动\n"));
-//    }
-
     QVector<QVector<double> > value_double;
     QVector<double> temp;
     for(int i = 0; i < fieldnames_.size(); i++)

@@ -26,26 +26,39 @@
 
 #include "processor.h"
 
+/**
+ * @brief The BillsProcessor class, a derived class of Processor(concrete product),
+ *        process bills for barchart
+ */
 class BillsProcessor : public Processor
 {
+    ///< a ptr to the func to get fieldname
     ID (* GetFieldnameptr) (const Bill &);
+    ///< a ptr to the func to get date
     QDate (*GetDateptr) (const QDate &);
 public:
     using Processor::Processor;
+    /**
+     * @brief get the method to get filedname(as a func ptr)
+     */
     void SetGetFieldname (ID (*func) (const Bill &)) {GetFieldnameptr = func;}
+    /**
+     * @brief get the method to get date(as a func ptr)
+     */
     void SetGetDate (QDate (*func) (const QDate &)) {GetDateptr = func;}
-    ID GetFieldname(int i)
-    {
-        if (GetFieldnameptr)
-        return (*GetFieldnameptr) (bills_[i]);
-        else return -1; //error
-    }
-    QDate GetDate(int i)
-    {
-        if (GetDateptr)
-        return(*GetDateptr) (bills_[i].date);
-        else return QDate::currentDate(); //error
-    }
+    /**
+     * @brief overload GetFieldname in Processor, get fieldname using the func ptr
+     * @param No.i
+     * @return ID of fieldname of No.i bill
+     */
+    ID GetFieldname(int i);
+    /**
+     * @brief overload GetDate
+     * @param No.i
+     * @return processed date of No.i bill
+     */
+    QDate GetDate(int i);
+
 };
 
 #endif // BILLSPROCESSOR_H

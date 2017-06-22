@@ -49,11 +49,6 @@ void LinePlotter::plot(QCustomPlot *custom_plot)
     custom_plot->graph()->setPen(QPen(color.lighter(200)));
     custom_plot->graph()->setData(time_double, value_double[0]);
 
-//    custom_plot->xAxis2->setVisible(true);
-//    custom_plot->xAxis2->setTickLabels(false);
-//    custom_plot->yAxis2->setVisible(true);
-//    custom_plot->yAxis2->setTickLabels(false);
-
     // make left and bottom axes always transfer their ranges to right and top axes:
     QAbstractAnimation::connect(custom_plot->xAxis, SIGNAL(rangeChanged(QCPRange)), custom_plot->xAxis2, SLOT(setRange(QCPRange)));
     QAbstractAnimation::connect(custom_plot->yAxis, SIGNAL(rangeChanged(QCPRange)), custom_plot->yAxis2, SLOT(setRange(QCPRange)));
@@ -82,19 +77,8 @@ void LinePlotter::plot(QCustomPlot *custom_plot)
     custom_plot->xAxis->setLabel(QObject::tr("日期"));
     custom_plot->yAxis->setLabel(QObject::tr("余额"));
 
-    // make top and right axes visible but without ticks and labels:
-//    custom_plot->xAxis2->setVisible(true);
-//    custom_plot->yAxis2->setVisible(true);
-//    custom_plot->xAxis2->setTicks(false);
-//    custom_plot->yAxis2->setTicks(false);
-//    custom_plot->xAxis2->setTickLabels(false);
-//    custom_plot->yAxis2->setTickLabels(false);
-
     // set axis ranges to show all data:
     custom_plot->graph()->rescaleAxes();
 
-    // show legend with slightly transparent background brush:
-    //custom_plot->legend->setVisible(true);
-   // custom_plot->legend->setBrush(QColor(255, 255, 255, 150));
     custom_plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }
