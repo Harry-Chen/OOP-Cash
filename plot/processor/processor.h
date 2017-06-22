@@ -2,13 +2,13 @@
 #ifndef PROCESSOR_H
 #define PROCESSOR_H
 
-#include "model/bill.h"
-#include "dao/query.h"
-
 #include <QVector>
 #include <QMap>
 #include <QDate>
 #include <QString>
+
+#include "model/bill.h"
+#include "dao/query.h"
 
 class Processor
 {

@@ -1,8 +1,9 @@
-﻿#include "querywidget.h"
+﻿#include <QStringList>
+
+#include "querywidget.h"
 #include "ui_querywidget.h"
 #include "util/database_helper.h"
 #include "ui/dateeditcalendar.h"
-#include <QStringList>
 #include "ui/calendardialog.h"
 
 QueryWidget::QueryWidget(QWidget *parent) :
@@ -151,17 +152,10 @@ void QueryWidget::Do()
         GraphDock * GraphDockPtr = new GraphDock(pPlotter);
         GraphDockPtr->show();
     }
-//    delete pPlotSystem;
-//    delete pProcessor;
-//    delete pPlotter;
+    delete pPlotSystem;
+    delete pProcessor;
 }
 
-
-void QueryWidget::setupPlot()
-{
-    //GraphDock * GraphDockPtr = new GraphDock(pProcessor);
-    //GraphDockPtr->show();
-}
 
 void QueryWidget::setupCalendarFrom()
 {

@@ -15,26 +15,33 @@
  */
 
 /**
- * @file   accadder.h
+ * @file   itemadder.h
  * @author Ice Coffee <ice438971718@gmail.com>
  * @date   2017.05
- * @brief  Header file of class AccAdder
+ * @brief  Header file of class ItemAdder
  */
 
-#ifndef ACCADDER_H
-#define ACCADDER_H
-#include "itemadder.h"
-#include "dao/accountmanager.h"
-#include "dao/currencymanager.h"
-#include "model/account.h"
+#ifndef ITEMADDER_H
+#define ITEMADDER_H
+
+#include <QString>
+#include <QJsonObject>
+
+#include "dao/usermanager.h"
+
 
 /**
- * @brief the adder of accounts
+ * @brief Abstract adder of items
  */
-class AccAdder : public ItemAdder
+class ItemAdder
 {
-    AccountManager * accman;
-    CurrencyManager * curman;
+protected:
+    /**
+     * @brief key the name of concrete item
+     */
+    QString key;
+    QJsonObject &obj;
+    UserManager* userman;
 
 public:
     /**
@@ -42,13 +49,18 @@ public:
      * @param _obj reference to the QJsonObject of DataImporter
      * @param _userman pointer of UserManager in charge of the User who has loggedin.
      */
-    AccAdder(QJsonObject & _obj, UserManager* _userman);
+    ItemAdder(QJsonObject & _obj, UserManager* _userman);
     /**
-     * @brief function to add an account
-     * @param _item the account in type of QJsonObject
+     * @brief the frame of adding items
      * @return succeeded or not
      */
-    bool add(QJsonObject _item);
+    bool additems();
+    /**
+     * @brief virtual function to add one item
+     * @param _item the item in type of QJsonObject
+     * @return succeeded or not
+     */
+    virtual bool add(QJsonObject  _item) = 0;
 };
 
-#endif // ACCADDER_H
+#endif // ITEMADDER_H

@@ -135,22 +135,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/detailwidget.ui" line="41"/>
+        <location filename="../ui/detailwidget.ui" line="22"/>
         <source>起始时间</source>
         <translation>Start Time</translation>
     </message>
     <message>
-        <location filename="../ui/detailwidget.ui" line="54"/>
+        <location filename="../ui/detailwidget.ui" line="35"/>
         <source>结束时间</source>
         <translation>End Time</translation>
     </message>
     <message>
-        <location filename="../ui/detailwidget.ui" line="67"/>
+        <location filename="../ui/detailwidget.ui" line="48"/>
         <source>查询</source>
         <translation>Query</translation>
     </message>
     <message>
-        <location filename="../ui/detailwidget.ui" line="74"/>
+        <location filename="../ui/detailwidget.ui" line="55"/>
         <source>绘图</source>
         <translation>Plot</translation>
     </message>
@@ -160,6 +160,45 @@
     <message>
         <location filename="../datavisualization/graphdock.ui" line="14"/>
         <source>DockWidget</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoginDlg</name>
+    <message>
+        <location filename="../ui/logindlg.ui" line="14"/>
+        <location filename="../ui/logindlg.ui" line="91"/>
+        <source>登录</source>
+        <translation>Login</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.ui" line="27"/>
+        <source>帐　　号：</source>
+        <translation>Username:</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.ui" line="37"/>
+        <source>密　　码：</source>
+        <translation>Password:</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.ui" line="56"/>
+        <source>注册</source>
+        <translation>Register</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.ui" line="63"/>
+        <source>确认密码：</source>
+        <translation>Confirm:</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.ui" line="79"/>
+        <source>昵　　称：</source>
+        <translation>Nickname:</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.ui" line="113"/>
+        <source>Expensé ver 0.0.1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -239,99 +278,101 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../dataPorter/dataexporter.cpp" line="90"/>
+        <location filename="../dataPorter/dataexporter.cpp" line="113"/>
         <source>选择导出路径</source>
         <translation>Choose export path</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataexporter.cpp" line="90"/>
-        <location filename="../dataPorter/dataimporter.cpp" line="17"/>
+        <location filename="../dataPorter/dataexporter.cpp" line="113"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="40"/>
         <source>JS 对象标记 (*.json)</source>
         <translation>JSON file (*.json)</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataexporter.cpp" line="95"/>
+        <location filename="../dataPorter/dataexporter.cpp" line="118"/>
         <source>保存文件</source>
         <translation>Save file</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataexporter.cpp" line="95"/>
+        <location filename="../dataPorter/dataexporter.cpp" line="118"/>
         <source>无法保存文件:
 %1</source>
         <translation>Unable to save file:\n%1</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataexporter.cpp" line="100"/>
+        <location filename="../dataPorter/dataexporter.cpp" line="123"/>
         <source>导出</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataexporter.cpp" line="100"/>
+        <location filename="../dataPorter/dataexporter.cpp" line="123"/>
         <source>导出成功!</source>
         <translation>Export successful!</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="17"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="40"/>
         <source>选择导入文件</source>
         <translation>Select file to import</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="22"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="45"/>
         <source>导入文件</source>
         <translation>Import file</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="22"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="45"/>
         <source>无法打开文件:
 %1</source>
         <translation>Unable to open file\n:%1</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="32"/>
-        <location filename="../dataPorter/dataimporter.cpp" line="36"/>
-        <location filename="../dataPorter/itemadder.cpp" line="10"/>
-        <location filename="../dataPorter/itemadder.cpp" line="15"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="55"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="59"/>
+        <location filename="../dataPorter/itemadder.cpp" line="33"/>
+        <location filename="../dataPorter/itemadder.cpp" line="38"/>
         <source>导入失败</source>
         <translation>Import failed</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="32"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="55"/>
+        <location filename="../ui/usersetdlg.cpp" line="73"/>
         <source>发生了不可名状的错误&gt;.&lt;</source>
         <translation>Unknown error happened</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="36"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="59"/>
         <source>导入文件格式有误哦&gt;.&lt;</source>
         <translation>Wrong file format</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="46"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="69"/>
         <source>导入成功</source>
         <translation>Import Successful</translation>
     </message>
     <message>
-        <location filename="../dataPorter/dataimporter.cpp" line="46"/>
+        <location filename="../dataPorter/dataimporter.cpp" line="69"/>
         <source>快去查看自己的账单吧~！</source>
         <translation>You can check your bills now!</translation>
     </message>
     <message>
-        <location filename="../dataPorter/itemadder.cpp" line="10"/>
+        <location filename="../dataPorter/itemadder.cpp" line="33"/>
         <source>找不到 %1</source>
         <translation>%1 not found</translation>
     </message>
     <message>
-        <location filename="../dataPorter/itemadder.cpp" line="15"/>
+        <location filename="../dataPorter/itemadder.cpp" line="38"/>
         <source>%1 格式错误</source>
         <translation>Format error in %1</translation>
     </message>
     <message>
-        <location filename="../dataPorter/itemadder.cpp" line="28"/>
+        <location filename="../dataPorter/itemadder.cpp" line="51"/>
         <source>成功导入 %1 条
 文件内共 %2 条</source>
-        <translation>Successfully import %1 bills\n%2 bills found in file</translation>
+        <translation>Successfully import %1 bills
+%2 bills found in file</translation>
     </message>
     <message>
-        <location filename="../dataPorter/itemadder.cpp" line="29"/>
+        <location filename="../dataPorter/itemadder.cpp" line="52"/>
         <source>%1 导入成功</source>
         <translation>Succeessfully imported %1</translation>
     </message>
@@ -348,42 +389,42 @@
         <translation>Please select the type of query first</translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="55"/>
+        <location filename="../ui/billdetailwidget.cpp" line="48"/>
         <source>￥</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="55"/>
+        <location filename="../ui/billdetailwidget.cpp" line="48"/>
         <source>金额
 </source>
         <translation>Quantity\n</translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="58"/>
+        <location filename="../ui/billdetailwidget.cpp" line="51"/>
         <source>关键字
 </source>
         <translation>Keyword\n</translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="59"/>
+        <location filename="../ui/billdetailwidget.cpp" line="52"/>
         <location filename="../ui/changebillwidget.cpp" line="28"/>
         <source>yyyy-MM-dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="59"/>
+        <location filename="../ui/billdetailwidget.cpp" line="52"/>
         <source>日期
 </source>
         <translation>Date\n</translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="60"/>
+        <location filename="../ui/billdetailwidget.cpp" line="53"/>
         <source>帐户
 </source>
         <translation>Account\n</translation>
     </message>
     <message>
-        <location filename="../ui/billdetailwidget.cpp" line="61"/>
+        <location filename="../ui/billdetailwidget.cpp" line="54"/>
         <source>类别
 </source>
         <translation>Category\n</translation>
@@ -419,69 +460,70 @@
         <translation>Add failed for that same record existed</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="37"/>
-        <location filename="../ui/logindlg.cpp" line="56"/>
+        <location filename="../ui/logindlg.cpp" line="60"/>
+        <location filename="../ui/logindlg.cpp" line="79"/>
         <source>注册失败</source>
         <translation>Registration failed</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="37"/>
+        <location filename="../ui/logindlg.cpp" line="60"/>
         <source>密码不一致</source>
         <translation>The two passwords are not the same</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="50"/>
+        <location filename="../ui/logindlg.cpp" line="73"/>
         <source>注册成功</source>
         <translation>Sucessfully registered</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="51"/>
+        <location filename="../ui/logindlg.cpp" line="74"/>
         <source>请牢记您的用户名和密码.
 </source>
-        <translation>Please remember your user name and password.\n</translation>
+        <translation>Please remember your user name and password.
+</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="52"/>
+        <location filename="../ui/logindlg.cpp" line="75"/>
         <source>，欢迎使用 Expensé！</source>
         <translation>, welcome to Expensé!</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="56"/>
+        <location filename="../ui/logindlg.cpp" line="79"/>
         <source>用户名已被使用</source>
         <translation>Username already occupied</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="67"/>
+        <location filename="../ui/logindlg.cpp" line="90"/>
         <source>登录失败</source>
         <translation>Login failed</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="67"/>
+        <location filename="../ui/logindlg.cpp" line="90"/>
         <source>用户名或密码错误</source>
         <translation>Wrong username or password</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="79"/>
-        <location filename="../ui/logindlg.cpp" line="80"/>
-        <location filename="../ui/logindlg.cpp" line="81"/>
+        <location filename="../ui/logindlg.cpp" line="102"/>
+        <location filename="../ui/logindlg.cpp" line="103"/>
+        <location filename="../ui/logindlg.cpp" line="104"/>
         <source>注册</source>
         <translation>Register</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="79"/>
-        <location filename="../ui/logindlg.cpp" line="80"/>
-        <location filename="../ui/logindlg.cpp" line="81"/>
-        <location filename="../ui/oopcash_mainwindow.cpp" line="50"/>
+        <location filename="../ui/logindlg.cpp" line="102"/>
+        <location filename="../ui/logindlg.cpp" line="103"/>
+        <location filename="../ui/logindlg.cpp" line="104"/>
+        <location filename="../ui/oopcash_mainwindow.cpp" line="73"/>
         <source>登录</source>
         <translation>Login</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.cpp" line="51"/>
+        <location filename="../ui/oopcash_mainwindow.cpp" line="74"/>
         <source>好像还没有登录呢~</source>
         <translation>Not logged in yet</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.cpp" line="76"/>
+        <location filename="../ui/oopcash_mainwindow.cpp" line="99"/>
         <source>登出</source>
         <translation>Logout</translation>
     </message>
@@ -658,6 +700,66 @@
         <source>编辑货币</source>
         <translation>Modify currency</translation>
     </message>
+    <message>
+        <location filename="../datavisualization/graphdock.cpp" line="11"/>
+        <source>绘图窗口</source>
+        <translation>Plot Window</translation>
+    </message>
+    <message>
+        <location filename="../plot/plotter/lineplotter.cpp" line="59"/>
+        <source>日期</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <location filename="../plot/plotter/lineplotter.cpp" line="60"/>
+        <source>余额</source>
+        <translation>Quantity</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="36"/>
+        <source>更新资料</source>
+        <translation>Update Profile</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="56"/>
+        <location filename="../ui/usersetdlg.cpp" line="60"/>
+        <location filename="../ui/usersetdlg.cpp" line="64"/>
+        <location filename="../ui/usersetdlg.cpp" line="73"/>
+        <source>更新失败</source>
+        <translation>Update failed</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="56"/>
+        <source>昵称不可以为空哦</source>
+        <translation>Nickname cannot be empty</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="60"/>
+        <source>两次密码不一致</source>
+        <translation>The two passwords are not the same</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="64"/>
+        <source>空密码是不可以的哟</source>
+        <translation>Password cannot be empty</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="69"/>
+        <source>更新成功</source>
+        <translation>Successfully updated profile</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="69"/>
+        <source>获得新昵称：</source>
+        <translation>Your new nickname: </translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdlg.cpp" line="69"/>
+        <source>
+要牢记密码哦~</source>
+        <translation>
+Please remember your password</translation>
+    </message>
 </context>
 <context>
     <name>QueryWidget</name>
@@ -753,6 +855,34 @@
     </message>
 </context>
 <context>
+    <name>UserSetDialog</name>
+    <message>
+        <location filename="../ui/usersetdialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdialog.ui" line="25"/>
+        <source>昵　　称：</source>
+        <translation>Nick name:</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdialog.ui" line="35"/>
+        <source>确认密码：</source>
+        <translation>Confirm:</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdialog.ui" line="61"/>
+        <source>新 密 码：</source>
+        <translation>New Password:</translation>
+    </message>
+    <message>
+        <location filename="../ui/usersetdialog.ui" line="76"/>
+        <source>更新</source>
+        <translation>Update</translation>
+    </message>
+</context>
+<context>
     <name>editItemWidget</name>
     <message>
         <location filename="../ui/edititemwidget.ui" line="14"/>
@@ -781,73 +911,6 @@
         <location filename="../ui/edititemwidget.ui" line="100"/>
         <source>取消</source>
         <translation>Cancel</translation>
-    </message>
-</context>
-<context>
-    <name>loginDlg</name>
-    <message>
-        <location filename="../ui/logindlg.ui" line="14"/>
-        <location filename="../ui/logindlg.ui" line="91"/>
-        <source>登录</source>
-        <translation>Login</translation>
-    </message>
-    <message>
-        <location filename="../ui/logindlg.ui" line="27"/>
-        <source>帐　　号：</source>
-        <translation type="unfinished">Username:</translation>
-    </message>
-    <message>
-        <location filename="../ui/logindlg.ui" line="37"/>
-        <source>密　　码：</source>
-        <translation>Password:</translation>
-    </message>
-    <message>
-        <location filename="../ui/logindlg.ui" line="56"/>
-        <source>注册</source>
-        <translation>Register</translation>
-    </message>
-    <message>
-        <location filename="../ui/logindlg.ui" line="63"/>
-        <source>确认密码：</source>
-        <translation>Confirm:</translation>
-    </message>
-    <message>
-        <location filename="../ui/logindlg.ui" line="79"/>
-        <source>昵　　称：</source>
-        <translation>Nick name:</translation>
-    </message>
-    <message>
-        <location filename="../ui/logindlg.ui" line="113"/>
-        <source>Expensé ver 0.0.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>userSetDialog</name>
-    <message>
-        <location filename="../ui/usersetdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/usersetdialog.ui" line="25"/>
-        <source>昵　　称：</source>
-        <translation>Nick name:</translation>
-    </message>
-    <message>
-        <location filename="../ui/usersetdialog.ui" line="35"/>
-        <source>确认密码：</source>
-        <translation>Confirm:</translation>
-    </message>
-    <message>
-        <location filename="../ui/usersetdialog.ui" line="61"/>
-        <source>新 密 码：</source>
-        <translation>New Password:</translation>
-    </message>
-    <message>
-        <location filename="../ui/usersetdialog.ui" line="76"/>
-        <source>更新</source>
-        <translation>Update</translation>
     </message>
 </context>
 </TS>

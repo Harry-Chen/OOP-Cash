@@ -84,7 +84,7 @@ void OOPCash_MainWindow::on_loginSuccess(ID idInfo) {
     pDetailWidget = new DetailWidget(ui->detailTab, userman);
 
     connect(this, SIGNAL(dataFreshSignal()), pRecordCostWidget, SLOT(refresh()));
-    connect(this, SIGNAL(dataFreshSignal()), pDetailWidget, SLOT(consult()));
+	connect(this, SIGNAL(dataFreshSignal()), pDetailWidget, SLOT(consult()));
 
     ui->gridLayout_queryTab->addWidget(pQueryWidget);
     ui->gridLayout_addTab->addWidget(pRecordCostWidget);

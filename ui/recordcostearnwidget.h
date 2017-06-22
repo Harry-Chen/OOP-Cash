@@ -1,9 +1,9 @@
 ﻿#ifndef RECORDCOSTWIDGET_H
 #define RECORDCOSTWIDGET_H
 
-#include "changebillwidget.h"
 #include <QRadioButton>
-#include <QPixmap>
+
+#include "changebillwidget.h"
 
 class RecordCostEarnWidget : public ChangeBillWidget
 {
@@ -22,8 +22,6 @@ protected:
 	virtual void setCombobox2();
 	virtual void setCombobox3();
 private:
-	QPixmap* costIcon;
-	QPixmap* earnIcon;
 	bool isCost;
 	bool isTransfer;
 	void setCostLabelNames();

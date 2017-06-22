@@ -15,44 +15,38 @@
  */
 
 /**
- * @file   dataimporter.h
+ * @file   curadder.h
  * @author Ice Coffee <ice438971718@gmail.com>
  * @date   2017.05
- * @brief  Header file of class DataImporter
+ * @brief  Header file of class CurAdder
  */
 
-#ifndef DATAIMPORTER_H
-#define DATAIMPORTER_H
-#include "dao/usermanager.h"
-#include <QString>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include "accadder.h"
-#include "curadder.h"
-#include "catadder.h"
-#include "billadder.h"
+#ifndef CURADDER_H
+#define CURADDER_H
+
+#include "dao/currencymanager.h"
+#include "model/currency.h"
+#include "itemadder.h"
 
 /**
- * @brief The DataImporter class
+ * @brief the adder of currency
  */
-class DataImporter {
-private:
-    UserManager * userman;
-    QJsonObject obj;
-    ItemAdder ** adder;
-
+class CurAdder : public ItemAdder
+{
+    CurrencyManager * curman;
 public:
     /**
-     * @brief Initiate with UserManager*
+     * @brief Initiate with QJsonObject& and UserManager*
+     * @param _obj reference to the QJsonObject of DataImporter
      * @param _userman pointer of UserManager in charge of the User who has loggedin.
      */
-    DataImporter(UserManager * _userman);
+    CurAdder(QJsonObject &_obj, UserManager * _userman);
     /**
-     * @brief doImport
-     * @return Import succeeded or not
+     * @brief function to add a currency
+     * @param _item the currency in type of QJsonObject
+     * @return succeeded or not
      */
-    bool doImport();
+    bool add(QJsonObject  _item);
 };
 
-#endif // DATAIMPORTER_H
+#endif // CURADDER_H

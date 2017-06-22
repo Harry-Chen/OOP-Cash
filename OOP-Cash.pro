@@ -3,6 +3,8 @@ QT       += core gui widgets printsupport
 TARGET = OOP-Cash
 TEMPLATE = app
 
+CONFIG += c++11
+
 DEFINES += QT_DEPRECATED_WARNINGS
 
 INCLUDEPATH += include
@@ -41,13 +43,10 @@ SOURCES += main.cpp \
     dao/query.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
-    #process/processor.cpp \
-    #process/processorfactory.cpp \
-    #process/balanceprocessor.cpp \
-    #process/processorbase.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
+    ui/usersetdlg.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
     ui/edititemwidget.cpp \
@@ -62,21 +61,20 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addaccountstrategy.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
-    dataPorter/dataexporter.cpp \
-    dataPorter/dataimporter.cpp \
-    dataPorter/itemadder.cpp \
-    dataPorter/accadder.cpp \
-    dataPorter/billadder.cpp \
-    dataPorter/curadder.cpp \
-    dataPorter/catadder.cpp \  
+    dataporter/dataexporter.cpp \
+    dataporter/dataimporter.cpp \
+    dataporter/itemadder.cpp \
+    dataporter/accadder.cpp \
+    dataporter/billadder.cpp \
+    dataporter/curadder.cpp \
+    dataporter/catadder.cpp \  
     plot/processor/processor.cpp \
     plot/billsplotsystem.cpp \
     plot/processor/billsprocessor.cpp \
-    plot/plotter/billsplotter.cpp \
     plot/processor/balanceprocessor.cpp \
     plot/plotter/lineplotter.cpp \
     plot/balanceplotsystem.cpp \
-    ui/usersetdlg.cpp
+    plot/plotter/barsplotter.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -103,14 +101,11 @@ HEADERS  += \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
+    ui/usersetdlg.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     ui/calendardialog.h \
     ui/dateeditcalendar.h \
-    #process/processor.h \
-    #process/processorfactory.h \
-    #process/balanceprocessor.h \
-    #process/processorbase.h \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
     ui/recordcostearnwidget.h \
@@ -121,13 +116,13 @@ HEADERS  += \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
     ui/applyChangeStrategy/addcurrencystrategy.h \
-    dataPorter/dataexporter.h \
-    dataPorter/dataimporter.h \
-    dataPorter/itemadder.h \
-    dataPorter/accadder.h \
-    dataPorter/billadder.h \
-    dataPorter/curadder.h \
-    dataPorter/catadder.h \
+    dataporter/dataexporter.h \
+    dataporter/dataimporter.h \
+    dataporter/itemadder.h \
+    dataporter/accadder.h \
+    dataporter/billadder.h \
+    dataporter/curadder.h \
+    dataporter/catadder.h \
     plot/plotsystem.h \
     plot/plotter/plotter.h \
     plot/processor/processor.h \
@@ -136,8 +131,7 @@ HEADERS  += \
     plot/processor/balanceprocessor.h \
     plot/plotter/barplotter.h \
     plot/plotter/lineplotter.h \
-    plot/balanceplotsystem.h \
-    ui/usersetdlg.h
+    plot/balanceplotsystem.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \

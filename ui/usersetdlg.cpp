@@ -21,13 +21,14 @@
  * @brief  Implementation file of class UserSetDlg
  */
 
+#include <QMessageBox>
+
 #include "usersetdlg.h"
 #include "ui_usersetdialog.h"
-#include <QMessageBox>
 
 UserSetDlg::UserSetDlg(ID userInfo, UserManager *usermanInfo, QMap<ID, User> &userMapInfo, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::UserSetDlg),
+    ui(new Ui::UserSetDialog),
     u_id(userInfo),
     userman(usermanInfo),
     userMap(userMapInfo)

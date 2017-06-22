@@ -2,11 +2,9 @@
 #define GRAPHDOCK_H
 
 #include <QDockWidget>
-#include "qcustomplot.h"
-//#include "process/processor.h"
-//#include "plot/processor/processor.h"
+#include <qcustomplot.h>
+
 #include "plot/plotter/plotter.h"
-//#include "process/balanceprocessor.h"
 
 namespace Ui {
 class GraphDock;
@@ -23,9 +21,6 @@ public:
 private:
     Ui::GraphDock *ui;
     Plotter * pPlotter;
-
-    void setupDemo1(QCustomPlot *customPlot);
-    void setupDemo2(QCustomPlot *customPlot);
     void setupMyDemo(QCustomPlot *customPlot){pPlotter -> plot(customPlot);}
 };
 

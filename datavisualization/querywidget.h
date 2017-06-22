@@ -3,16 +3,14 @@
 
 #include <QWidget>
 #include <QString>
+
 #include "dao/query.h"
-//#include "process/processor.h"
-//#include "process/processorfactory.h"
-//#include "plot/processor/processor.h"
-#include "plot/billsplotsystem.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
 #include "dao/accountmanager.h"
 #include "dao/categorymanager.h"
 #include "dao/billmanager.h"
+#include "plot/billsplotsystem.h"
 #include "util/database_helper.h"
 #include "datavisualization/graphdock.h"
 #include "ui/calendardialog.h"
@@ -50,7 +48,6 @@ private:
     int field;
     QMap <ID, QString> nameMap;
 
-    void setupPlot();
     void init();
 };
 

@@ -15,37 +15,38 @@
  */
 
 /**
- * @file   curadder.h
+ * @file   catadder.h
  * @author Ice Coffee <ice438971718@gmail.com>
  * @date   2017.05
- * @brief  Header file of class CurAdder
+ * @brief  Header file of class CatAdder
  */
 
-#ifndef CURADDER_H
-#define CURADDER_H
+#ifndef CATADDER_H
+#define CATADDER_H
+
+#include "dao/categorymanager.h"
+#include "model/category.h"
 #include "itemadder.h"
-#include "dao/currencymanager.h"
-#include "model/currency.h"
 
 /**
- * @brief the adder of currency
+ * @brief the adder of category
  */
-class CurAdder : public ItemAdder
+class CatAdder : public ItemAdder
 {
-    CurrencyManager * curman;
+    CategoryManager * catman;
 public:
     /**
      * @brief Initiate with QJsonObject& and UserManager*
      * @param _obj reference to the QJsonObject of DataImporter
      * @param _userman pointer of UserManager in charge of the User who has loggedin.
      */
-    CurAdder(QJsonObject &_obj, UserManager * _userman);
+    CatAdder(QJsonObject & _obj, UserManager* _userman);
     /**
-     * @brief function to add a currency
-     * @param _item the currency in type of QJsonObject
+     * @brief function to add a category
+     * @param _item the category in type of QJsonObject
      * @return succeeded or not
      */
-    bool add(QJsonObject  _item);
+    bool add(QJsonObject _item);
 };
 
-#endif // CURADDER_H
+#endif // CATADDER_H

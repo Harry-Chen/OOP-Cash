@@ -24,6 +24,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QFile>
+
 #include "util/database_helper.h"
 #include "util/configuration.h"
 
@@ -83,7 +84,7 @@ void DatabaseHelper::initializeDatabaseConnection(const QString &path)
     config->path_to_database = path.toStdString();
     config->flags = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
 #ifdef _DEBUG
-    config->debug = true;
+	config->debug = true;
 #endif
     db = new sql::connection(*config);
 }

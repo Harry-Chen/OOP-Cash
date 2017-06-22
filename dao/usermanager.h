@@ -26,6 +26,7 @@
 
 #include <QString>
 #include <QVector>
+
 #include "dao/itemmanager.h"
 #include "model/user.h"
 

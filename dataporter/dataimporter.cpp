@@ -21,11 +21,12 @@
  * @brief  Implementation file of class DataImporter
  */
 
-#include "dataimporter.h"
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+
+#include "dataimporter.h"
 
 DataImporter::DataImporter(UserManager *_userman): userman(_userman) {
     adder = new ItemAdder * [4];

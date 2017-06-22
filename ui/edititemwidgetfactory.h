@@ -1,7 +1,6 @@
 ﻿#ifndef EDITITEMWIDGETFACTORY_H
 #define EDITITEMWIDGETFACTORY_H
 
-#include "edititemwidget.h"
 #include "dao/usermanager.h"
 #include "applyChangeStrategy/applychangestrategy.h"
 #include "applyChangeStrategy/editaccountstrategy.h"
@@ -10,6 +9,8 @@
 #include "applyChangeStrategy/addaccountstrategy.h"
 #include "applyChangeStrategy/addcategorystrategy.h"
 #include "applyChangeStrategy/addcurrencystrategy.h"
+
+#include "edititemwidget.h"
 
 class editItemWidgetFactory
 {

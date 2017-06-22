@@ -15,37 +15,45 @@
  */
 
 /**
- * @file   catadder.h
+ * @file   billadder.h
  * @author Ice Coffee <ice438971718@gmail.com>
  * @date   2017.05
- * @brief  Header file of class CatAdder
+ * @brief  Header file of class BillAdder
  */
 
-#ifndef CATADDER_H
-#define CATADDER_H
-#include "itemadder.h"
+#ifndef BILLADDER_H
+#define BILLADDER_H
+
+#include "dao/accountmanager.h"
 #include "dao/categorymanager.h"
-#include "model/category.h"
+#include "dao/currencymanager.h"
+#include "dao/billmanager.h"
+#include "model/bill.h"
+#include "itemadder.h"
 
 /**
- * @brief the adder of category
+ * @brief the adder of bills
  */
-class CatAdder : public ItemAdder
+class BillAdder : public ItemAdder
 {
+    AccountManager * accman;
     CategoryManager * catman;
+    CurrencyManager * curman;
+    BillManager * billman;
+
 public:
     /**
      * @brief Initiate with QJsonObject& and UserManager*
      * @param _obj reference to the QJsonObject of DataImporter
      * @param _userman pointer of UserManager in charge of the User who has loggedin.
      */
-    CatAdder(QJsonObject & _obj, UserManager* _userman);
+    BillAdder(QJsonObject &_obj, UserManager* _userman);
     /**
-     * @brief function to add a category
-     * @param _item the category in type of QJsonObject
+     * @brief function to add a bill
+     * @param _item the bill in type of QJsonObject
      * @return succeeded or not
      */
     bool add(QJsonObject _item);
 };
 
-#endif // CATADDER_H
+#endif // BILLADDER_H

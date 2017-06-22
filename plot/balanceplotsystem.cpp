@@ -10,7 +10,7 @@ Processor * BalancePlotSystem::createProcessor(const QVector<Bill> &_bills, cons
     return new BalanceProcessor(_bills, _nameMap);
 }
 
-Plotter * BalancePlotSystem::createPlotter(const QVector<QString> &_fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > &_values)
+Plotter * BalancePlotSystem::createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > _values)
 {
     return new LinePlotter(_fieldnames, _dates, _values);
 }

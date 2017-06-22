@@ -25,6 +25,7 @@
 #define OOPCASH_MAINWINDOW_H
 
 #include <QMainWindow>
+
 #include "util/database_helper.h"
 #include "dao/usermanager.h"
 #include "model/user.h"
@@ -33,8 +34,8 @@
 #include "ui/recordcostearnwidget.h"
 #include "ui/logindlg.h"
 #include "ui/usersetdlg.h"
-#include "dataPorter/dataexporter.h"
-#include "dataPorter/dataimporter.h"
+#include "dataporter/dataexporter.h"
+#include "dataporter/dataimporter.h"
 
 enum tabIndex{home=0, add, detail, query, port};
 

@@ -22,10 +22,11 @@
  */
 
 #include <QMessageBox>
-#include "logindlg.h"
-#include "ui_logindlg.h"
+
 #include "model/user.h"
 #include "dao/usermanager.h"
+#include "logindlg.h"
+#include "ui_logindlg.h"
 
 LoginDlg::LoginDlg(UserManager *usermanInfo, QWidget *parent) :
     userman(usermanInfo),
