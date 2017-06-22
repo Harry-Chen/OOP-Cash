@@ -59,13 +59,13 @@ SOURCES += main.cpp \
     ui/applyChangeStrategy/addaccountstrategy.cpp \
     ui/applyChangeStrategy/addcategorystrategy.cpp \
     ui/applyChangeStrategy/addcurrencystrategy.cpp \
-    dataPorter/dataexporter.cpp \
-    dataPorter/dataimporter.cpp \
-    dataPorter/itemadder.cpp \
-    dataPorter/accadder.cpp \
-    dataPorter/billadder.cpp \
-    dataPorter/curadder.cpp \
-    dataPorter/catadder.cpp \  
+    dataporter/dataexporter.cpp \
+    dataporter/dataimporter.cpp \
+    dataporter/itemadder.cpp \
+    dataporter/accadder.cpp \
+    dataporter/billadder.cpp \
+    dataporter/curadder.cpp \
+    dataporter/catadder.cpp \  
     plot/processor/processor.cpp \
     plot/billsplotsystem.cpp \
     plot/processor/billsprocessor.cpp \
@@ -114,13 +114,13 @@ HEADERS  += \
     ui/applyChangeStrategy/addaccountstrategy.h \
     ui/applyChangeStrategy/addcategorystrategy.h \
     ui/applyChangeStrategy/addcurrencystrategy.h \
-    dataPorter/dataexporter.h \
-    dataPorter/dataimporter.h \
-    dataPorter/itemadder.h \
-    dataPorter/accadder.h \
-    dataPorter/billadder.h \
-    dataPorter/curadder.h \
-    dataPorter/catadder.h \
+    dataporter/dataexporter.h \
+    dataporter/dataimporter.h \
+    dataporter/itemadder.h \
+    dataporter/accadder.h \
+    dataporter/billadder.h \
+    dataporter/curadder.h \
+    dataporter/catadder.h \
     plot/plotsystem.h \
     plot/plotter/plotter.h \
     plot/processor/processor.h \
