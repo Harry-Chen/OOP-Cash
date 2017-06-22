@@ -3,8 +3,9 @@
 
 #include <QWidget>
 #include <QVector>
-
+#include <QDebug>
 #include "dao/usermanager.h"
+#include "dao/billmanager.h"
 #include "model/bill.h"
 #include "plot/balanceplotsystem.h"
 
@@ -18,7 +19,7 @@ class DetailWidget : public QWidget
 public slots:
 	void consult();
     void plot();
-
+	void removeListWidgetItem(ID billId);
 public:
     explicit DetailWidget(QWidget *parent, UserManager *_userman);
     ~DetailWidget();

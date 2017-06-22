@@ -38,6 +38,8 @@ void DetailWidget::fillData(const QVector<Bill> &bills)
         item->setSizeHint(QSize(338,73));
         auto detail = new BillDetailWidget();
 		detail->fillData(bill, allAccounts, allCategories);
+		connect(detail, SIGNAL(delBillSignal(ID)),\
+				this, SLOT(removeListWidgetItem(ID)));
         ui->listBills->setItemWidget(item, detail);
     }
 	ui->listBills->setVisible(true);
@@ -70,4 +72,12 @@ void DetailWidget::plot()
         GraphDock * GraphDockPtr = new GraphDock(pPlotter);
         GraphDockPtr->show();
 	}
+}
+
+void DetailWidget::removeListWidgetItem(ID billId)
+{
+	BillManager* billMan = new BillManager(userman);
+	billMan->removeItemById(billId);
+	delete billMan;
+	consult();
 }
