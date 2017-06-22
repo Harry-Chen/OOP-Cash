@@ -1,4 +1,27 @@
-﻿#ifndef OOPCASH_MAINWINDOW_H
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   oopcash_mainwindow.h
+ * @author Ice Coffee <ice438971718@gmail.com>
+ * @date   2017.05
+ * @brief  Header file of class OOPCash_MainWindow
+ */
+
+#ifndef OOPCASH_MAINWINDOW_H
 #define OOPCASH_MAINWINDOW_H
 
 #include <QMainWindow>
@@ -9,7 +32,7 @@
 #include "ui/detailwidget.h"
 #include "ui/recordcostearnwidget.h"
 #include "ui/logindlg.h"
-#include "ui/usersetdialog.h"
+#include "ui/usersetdlg.h"
 #include "dataPorter/dataexporter.h"
 #include "dataPorter/dataimporter.h"
 
@@ -19,6 +42,9 @@ namespace Ui {
 class OOPCash_MainWindow;
 }
 
+/**
+ * @brief The OOPCash_MainWindow class
+ */
 class OOPCash_MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -28,6 +54,9 @@ public:
     ~OOPCash_MainWindow();
 
 signals:
+    /**
+     * @brief dataFreshSignal emit when data imported
+     */
     void dataFreshSignal();
 
 public slots:
@@ -47,7 +76,6 @@ private slots:
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
-
     QMap<ID,User> userMap;
 
     bool Isloggedin;
@@ -56,12 +84,10 @@ private:
     DetailWidget * pDetailWidget;
     QueryWidget * pQueryWidget;
     RecordCostEarnWidget * pRecordCostWidget;
-    //Methods
     void initWidgets();
     void showloginDlg();
     void showUserSetDlg();
     void logout();
-
 };
 
 #endif // OOPCASH_MAINWINDOW_H

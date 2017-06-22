@@ -1,8 +1,31 @@
-﻿#include "billadder.h"
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   billadder.cpp
+ * @author Ice Coffee <ice438971718@gmail.com>
+ * @date   2017.05
+ * @brief  Implementation file of class BillAdder
+ */
+
+#include "billadder.h"
 #include <QDate>
 #include <QDateTime>
 
-billAdder::billAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj, _userman) {
+BillAdder::BillAdder(QJsonObject & _obj, UserManager *_userman) : ItemAdder(_obj, _userman) {
     key = "bills";
     accman = new AccountManager(userman);
     catman = new CategoryManager(userman);
@@ -10,7 +33,7 @@ billAdder::billAdder(QJsonObject & _obj, UserManager *_userman) : itemAdder(_obj
     billman = new BillManager(userman);
 }
 
-bool billAdder::add(QJsonObject _item) {
+bool BillAdder::add(QJsonObject _item) {
     if(!(   _item.contains("accFrom")
             && _item.contains("accTo")
             && _item.contains("catName")

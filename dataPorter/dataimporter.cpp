@@ -1,18 +1,41 @@
-﻿#include "dataimporter.h"
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   dataimporter.cpp
+ * @author Ice Coffee <ice438971718@gmail.com>
+ * @date   2017.05
+ * @brief  Implementation file of class DataImporter
+ */
+
+#include "dataimporter.h"
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
 
-dataImporter::dataImporter(UserManager *_userman): userman(_userman) {
-    adder = new itemAdder * [4];
-    adder[0] = new curAdder(obj, userman);
-    adder[1] = new catAdder(obj, userman);
-    adder[2] = new accAdder(obj, userman);
-    adder[3] = new billAdder(obj, userman);
+DataImporter::DataImporter(UserManager *_userman): userman(_userman) {
+    adder = new ItemAdder * [4];
+    adder[0] = new CurAdder(obj, userman);
+    adder[1] = new CatAdder(obj, userman);
+    adder[2] = new AccAdder(obj, userman);
+    adder[3] = new BillAdder(obj, userman);
 }
 
-bool dataImporter::doImport() {
+bool DataImporter::doImport() {
     QString path;
     path = QFileDialog::getOpenFileName(nullptr, QObject::tr("选择导入文件"), "", QObject::tr("JS 对象标记 (*.json)"));
     if(path.isEmpty()) //User cancel

@@ -48,7 +48,6 @@ SOURCES += main.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
-    ui/usersetdialog.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
     ui/edititemwidget.cpp \
@@ -76,7 +75,8 @@ SOURCES += main.cpp \
     plot/plotter/billsplotter.cpp \
     plot/processor/balanceprocessor.cpp \
     plot/plotter/lineplotter.cpp \
-    plot/balanceplotsystem.cpp
+    plot/balanceplotsystem.cpp \
+    ui/usersetdlg.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -103,7 +103,6 @@ HEADERS  += \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
-    ui/usersetdialog.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     ui/calendardialog.h \
@@ -137,7 +136,8 @@ HEADERS  += \
     plot/processor/balanceprocessor.h \
     plot/plotter/barplotter.h \
     plot/plotter/lineplotter.h \
-    plot/balanceplotsystem.h
+    plot/balanceplotsystem.h \
+    ui/usersetdlg.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \

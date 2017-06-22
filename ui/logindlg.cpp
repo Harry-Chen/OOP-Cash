@@ -1,13 +1,36 @@
-﻿#include <QMessageBox>
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   logindlg.cpp
+ * @author Ice Coffee <ice438971718@gmail.com>
+ * @date   2017.05
+ * @brief  Implementation file of class LoginDlg
+ */
+
+#include <QMessageBox>
 #include "logindlg.h"
 #include "ui_logindlg.h"
 #include "model/user.h"
 #include "dao/usermanager.h"
 
-loginDlg::loginDlg(UserManager *usermanInfo, QWidget *parent) :
+LoginDlg::LoginDlg(UserManager *usermanInfo, QWidget *parent) :
     userman(usermanInfo),
     QDialog(parent),
-    ui(new Ui::loginDlg)
+    ui(new Ui::LoginDlg)
 {
     ui->setupUi(this);
 
@@ -21,18 +44,18 @@ loginDlg::loginDlg(UserManager *usermanInfo, QWidget *parent) :
     switchButtonPressed = false;
 }
 
-loginDlg::~loginDlg()
+LoginDlg::~LoginDlg()
 {
     delete ui;
 }
 
-bool loginDlg::login() {
+bool LoginDlg::login() {
     auto newuser = new User(-1, ui->usernameEdit->text(), QString(), ui->passwordEdit->text());
     u_id = userman->login(*newuser);
     return ( (u_id == -1) ? false : true );
 }
 
-bool loginDlg::signin() {
+bool LoginDlg::signup() {
     if(ui->passwordEdit->text() != ui->pwAgainEdit->text()) {
         QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("密码不一致"));
         return false;
@@ -42,11 +65,11 @@ bool loginDlg::signin() {
     return ( (u_id == -1) ? false : true );
 }
 
-void loginDlg::on_loginButton_clicked()
+void LoginDlg::on_loginButton_clicked()
 {
     //sign in...
     if(switchButtonPressed) {
-        if(signin()) {
+        if(signup()) {
             QMessageBox::information(this, QObject::tr("注册成功"), \
                                      QObject::tr("请牢记您的用户名和密码.\n") \
                                      + ui->usernameEdit->text() + QObject::tr("，欢迎使用 Expensé！"));
@@ -69,7 +92,7 @@ void loginDlg::on_loginButton_clicked()
 }
 
 
-void loginDlg::on_switchButton_clicked()
+void LoginDlg::on_switchButton_clicked()
 {
     switchButtonPressed = !switchButtonPressed;
     ui->usernameEdit->clear();

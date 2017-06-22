@@ -15,69 +15,59 @@
  */
 
 /**
- * @file   logindlg.h
+ * @file   usersetdlg.h
  * @author Ice Coffee <ice438971718@gmail.com>
  * @date   2017.05
- * @brief  Header file of class LoginDlg
+ * @brief  Header file of class UserSetDlg
  */
 
-#ifndef LOGINDLG_H
-#define LOGINDLG_H
+#ifndef USERSETDIALOG_H
+#define USERSETDIALOG_H
 
 #include <QDialog>
 #include "dao/usermanager.h"
+#include "model/user.h"
 
 namespace Ui {
-class LoginDlg;
+class UserSetDlg;
 }
 
 /**
- * @brief the dialog to log in.
+ * @brief the dialog of user settings
  */
-class LoginDlg : public QDialog
+class UserSetDlg : public QDialog
 {
     Q_OBJECT
 
 public:
     /**
-     * @brief Initiate with UserManager*
-     * @param usermanInfo the pointer to the UserManager that called LoginDlg
+     * @brief Initiate with ID, UserManager*, QMap<ID,User>&
+     * @param userInfo user's ID
+     * @param usermanInfo pointer to UserManager who called this dialog
+     * @param userMapInfo reference to the userMap which contain the information of users
      */
-    explicit LoginDlg(UserManager *usermanInfo, QWidget *parent = 0);
-    ~LoginDlg();
+    explicit UserSetDlg(ID userInfo, UserManager * usermanInfo, QMap<ID,User> &userMapInfo, QWidget *parent = 0);
+    ~UserSetDlg();
 
 signals:
-    /**
-     * @brief loginSuccessSignal emit when succeed to log in
-     */
-    void loginSuccessSignal(ID);
     /**
      * @brief userMapUpdate emit when the UserMap need to update
      */
     void userMapUpdate();
 
 private slots:
-    void on_loginButton_clicked();
-    void on_switchButton_clicked();
+    void on_freshButton_clicked();
 
 private:
-    Ui::LoginDlg *ui;
+    Ui::UserSetDlg *ui;
     ID u_id;
     UserManager * userman;
+    QMap<ID,User> & userMap;
     /**
-     * @brief switchButtonPressed whether the SignUp/LogIn switchButtun is pressed
-     */
-    bool switchButtonPressed;
-    /**
-     * @brief login
+     * @brief freshUserInfo modify the user's information
      * @return succeeded or not
      */
-    bool login();
-    /**
-     * @brief signup
-     * @return succeeded or not
-     */
-    bool signup();
+    bool freshUserInfo();
 };
 
-#endif // LOGINDLG_H
+#endif // USERSETDIALOG_H
