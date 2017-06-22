@@ -27,6 +27,8 @@
 #include <QWidget>
 #include "model/bill.h"
 #include "dao/usermanager.h"
+#include "dao/categorymanager.h"
+#include "dao/accountmanager.h"
 
 namespace Ui {
 class BillDetailWidget;
@@ -46,7 +48,7 @@ public:
      * @param bill the Bill to display
      * @param userman pointer to UserManager
      */
-    void fillData(const Bill& bill, UserManager *userman);
+	void fillData(const Bill& bill, const QMap<ID, Account>& allAccounts, const QMap<ID, Category>& allCategories);
     ~BillDetailWidget();
 
 private:

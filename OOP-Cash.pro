@@ -150,7 +150,7 @@ FORMS    += \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
     ui/calendardialog.ui \
-    ui/dateeditcalendar.ui
+    ui/dateeditcalendar.ui \
 
 RESOURCES += \
     uirsc.qrc
