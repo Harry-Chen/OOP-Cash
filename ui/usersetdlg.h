@@ -29,7 +29,7 @@
 #include "model/user.h"
 
 namespace Ui {
-class UserSetDlg;
+class UserSetDialog;
 }
 
 /**
@@ -59,7 +59,7 @@ private slots:
     void on_freshButton_clicked();
 
 private:
-    Ui::UserSetDlg *ui;
+    Ui::UserSetDialog *ui;
     ID u_id;
     UserManager * userman;
     QMap<ID,User> & userMap;

@@ -27,7 +27,7 @@
 
 UserSetDlg::UserSetDlg(ID userInfo, UserManager *usermanInfo, QMap<ID, User> &userMapInfo, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::UserSetDlg),
+    ui(new Ui::UserSetDialog),
     u_id(userInfo),
     userman(usermanInfo),
     userMap(userMapInfo)

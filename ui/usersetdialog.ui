@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>userSetDialog</class>
- <widget class="QDialog" name="userSetDialog">
+ <class>UserSetDialog</class>
+ <widget class="QDialog" name="UserSetDialog">
   <property name="geometry">
    <rect>
     <x>0</x>

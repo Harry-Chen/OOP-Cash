@@ -41,14 +41,10 @@ SOURCES += main.cpp \
     dao/query.cpp \
     datavisualization/graphdock.cpp \
     datavisualization/querywidget.cpp \
-    #process/processor.cpp \
-    #process/processorfactory.cpp \
-    #process/balanceprocessor.cpp \
-    #process/processorbase.cpp \
     ui/oopcash_mainwindow.cpp \
     ui/changebillwidget.cpp \
     ui/logindlg.cpp \
-	ui/usersetdlg.cpp \
+    ui/usersetdlg.cpp \
     ui/billdetailwidget.cpp \
     ui/detailwidget.cpp \
     ui/edititemwidget.cpp \
@@ -103,14 +99,11 @@ HEADERS  += \
     ui/oopcash_mainwindow.h \
     ui/changebillwidget.h \
     ui/logindlg.h \
+    ui/usersetdlg.h \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     ui/calendardialog.h \
     ui/dateeditcalendar.h \
-    #process/processor.h \
-    #process/processorfactory.h \
-    #process/balanceprocessor.h \
-    #process/processorbase.h \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
     ui/recordcostearnwidget.h \
@@ -136,8 +129,7 @@ HEADERS  += \
     plot/processor/balanceprocessor.h \
     plot/plotter/barplotter.h \
     plot/plotter/lineplotter.h \
-    plot/balanceplotsystem.h \
-    ui/usersetdlg.h
+    plot/balanceplotsystem.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \
@@ -150,7 +142,7 @@ FORMS    += \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
     ui/calendardialog.ui \
-    ui/dateeditcalendar.ui \
+    ui/dateeditcalendar.ui
 
 RESOURCES += \
     uirsc.qrc
