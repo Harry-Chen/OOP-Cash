@@ -28,6 +28,7 @@
 #include <QDate>
 #include <QDateTime>
 #include <date.h>
+
 #include "util/constants.h"
 #include "database/tables.h"
 

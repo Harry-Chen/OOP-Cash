@@ -1,7 +1,7 @@
 ﻿#ifndef BALANCEPROCESSOR_H
 #define BALANCEPROCESSOR_H
 
-#include "plot/processor/processor.h"
+#include "processor.h"
 
 class BalanceProcessor : public Processor
 {

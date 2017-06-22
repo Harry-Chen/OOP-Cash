@@ -3,13 +3,14 @@
 
 #include <QWidget>
 #include <QString>
+
 #include "dao/query.h"
-#include "plot/billsplotsystem.h"
 #include "dao/usermanager.h"
 #include "dao/currencymanager.h"
 #include "dao/accountmanager.h"
 #include "dao/categorymanager.h"
 #include "dao/billmanager.h"
+#include "plot/billsplotsystem.h"
 #include "util/database_helper.h"
 #include "datavisualization/graphdock.h"
 #include "ui/calendardialog.h"

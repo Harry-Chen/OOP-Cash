@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QCalendarWidget>
 #include <QRadioButton>
+
 #include "dao/usermanager.h"
 #include "dao/categorymanager.h"
 #include "dao/accountmanager.h"

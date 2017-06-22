@@ -25,6 +25,7 @@
 #define CATEGORY_H
 
 #include <QString>
+
 #include "util/constants.h"
 #include "database/tables.h"
 

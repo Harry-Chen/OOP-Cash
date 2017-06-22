@@ -23,9 +23,10 @@
 
 #ifndef CURADDER_H
 #define CURADDER_H
-#include "itemadder.h"
+
 #include "dao/currencymanager.h"
 #include "model/currency.h"
+#include "itemadder.h"
 
 /**
  * @brief the adder of currency

@@ -23,6 +23,11 @@
 
 #ifndef DATAEXPORTER_H
 #define DATAEXPORTER_H
+
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
+
 #include "dao/usermanager.h"
 #include "dao/accountmanager.h"
 #include "dao/billmanager.h"
@@ -34,9 +39,6 @@
 #include "model/bill.h"
 #include "model/category.h"
 #include "model/currency.h"
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QJsonDocument>
 
 /**
  * @brief The DataExporter class

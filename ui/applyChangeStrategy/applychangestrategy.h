@@ -1,7 +1,7 @@
 ﻿#ifndef APPLYCHANGESTRATEGY_H
 #define APPLYCHANGESTRATEGY_H
 
-#include "../edititemwidget.h"
+#include "ui/edititemwidget.h"
 #include "dao/usermanager.h"
 
 class applyChangeStrategy

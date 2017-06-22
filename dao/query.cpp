@@ -21,8 +21,8 @@
  * @brief  Implementation file of class Query
  */
 
-#include "query.h"
 #include <logging/logger.h>
+#include "query.h"
 
 Query::Query(sqlpp::sqlite3::connection *_db) : db(_db){}
 

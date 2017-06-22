@@ -25,6 +25,7 @@
 #define USERSETDIALOG_H
 
 #include <QDialog>
+
 #include "dao/usermanager.h"
 #include "model/user.h"
 

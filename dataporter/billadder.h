@@ -23,12 +23,13 @@
 
 #ifndef BILLADDER_H
 #define BILLADDER_H
-#include "itemadder.h"
+
 #include "dao/accountmanager.h"
 #include "dao/categorymanager.h"
 #include "dao/currencymanager.h"
 #include "dao/billmanager.h"
 #include "model/bill.h"
+#include "itemadder.h"
 
 /**
  * @brief the adder of bills

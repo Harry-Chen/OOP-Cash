@@ -21,12 +21,13 @@
  * @brief  Implementation file of class DataExporter
  */
 
-#include "dataexporter.h"
-#include "util/database_helper.h"
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+
+#include "dataexporter.h"
+#include "util/database_helper.h"
 
 QJsonArray DataExporter::getCurrencyArray(){
     QJsonArray arrayOfCurrency;

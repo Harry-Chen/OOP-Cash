@@ -21,10 +21,11 @@
  * @brief  Implementation file of class ItemAdder
  */
 
-#include "itemadder.h"
 #include <QMessageBox>
 #include <QJsonArray>
 #include <QString>
+
+#include "itemadder.h"
 
 ItemAdder::ItemAdder(QJsonObject & _obj, UserManager *_userman): obj(_obj), userman(_userman) {}
 

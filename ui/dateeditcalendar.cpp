@@ -1,6 +1,8 @@
-﻿#include "dateeditcalendar.h"
+﻿#include "ui/calendardialog.h"
+
+#include "dateeditcalendar.h"
 #include "ui_dateeditcalendar.h"
-#include "ui/calendardialog.h"
+
 
 DateEditCalendar::DateEditCalendar(QWidget *parent):
     QDateEdit(parent),

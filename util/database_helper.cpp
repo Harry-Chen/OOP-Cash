@@ -24,6 +24,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QFile>
+
 #include "util/database_helper.h"
 #include "util/configuration.h"
 

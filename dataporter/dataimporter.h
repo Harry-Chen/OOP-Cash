@@ -23,11 +23,13 @@
 
 #ifndef DATAIMPORTER_H
 #define DATAIMPORTER_H
-#include "dao/usermanager.h"
+
 #include <QString>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
+
+#include "dao/usermanager.h"
 #include "accadder.h"
 #include "curadder.h"
 #include "catadder.h"

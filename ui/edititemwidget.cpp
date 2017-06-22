@@ -1,6 +1,8 @@
-﻿#include "edititemwidget.h"
+﻿#include "applyChangeStrategy/applychangestrategy.h"
+
+#include "edititemwidget.h"
 #include "ui_edititemwidget.h"
-#include "applyChangeStrategy/applychangestrategy.h"
+
 
 editItemWidget::editItemWidget(UserManager* userman, QWidget *parent) :
 	_userman(userman),

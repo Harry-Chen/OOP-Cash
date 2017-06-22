@@ -26,6 +26,7 @@
 
 #include <QString>
 #include <QCryptographicHash>
+
 #include "database/tables.h"
 #include "dao/usermanager.h"
 

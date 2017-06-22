@@ -1,7 +1,7 @@
 ﻿#ifndef LINEPLOTTER_H
 #define LINEPLOTTER_H
 
-#include "plot/plotter/plotter.h"
+#include "plotter.h"
 
 class LinePlotter : public Plotter
 {

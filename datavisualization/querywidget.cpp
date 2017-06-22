@@ -1,8 +1,9 @@
-﻿#include "querywidget.h"
+﻿#include <QStringList>
+
+#include "querywidget.h"
 #include "ui_querywidget.h"
 #include "util/database_helper.h"
 #include "ui/dateeditcalendar.h"
-#include <QStringList>
 #include "ui/calendardialog.h"
 
 QueryWidget::QueryWidget(QWidget *parent) :

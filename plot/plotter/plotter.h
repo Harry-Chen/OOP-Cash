@@ -2,7 +2,7 @@
 #ifndef PLOTTER_H
 #define PLOTTER_H
 
-#include "qcustomplot.h"
+#include <qcustomplot.h>
 
 class Plotter : public QWidget
 {
