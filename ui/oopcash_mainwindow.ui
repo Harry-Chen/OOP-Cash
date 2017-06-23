@@ -14,7 +14,7 @@
    <string>Expensé</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../uirsc.qrc">
     <normaloff>:/icons/logo</normaloff>:/icons/logo</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -44,7 +44,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/icons/userface</pixmap>
+           <pixmap resource="../uirsc.qrc">:/icons/userface</pixmap>
           </property>
          </widget>
         </item>
@@ -309,6 +309,8 @@
   <tabstop>queryButton</tabstop>
   <tabstop>userconfigButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../uirsc.qrc"/>
+ </resources>
  <connections/>
 </ui>
