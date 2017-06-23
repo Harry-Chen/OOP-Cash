@@ -50,7 +50,7 @@ void BillDetailWidget::fillData(const Bill &bill, const QMap<ID, Account>& allAc
     quantity.prepend(QObject::tr("￥")).prepend(QObject::tr("金额\n"));
     category = allCategories[bill.category].name;
     ui->labelQuantity->setText(quantity);
-    ui->labelNote->setText(QObject::tr("关键字\n") + bill.note);
+    ui->labelNote->setText(QObject::tr("备注\n") + bill.note);
     ui->labelDate->setText(bill.date.toString(QObject::tr("yyyy-MM-dd")).prepend(QObject::tr("日期\n")));
     ui->labelAccount->setText(account.prepend(QObject::tr("帐户\n")));
     ui->labelCategory->setText(category.prepend(QObject::tr("类别\n")));
@@ -64,7 +64,7 @@ BillDetailWidget::~BillDetailWidget()
 void BillDetailWidget::on_removeButton_clicked()
 {
 	// ask the user whether is sure to remove this bill
-	if(QMessageBox::Yes == QMessageBox::question(this, QObject::tr("注意"),\
+    if(QMessageBox::Yes == QMessageBox::question(this, QObject::tr("注意!"),\
 							  QObject::tr("此操作将移除这条账单记录\n是否继续？"),\
 							  QMessageBox::Yes|QMessageBox::No,\
 							  QMessageBox::Yes))

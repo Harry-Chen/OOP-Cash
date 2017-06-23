@@ -16,7 +16,7 @@
 
 /**
  * @file   detailwidget.cpp
- * @author ...
+ * @author Harry Chen <harry-chen@outlook.com>
  * @author Zeping Niu <nnznk12@gmail.com>
  * @date   2017.05
  * @brief  Implementation file of class DetailWidget
@@ -126,7 +126,7 @@ void DetailWidget::removeBill(ID billId)
 void DetailWidget::editBill(Bill* pBill)
 {
 	QDialog *d = new QDialog(this);
-	d->setObjectName(QObject::tr("编辑账单"));
+    d->setWindowTitle(QObject::tr("编辑账单"));
 	auto pEditBillWidget = new RecordCostEarnWidget(d, pBill);
 	pEditBillWidget->init(userman);
 	d->exec();

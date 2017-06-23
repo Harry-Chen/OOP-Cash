@@ -15,11 +15,11 @@
  */
 
 /**
-  * @file addaccountstrategy.h
-  * @author ...
+  * @file detailwidget.h
+  * @author Harry Chen <harry-chen@outlook.com>
   * @author Zeping Niu <nnznk12@gmail.com>
   * @date 2017.5
-  * @brief Header file for class AddAccountStrategy
+  * @brief Header file for class DetailWidget
   */
 
 #ifndef DETAILWIDGET_H
@@ -40,7 +40,7 @@ class DetailWidget;
 }
 
 /**
- * @brief The DetailWidget class
+ * @brief A Widget to show the detail of a list of bills
  */
 class DetailWidget : public QWidget
 {
@@ -52,7 +52,7 @@ public slots:
 	void consult();
     void plot();
 	/**
-	 * @brief removeBill
+     * @brief remove Bill of certain ID
 	 * @param billId the id of bill to be removed
 	 */
 	void removeBill(ID billId);
@@ -61,7 +61,7 @@ public:
 	explicit DetailWidget(QWidget *parent, UserManager *_userman);
     ~DetailWidget();
 	/**
-	 * @brief fillData
+     * @brief fill the widget with the data in given QVector<Bill>
 	 * @param bills the sorted bill to be filled into bill list widget
 	 */
     void fillData(const QVector<Bill>& bills);

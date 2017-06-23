@@ -57,12 +57,19 @@ bool LoginDlg::login() {
 }
 
 bool LoginDlg::signup() {
+    if(ui->passwordEdit->text().isEmpty() || ui->usernameEdit->text().isEmpty()){
+        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("用户名或密码不能为空"));
+        return false;
+    }
     if(ui->passwordEdit->text() != ui->pwAgainEdit->text()) {
         QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("密码不一致"));
         return false;
     }
     User newuser(-1, ui->usernameEdit->text(), ui->nicknameEdit->text(), ui->passwordEdit->text());
     u_id = userman->addItem(newuser);
+    if(u_id == -1){
+        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("用户名已被使用"));
+    }
     return ( (u_id == -1) ? false : true );
 }
 
@@ -75,9 +82,6 @@ void LoginDlg::on_loginButton_clicked()
                                      QObject::tr("请牢记您的用户名和密码.\n") \
                                      + ui->usernameEdit->text() + QObject::tr("，欢迎使用 Expensé！"));
             ui->switchButton->click();
-        }
-        else {
-            QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("用户名已被使用"));
         }
         return;
     }

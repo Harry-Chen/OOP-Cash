@@ -96,6 +96,7 @@ void RecordCostEarnWidget::addAndEditBill()
 	} else { // 修改账单
 		if(billman->modifyItem(*newbill)) {
 			QMessageBox::information(this, QObject::tr("提醒"), QObject::tr("账单修改成功"));
+            dynamic_cast<QDialog*>(this->parent())->close();
 		} else {
 			QMessageBox::information(this, QObject::tr("抱歉"), QObject::tr("帐单修改失败"));
 		}

@@ -52,7 +52,6 @@ SOURCES += main.cpp \
     ui/edititemwidget.cpp \
     ui/edititemwidgetfactory.cpp \
     ui/calendardialog.cpp \
-    ui/dateeditcalendar.cpp \
     ui/recordcostearnwidget.cpp \
     ui/applyChangeStrategy/applychangestrategy.cpp \
     ui/applyChangeStrategy/editaccountstrategy.cpp \
@@ -105,7 +104,6 @@ HEADERS  += \
     ui/billdetailwidget.h \
     ui/detailwidget.h \
     ui/calendardialog.h \
-    ui/dateeditcalendar.h \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
     ui/recordcostearnwidget.h \
@@ -143,8 +141,7 @@ FORMS    += \
     ui/detailwidget.ui \
     ui/logindlg.ui \
     ui/edititemwidget.ui \
-    ui/calendardialog.ui \
-    ui/dateeditcalendar.ui
+    ui/calendardialog.ui
 
 RESOURCES += \
     uirsc.qrc

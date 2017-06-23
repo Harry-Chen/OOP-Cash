@@ -30,7 +30,7 @@
 #include "changebillwidget.h"
 
 /**
- * @brief The RecordCostEarnWidget class
+ * @brief A QWidget to add or modify bill
  */
 class RecordCostEarnWidget : public ChangeBillWidget
 {
