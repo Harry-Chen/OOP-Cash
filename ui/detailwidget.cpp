@@ -77,7 +77,7 @@ void DetailWidget::consult()
 	this->setCursor(Qt::WaitCursor); // tell the user it may cost some time.
 
 	/* get the vector of bill in the date range set by user */
-	QVector<Bill>& billVector = Query::newQuery(DatabaseHelper::getDb())
+    const QVector<Bill>& billVector = Query::newQuery(DatabaseHelper::getDb())
 			.addCreatorId(userman->getLoggedInUid())
 			.setDateRange(ui->timeFrom->date(), ui->timeTo->date())
 			.doQuery();
