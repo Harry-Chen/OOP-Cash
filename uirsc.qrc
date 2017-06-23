@@ -8,5 +8,9 @@
         <file alias="settings">icons/settings.png</file>
         <file alias="logo">icons/logo.png</file>
         <file alias="logo_small">icons/logo_small.png</file>
+        <file alias="arrow_down">icons/Arrowhead-Down.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file alias="stylesheet">ui/qss/stylesheet.qss</file>
     </qresource>
 </RCC>

@@ -35,6 +35,15 @@ int main(int argc, char *argv[])
 	logging::trace("Application Start===========");
     DatabaseHelper::initializeDatabase();
 	
+    //apply QSS
+    QString styleSheet;
+    auto* qssFile = new QFile(":/qss/stylesheet");
+    if(qssFile->open(QFile::ReadOnly)) {
+        styleSheet = QString(qssFile->readAll());
+        qApp->setStyleSheet(styleSheet);
+        qssFile->close();
+    }
+
     auto w = new OOPCash_MainWindow();
     w->show();
 
