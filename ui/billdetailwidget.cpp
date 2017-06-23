@@ -17,6 +17,7 @@
 /**
  * @file   billdetailwidget.cpp
  * @author Harry Chen <harry-chen@outlook.com>
+ * @author Zeping Niu <nnznk12@gmail.com>
  * @date   2017.05
  * @brief  Implementation file of class BillDetailWidget
  */
@@ -63,13 +64,13 @@ BillDetailWidget::~BillDetailWidget()
 
 void BillDetailWidget::on_removeButton_clicked()
 {
+	// ask the user whether is sure to remove this bill
 	if(QMessageBox::Yes == QMessageBox::question(this, QObject::tr("注意"),\
 							  QObject::tr("此操作将移除这条账单记录\n是否继续？"),\
 							  QMessageBox::Yes|QMessageBox::No,\
 							  QMessageBox::Yes))
 	{
-		this->setVisible(false);
-		emit delBillSignal(_billId);
+		emit delBillSignal(_billId); // emit the signal to ask the detail widget to refesh
 	}
 	else
 	{
