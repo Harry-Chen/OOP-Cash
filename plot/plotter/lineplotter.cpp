@@ -1,12 +1,35 @@
-﻿#include "lineplotter.h"
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   lineplotter.cpp
+ * @author 牛辰昊
+ * @date   2017.05
+ * @brief  Implementation file of class LinePLotter
+ */
+
+#include "lineplotter.h"
 
 void LinePlotter::plot(QCustomPlot *custom_plot)
 {
     QVector<double> time_double;
-    QVector<QVector<double>> value_double;
+    QVector<QVector<double> > value_double;
     QVector<double> temp;
     for(int j = 0; j < dates_.size(); j++)
-        temp.push_back(-(double)values_[0][j]/100);
+        temp.push_back((double)values_[0][j]/100);
       value_double.push_back(temp);
       temp.clear();
 
@@ -25,11 +48,6 @@ void LinePlotter::plot(QCustomPlot *custom_plot)
     custom_plot->graph()->setLineStyle(QCPGraph::lsLine);
     custom_plot->graph()->setPen(QPen(color.lighter(200)));
     custom_plot->graph()->setData(time_double, value_double[0]);
-
-//    custom_plot->xAxis2->setVisible(true);
-//    custom_plot->xAxis2->setTickLabels(false);
-//    custom_plot->yAxis2->setVisible(true);
-//    custom_plot->yAxis2->setTickLabels(false);
 
     // make left and bottom axes always transfer their ranges to right and top axes:
     QAbstractAnimation::connect(custom_plot->xAxis, SIGNAL(rangeChanged(QCPRange)), custom_plot->xAxis2, SLOT(setRange(QCPRange)));
@@ -59,19 +77,8 @@ void LinePlotter::plot(QCustomPlot *custom_plot)
     custom_plot->xAxis->setLabel(QObject::tr("日期"));
     custom_plot->yAxis->setLabel(QObject::tr("余额"));
 
-    // make top and right axes visible but without ticks and labels:
-//    custom_plot->xAxis2->setVisible(true);
-//    custom_plot->yAxis2->setVisible(true);
-//    custom_plot->xAxis2->setTicks(false);
-//    custom_plot->yAxis2->setTicks(false);
-//    custom_plot->xAxis2->setTickLabels(false);
-//    custom_plot->yAxis2->setTickLabels(false);
-
     // set axis ranges to show all data:
     custom_plot->graph()->rescaleAxes();
 
-    // show legend with slightly transparent background brush:
-    //custom_plot->legend->setVisible(true);
-   // custom_plot->legend->setBrush(QColor(255, 255, 255, 150));
     custom_plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }

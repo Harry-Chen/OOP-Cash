@@ -1,4 +1,27 @@
-﻿#include "processor.h"
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   processor.cpp
+ * @author 牛辰昊
+ * @date   2017.05
+ * @brief  Implementation file of class Processor
+ */
+
+#include "processor.h"
 
 bool Processor::Process(int i)
 {
@@ -44,4 +67,18 @@ const QVector<QString> Processor::GetFieldnames()
     for(int i = 0; i < fieldnames_.size(); ++i)
         result.push_back(nameMap_.value(fieldnames_[i]));
     return result;
+}
+
+void Processor::Sort()
+{
+    for(int i = 0; i < dates_.size(); ++i)
+        for(int j = 1; j < dates_.size() - i; ++j)
+        {
+            if(dates_[j] < dates_[j - 1])
+            {
+                std::swap(dates_[j], dates_[j - 1]);
+                for(int k = 0; k < matrix_.size(); ++k)
+                    std::swap(matrix_[k][j], matrix_[k][j - 1]);
+            }
+        }
 }
