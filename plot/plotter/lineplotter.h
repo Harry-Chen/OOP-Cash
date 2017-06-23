@@ -28,6 +28,7 @@
 
 /**
  * @brief The LinePlotter class, a concrete product, plot a linechart
+ * @details The class is written under the guidance of sample file in QCustomPlot
  */
 class LinePlotter : public Plotter
 {

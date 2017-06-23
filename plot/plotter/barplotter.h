@@ -28,6 +28,7 @@
 
 /**
  * @brief The BarPlotter class, a concrete product, plot a barchart
+ * @details The class is written under the guidance of sample file in QCustomPlot
  */
 class BarPlotter : public Plotter
 {
