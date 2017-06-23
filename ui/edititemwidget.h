@@ -40,6 +40,9 @@ namespace Ui {
 class editItemWidget;
 }
 
+/**
+ * @brief The EditItemWidget class
+ */
 class EditItemWidget : public QDialog
 {
 	Q_OBJECT

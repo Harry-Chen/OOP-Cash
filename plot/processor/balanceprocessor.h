@@ -27,14 +27,13 @@
 #include "processor.h"
 
 /**
- * @brief The BalanceProcessor class, a derived class of Processor(concrete product),
- *        process bills for linechart
+ * @brief The BalanceProcessor class, a derived class of Processor(concrete product), process bills for linechart
  */
 class BalanceProcessor : public Processor
 {
     /**
      * @brief overload GetFieldname in Processor, get the nickname of User
-     * @param No.i
+     * @param i No.i
      * @return ID of the User
      */
     ID GetFieldname(int i);

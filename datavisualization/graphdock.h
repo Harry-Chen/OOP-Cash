@@ -57,7 +57,7 @@ private:
     Plotter * pPlotter;
     /**
      * @brief setup the plotter to plot, delegates the opperations to plotter
-     * @param ptr to QCustomPlot
+     * @param customPlot ptr to QCustomPlot
      */
     void setupMyDemo(QCustomPlot *customPlot){pPlotter -> plot(customPlot);}
 };

@@ -38,6 +38,9 @@ namespace Ui {
 class DetailWidget;
 }
 
+/**
+ * @brief The DetailWidget class
+ */
 class DetailWidget : public QWidget
 {
     Q_OBJECT

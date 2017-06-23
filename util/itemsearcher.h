@@ -32,7 +32,9 @@
 #include "dao/itemmanager.h"
 #include "dao/usermanager.h"
 
-
+/**
+ * @brief The ItemSearcher class
+ */
 class ItemSearcher
 {
 public:

@@ -79,20 +79,19 @@ protected:
 
     /**
      * @brief GetFieldname of No.i bill
-     * @param No.i
+     * @param i No.i
      * @return the ID of its fieldname
      */
     virtual ID GetFieldname(int i) = 0;
     /**
-     * @brief GetDate of No.i bill (read and process)
-     *        default realization is to get date by day
-     * @param No.i
+     * @brief GetDate of No.i bill (read and process), default realization is to get date by day
+     * @param i No.i
      * @return the processed Date
      */
     virtual QDate GetDate(int i) {return bills_[i].date;}
     /**
      * @brief Process No.i bill, put its date, fieldname and value in QVector
-     * @param No.i
+     * @param i No.i
      * @return if process successfully, return true
      */
     bool Process(int i);
