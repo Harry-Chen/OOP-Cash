@@ -197,72 +197,72 @@
 <context>
     <name>OOPCash_MainWindow</name>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="14"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="20"/>
         <source>Expensé</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="56"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="62"/>
         <source>好像还没有登录呢~</source>
         <translation>Not logged in yet</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="72"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="78"/>
         <source>登录</source>
         <translation>Login</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="128"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="134"/>
         <source>首页</source>
         <translation>Main Page</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="148"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="154"/>
         <source>记一笔</source>
         <translation>New Bill</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="167"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="173"/>
         <source>查看明细</source>
         <translation>Detail</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="186"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="192"/>
         <source>更新我的资料</source>
         <translation>Modify User</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="205"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="211"/>
         <source>统计图表</source>
         <translation>Plot</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="215"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="221"/>
         <source>记账</source>
         <translation>New Bill</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="225"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="231"/>
         <source>明细</source>
         <translation>Details</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="235"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="241"/>
         <source>统计</source>
         <translation>Statistics</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="245"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="251"/>
         <source>导入与导出</source>
         <translation>Import and Export</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="265"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="271"/>
         <source>导入</source>
         <translation>Import</translation>
     </message>
     <message>
-        <location filename="../ui/oopcash_mainwindow.ui" line="284"/>
+        <location filename="../ui/oopcash_mainwindow.ui" line="290"/>
         <source>导出</source>
         <translation>Export</translation>
     </message>
@@ -369,13 +369,13 @@
         <translation>Succeessfully imported %1</translation>
     </message>
     <message>
-        <location filename="../datavisualization/querywidget.cpp" line="158"/>
+        <location filename="../datavisualization/querywidget.cpp" line="157"/>
         <source>无相应账单
 </source>
         <translation>No bills found\n</translation>
     </message>
     <message>
-        <location filename="../datavisualization/querywidget.cpp" line="164"/>
+        <location filename="../datavisualization/querywidget.cpp" line="163"/>
         <source>请先选择查询类型
 </source>
         <translation>Please select the type of query first</translation>
@@ -477,9 +477,8 @@ Do you confirm?</translation>
         <translation>Username and password cannot be empty</translation>
     </message>
     <message>
-        <location filename="../ui/logindlg.cpp" line="65"/>
         <source>密码不一致</source>
-        <translation>The two passwords are not the same</translation>
+        <translation type="vanished">The two passwords are not the same</translation>
     </message>
     <message>
         <location filename="../ui/logindlg.cpp" line="81"/>
@@ -502,6 +501,11 @@ Do you confirm?</translation>
         <location filename="../ui/logindlg.cpp" line="71"/>
         <source>用户名已被使用</source>
         <translation>Username already occupied</translation>
+    </message>
+    <message>
+        <location filename="../ui/logindlg.cpp" line="65"/>
+        <source>两次输入的密码不一致</source>
+        <translation>The two passwords are not the same</translation>
     </message>
     <message>
         <location filename="../ui/logindlg.cpp" line="95"/>
@@ -789,7 +793,7 @@ Please remember your password</translation>
         <translation>Sum</translation>
     </message>
     <message>
-        <location filename="../ui/detailwidget.cpp" line="129"/>
+        <location filename="../ui/detailwidget.cpp" line="140"/>
         <source>编辑账单</source>
         <translation>Modify Bill</translation>
     </message>
@@ -802,7 +806,7 @@ Please remember your password</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../datavisualization/querywidget.ui" line="263"/>
+        <location filename="../datavisualization/querywidget.ui" line="269"/>
         <source>画图</source>
         <translation>Plot</translation>
     </message>

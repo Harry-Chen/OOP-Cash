@@ -47,6 +47,11 @@ class DetailWidget : public QWidget
     Q_OBJECT
 public slots:
 	/**
+	 * @brief fillData
+	 * @details fill at most 100 QListWidgetItem to the BillList at a time
+	 */
+	void fillData();
+	/**
 	 * @brief consult this function is called iff the bill list needs to be refeshed
 	 */
 	void consult();
@@ -57,17 +62,25 @@ public slots:
 	 */
 	void removeBill(ID billId);
 	void editBill(Bill* pBill);
+signals:
+	void fillFinished(bool finished);
+	void addingFinished();
 public:
-	explicit DetailWidget(QWidget *parent, UserManager *_userman);
-    ~DetailWidget();
 	/**
      * @brief fill the widget with the data in given QVector<Bill>
-	 * @param bills the sorted bill to be filled into bill list widget
+	 * @param parent the parent widget
+	 * @param _userman the pointer of UserManager
 	 */
-    void fillData(const QVector<Bill>& bills);
+	explicit DetailWidget(QWidget *parent, UserManager *_userman);
+    ~DetailWidget();
 private:
+	int currentNum;
+	const int ItemAddPerTime = 60;
     Ui::DetailWidget *ui;
     UserManager *userman;
+	QVector<Bill> billVector;
+	QMap<ID, Account> allAccount;
+	QMap<ID, Category> allCategory;
 };
 
 #endif // DETAILWIDGET_H

@@ -144,3 +144,10 @@ void OOPCash_MainWindow::on_detailButton_clicked() {
 void OOPCash_MainWindow::on_userconfigButton_clicked() {
     ui->setButton->click();
 }
+
+void OOPCash_MainWindow::on_tabWidget_currentChanged(int index)
+{
+	if(index == tabIndex::add) {
+		pRecordCostWidget->refresh();
+	}
+}

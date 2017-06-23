@@ -53,6 +53,7 @@ SOURCES += main.cpp \
     ui/edititemwidgetfactory.cpp \
     ui/calendardialog.cpp \
     ui/recordcostearnwidget.cpp \
+    ui/billlist.cpp \
     ui/applyChangeStrategy/applychangestrategy.cpp \
     ui/applyChangeStrategy/editaccountstrategy.cpp \
     ui/applyChangeStrategy/editcategorystrategy.cpp \
@@ -107,6 +108,7 @@ HEADERS  += \
     ui/edititemwidget.h \
     ui/edititemwidgetfactory.h \
     ui/recordcostearnwidget.h \
+    ui/billlist.h \
     ui/applyChangeStrategy/applychangestrategy.h \
     ui/applyChangeStrategy/editaccountstrategy.h \
     ui/applyChangeStrategy/editcategorystrategy.h \

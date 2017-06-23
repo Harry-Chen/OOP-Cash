@@ -27,7 +27,6 @@
 #include "querywidget.h"
 #include "ui_querywidget.h"
 #include "util/database_helper.h"
-#include "ui/dateeditcalendar.h"
 #include "ui/calendardialog.h"
 
 QueryWidget::QueryWidget(QWidget *parent) :

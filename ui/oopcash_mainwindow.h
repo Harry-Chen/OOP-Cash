@@ -74,6 +74,8 @@ private slots:
     void on_detailButton_clicked();
     void on_userconfigButton_clicked();
 
+	void on_tabWidget_currentChanged(int index);
+
 private:
     Ui::OOPCash_MainWindow *ui;
     UserManager * userman;
