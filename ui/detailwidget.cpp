@@ -37,10 +37,15 @@ DetailWidget::DetailWidget(QWidget *parent, UserManager *_userman) :
     ui(new Ui::DetailWidget),
     userman(_userman)
 {
+	currentNum = 0;
     ui->setupUi(this);
 	//connect(ui->timeFrom,SIGNAL(editingFinished()),loadThread,SLOT(consult()));
 	//connect(ui->timeTo,SIGNAL(editingFinished()),this,SLOT(consult()));
 	connect(ui->refresh,SIGNAL(clicked(bool)),this,SLOT(consult()));
+	connect(this, SIGNAL(fillFinished(bool)), ui->listBills, SLOT(setFinished(bool)));
+	connect(this, SIGNAL(addingFinished()), ui->listBills, SLOT(setIsAddingFalse()));
+	connect(ui->listBills, SIGNAL(needAdding()), this, SLOT(fillData()));
+
     connect(ui->plot,SIGNAL(clicked(bool)),this,SLOT(plot()));
     ui->timeFrom->setDateTime(QDateTime::fromTime_t(0));
     ui->timeTo->setDateTime(QDateTime::currentDateTime());
@@ -51,33 +56,39 @@ DetailWidget::~DetailWidget()
     delete ui;
 }
 
-void DetailWidget::fillData(const QVector<Bill> &bills)
+void DetailWidget::fillData()
 {
+	if(currentNum == billVector.size()) {
+		emit fillFinished(true);
+		return;
+	}
 	ui->listBills->setVisible(false);
-	auto acc = new AccountManager(userman);
-	auto cat = new CategoryManager(userman);
-	const auto & allAccounts = acc->getAllItems();
-	const auto & allCategories = cat->getAllItems();
-    ui->listBills->clear();
-    for(auto const & bill : bills){
-        auto item = new QListWidgetItem(ui->listBills);
+	for(int i = 0; i < 100 && currentNum < billVector.size(); ++i, ++currentNum){
+		auto item = new QListWidgetItem(ui->listBills);
         item->setSizeHint(QSize(338,73));
         auto detail = new BillDetailWidget();
-		detail->fillData(bill, allAccounts, allCategories);
+		detail->fillData(billVector[currentNum], allAccount, allCategory);
 		connect(detail, SIGNAL(delBillSignal(ID)), this, SLOT(removeBill(ID)));
 		connect(detail, SIGNAL(editBillSignal(Bill*)), this, SLOT(editBill(Bill*)));
         ui->listBills->setItemWidget(item, detail);
     }
+	emit addingFinished();
 	ui->listBills->setVisible(true);
 }
 
 void DetailWidget::consult()
 /* fill the bills to list widget in the order of date */
 {
+	emit fillFinished(false);
+	currentNum = 0;
+	auto acc = new AccountManager(userman);
+	auto cat = new CategoryManager(userman);
+	allAccount = acc->getAllItems();
+	allCategory = cat->getAllItems();
+	ui->listBills->clear();
 	this->setCursor(Qt::WaitCursor); // tell the user it may cost some time.
-
 	/* get the vector of bill in the date range set by user */
-	QVector<Bill>& billVector = Query::newQuery(DatabaseHelper::getDb())
+	billVector = Query::newQuery(DatabaseHelper::getDb())
 			.addCreatorId(userman->getLoggedInUid())
 			.setDateRange(ui->timeFrom->date(), ui->timeTo->date())
 			.doQuery();
@@ -91,7 +102,7 @@ void DetailWidget::consult()
 		}
 	};
 	std::sort(billVector.begin(), billVector.end(), BillComparer());
-	fillData(billVector);
+	fillData();
 	this->setCursor(Qt::ArrowCursor);
 }
 

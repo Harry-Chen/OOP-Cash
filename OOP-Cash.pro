@@ -74,7 +74,8 @@ SOURCES += main.cpp \
     plot/processor/balanceprocessor.cpp \
     plot/plotter/lineplotter.cpp \
     plot/balanceplotsystem.cpp \
-    plot/plotter/barplotter.cpp
+    plot/plotter/barplotter.cpp \
+    ui/billlist.cpp
 
 HEADERS  += \
     include/qcustomplot.h \
@@ -131,7 +132,8 @@ HEADERS  += \
     plot/processor/balanceprocessor.h \
     plot/plotter/barplotter.h \
     plot/plotter/lineplotter.h \
-    plot/balanceplotsystem.h
+    plot/balanceplotsystem.h \
+    ui/billlist.h
 	
 FORMS    += \
     datavisualization/graphdock.ui \
