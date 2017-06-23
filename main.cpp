@@ -1,7 +1,7 @@
 ﻿/**
  * @file   main.cpp
  * @author Harry Chen <harry-chen@outlook.com>
- * @date   2017.0501
+ * @date   2017.05
  * @brief  Main entrance of the program
  */
 
