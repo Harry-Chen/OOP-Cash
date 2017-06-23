@@ -30,7 +30,7 @@
 #include "itemadder.h"
 
 /**
- * @brief the adder of accounts
+ * @brief the adder of Account
  */
 class AccAdder : public ItemAdder
 {
@@ -45,7 +45,7 @@ public:
      */
     AccAdder(QJsonObject & _obj, UserManager* _userman);
     /**
-     * @brief function to add an account
+     * @brief function to add an Account
      * @param _item the account in type of QJsonObject
      * @return succeeded or not
      */

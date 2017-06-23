@@ -17,6 +17,7 @@
 /**
  * @file   querywidget.cpp
  * @author 牛辰昊
+ * @author Harry Chen <harry-chen@outlook.com>
  * @date   2017.05
  * @brief  Implementation file of class QueryWidget
  */
@@ -108,11 +109,14 @@ void QueryWidget::getField(int _field)
 
 void QueryWidget::Do()
 {
+    const int FINISHED_INDEX_BOTH = 0;
+    const int FINISHED_INDEX_FINISHED = 1;
+    const int FINISHED_INDEX_UNFINISHED = 2;
     pQuery = &((Query::newQuery(DatabaseHelper::getDb())).addCreatorId(pUserManager->getLoggedInUid()));
     pQuery->setDateRange(ui->timeFrom->date(), ui->timeTo->date());
-    if (ui->finished->currentText() != "both")
+    if (ui->finished->currentIndex() != FINISHED_INDEX_BOTH)
     {
-        if(ui->finished->currentText() == "finished") pQuery->setFinished(true);
+        if(ui->finished->currentIndex() == FINISHED_INDEX_FINISHED) pQuery->setFinished(true);
         else pQuery->setFinished(false);
     }
     if (ui->keyWord->isModified())
