@@ -28,7 +28,7 @@
 #include "applychangestrategy.h"
 
 /**
- * @brief The strategy to edit category
+ * @brief The strategy to edit Category
  */
 class EditCategoryStrategy : public ApplyChangeStrategy
 {

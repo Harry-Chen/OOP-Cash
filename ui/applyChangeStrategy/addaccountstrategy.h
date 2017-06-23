@@ -28,7 +28,7 @@
 #include "applychangestrategy.h"
 
 /**
- * @brief The strategy to add account
+ * @brief The strategy to add Account
  */
 class AddAccountStrategy : public ApplyChangeStrategy
 {

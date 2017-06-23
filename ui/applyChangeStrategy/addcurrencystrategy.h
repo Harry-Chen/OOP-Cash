@@ -28,7 +28,7 @@
 #include "applychangestrategy.h"
 
 /**
- * @brief The strategy to add currency
+ * @brief The strategy to add Currency
  */
 class AddCurrencyStrategy : public ApplyChangeStrategy
 {

@@ -29,7 +29,7 @@
 #include "applychangestrategy.h"
 
 /**
- * @brief The strategy to edit account
+ * @brief The strategy to edit Account
  */
 class EditAccountStrategy : public ApplyChangeStrategy
 {
