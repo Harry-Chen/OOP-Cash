@@ -29,7 +29,7 @@
 #include "itemadder.h"
 
 /**
- * @brief the adder of category
+ * @brief the adder of Category
  */
 class CatAdder : public ItemAdder
 {
@@ -42,7 +42,7 @@ public:
      */
     CatAdder(QJsonObject & _obj, UserManager* _userman);
     /**
-     * @brief function to add a category
+     * @brief function to add a Category
      * @param _item the category in type of QJsonObject
      * @return succeeded or not
      */
