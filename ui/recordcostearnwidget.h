@@ -41,12 +41,12 @@ public:
 	 * @brief RecordCostEarnWidget
 	 * @param parent
 	 */
-	RecordCostEarnWidget(QWidget* parent = nullptr);
+	RecordCostEarnWidget(QWidget* parent = nullptr, Bill* oldBill = nullptr);
 public slots:
 	/**
-	 * @brief addBill add bill to sqlite
+	 * @brief add or eidt Bill in sqlite
 	 */
-	virtual void addBill();
+	virtual void addAndEditBill();
 	void setIsCostTrue();
 	void setIsCostFalse();
 	void setIsTransfer();
@@ -61,6 +61,7 @@ protected:
 private:
 	bool isCost;
 	bool isTransfer;
+	void setOldBillChoice();
 	void setCostLabelNames();
 	void setEarnLabelNames();
 	void setTransferLabelNames();

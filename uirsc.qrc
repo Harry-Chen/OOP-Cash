@@ -9,4 +9,8 @@
         <file alias="logo">icons/logo.png</file>
         <file alias="logo_small">icons/logo_small.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>icons/delete.png</file>
+        <file>icons/edit.png</file>
+    </qresource>
 </RCC>

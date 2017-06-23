@@ -62,16 +62,21 @@ signals:
 	 * @param billId
 	 */
 	void delBillSignal(ID billId);
+	void editBillSignal(Bill* pBill);
 private slots:
 	/**
 	 * @brief on_removeButton_clicked
 	 * @details when the remove button is clicked, this slot function will ask the user whether to remove the bill
 	 */
 	void on_removeButton_clicked();
+	/**
+	 * @brief on_editButton_clicked
+	 */
+	void on_editButton_clicked();
 
 private:
     Ui::BillDetailWidget *ui;
-	ID _billId; ///< the id of bill displayed in this widget
+	Bill _bill;
 };
 
 #endif // BILLDETAILWIDGET_H

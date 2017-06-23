@@ -33,6 +33,7 @@
 #include "dao/billmanager.h"
 #include "model/bill.h"
 #include "plot/balanceplotsystem.h"
+#include "recordcostearnwidget.h"
 
 namespace Ui {
 class DetailWidget;
@@ -55,6 +56,7 @@ public slots:
 	 * @param billId the id of bill to be removed
 	 */
 	void removeBill(ID billId);
+	void editBill(Bill* pBill);
 public:
 	explicit DetailWidget(QWidget *parent, UserManager *_userman);
     ~DetailWidget();
