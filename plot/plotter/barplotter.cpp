@@ -85,7 +85,7 @@ void BarPlotter::plot(QCustomPlot *custom_plot)
     custom_plot->yAxis->setRange(0, 1000);
     custom_plot->yAxis->rescale();
     custom_plot->yAxis->setPadding(5); // a bit more space to the left border
-    custom_plot->yAxis->setLabel("花费");
+    custom_plot->yAxis->setLabel(QObject::tr("总值"));
     custom_plot->yAxis->setBasePen(QPen(Qt::white));
     custom_plot->yAxis->setTickPen(QPen(Qt::white));
     custom_plot->yAxis->setSubTickPen(QPen(Qt::white));

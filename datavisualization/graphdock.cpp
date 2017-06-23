@@ -30,6 +30,7 @@ GraphDock::GraphDock (Plotter * _pPlotter, QWidget * parent):
     pPlotter(_pPlotter)
 {
     ui->setupUi(this);
+
     setupMyDemo(ui->QCP);
     setWindowTitle(QObject::tr("绘图窗口"));
 }

@@ -10,6 +10,12 @@
     <height>419</height>
    </rect>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(51, 51, 51);</string>
+  </property>
   <property name="windowTitle">
    <string>DockWidget</string>
   </property>
