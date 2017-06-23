@@ -59,15 +59,19 @@ public:
 signals:
 	/**
 	 * @brief pass the bill id to the DetailWidget to delete bill in sqlite
-	 * @param billId //
+	 * @param billId
 	 */
 	void delBillSignal(ID billId);
 private slots:
+	/**
+	 * @brief on_removeButton_clicked
+	 * @details when the remove button is clicked, this slot function will ask the user whether to remove the bill
+	 */
 	void on_removeButton_clicked();
 
 private:
     Ui::BillDetailWidget *ui;
-	ID _billId; //< the id of bill displayed in this widget
+	ID _billId; ///< the id of bill displayed in this widget
 };
 
 #endif // BILLDETAILWIDGET_H

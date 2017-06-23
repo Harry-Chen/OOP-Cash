@@ -26,13 +26,13 @@
 
 bool EditAccountStrategy::applyChange()
 {
-	QString oldName = _w->getLabelText(0);
-	QString currName = _w->getComboboxText();
+	QString oldName = _w->getLabelText(0); ///< old name of account
+	QString currName = _w->getComboboxText(); ///< name of currency used by this account
 	auto accman = new AccountManager(_userman);
 	auto currman = new CurrencyManager(_userman);
 	Account acc = ItemSearcher::instance()->getItemByName(accman, oldName);
 	Currency curr = ItemSearcher::instance()->getItemByName(currman, currName);
-	QString newName = _w->getLineEditText2();
+	QString newName = _w->getLineEditText2(); ///< new name of account
 	acc.name = newName;
 	acc.cid = curr.id;
 	bool success = accman->modifyItem(acc);

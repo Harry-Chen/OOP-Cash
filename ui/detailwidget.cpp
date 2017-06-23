@@ -66,19 +66,25 @@ void DetailWidget::fillData(const QVector<Bill> &bills)
         auto detail = new BillDetailWidget();
 		detail->fillData(bill, allAccounts, allCategories);
 		connect(detail, SIGNAL(delBillSignal(ID)),\
-				this, SLOT(removeListWidgetItem(ID)));
+				this, SLOT(removeBill(ID)));
         ui->listBills->setItemWidget(item, detail);
     }
 	ui->listBills->setVisible(true);
 }
 
 void DetailWidget::consult()
+/* fill the bills to list widget in the order of date */
 {
-	this->setCursor(Qt::WaitCursor);
+	this->setCursor(Qt::WaitCursor); // tell the user it may cost some time.
+
+	/* get the vector of bill in the date range set by user */
 	QVector<Bill>& billVector = Query::newQuery(DatabaseHelper::getDb())
 			.addCreatorId(userman->getLoggedInUid())
 			.setDateRange(ui->timeFrom->date(), ui->timeTo->date())
 			.doQuery();
+	/**
+	 * @brief The local class to compare the bills by the date
+	 */
 	class BillComparer {
 	public:
 		bool operator() (const Bill& b1, const Bill& b2) {
@@ -109,7 +115,8 @@ void DetailWidget::plot()
 	}
 }
 
-void DetailWidget::removeListWidgetItem(ID billId)
+void DetailWidget::removeBill(ID billId)
+/* remove the bill and refresh the bill list widget */
 {
 	BillManager* billMan = new BillManager(userman);
 	billMan->removeItemById(billId);

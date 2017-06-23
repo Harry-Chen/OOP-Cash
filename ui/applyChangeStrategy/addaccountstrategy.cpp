@@ -26,8 +26,8 @@
 
 bool AddAccountStrategy::applyChange()
 {
-	QString newName = _w->getLineEditText2();
-	QString currName = _w->getComboboxText();
+	QString newName = _w->getLineEditText2(); ///< new account name
+	QString currName = _w->getComboboxText(); ///< currency name chose by user
 	auto currman = new CurrencyManager(_userman);
 	Currency curr = ItemSearcher::instance()->getItemByName(currman, currName);
 	delete currman;

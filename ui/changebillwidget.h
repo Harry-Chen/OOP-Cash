@@ -48,19 +48,33 @@ namespace Ui {
 class ChangeBillWidget;
 }
 
+/**
+ * @brief The abstract ui class to create and modify bill
+ */
 class ChangeBillWidget : public QWidget
 {
 	Q_OBJECT
 
 public:
+	/**
+	 * @brief ChangeBillWidget Constructor
+	 * @param parent the parent component
+	 */
 	explicit ChangeBillWidget(QWidget *parent = 0);
+	/**
+	 * @brief initialize the specific content got by UserManager
+	 * @param userman the pointer of UserManager
+	 */
 	void init(UserManager* userman);
 	~ChangeBillWidget();
 public:
+	/**
+	 * @brief the method to get data from ui and add bill to sqlite
+	 */
 	virtual void addBill() = 0;
 protected:
 	Ui::ChangeBillWidget *ui;
-	UserManager* _userman; // 不是自己分配的就不释放
+	UserManager* _userman;
 	EditItemWidget* _w;
 	CalendarDialog* calendar;
 	void clearWidget();
@@ -86,6 +100,9 @@ protected:
 	QComboBox* getCurrencyCombobox();
 
 public slots:
+	/**
+	 * @brief refresh the ui when status of the radio button changed
+	 */
     void refresh();
 
 private slots:

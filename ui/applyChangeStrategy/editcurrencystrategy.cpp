@@ -26,9 +26,9 @@
 
 bool EditCurrencyStrategy::applyChange()
 {
-	QString oldName = _w->getLabelText(0);
-	QString newName = _w->getLineEditText1();
-	double newRate = _w->getLineEditText2().toDouble();
+	QString oldName = _w->getLabelText(0); ///< old name of currency
+	QString newName = _w->getLineEditText1(); ///< new name of currency
+	double newRate = _w->getLineEditText2().toDouble(); ///< new rate of currency
 	auto currman = new CurrencyManager(_userman);
 	Currency curr = ItemSearcher::instance()->getItemByName(currman, oldName);
 	curr.name = newName;

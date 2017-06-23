@@ -30,8 +30,8 @@ CalendarDialog::CalendarDialog(QWidget *parent) :
 	ui(new Ui::CalendarDialog)
 {
 	ui->setupUi(this);
+	/* toss the signal up */
 	connect(ui->calendarWidget, SIGNAL(selectionChanged()), this, SIGNAL(seletedDateChanged()));
-   // connect(ui->calendarWidget,SIGNAL(activated(QDate)),this,SIGNAL(dateClicked(QDate)));
 }
 
 QDate CalendarDialog::getSelectedDate()

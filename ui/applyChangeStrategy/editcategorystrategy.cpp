@@ -27,8 +27,8 @@
 bool EditCategoryStrategy::applyChange()
 {
 	auto cateman = new CategoryManager(_userman);
-	QString oldName = _w->getLabelText(0);
-	QString newName = _w->getLineEditText2();
+	QString oldName = _w->getLabelText(0); ///< old name of category
+	QString newName = _w->getLineEditText2(); ///< new name of category
 	Category cate = ItemSearcher::instance()->getItemByName(cateman, oldName);
 	cate.name = newName;
 	bool success = cateman->modifyItem(cate);

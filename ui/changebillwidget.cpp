@@ -33,8 +33,11 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 	_w = nullptr;
 	_userman = nullptr;
 	ui->setupUi(this);
+
+	/* use Validiator to make sure the input string is number format*/
 	ui->lineEditAmount->setValidator(new QDoubleValidator(ui->lineEditAmount));
 	calendar = new CalendarDialog(this);
+	/* once receiving the seletedDateChanged signal, set the content on line edit */
 	connect(calendar, SIGNAL(seletedDateChanged()), this, SLOT(setDateByCalendar()));
 	ui->costBtn->setVisible(false);
 	ui->earnBtn->setVisible(false);
@@ -43,7 +46,7 @@ ChangeBillWidget::ChangeBillWidget(QWidget *parent) :
 void ChangeBillWidget::init(UserManager* userman) {
 	//初始化userman;
 	_userman = userman;
-    //之后利用虚函数延迟初始化到子类
+	//之后利用虚函数延迟初始化可变内容到子类
 	setLabelNames();
 	setCombobox1();
 	setCombobox2();

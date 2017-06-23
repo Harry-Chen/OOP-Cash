@@ -36,18 +36,61 @@
 
 #include "edititemwidget.h"
 
+/**
+ * @brief simple factory to create specific EditItemWidgetFactory
+ */
 class EditItemWidgetFactory
 {
 public:
+	/**
+	 * @brief initiate EditItemWidgetFactory with UserManager
+	 * @param userman the pointer of UserManager
+	 */
 	EditItemWidgetFactory(UserManager* userman);
+	/**
+	 * @brief get EditItemWidget with function of creating new account
+	 * @param parent
+	 * @return the pointer of EditItemWidget
+	 */
 	EditItemWidget* getNewAccountWidget(QWidget* parent);
+	/**
+	 * @brief get EditItemWidget with function of editing account
+	 * @param parent
+	 * @param accName
+	 * @return the pointer of EditItemWidget
+	 */
 	EditItemWidget* getEditAccountWidget(QWidget* parent, const QString& accName);
+	/**
+	 * @brief get EditItemWidget with function of creating new currency
+	 * @param parent
+	 * @return the pointer of EditItemWidget
+	 */
 	EditItemWidget* getNewCurrencyWidget(QWidget* parent);
+	/**
+	 * @brief get EditItemWidget with function of editing currency
+	 * @param parent
+	 * @param currName
+	 * @return the pointer of EditItemWidget
+	 */
 	EditItemWidget* getEditCurrencyWidget(QWidget* parent, const QString& currName);
+	/**
+	 * @brief get EditItemWidget with function of creating new category
+	 * @param parent
+	 * @return the pointer of EditItemWidget
+	 */
 	EditItemWidget* getNewCategoryWidget(QWidget* parent);
+	/**
+	 * @brief get get EditItemWidget with function of editing category
+	 * @param parent
+	 * @param cateName
+	 * @return the pointer of EditItemWidget
+	 */
 	EditItemWidget* getEditCategoryWidget(QWidget* parent, const QString& cateName);
 private:
 	UserManager* _userman;
+	/*
+	 * build the widget using the names of components
+	 */
 	EditItemWidget* buildWidget(QWidget* parent, const QString& title, \
 					 const QStringList& namelist, const QVector<bool>& labvisiblelist, \
 					 const QString& defaultText2, const QString& defaultText3, \

@@ -42,12 +42,23 @@ class DetailWidget : public QWidget
 {
     Q_OBJECT
 public slots:
+	/**
+	 * @brief consult this function is called iff the bill list needs to be refeshed
+	 */
 	void consult();
     void plot();
-	void removeListWidgetItem(ID billId);
+	/**
+	 * @brief removeBill
+	 * @param billId the id of bill to be removed
+	 */
+	void removeBill(ID billId);
 public:
-    explicit DetailWidget(QWidget *parent, UserManager *_userman);
+	explicit DetailWidget(QWidget *parent, UserManager *_userman);
     ~DetailWidget();
+	/**
+	 * @brief fillData
+	 * @param bills the sorted bill to be filled into bill list widget
+	 */
     void fillData(const QVector<Bill>& bills);
 private:
     Ui::DetailWidget *ui;

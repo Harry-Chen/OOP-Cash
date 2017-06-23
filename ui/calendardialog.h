@@ -31,17 +31,31 @@ namespace Ui {
 class CalendarDialog;
 }
 
+/**
+ * @brief The CalendarDialog class
+ */
 class CalendarDialog : public QDialog
 {
 	Q_OBJECT
 
 public:
+	/**
+	 * @brief CalendarDialog Constuctor
+	 * @param parent the parent component
+	 */
 	explicit CalendarDialog(QWidget *parent = 0);
+	/**
+	 * @brief getSelectedDate
+	 * @return the date selected by the user
+	 */
 	QDate getSelectedDate();
 	~CalendarDialog();
 signals:
+	/**
+	 * @brief signal seletedDateChanged emit when the user selects a different date
+	 */
 	void seletedDateChanged();
-    //void dateClicked(QDate);
+
 private slots:
 	void on_conformBtn_clicked();
 

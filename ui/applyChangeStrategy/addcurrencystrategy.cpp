@@ -26,9 +26,9 @@
 
 bool AddCurrencyStrategy::applyChange()
 {
-	QString name = _w->getLineEditText1();
-	double rate = _w->getLineEditText2().toDouble();
-	Currency curr(-1, _userman->getLoggedInUid(), name, rate);
+	QString name = _w->getLineEditText1(); ///< new currency name
+	double rate = _w->getLineEditText2().toDouble(); ///< currency rate
+	Currency curr(-1, _userman->getLoggedInUid(), name, rate); ///< new currency
 	auto currman = new CurrencyManager(_userman);
 	bool success = (currman->addItem(curr) != -1);
 	delete currman;
