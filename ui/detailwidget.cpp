@@ -26,7 +26,6 @@
 #include "ui/billdetailwidget.h"
 #include "dao/query.h"
 #include "util/database_helper.h"
-#include "process/balanceprocessor.h"
 #include "datavisualization/graphdock.h"
 
 #include "detailwidget.h"
