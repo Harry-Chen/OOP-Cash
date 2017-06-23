@@ -36,7 +36,7 @@
 #include "billadder.h"
 
 /**
- * @brief The DataImporter class
+ * @brief Import data from JSON file
  */
 class DataImporter {
 private:

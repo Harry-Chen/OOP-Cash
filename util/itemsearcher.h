@@ -33,7 +33,8 @@
 #include "dao/usermanager.h"
 
 /**
- * @brief The ItemSearcher class
+ * @brief Search items from the database
+ * @details Singleton Pattern
  */
 class ItemSearcher
 {

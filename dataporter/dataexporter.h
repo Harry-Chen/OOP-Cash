@@ -41,7 +41,7 @@
 #include "model/currency.h"
 
 /**
- * @brief The DataExporter class
+ * @brief Export data to JSON file
  */
 class DataExporter {
 private:

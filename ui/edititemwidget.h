@@ -41,7 +41,7 @@ class editItemWidget;
 }
 
 /**
- * @brief The EditItemWidget class
+ * @brief Widget to modify and add items, including Currency, Category and Account
  */
 class EditItemWidget : public QDialog
 {
