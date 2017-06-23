@@ -164,6 +164,27 @@ void RecordCostEarnWidget::setCombobox3()
 	getCombobox3()->addItems(accList);
 }
 
+void RecordCostEarnWidget::otherSettings()
+{
+	if(!oldBill) return;
+	auto accMan = new AccountManager(_userman);
+	auto currMan = new CurrencyManager(_userman);
+	auto cateMan = new CategoryManager(_userman);
+	allAccount = accMan->getAllItems();
+	allCurrency = currMan->getAllItems();
+	allCategory = cateMan->getAllItems();
+	if(oldBill->from != -1 && oldBill->to != -1) {
+		getTransferBtn()->setChecked(true);
+		setIsTransfer();
+	} else if (oldBill->from != -1) {
+		getCostBtn()->setChecked(true);
+		setIsCostTrue();
+	} else {
+		getEarnBtn()->setChecked(true);
+		setIsCostFalse();
+	}
+}
+
 void RecordCostEarnWidget::setOldBillChoice()
 {
 	if(!oldBill) return;

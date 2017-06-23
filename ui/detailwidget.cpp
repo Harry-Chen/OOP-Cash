@@ -126,10 +126,12 @@ void DetailWidget::removeBill(ID billId)
 void DetailWidget::editBill(Bill* pBill)
 {
 	QDialog *d = new QDialog(this);
+	d->setObjectName(QObject::tr("编辑账单"));
 	auto pEditBillWidget = new RecordCostEarnWidget(d, pBill);
 	pEditBillWidget->init(userman);
 	d->exec();
 	delete d;
 	d = nullptr;
 	pEditBillWidget = nullptr;
+	consult();
 }

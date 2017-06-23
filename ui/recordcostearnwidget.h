@@ -58,6 +58,7 @@ protected:
 	virtual void setCombobox1();
 	virtual void setCombobox2();
 	virtual void setCombobox3();
+	virtual void otherSettings();
 private:
 	bool isCost;
 	bool isTransfer;

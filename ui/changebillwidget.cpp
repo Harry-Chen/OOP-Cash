@@ -53,14 +53,7 @@ void ChangeBillWidget::init(UserManager* userman) {
 	setCombobox3();
 	setCurrencyCombobox();
     getTimeLineEdit()->setText(QDate().currentDate().toString(QObject::tr("yyyy-MM-dd")));
-	if(oldBill) {
-		auto accMan = new AccountManager(userman);
-		auto currMan = new CurrencyManager(userman);
-		auto cateMan = new CategoryManager(userman);
-		allAccount = accMan->getAllItems();
-		allCurrency = currMan->getAllItems();
-		allCategory = cateMan->getAllItems();
-	}
+	otherSettings();
 }
 
 ChangeBillWidget::~ChangeBillWidget()
