@@ -224,7 +224,7 @@
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_3">
               <item>
-               <widget class="QLabel" name="labelNote">
+               <widget class="QLabel" name="labelNote_2">
                 <property name="maximumSize">
                  <size>
                   <width>60</width>

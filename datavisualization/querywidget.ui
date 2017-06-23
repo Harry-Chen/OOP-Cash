@@ -7,314 +7,268 @@
     <x>0</x>
     <y>0</y>
     <width>474</width>
-    <height>310</height>
+    <height>216</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="Do">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>240</y>
-     <width>80</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>画图</string>
-   </property>
-  </widget>
-  <widget class="QListWidget" name="listWidget">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>20</y>
-     <width>161</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="editTriggers">
-    <set>QAbstractItemView::NoEditTriggers</set>
-   </property>
-   <property name="selectionMode">
-    <enum>QAbstractItemView::MultiSelection</enum>
-   </property>
-   <property name="selectionBehavior">
-    <enum>QAbstractItemView::SelectRows</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>74</y>
-     <width>52</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>类型</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>53</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>终止时间</string>
-   </property>
-   <property name="buddy">
-    <cstring>timeTo</cstring>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>22</y>
-     <width>29</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>字段</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>112</y>
-     <width>55</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>关键词</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="timeType">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>52</y>
-     <width>83</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>日</string>
-    </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>字段</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="selectField">
+           <item>
+            <property name="text">
+             <string>未选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>按类型</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>按支出账户</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>按收入账户</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>时间间隔</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="timeType">
+           <item>
+            <property name="text">
+             <string>日</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>月</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>年</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>类型</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="finished">
+           <item>
+            <property name="text">
+             <string>已完成与未完成</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>仅已完成</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>仅未完成</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>关键词</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="keyWord"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>起始时间</string>
+           </property>
+           <property name="buddy">
+            <cstring>timeFrom</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QDateEdit" name="timeFrom">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCalendarFrom">
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../uirsc.qrc">
+               <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>30</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>终止时间</string>
+           </property>
+           <property name="buddy">
+            <cstring>timeTo</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QDateEdit" name="timeTo">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCalendarTo">
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../uirsc.qrc">
+               <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>30</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidget">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Do">
+         <property name="text">
+          <string>画图</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
-   <item>
-    <property name="text">
-     <string>月</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>年</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>137</y>
-     <width>138</width>
-     <height>58</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QDateEdit" name="timeFrom">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="btnCalendarFrom">
-      <property name="minimumSize">
-       <size>
-        <width>30</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>30</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="../uirsc.qrc">
-        <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QDateEdit" name="timeTo">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="btnCalendarTo">
-      <property name="minimumSize">
-       <size>
-        <width>30</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>30</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="../uirsc.qrc">
-        <normaloff>:/icons/icons/24.png</normaloff>:/icons/icons/24.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QComboBox" name="finished">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>82</y>
-     <width>92</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>已完成与未完成</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>仅已完成</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>仅未完成</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="selectField">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>22</y>
-     <width>131</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>未选择</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>按类型</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>按支出账户</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>按收入账户</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLineEdit" name="keyWord">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>112</y>
-     <width>125</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>52</y>
-     <width>61</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>时间间隔</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>142</y>
-     <width>58</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>起始时间</string>
-   </property>
-   <property name="buddy">
-    <cstring>timeFrom</cstring>
-   </property>
-  </widget>
+  </layout>
   <zorder>label_5</zorder>
   <zorder>label_2</zorder>
   <zorder>label_3</zorder>
@@ -328,6 +282,7 @@
   <zorder>Do</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>listWidget</zorder>
+  <zorder>horizontalSpacer</zorder>
  </widget>
  <resources>
   <include location="../uirsc.qrc"/>

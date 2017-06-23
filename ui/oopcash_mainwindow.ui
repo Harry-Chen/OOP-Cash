@@ -62,6 +62,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="loginoutButton">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
             <property name="text">
              <string>登录</string>
             </property>
