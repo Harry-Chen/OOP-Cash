@@ -32,7 +32,7 @@
 #include "itemadder.h"
 
 /**
- * @brief the adder of bills
+ * @brief the adder of Bill
  */
 class BillAdder : public ItemAdder
 {
@@ -49,7 +49,7 @@ public:
      */
     BillAdder(QJsonObject &_obj, UserManager* _userman);
     /**
-     * @brief function to add a bill
+     * @brief function to add a Bill
      * @param _item the bill in type of QJsonObject
      * @return succeeded or not
      */

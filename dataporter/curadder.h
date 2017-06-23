@@ -29,7 +29,7 @@
 #include "itemadder.h"
 
 /**
- * @brief the adder of currency
+ * @brief the adder of Currency
  */
 class CurAdder : public ItemAdder
 {
@@ -42,7 +42,7 @@ public:
      */
     CurAdder(QJsonObject &_obj, UserManager * _userman);
     /**
-     * @brief function to add a currency
+     * @brief function to add a Currency
      * @param _item the currency in type of QJsonObject
      * @return succeeded or not
      */

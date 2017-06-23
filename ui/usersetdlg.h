@@ -52,7 +52,7 @@ public:
 
 signals:
     /**
-     * @brief userMapUpdate emit when the UserMap need to update
+     * @brief userMapUpdate emit when the UserMap needs updating
      */
     void userMapUpdate();
 
