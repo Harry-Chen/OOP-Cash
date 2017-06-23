@@ -1,10 +1,34 @@
-﻿#include "applyChangeStrategy/applychangestrategy.h"
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   edititemwidget.cpp
+ * @author Zeping Niu <nnznk12@gmail.com>
+ * @date   2017.05
+ * @brief  Implementation file of class EditItemWidget
+ */
+
+
+#include "applyChangeStrategy/applychangestrategy.h"
 
 #include "edititemwidget.h"
 #include "ui_edititemwidget.h"
 
 
-editItemWidget::editItemWidget(UserManager* userman, QWidget *parent) :
+EditItemWidget::EditItemWidget(UserManager* userman, QWidget *parent) :
 	_userman(userman),
 	QDialog(parent),
 	ui(new Ui::editItemWidget)
@@ -12,32 +36,32 @@ editItemWidget::editItemWidget(UserManager* userman, QWidget *parent) :
 	ui->setupUi(this);
 }
 
-editItemWidget::~editItemWidget()
+EditItemWidget::~EditItemWidget()
 {
 	delete ui;
 }
 
-QString editItemWidget::getLabelText(int index)
+QString EditItemWidget::getLabelText(int index)
 {
 	return (*(getlabelVector()))[index]->text();
 }
 
-QString editItemWidget::getLineEditText1()
+QString EditItemWidget::getLineEditText1()
 {
 	return ui->lineEdit2->text();
 }
 
-QString editItemWidget::getLineEditText2()
+QString EditItemWidget::getLineEditText2()
 {
 	return ui->lineEdit3->text();
 }
 
-QString editItemWidget::getComboboxText()
+QString EditItemWidget::getComboboxText()
 {
 	return ui->currComboBox->currentText();
 }
 
-editItemWidget* editItemWidget::setLabelName(QVector<QLabel*>& labelVector, \
+EditItemWidget* EditItemWidget::setLabelName(QVector<QLabel*>& labelVector, \
 											 const QStringList& namelist, \
 											 const QVector<bool>& visiblelist)
 {
@@ -48,21 +72,21 @@ editItemWidget* editItemWidget::setLabelName(QVector<QLabel*>& labelVector, \
 	return this;
 }
 
-editItemWidget* editItemWidget::setLineEdit2(const QString& defaultText, bool visible)
+EditItemWidget* EditItemWidget::setLineEdit2(const QString& defaultText, bool visible)
 {
 	ui->lineEdit2->setText(defaultText);
 	ui->lineEdit2->setVisible(visible);
 	return this;
 }
 
-editItemWidget* editItemWidget::setLineEdit3(const QString& defaultText, bool visible)
+EditItemWidget* EditItemWidget::setLineEdit3(const QString& defaultText, bool visible)
 {
 	ui->lineEdit3->setText(defaultText);
 	ui->lineEdit3->setVisible(visible);
 	return this;
 }
 
-editItemWidget* editItemWidget::setCurrencyComboBox(bool visible)
+EditItemWidget* EditItemWidget::setCurrencyComboBox(bool visible)
 {
 	if(!visible) {
 		ui->currComboBox->setVisible(visible);
@@ -77,31 +101,31 @@ editItemWidget* editItemWidget::setCurrencyComboBox(bool visible)
 	return this;
 }
 
-editItemWidget* editItemWidget::setDeleteBtn(bool enabled)
+EditItemWidget* EditItemWidget::setDeleteBtn(bool enabled)
 {
 	ui->deletebtn->setEnabled(enabled);
 	return this;
 }
 
-editItemWidget* editItemWidget::setConformBtn(bool enabled)
+EditItemWidget* EditItemWidget::setConformBtn(bool enabled)
 {
 	ui->conformbtn->setEnabled(enabled);
 	return this;
 }
 
-editItemWidget* editItemWidget::setCancelBtn(bool enabled)
+EditItemWidget* EditItemWidget::setCancelBtn(bool enabled)
 {
 	ui->cancelbtn->setEnabled(enabled);
 	return this;
 }
 
-editItemWidget* editItemWidget::setApplyChangeStrategy(applyChangeStrategy* _apply)
+EditItemWidget* EditItemWidget::setApplyChangeStrategy(ApplyChangeStrategy* _apply)
 {
 	apply = _apply;
 	return this;
 }
 
-QVector<QLabel*>* editItemWidget::getlabelVector()
+QVector<QLabel*>* EditItemWidget::getlabelVector()
 {
 	 auto labelVector = new QVector<QLabel*>;
 	 labelVector->push_back(ui->label11);
@@ -113,7 +137,7 @@ QVector<QLabel*>* editItemWidget::getlabelVector()
 
 
 
-void editItemWidget::on_deletebtn_clicked()
+void EditItemWidget::on_deletebtn_clicked()
 {
     if(QMessageBox::Yes == QMessageBox::question(this, QObject::tr("注意!"), \
                                                  QObject::tr("删除此条目会导致相关账单被连带删除, 是否继续?"), \
@@ -131,7 +155,7 @@ void editItemWidget::on_deletebtn_clicked()
 	this->close();
 }
 
-void editItemWidget::on_conformbtn_clicked()
+void EditItemWidget::on_conformbtn_clicked()
 {
 	bool success = apply->applyChange();
 	if(success) {
@@ -143,7 +167,7 @@ void editItemWidget::on_conformbtn_clicked()
 	}
 }
 
-void editItemWidget::on_cancelbtn_clicked()
+void EditItemWidget::on_cancelbtn_clicked()
 {
 	this->close();
 }

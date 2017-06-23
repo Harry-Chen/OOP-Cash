@@ -1,12 +1,30 @@
-﻿#include "barplotter.h"
+﻿/**
+ * Copyright 2017 OOP-Cash Team
+
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file   barplotter.cpp
+ * @author 牛辰昊
+ * @date   2017.05
+ * @brief  Implementation file of class BarPlotter
+ */
+
+#include "barplotter.h"
 
 void BarPlotter::plot(QCustomPlot *custom_plot)
 {
-//    if(dates_.size() > 80)
-//    {
-//        QMessageBox::information(0,"",QObject::tr("数据过多，拖动\n"));
-//    }
-
     QVector<QVector<double> > value_double;
     QVector<double> temp;
     for(int i = 0; i < fieldnames_.size(); i++)

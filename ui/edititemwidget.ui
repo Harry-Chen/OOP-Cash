@@ -29,14 +29,14 @@
          <item>
           <widget class="QLabel" name="label11">
            <property name="text">
-            <string>TextLabel</string>
+            <string>label11</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label12">
            <property name="text">
-            <string>TextLabel</string>
+            <string>label12</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -53,7 +53,7 @@
          <item>
           <widget class="QLabel" name="label2">
            <property name="text">
-            <string>TextLabel</string>
+            <string>label2</string>
            </property>
           </widget>
          </item>
@@ -67,7 +67,7 @@
          <item>
           <widget class="QLabel" name="label3">
            <property name="text">
-            <string>TextLabel</string>
+            <string>label3</string>
            </property>
           </widget>
          </item>
