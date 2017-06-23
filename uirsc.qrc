@@ -13,4 +13,8 @@
     <qresource prefix="/qss">
         <file alias="stylesheet">ui/qss/stylesheet.qss</file>
     </qresource>
+    <qresource prefix="/">
+        <file>icons/delete.png</file>
+        <file>icons/edit.png</file>
+    </qresource>
 </RCC>

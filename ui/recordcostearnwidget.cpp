@@ -24,8 +24,10 @@
 
 #include "recordcostearnwidget.h"
 
-RecordCostEarnWidget::RecordCostEarnWidget(QWidget* parent):ChangeBillWidget(parent)
+RecordCostEarnWidget::RecordCostEarnWidget(QWidget* parent, Bill* oldBill): \
+	ChangeBillWidget(parent)
 {
+	this->oldBill = oldBill;
 	isCost = true;
 	isTransfer = false;
 	QRadioButton* cbtn = getCostBtn();
@@ -39,12 +41,11 @@ RecordCostEarnWidget::RecordCostEarnWidget(QWidget* parent):ChangeBillWidget(par
 	connect(tbtn, SIGNAL(toggled(bool)), this, SLOT(setIsTransfer()));
 }
 
-void RecordCostEarnWidget::addBill()
+void RecordCostEarnWidget::addAndEditBill()
 {
 	auto cateman = new CategoryManager(_userman);
 	auto accman = new AccountManager(_userman);
 	auto currman = new CurrencyManager(_userman);
-
 	auto cate = ItemSearcher::instance()->getItemByName(cateman, getCombobox1()->currentText());
 	auto acc = ItemSearcher::instance()->getItemByName(accman, getCombobox2()->currentText());
 	Account accTo;
@@ -59,7 +60,6 @@ void RecordCostEarnWidget::addBill()
 	delete currman;
 
 	bool valid = true;
-
 	QDate date = QDate::fromString(getTimeLineEdit()->text(), "yyyy-MM-dd");
 	if(!date.isValid()) {
         QMessageBox::information(this, QObject::tr("错误"), QObject::tr("日期格式有误，应为：%1").arg("yyyy-MM-dd"));
@@ -72,26 +72,33 @@ void RecordCostEarnWidget::addBill()
         QMessageBox::information(this, QObject::tr("错误"), QObject::tr("金额格式有误"));
 		valid = false;
 	}
-
 	if(!valid) {
 		return;
 	} //else
-
 	auto billman = new BillManager(_userman);
 	auto newbill = new Bill(-1, -1, -1, _userman->getLoggedInUid(),\
 						 cate.id, money, curr.id, QDateTime::currentDateTime(),\
 						  true, date, getNoteTextEdit()->toPlainText());
+	newbill->id = oldBill ? oldBill->id : -1;
 	if(!isCost && !isTransfer) {
 		newbill->to = acc.id;
 	} else {
 		newbill->from = acc.id;
 		newbill->to = accTo.id;
 	}
-	if(billman->addItem(*newbill) == -1) {
-        QMessageBox::information(this, QObject::tr("抱歉"), QObject::tr("保存账单时发生错误"));
-	} else {
-        QMessageBox::information(this, QObject::tr("提醒"), QObject::tr("账单保存成功"));
-		clearWidget();
+	if(newbill->id == -1) { // 添加账单
+		if(billman->addItem(*newbill) == -1) {
+			QMessageBox::information(this, QObject::tr("抱歉"), QObject::tr("保存账单时发生错误"));
+		} else {
+			QMessageBox::information(this, QObject::tr("提醒"), QObject::tr("账单保存成功"));
+			clearWidget();
+		}
+	} else { // 修改账单
+		if(billman->modifyItem(*newbill)) {
+			QMessageBox::information(this, QObject::tr("提醒"), QObject::tr("账单修改成功"));
+		} else {
+			QMessageBox::information(this, QObject::tr("抱歉"), QObject::tr("帐单修改失败"));
+		}
 	}
 }
 
@@ -100,6 +107,7 @@ void RecordCostEarnWidget::setIsCostFalse()
 	isCost = false;
 	isTransfer = false;
 	setLabelNames();
+	setOldBillChoice();
 }
 
 void RecordCostEarnWidget::setIsTransfer()
@@ -107,6 +115,7 @@ void RecordCostEarnWidget::setIsTransfer()
 	isTransfer = true;
 	isCost = false;
 	setLabelNames();
+	setOldBillChoice();
 }
 
 void RecordCostEarnWidget::setIsCostTrue()
@@ -114,6 +123,7 @@ void RecordCostEarnWidget::setIsCostTrue()
 	isCost = true;
 	isTransfer = false;
 	setLabelNames();
+	setOldBillChoice();
 }
 
 void RecordCostEarnWidget::setLabelNames()
@@ -152,6 +162,45 @@ void RecordCostEarnWidget::setCombobox3()
 	ItemSearcher::instance()->getNameList(accman, accList);
 	getCombobox3()->clear();
 	getCombobox3()->addItems(accList);
+}
+
+void RecordCostEarnWidget::otherSettings()
+{
+	if(!oldBill) return;
+	auto accMan = new AccountManager(_userman);
+	auto currMan = new CurrencyManager(_userman);
+	auto cateMan = new CategoryManager(_userman);
+	allAccount = accMan->getAllItems();
+	allCurrency = currMan->getAllItems();
+	allCategory = cateMan->getAllItems();
+	if(oldBill->from != -1 && oldBill->to != -1) {
+		getTransferBtn()->setChecked(true);
+		setIsTransfer();
+	} else if (oldBill->from != -1) {
+		getCostBtn()->setChecked(true);
+		setIsCostTrue();
+	} else {
+		getEarnBtn()->setChecked(true);
+		setIsCostFalse();
+	}
+}
+
+void RecordCostEarnWidget::setOldBillChoice()
+{
+	if(!oldBill) return;
+	getCombobox1()->setCurrentText(allCategory[oldBill->category].name);
+	getTimeLineEdit()->setText(oldBill->date.toString("yyyy-MM-dd"));
+	getMoneyLineEdit()->setText(QString::number(oldBill->quantity*1.0/100, 'f', 2));
+	getNoteTextEdit()->setText(oldBill->note);
+	getCurrencyCombobox()->setCurrentText(allCurrency[oldBill->currency].name);
+	if(isTransfer) {
+		getCombobox2()->setCurrentText(allAccount[oldBill->from].name);
+		getCombobox3()->setCurrentText(allAccount[oldBill->to].name);
+	} else if(isCost) {
+		getCombobox2()->setCurrentText(allAccount[oldBill->from].name);
+	} else {
+		getCombobox3()->setCurrentText(allAccount[oldBill->to].name);
+	}
 }
 
 void RecordCostEarnWidget::setCostLabelNames()

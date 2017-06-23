@@ -71,17 +71,23 @@ public:
 	/**
 	 * @brief the method to get data from ui and add bill to sqlite
 	 */
-	virtual void addBill() = 0;
+	virtual void addAndEditBill() = 0;
 protected:
 	Ui::ChangeBillWidget *ui;
 	UserManager* _userman;
 	EditItemWidget* _w;
 	CalendarDialog* calendar;
+	Bill* oldBill;
+	QMap<ID, Account> allAccount;
+	QMap<ID, Category> allCategory;
+	QMap<ID, Currency> allCurrency;
 	void clearWidget();
+	virtual void setOldBillChoice() = 0;
 	virtual void setLabelNames() = 0; //QString strLabel1, QString strLabel2, QString strAmountLabel
 	virtual void setCombobox1() = 0;
 	virtual void setCombobox2() = 0;
 	virtual void setCombobox3() = 0;
+	virtual void otherSettings() = 0;
 	void setCurrencyCombobox();
 	QLabel* getLabel1();
 	QLabel* getLabel2();

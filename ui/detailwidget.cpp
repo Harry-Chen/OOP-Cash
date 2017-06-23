@@ -64,8 +64,8 @@ void DetailWidget::fillData(const QVector<Bill> &bills)
         item->setSizeHint(QSize(338,73));
         auto detail = new BillDetailWidget();
 		detail->fillData(bill, allAccounts, allCategories);
-		connect(detail, SIGNAL(delBillSignal(ID)),\
-				this, SLOT(removeBill(ID)));
+		connect(detail, SIGNAL(delBillSignal(ID)), this, SLOT(removeBill(ID)));
+		connect(detail, SIGNAL(editBillSignal(Bill*)), this, SLOT(editBill(Bill*)));
         ui->listBills->setItemWidget(item, detail);
     }
 	ui->listBills->setVisible(true);
@@ -120,5 +120,18 @@ void DetailWidget::removeBill(ID billId)
 	BillManager* billMan = new BillManager(userman);
 	billMan->removeItemById(billId);
 	delete billMan;
+	consult();
+}
+
+void DetailWidget::editBill(Bill* pBill)
+{
+	QDialog *d = new QDialog(this);
+	d->setObjectName(QObject::tr("编辑账单"));
+	auto pEditBillWidget = new RecordCostEarnWidget(d, pBill);
+	pEditBillWidget->init(userman);
+	d->exec();
+	delete d;
+	d = nullptr;
+	pEditBillWidget = nullptr;
 	consult();
 }

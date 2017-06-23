@@ -30,12 +30,11 @@ BillDetailWidget::BillDetailWidget(QWidget *parent) :
     ui(new Ui::BillDetailWidget)
 {
     ui->setupUi(this);
-	ui->removeButton->setText(QObject::tr("移除"));
 }
 
 void BillDetailWidget::fillData(const Bill &bill, const QMap<ID, Account>& allAccounts, const QMap<ID, Category>& allCategories)
 {
-	_billId = bill.id;
+	_bill = bill;
     QString quantity, account, category;
     quantity = QString::number(((double)bill.quantity)/100);
     if(bill.from == -1){
@@ -70,7 +69,7 @@ void BillDetailWidget::on_removeButton_clicked()
 							  QMessageBox::Yes|QMessageBox::No,\
 							  QMessageBox::Yes))
 	{
-		emit delBillSignal(_billId); // emit the signal to ask the detail widget to refesh
+		emit delBillSignal(_bill.id); // emit the signal to ask the detail widget to refesh
 	}
 	else
 	{
@@ -78,3 +77,8 @@ void BillDetailWidget::on_removeButton_clicked()
 	}
 }
 
+
+void BillDetailWidget::on_editButton_clicked()
+{
+	emit editBillSignal(&_bill);
+}
