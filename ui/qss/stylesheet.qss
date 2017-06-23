@@ -31,6 +31,7 @@ QPushButton {
     color: #FFFFFF;
     font: colas 10pt;
     min-height: 24px;
+    min-width: 40px;
 }
 QPushButton:hover {
     background: #8cd5f9;
@@ -62,6 +63,9 @@ QPushButton#setButton:pressed {
 QPushButton#setButton:disabled {
     background: #555555;
     color: #888888;
+}
+QPushButton#loginoutButton {
+    min-width: 120px;
 }
 
 QListWidget {
