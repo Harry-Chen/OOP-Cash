@@ -31,23 +31,13 @@
 #define INIT_DATE 1 ///< when part of Date is to be ignored, it should be inited with this number
 
 /**
- * @brief The BillsPlotSystem class, an concrete factory
+ * @brief The BillsPlotSystem class, an concrete factory, produce a BillsProcessor and a BarPlotter
  */
 class BillsPlotSystem : public PlotSystem
 {
 public:
     BillsPlotSystem(){}
-    /**
-     * @brief create a BillsProcessor
-     * @param same with the one in PlotSystem (the base class)
-     * @return a pointer to BillsProcessor
-     */
     Processor * createProcessor(const QVector<Bill> & _bills, const QMap<ID, QString> & _nameMap, Plot::Time _time, Plot::Field _field);
-    /**
-     * @brief create a LinePlotter
-     * @param same with the one in PlotSystem (the base class)
-     * @return a pointer to LinePlotter
-     */
     Plotter * createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > _values);
 };
 

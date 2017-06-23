@@ -27,8 +27,7 @@
 #include "processor.h"
 
 /**
- * @brief The BillsProcessor class, a derived class of Processor(concrete product),
- *        process bills for barchart
+ * @brief The BillsProcessor class, a derived class of Processor(concrete product), process bills for barchart
  */
 class BillsProcessor : public Processor
 {
@@ -48,13 +47,13 @@ public:
     void SetGetDate (QDate (*func) (const QDate &)) {GetDateptr = func;}
     /**
      * @brief overload GetFieldname in Processor, get fieldname using the func ptr
-     * @param No.i
+     * @param i No.i
      * @return ID of fieldname of No.i bill
      */
     ID GetFieldname(int i);
     /**
      * @brief overload GetDate
-     * @param No.i
+     * @param i No.i
      * @return processed date of No.i bill
      */
     QDate GetDate(int i);

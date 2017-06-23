@@ -29,23 +29,13 @@
 #include "plot/plotter/lineplotter.h"
 
 /**
- * @brief The BalancePlotSystem class, a concrete factory
+ * @brief The BalancePlotSystem class, a concrete factory, produce a BalanceProcessor and a LinePlotter
  */
 class BalancePlotSystem : public PlotSystem
 {
 public:
     BalancePlotSystem(){}
-    /**
-     * @brief create a BalanceProcessor
-     * @param same with the one in PlotSystem (the base class)
-     * @return a pointer to BalanceProcessor
-     */
     Processor * createProcessor(const QVector<Bill> & _bills, const QMap<ID, QString> & _nameMap, Plot::Time _time, Plot::Field _field);
-    /**
-     * @brief create a BarPlotter
-     * @param same with the one in PlotSystem (the base class)
-     * @return a pointer to BarPlotter
-     */
     Plotter * createPlotter(const QVector<QString> _fieldnames, const QVector<QDate> _dates, const QVector<QVector<int> > _values);
 };
 
