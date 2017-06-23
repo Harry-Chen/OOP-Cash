@@ -259,6 +259,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="Do">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>画图</string>
          </property>
@@ -269,20 +275,6 @@
     </layout>
    </item>
   </layout>
-  <zorder>label_5</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label_6</zorder>
-  <zorder>timeType</zorder>
-  <zorder>finished</zorder>
-  <zorder>selectField</zorder>
-  <zorder>keyWord</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label</zorder>
-  <zorder>Do</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>listWidget</zorder>
-  <zorder>horizontalSpacer</zorder>
  </widget>
  <resources>
   <include location="../uirsc.qrc"/>

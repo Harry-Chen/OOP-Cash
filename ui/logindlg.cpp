@@ -57,8 +57,16 @@ bool LoginDlg::login() {
 }
 
 bool LoginDlg::signup() {
+    if(ui->usernameEdit->text().isEmpty()) {
+        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("用户名不能为空"));
+        return false;
+    }
+    if(ui->passwordEdit->text().isEmpty()) {
+        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("密码不能为空"));
+        return false;
+    }
     if(ui->passwordEdit->text() != ui->pwAgainEdit->text()) {
-        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("密码不一致"));
+        QMessageBox::warning(this, QObject::tr("注册失败"), QObject::tr("两次输入的密码不一致"));
         return false;
     }
     User newuser(-1, ui->usernameEdit->text(), ui->nicknameEdit->text(), ui->passwordEdit->text());
