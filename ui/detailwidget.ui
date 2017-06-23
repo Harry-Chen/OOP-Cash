@@ -67,7 +67,7 @@
   <customwidget>
    <class>BillList</class>
    <extends>QListWidget</extends>
-   <header>billlist.h</header>
+   <header>ui/billlist.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
